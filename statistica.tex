@@ -1,3 +1,96 @@
+\documentclass{article}  % Tipo di documento
+\usepackage[utf8]{inputenc} % Per caratteri accentati
+\usepackage[italian]{babel} % Lingua italiana
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}  % simboli matematici avanzati
+\usepackage{xcolor} % Per i colori
+\usepackage{titlesec} % Per personalizzare i titoli
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees}
+\usepackage[most]{tcolorbox}
+\usepackage{subcaption}  % per avere subfigure
+\tcbuselibrary{theorems}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows}
+\tcbuselibrary{breakable}
+\usepackage{graphicx}
+\usepackage[table]{xcolor} % da mettere nel preambolo
+\usepackage{mathrsfs} % https://www.ctan.org/pkg/mathrsfs
+\graphicspath{ {./media/} }
+\usepackage{centernot}
+\usepackage[hidelinks]{hyperref}  
 
-ehu iyss
-ecco
+\newtcbtheorem[no counter]{theorem}{Teorema}%
+{colback=blue!5, 
+colframe=blue!50!black, 
+fonttitle=\bfseries,
+    breakable,            % permette di spezzare il box su più pagine
+    enhanced,
+    break at=0pt}{}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}[section]
+
+% Imposto colore delle subsection
+\titleformat{\subsection}
+  {\normalfont\large\color{red}} % stile del titolo
+  {\thesubsection}{1em}{} % numerazione e spaziatura
+
+% Definiamo un nuovo ambiente per gli esempi
+\newtcolorbox{esempio}[1][]{
+    colback=white,       % colore di sfondo
+    colframe=gray,       % colore del bordo
+    fonttitle=\bfseries,
+    title=#1,
+    boxrule=0.5pt,       % spessore del bordo
+    arc=4pt,             % angoli arrotondati
+    left=4pt, right=4pt, top=4pt, bottom=4pt,
+	breakable,            % permette di spezzare il box su più pagine
+    enhanced,
+    break at=0pt
+}
+
+\newtcolorbox{esercizio}[1][]{
+    colback=white,       % colore di sfondo
+    colframe=green!60!black,       % colore del bordo
+    fonttitle=\bfseries,
+    title=#1,
+    boxrule=0.5pt,       % spessore del bordo
+    arc=4pt,             % angoli arrotondati
+    left=4pt, right=4pt, top=4pt, bottom=4pt,
+    breakable,            % permette di spezzare il box su più pagine
+    enhanced,
+    break at=0pt
+}
+
+\newtcolorbox{osservazioni}[1][]{
+    colback=white,       % colore di sfondo
+    colframe=yellow!80!orange,       % colore del bordo
+    fonttitle=\bfseries,
+    title=#1,
+    boxrule=0.5pt,       % spessore del bordo
+    arc=4pt,             % angoli arrotondati
+    left=4pt, right=4pt, top=4pt, bottom=4pt,
+    breakable,            % permette di spezzare il box su più pagine
+    enhanced,
+    break at=0pt
+}
+
+% Creo un nuovo ambiente "ragionamento" senza quadratino
+\newenvironment{ragionamento}[1][]
+  {\begin{proof}[Ragionamento#1]\renewcommand{\qedsymbol}{}\normalfont}
+  {\end{proof}}
+
+\title{Statistica}
+\author{Ede Boanini}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents % genera automaticamente l’indice
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
