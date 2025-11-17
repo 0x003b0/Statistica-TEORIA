@@ -92,8 +92,42 @@ fonttitle=\bfseries,
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduzione}
-forse questo non necessariod
-ecco2
+\subsection{Classificazione delle Variabili}
+\begin{center}
+	\begin{tikzpicture}[
+			level 1/.style={
+					sibling distance=50mm,
+					level distance=15mm,
+					every node/.append style={font=\small} % qui riduco il font dei figli
+				},
+			level 2/.style={
+					sibling distance=25mm, % distanza tra i nodi di livello 2
+					level distance=15mm    % distanza verticale
+				},
+			every node/.style={
+					rectangle, draw, rounded corners,
+					align=center,
+					top color=orange!60,
+					bottom color=orange!10
+				}
+		]
+		\node {Variabili}
+		child {node {Quantitative (numeriche)}
+				child {node {Discrete \\ $n \in \mathbb{N}$}}
+				child {node {Continue \\ $n \in \mathbb{R}$}}
+			}
+		child {node {Qualitative (categoriche)}
+				child {node {Ordinali}}
+				child {node {Nominali}}
+			};
+	\end{tikzpicture}
+\end{center}
+\subsection{Distribuzioni di Frequenze}
+
+
+
+
+\break
 \section{Statistica Descrittiva}
 \section{Probabilità}
 \section{Indipendenza e Probabilità Condizionata}
