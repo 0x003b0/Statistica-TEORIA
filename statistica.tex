@@ -122,9 +122,55 @@ fonttitle=\bfseries,
 			};
 	\end{tikzpicture}
 \end{center}
-\subsection{Distribuzioni di Frequenze}
-
-
+Differenza tra ordinali e nominali:
+\begin{itemize}
+	\item \textbf{Ordinali:} categorie che hanno un ordine, puoi solo dire se un valore è minore o maggiore rispetto ad un altro.
+	      \footnotesize
+	      \textit{
+		      \begin{itemize}
+			      \item Livello di istruzione: elementare $<$ media $< \cdots$
+			      \item Grado di soddisfazione: nullo $<$ basso $<$ medio $< \cdots$
+			      \item Classifica di una gara: quinto$<$quarto$< \cdots$
+			      \item Matricola: 17345 $<$ 17346 $< \cdots$
+		      \end{itemize}}
+	\item \textbf{Nominali:} categorie che non hanno un ordine.
+	      \footnotesize
+	      \textit{
+		      \begin{itemize}
+			      \item Colore occhi: blu, verdi, marroni, $\cdots$
+			      \item Genere: M, F
+			      \item Marche auto: Toyota, Ford, $\cdots$
+			      \item Nazionalità: Giapponese, Italiano, $\cdots$
+		      \end{itemize}
+	      }
+\end{itemize}
+\subsection{Distribuzioni di Frequenza}
+È una tabella che contiene modalità e frequenze.
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{dist-freq.png}
+\end{center}
+\subsubsection{Tipi di Frequenza}
+\begin{enumerate}
+    \item \textcolor{red}{Frequenza assoluta:} numero di ripetizioni di una certa modalità (es: quanti studenti hanno preso 28 all'esame)
+    \begin{center}
+        $freq_{assoluta}=f_i$
+    \end{center}
+    \item \textcolor{red}{Frequenza relativa:} 
+    \begin{center}
+        $freq_{relativa}=\frac{f_i}{N}$
+    \end{center}
+    \item \textcolor{red}{Frequenza percentuale:} 
+    \begin{center}
+        $freq_{\%}=\frac{f_i}{N}\cdot 100$ \\oppure\\
+        $freq_{\%}= freq_{relativa} \cdot 100$
+    \end{center}
+    \item \textcolor{red}{Frequenza cumulata:} somma progressiva delle frequenze assolute o relative.
+        \[ freq_{cumulataAssoluta}= \sum_{i=1}^{n} f_i \]
+        \[ freq_{cumulataRelativa}= \sum_{i=1}^{n} \frac{f_i}{N} = \sum_{i=1}^{n} freq_{relativa_i}\]
+    \item \textcolor{red}{Frequenza cumulata percentuale:}
+        \[ freq_{cumulataAssoluta\%}= \sum_{i=1}^{n} f_i \cdot 100 \]
+        \[ freq_{cumulataRelativa\%}= \sum_{i=1}^{n} \frac{f_i}{N} \cdot 100 = \sum_{i=1}^{n} freq_{relativa_i} \cdot 100 \] 
+\end{enumerate}
 
 
 \break
