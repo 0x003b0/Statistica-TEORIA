@@ -151,103 +151,222 @@ Differenza tra ordinali e nominali:
 \end{center}
 \subsubsection{Tipi di Frequenza}
 \begin{enumerate}
-    \item \textcolor{red}{Frequenza assoluta:} numero di ripetizioni di una certa modalità (es: quanti studenti hanno preso 28 all'esame)
-    \begin{center}
-        $freq_{assoluta}=f_i$
-    \end{center}
-    \item \textcolor{red}{Frequenza relativa:} 
-    \begin{center}
-        $freq_{relativa}=\frac{f_i}{N}$
-    \end{center}
-    \item \textcolor{red}{Frequenza percentuale:} 
-    \begin{center}
-        $freq_{\%}=\frac{f_i}{N}\cdot 100$ \\oppure\\
-        $freq_{\%}= freq_{relativa} \cdot 100$
-    \end{center}
-    \item \textcolor{red}{Frequenza cumulata:} somma progressiva delle frequenze assolute o relative.
-        \[ freq_{cumulataAssoluta}= \sum_{i=1}^{n} f_i \]
-        \[ freq_{cumulataRelativa}= \sum_{i=1}^{n} \frac{f_i}{N} = \sum_{i=1}^{n} freq_{relativa_i}\]
-    \item \textcolor{red}{Frequenza cumulata percentuale:}
-        \[ freq_{cumulataAssoluta\%}= \sum_{i=1}^{n} f_i \cdot 100 \]
-        \[ freq_{cumulataRelativa\%}= \sum_{i=1}^{n} \frac{f_i}{N} \cdot 100 = \sum_{i=1}^{n} freq_{relativa_i} \cdot 100 \] 
+	\item \textcolor{red}{Frequenza assoluta:} numero di ripetizioni di una certa modalità (es: quanti studenti hanno preso 28 all'esame)
+	      \begin{center}
+		      $freq_{assoluta}=f_i$
+	      \end{center}
+	\item \textcolor{red}{Frequenza relativa:}
+	      \begin{center}
+		      $freq_{relativa}=\frac{f_i}{N}$
+	      \end{center}
+	\item \textcolor{red}{Frequenza percentuale:}
+	      \begin{center}
+		      $freq_{\%}=\frac{f_i}{N}\cdot 100$ \\oppure\\
+		      $freq_{\%}= freq_{relativa} \cdot 100$
+	      \end{center}
+	\item \textcolor{red}{Frequenza cumulata:} somma progressiva delle frequenze assolute o relative.
+	      \[ freq_{cumulataAssoluta}= \sum_{i=1}^{n} f_i \]
+	      \[ freq_{cumulataRelativa}= \sum_{i=1}^{n} \frac{f_i}{N} = \sum_{i=1}^{n} freq_{relativa_i}\]
+	\item \textcolor{red}{Frequenza cumulata percentuale:}
+	      \[ freq_{cumulataAssoluta\%}= \sum_{i=1}^{n} f_i \cdot 100 \]
+	      \[ freq_{cumulataRelativa\%}= \sum_{i=1}^{n} \frac{f_i}{N} \cdot 100 = \sum_{i=1}^{n} freq_{relativa_i} \cdot 100 \]
 \end{enumerate}
 \break
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Statistica Descrittiva}
 \subsection{Diagrammi a barre vs Istogrammi}
 \begin{definition}[\textcolor{red}{Diagrammi a barre}]
-    Descrivono la distribuzione di frequenza di una o più variabili qualitative (categoriche). Le barre devono avere tutte la stessa base 
-    ed essere equi-spaziate (lasciare un pò di spazio tra una barra e l'altra).
-    \begin{itemize}
-        \item altezza barre: frequenza  
-    \end{itemize}
-    \begin{center}
-	\includegraphics[width=0.5\linewidth]{diag.png}
-\end{center}
+	Descrivono la distribuzione di frequenza di una o più variabili qualitative (categoriche). Le barre devono avere tutte la stessa base
+	ed essere equi-spaziate (lasciare un pò di spazio tra una barra e l'altra).
+	\begin{itemize}
+		\item altezza barre: frequenza
+	\end{itemize}
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{diag.png}
+	\end{center}
 \end{definition}
 \begin{definition}[\textcolor{red}{Istogrammi}]
-    Descrivono la distribuzione di frequenza di una o più variabili quantitative. Ogni barra rappresenta una classe e la sua frequenza. 
-    \begin{itemize}
-        \item altezza barre: densità di frequenza 
-        \[
-        densita_{freq}=\frac{\text{Frequenza}}{\text{Ampiezza classe}}
-        \]
-        \item base barre: ampiezza delle classi
-    \end{itemize}
-    \begin{center}
-	\includegraphics[width=0.6\linewidth]{isto.png}
-\end{center}
+	Descrivono la distribuzione di frequenza di una o più variabili quantitative. Ogni barra rappresenta una classe e la sua frequenza.
+	\begin{itemize}
+		\item altezza barre: densità di frequenza
+		      \[
+			      densita_{freq}=\frac{\text{Frequenza}}{\text{Ampiezza classe}}
+		      \]
+		\item base barre: ampiezza delle classi
+	\end{itemize}
+	\begin{center}
+		\includegraphics[width=0.6\linewidth]{isto.png}
+	\end{center}
 \end{definition}
 \footnotesize
 \begin{osservazioni}[Osservazione: Definire $k$ classi di uguale ampiezza]
-\[
-\text{Ampiezza classe} = \frac{\text{max}-\text{min}}{k}
-\]
-I dati sulla statura di 48 adulti vanno da un minimo di 160 a 180 cm. Come fare $k$ classi di ugual ampiezza?
-\begin{enumerate}
-    \item Scelgo $k$ (es: $k=5$)
-    \item Uso formula $\text{Ampiezza classe} = \frac{\text{max}-\text{min}}{k}$ (es: $\text{Ampiezza classe} = \frac{\text{180}-\text{160}}{5}=4$ cm);
-    quindi ogni classe avrà ampiezza 4.
-    \item Gli estremi inferiore della classe sono (contando ampiezza 4):
-    \begin{itemize}
-        \item 160
-        \item 164
-        \item 168
-        \item 172
-        \item 176
-    \end{itemize}
-\end{enumerate}
-Conclusione: le $k=5$ classi di ugual ampiezza sono:
-\[
-[160,164),\;
-[164,168),\;
-[168,172),\;
-[172,176),\;
-[176,180]
-\]
+	\[
+		\text{Ampiezza classe} = \frac{\text{max}-\text{min}}{k}
+	\]
+	I dati sulla statura di 48 adulti vanno da un minimo di 160 a 180 cm. Come fare $k$ classi di ugual ampiezza?
+	\begin{enumerate}
+		\item Scelgo $k$ (es: $k=5$)
+		\item Uso formula $\text{Ampiezza classe} = \frac{\text{max}-\text{min}}{k}$ (es: $\text{Ampiezza classe} = \frac{\text{180}-\text{160}}{5}=4$ cm);
+		      quindi ogni classe avrà ampiezza 4.
+		\item Gli estremi inferiore della classe sono (contando ampiezza 4):
+		      \begin{itemize}
+			      \item 160
+			      \item 164
+			      \item 168
+			      \item 172
+			      \item 176
+		      \end{itemize}
+	\end{enumerate}
+	Conclusione: le $k=5$ classi di ugual ampiezza sono:
+	\[
+		[160,164),\;
+		[164,168),\;
+		[168,172),\;
+		[172,176),\;
+		[176,180]
+	\]
 \end{osservazioni}
 
 \subsection{Media}
-Qual è il centro dei dati? \textcolor{red}{valore tipico} attorno a cui si concentrano i dati.
+Qual è il centro dei dati? \textcolor{red}{valore tipico} attorno a cui si concentrano i dati. \\
+$f_i$ indica la frequenza assoluta.
+\begin{itemize}
+	\item \textbf{Formula della media per distribuzione di frequenze:} (variabili discrete)
+	      \[
+		      \overline{x}=  \frac{\sum_{i=1}^{n} (x_i \cdot f_i)}{N} = \sum_{i=1}^{n} (x_i \cdot freq_{relativa_i})
+	      \]
+	\item \textbf{Formula della media per distribuzione di frequenze:} (variabili continue)
+	      \[
+		      \overline{x}=  \frac{\sum_{i=1}^{n} (m_i \cdot f_i)}{N} = \sum_{i=1}^{n} (m_i \cdot freq_{relativa_i})
+	      \]
+	      dove $a,b$ estremi dell'intervallo e $m_i= \frac{a+b}{2}$ il valore centrale della classe.
+\end{itemize}
 \subsection{Moda}
-Qual è il centro dei dati? \textcolor{red}{valore tipico} attorno a cui si concentrano i dati.
+Qual è il centro dei dati? \textcolor{red}{valore tipico} attorno a cui si concentrano i dati. \\
+La Moda è il valore che si ripete più spesso nei dati.
+\begin{itemize}
+	\item \textbf{Formula della moda per distribuzione di frequenze:} (variabili discrete)
+	      \[
+		      Moda =  x_i \text{ con maggior frequenza}
+	      \]
+	\item \textbf{Formula della media per distribuzione di frequenze:} (variabili continue)
+	      \[
+		      Moda = \frac{a+b}{2}
+	      \]
+\end{itemize}
+\begin{esempio}[Esempio Moda]
+	Per esempio, per l'esame di analisi 2 ci sono stati tanti studenti che hanno preso tra il 20 e il 25 (classe), allora
+		[20-25] è la classe modale.
+	Pertanto, nel nostro esempio $Moda =  \frac{20+25}{2}=22.5$
+\end{esempio}
+
 \subsection{Mediana}
-Qual è il centro dei dati? \textcolor{red}{valore tipico} attorno a cui si concentrano i dati.
+Qual è il centro dei dati? \textcolor{red}{valore tipico} attorno a cui si concentrano i dati. \\
+La Mediana è il valore che è più grande (o uguale) della prima metà dei dati e allo stesso tempo, più piccolo (o uguale) della seconda metà dei dati. \\
+\textbf{È il valore che sta in mezzo a dati ordinati}; quindi per poter stimare la $Me$ è necessario ordinare i dati:
+\begin{itemize}
+	\item \textbf{Formula della mediana per distribuzione di frequenze:} (variabili discrete)
+	      \begin{enumerate}
+		      \item Ordina i dati
+		      \item Trova indice $i$:
+		            \begin{itemize}
+			            \item se $N$ pari: $i_1=\frac{N}{2}$, $\quad i_2=\frac{N}{2}+1$
+			            \item se $N$ dispari: $i=\frac{N}{2}$
+		            \end{itemize}
+		      \item La mediana è il valore associato all'indice trovato ($i=x_i$):
+		            \begin{itemize}
+			            \item Se ho due indici $i_1, i_2$, allora $Me=\frac{x_1+x_2}{2}$
+			            \item Se ho un solo indice $i$, allora $Me=x_i$
+		            \end{itemize}
+	      \end{enumerate}
+	\item \textbf{Formula della mediana per distribuzione di frequenze:} (variabili continue)
+	      \begin{enumerate}
+		      \item Calcola frequenza cumulata di ogni classe
+		            \[ freq_{cumulataAssoluta}= \sum_{i=1}^{n} f_i \]
+		      \item Trova indice $i$:
+		            \begin{itemize}
+			            \item se $N$ pari: $i_1=\frac{N}{2}$, $\quad i_2=\frac{N}{2}+1$
+			            \item se $N$ dispari: $i=\frac{N}{2}$
+		            \end{itemize}
+		      \item Osserva $i$ in che classe cade (vedi frequenza cumulata), allora $Me=classe$. \\
+		            Oppure, se abbiamo due indici $i_1,i_2$ con valori $x_1, x_2$, allora $Me=\frac{x_1+x_2}{2}$
+	      \end{enumerate}
+\end{itemize}
+
 \subsection{Quartili}
+Il $p-$esimo percentile è il valore che ha $\%p$ dei dati sotto/dietro di sè.
+\begin{itemize}
+	\item $Q_1=$25-esimo percentile \\
+	      (25\% dei dati sotto questo valore)
+	\item $Q_2=$50-esimo percentile= Mediana \\
+	      (50\% dei dati sotto questo valore)
+	\item $Q_1=$75-esimo percentile \\
+	      (75\% dei dati sotto questo valore)
+\end{itemize}
+Divido la distribuzione in 4 parti uguali, per questo si chiamano "quartili". \\
+\begin{itemize}
+	\item \textbf{Come trovare il $Q_k$ per distribuzione di frequenze:} (variabili discrete)
+	      \begin{enumerate}
+		      \item Ordina i dati
+		      \item Trova indice: $i=\frac{N+1}{4}\cdot k$
+		      \item $Q_k$ è il valore associato all'indice:
+		            \begin{itemize}
+			            \item Se $i \in \mathbb{N}$, allora $Q_k=x_i$
+			            \item Se $i \in \mathbb{Q}$, allora $Q_k=\frac{\text{somma dei valori associati}}{2}$ \\ \\
+			                  Esempio: se $i=6.75$ allora $i_1=6, i_2=7$, e i valori associati a $i_1=20, i_2=25$, allora $Q_k=\frac{x_1+x_2}{2}=\frac{20+25}{2}=22.5$
+		            \end{itemize}
+	      \end{enumerate}
+	\item \textbf{Come trovare il $Q_k$ per distribuzione di frequenze:} (variabili continue)
+	      \begin{enumerate}
+		      \item Calcola frequenza cumulata di ogni classe
+		            \[ freq_{cumulataAssoluta}= \sum_{i=1}^{n} f_i \]
+		      \item Trova indice: $i=\frac{N+1}{4}\cdot k$
+		      \item Osserva $i$ in che classe cade (vedi frequenza cumulata)
+		      \item Allora avremo:
+		            \[
+			            Q_k = L + \frac{i - f_{cumulata}}{f_i}\cdot h
+		            \]
+		            dove:
+		            \begin{itemize}
+			            \item $L$: estremo inferiore della classe attuale (dell'indice)
+			            \item $i$: indice
+			            \item $f_{cumulata}$: frequenza cumulata classe precedente
+			            \item $f_i$: frequenza assoluta classe attuale
+			            \item $h$: ampiezza classe attuale
+		            \end{itemize}
+	      \end{enumerate}
+\end{itemize}
+
+\subsection{Campo di Variazione / Range}
+Distanza tra min e max.
+\[Range = max-min\]
+\subsection{Differenza Interquartile}
+Si usano i quartili per capire la variabilità centrale.
+\[
+	IQR=Q_3-Q_1
+\]
 \subsection{Varianza}
-Quanto sono variabili i dati? i dati sono \textcolor{red}{vicini o molto sparsi}.
+Quanto sono variabili i dati? i dati sono \textcolor{red}{vicini o molto sparsi}. \\
+Quanto i dati si allontanano dalla loro media ($\mu$ oppure $\overline{x}$).
+\begin{itemize}
+	\item \textbf{Formula varianza per distribuzione di frequenze:} (variabili discrete)
+	      \begin{itemize}
+		      \item Varianza della popolazione ($P$):
+		            \[ \sigma^2= \frac{\sum_{i=1}^{n} (x_i-\mu)^2}{N} \]
+		      \item Varianza campionaria ($C \subseteq P$):
+		            \[ s^2= \frac{\sum_{i=1}^{n} (x_i-\overline{x})^2}{N-1} \]
+	      \end{itemize}
+\end{itemize}
+
 \subsection{Deviazione standard}
 Quanto sono variabili i dati? i dati sono \textcolor{red}{vicini o molto sparsi}.
-\subsection{Range}
-Quanto sono variabili i dati? i dati sono \textcolor{red}{vicini o molto sparsi}.
+\[\sigma=\sqrt{\sigma^2}\]
+dove $\sigma^2$ è la varianza.
 \subsection{Coefficiente di variazione}
-
-
-\subsection{Correlazione}
-Qual è la relazione tra i due fenomeni? aumentando lo studio aumentano i voti.
-\subsection{Covarianza}
-Qual è la relazione tra i due fenomeni? aumentando lo studio aumentano i voti.
-
+Si calcola quando $\mu, \overline{x}, \sigma$ sono positivi e si esprime in percentuale.
+\[
+	CV=\frac{\sigma}{\mu} \quad \text{oppure} \quad CV=\frac{\sigma}{\overline{x}}
+\]
 \break
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Probabilità}
