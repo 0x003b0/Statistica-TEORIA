@@ -171,10 +171,85 @@ Differenza tra ordinali e nominali:
         \[ freq_{cumulataAssoluta\%}= \sum_{i=1}^{n} f_i \cdot 100 \]
         \[ freq_{cumulataRelativa\%}= \sum_{i=1}^{n} \frac{f_i}{N} \cdot 100 = \sum_{i=1}^{n} freq_{relativa_i} \cdot 100 \] 
 \end{enumerate}
+\break
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Statistica Descrittiva}
+\subsection{Diagrammi a barre vs Istogrammi}
+\begin{definition}[\textcolor{red}{Diagrammi a barre}]
+    Descrivono la distribuzione di frequenza di una o più variabili qualitative (categoriche). Le barre devono avere tutte la stessa base 
+    ed essere equi-spaziate (lasciare un pò di spazio tra una barra e l'altra).
+    \begin{itemize}
+        \item altezza barre: frequenza  
+    \end{itemize}
+    \begin{center}
+	\includegraphics[width=0.5\linewidth]{diag.png}
+\end{center}
+\end{definition}
+\begin{definition}[\textcolor{red}{Istogrammi}]
+    Descrivono la distribuzione di frequenza di una o più variabili quantitative. Ogni barra rappresenta una classe e la sua frequenza. 
+    \begin{itemize}
+        \item altezza barre: densità di frequenza 
+        \[
+        densita_{freq}=\frac{\text{Frequenza}}{\text{Ampiezza classe}}
+        \]
+        \item base barre: ampiezza delle classi
+    \end{itemize}
+    \begin{center}
+	\includegraphics[width=0.6\linewidth]{isto.png}
+\end{center}
+\end{definition}
+\footnotesize
+\begin{osservazioni}[Osservazione: Definire $k$ classi di uguale ampiezza]
+\[
+\text{Ampiezza classe} = \frac{\text{max}-\text{min}}{k}
+\]
+I dati sulla statura di 48 adulti vanno da un minimo di 160 a 180 cm. Come fare $k$ classi di ugual ampiezza?
+\begin{enumerate}
+    \item Scelgo $k$ (es: $k=5$)
+    \item Uso formula $\text{Ampiezza classe} = \frac{\text{max}-\text{min}}{k}$ (es: $\text{Ampiezza classe} = \frac{\text{180}-\text{160}}{5}=4$ cm);
+    quindi ogni classe avrà ampiezza 4.
+    \item Gli estremi inferiore della classe sono (contando ampiezza 4):
+    \begin{itemize}
+        \item 160
+        \item 164
+        \item 168
+        \item 172
+        \item 176
+    \end{itemize}
+\end{enumerate}
+Conclusione: le $k=5$ classi di ugual ampiezza sono:
+\[
+[160,164),\;
+[164,168),\;
+[168,172),\;
+[172,176),\;
+[176,180]
+\]
+\end{osservazioni}
 
+\subsection{Media}
+Qual è il centro dei dati? \textcolor{red}{valore tipico} attorno a cui si concentrano i dati.
+\subsection{Moda}
+Qual è il centro dei dati? \textcolor{red}{valore tipico} attorno a cui si concentrano i dati.
+\subsection{Mediana}
+Qual è il centro dei dati? \textcolor{red}{valore tipico} attorno a cui si concentrano i dati.
+\subsection{Quartili}
+\subsection{Varianza}
+Quanto sono variabili i dati? i dati sono \textcolor{red}{vicini o molto sparsi}.
+\subsection{Deviazione standard}
+Quanto sono variabili i dati? i dati sono \textcolor{red}{vicini o molto sparsi}.
+\subsection{Range}
+Quanto sono variabili i dati? i dati sono \textcolor{red}{vicini o molto sparsi}.
+\subsection{Coefficiente di variazione}
+
+
+\subsection{Correlazione}
+Qual è la relazione tra i due fenomeni? aumentando lo studio aumentano i voti.
+\subsection{Covarianza}
+Qual è la relazione tra i due fenomeni? aumentando lo studio aumentano i voti.
 
 \break
-\section{Statistica Descrittiva}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Probabilità}
 \section{Indipendenza e Probabilità Condizionata}
 \section{Variabili Casuali}
