@@ -370,6 +370,82 @@ Si calcola quando $\mu, \overline{x}, \sigma$ sono positivi e si esprime in perc
 \break
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Probabilità}
+\subsection{Operazione insiemi}
+\[
+	A_1 \cup A_2 = \{\omega \mid \omega \in A_1 \lor \omega \in A_2\}
+\]
+\[
+	A_1 \cap A_2 = \{\omega \mid \omega \in A_1 \land \omega \in A_2\}
+\]
+\[
+	A_1 - A_2 = \{\omega \mid \omega \in A_1 \land \omega \notin A_2\}
+\]
+\[
+	\overline{A} = \{\omega \mid \omega \notin A\}
+\]
+
+\subsection{Tipi di eventi}
+\subsubsection{Eventi compatibili}
+Due eventi che possono verificarsi congiuntamente.
+\[
+	A_1,A_2 \text{ compatibili} \iff A_1 \cap A_2 \neq \emptyset
+\]
+\subsubsection{Eventi incompatibili}
+Due eventi che non possono verificarsi congiuntamente.
+\[
+	A_1,A_2 \text{ incompatibili} \iff A_1 \cap A_2 = \emptyset
+\]
+\subsubsection{Eventi complementari}
+Due eventi che non possono verificarsi congiuntamente e tale che uno dei due si verifica di sicuro.
+\[
+	A_1, A_2 \text{ complementari}\iff
+	\begin{cases}
+		A_1 \cap A_2 = \emptyset \\
+		A_1 \cup A_2 = \Omega
+	\end{cases}
+\]
+
+\subsection{Definizione}
+Sia $A$ un evento e $\Omega$ lo spazio campionario. Definisco $P(A)$ la probabilità che si verifichi $A$ dove $0 \leq P(A) \leq 1$:
+\[
+	P(A)=\frac{\text{numero di casi favorevoli}}{\text{numero di casi possibili}}
+\]
+
+\subsection{Assiomi}
+\begin{enumerate}
+	\item \textbf{Primo assioma:} la probabilità di un evento $A$ è un numero reale non negativo
+	\item \textbf{Secondo assioma:} la probabilità dell'intero spazio campionario è uguale a 1
+	      \[P(\Omega)=1\]
+	\item \textbf{Terzo assioma:} Se $A_1, A_2$ sono eventi \textcolor{red}{incompatibili}, allora la probabilità dell'unione dei due eventi e la somma
+	      delle loro probabilità
+	      \[
+		      P(A_1 \cup A_2)=P(A_1)+P(A_2)
+	      \]
+\end{enumerate}
+\subsubsection{Conseguenze degli assiomi}
+\begin{enumerate}
+	\item \textbf{Probabilità del complementare di un evento:}
+	      \[
+		      P(\overline{A})=1-P(A)
+	      \]
+	\item \textbf{Probabilità dell'evento impossibile:}
+	      \[
+		      P(\emptyset)=0
+	      \]
+	\item \textbf{Proprietà di monoticità:} Se $B$ è un evento incluso in un evento $A$, allora la probabilità di $B$ è minore
+	      o uguale alla probabilità di $A$
+	      \[
+		      B \subseteq A \implies P(B) \leq P(A)
+	      \]
+	\item \textbf{Probabilità dell'unione di eventi incompatibili:} la probabilità dell'unione di eventi incompatibili
+	      è la somma delle loro probabilità
+	      \[
+		      P\!\left( \bigcup_{i=1}^{n} A_i \right)
+		      =
+		      \sum_{i=1}^{n} P(A_i)
+	      \]
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Indipendenza e Probabilità Condizionata}
 \section{Variabili Casuali}
 \subsection{Famiglie Parametriche}
