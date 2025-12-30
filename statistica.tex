@@ -383,7 +383,38 @@ Si calcola quando $\mu, \overline{x}, \sigma$ sono positivi e si esprime in perc
 \[
 	\overline{A} = \{\omega \mid \omega \notin A\}
 \]
-
+\subsection{Proprietà operazione tra eventi}
+Siano $A_1,A_2,A_3$ tre eventi.
+\begin{itemize}
+	\item \textbf{Proprietà commutativa}: l'ordine non cambia il risultato
+	\[
+	E_1 \cup E_2 = E_2 \cup E_1
+	\]
+	\[
+	E_1 \cap E_2 = E_2 \cap E_1
+	\]
+	\item \textbf{Proprietà associativa}:
+	\[
+	(E_1 \cup E_2) \cup E_3 = E_1 \cup (E_2 \cup E_3)
+	\]
+	\[
+	(E_1 \cap E_2) \cap E_3 = E_1 \cap (E_2 \cap E_3)
+	\]
+	\item \textbf{Proprietà distributiva}:
+	\[
+	(E_1 \cup E_2) \cap E_3 = (E_1 \cap E_3) \cup (E_2 \cap E_3)
+	\]
+	\[
+	(E_1 \cap E_2) \cup E_3 = (E_1 \cup E_3) \cap (E_2 \cup E_3)
+	\]
+	\item \textbf{Leggi di De Morgan}: 
+	\[
+	\overline{E_1 \cap E_2}=\overline{E_1} \cup \overline{E_2}
+	\]
+	\[
+	\overline{E_1 \cup E_2}=\overline{E_1} \cap \overline{E_2}
+	\]
+\end{itemize}
 \subsection{Tipi di eventi}
 \subsubsection{Eventi compatibili}
 Due eventi che possono verificarsi congiuntamente.
@@ -445,8 +476,40 @@ Sia $A$ un evento e $\Omega$ lo spazio campionario. Definisco $P(A)$ la probabil
 		      \sum_{i=1}^{n} P(A_i)
 	      \]
 \end{enumerate}
+\subsubsection{Probabilità Totale}
+\begin{theorem}{}
+	SSiano $A_1,A_2$ due eventi, la probabilità dell'unione dei due eventi è uguale alla somma delle due probabilità meno la loro intersezione:
+	\[
+		P(A_1 \cup A_2)=P(A_1)+P(A_2)-P(A_1 \cap A_2)
+	\]
+\end{theorem}
+
+\begin{itemize}
+	\item Se i due eventi sono incompatibili $A_1 \cap A_2 = \emptyset$ allora,
+	      \[
+		      P(A_1 \cup A_2)=P(A_1)+P(A_2)-P(A_1 \cap A_2)=P(A_1)+P(A_2)-\emptyset =P(A_1)+P(A_2)
+	      \]
+	      (assioma 3)
+	\item Se i due eventi sono compatibili $A_1 \cap A_2 \neq \emptyset$ allora,
+	      \[
+		      P(A_1 \cup A_2)=P(A_1)+P(A_2)-P(A_1 \cap A_2)
+	      \]
+	      (resta uguale)
+\end{itemize}
+\break
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Indipendenza e Probabilità Condizionata}
+\section{Probabilità Condizionata e Indipendenza}
+\subsection{Probabilità Condizionata}
+\begin{theorem}{}
+	SSi definisce probabilità condizionata la probabilità che si verifichi un evento $E$ sapendo che si è già verificato l'evento $B$:
+	\[
+		P(E \mid B)=\frac{P(E \cap B)}{P(B)}
+	\]
+\end{theorem}
+
+\subsection{Probabilità Composta}
+\subsection{Eventi Indipendente ed Eventi Dipendenti}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Variabili Casuali}
 \subsection{Famiglie Parametriche}
 \section{Inferenza Statistica}
