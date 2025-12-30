@@ -369,6 +369,105 @@ Si calcola quando $\mu, \overline{x}, \sigma$ sono positivi e si esprime in perc
 \]
 \break
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Calcolo Combinatorio}
+\textbf{Ordine conta:} $abc \neq cba$ vuol dire "2 modi diversi di ordinare gli elementi".  \\
+\textbf{Ordine non conta:} $abc = cba$ vuol dire "c'è solo 1 modo per ordinare gli elementi".
+\subsection{Permutazioni Semplici}
+Una permutazione semplice è un modo di ordinare in successione oggetti distinti.
+\begin{theorem}{}
+	IIl \textbf{numero di permutazioni} di $n$ oggetti distinti è il
+	numero di modi diversi per ordinare tali oggetti.
+	\[
+	P_n=n!
+	\]
+\end{theorem}
+
+\begin{esercizio}[Esempio]
+	Se ho $10$ libri, allora avrò:
+	\[
+	P_{10}=10!=3628800 \text{ modi diversi di ordinare 10 libri}
+	\]
+\end{esercizio}
+
+\subsection{Permutazioni con Ripetizione}
+Una permutazione con ripetizione è un modo di ordinare oggetti tra cui alcuni uguali tra loro.
+\begin{theorem}{}
+	IIl \textbf{numero di permutazioni} di $n$ oggetti alcuni uguali tra loro è il
+	numero di modi diversi per ordinare tali oggetti.
+	\[
+	P_{\text{numero tot di oggetti}}^{\text{numero di scatole}}=P_n^r=\frac{n!}{r_1!r_2! \cdots r_k!}
+	\]
+Devo pensarlo così:
+\begin{enumerate}
+	\item Dividi gli oggetti distinti come se fossero scatole distinte, senza ripetizione \\ ($k$ = conta quante scatole sono)
+	\item Inserisci ogni oggetto nella corrispettiva scatola \\ ($r$ = conta quanti oggetti ha ogni scatola)
+\end{enumerate}
+\end{theorem}
+
+\begin{esercizio}[Esempio]
+Se io ho la parola STATISTICA, ho $n=10$ allora:
+\begin{enumerate}
+	\item Dividi gli oggetti distinti come se fossero scatole distinte \\ ($k$ = conta quante scatole sono) \\
+	S, T, A, I, C quindi $k=5$ scatole
+	\item Inserisci ogni ripetizione nella corrispettiva scatola \\ ($r$ = conta quanti oggetti ha ogni scatola)
+	\begin{itemize}
+		\item scatola S: la parola ha 2 "S" ripetute, quindi $r_1=2$ \\
+		\textcolor{red}{S}TATI\textcolor{red}{S}TICA
+		\item scatola T: la parola ha 3 "T" ripetute, quindi $r_2=3$ \\
+		S\textcolor{red}{T}A\textcolor{red}{T}IS\textcolor{red}{T}ICA
+		\item scatola A: la parola ha 2 "A" ripetute, quindi $r_3=2$ \\
+		ST\textcolor{red}{A}TISTIC\textcolor{red}{A} 
+		\item scatola I: la parola ha 2 "I" ripetute, quindi $r_4=2$ \\
+		STAT\textcolor{red}{I}ST\textcolor{red}{I}CA
+		\item scatola C: la parola ha 1 "C" ripetuta, quindi $r_5=1$ \\
+		STATISTI\textcolor{red}{C}A
+	\end{itemize}
+\end{enumerate}
+Quindi: \\
+\[
+P_{10}^5=\frac{10!}{r_1!r_2!r_3!r_4!r_5!}=\frac{10!}{2!3!2!2!1!}=75600 \text{ modi diversi di ordinare la parola}
+\]
+\end{esercizio}
+
+\subsection{Disposizioni Semplici}
+\subsection{Disposizioni con Ripetizione}
+\subsection{Combinazioni}
+\break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Probabilità}
 \subsection{Operazione insiemi}
 \[
@@ -387,33 +486,33 @@ Si calcola quando $\mu, \overline{x}, \sigma$ sono positivi e si esprime in perc
 Siano $A_1,A_2,A_3$ tre eventi.
 \begin{itemize}
 	\item \textbf{Proprietà commutativa}: l'ordine non cambia il risultato
-	\[
-	E_1 \cup E_2 = E_2 \cup E_1
-	\]
-	\[
-	E_1 \cap E_2 = E_2 \cap E_1
-	\]
+	      \[
+		      E_1 \cup E_2 = E_2 \cup E_1
+	      \]
+	      \[
+		      E_1 \cap E_2 = E_2 \cap E_1
+	      \]
 	\item \textbf{Proprietà associativa}:
-	\[
-	(E_1 \cup E_2) \cup E_3 = E_1 \cup (E_2 \cup E_3)
-	\]
-	\[
-	(E_1 \cap E_2) \cap E_3 = E_1 \cap (E_2 \cap E_3)
-	\]
+	      \[
+		      (E_1 \cup E_2) \cup E_3 = E_1 \cup (E_2 \cup E_3)
+	      \]
+	      \[
+		      (E_1 \cap E_2) \cap E_3 = E_1 \cap (E_2 \cap E_3)
+	      \]
 	\item \textbf{Proprietà distributiva}:
-	\[
-	(E_1 \cup E_2) \cap E_3 = (E_1 \cap E_3) \cup (E_2 \cap E_3)
-	\]
-	\[
-	(E_1 \cap E_2) \cup E_3 = (E_1 \cup E_3) \cap (E_2 \cup E_3)
-	\]
-	\item \textbf{Leggi di De Morgan}: 
-	\[
-	\overline{E_1 \cap E_2}=\overline{E_1} \cup \overline{E_2}
-	\]
-	\[
-	\overline{E_1 \cup E_2}=\overline{E_1} \cap \overline{E_2}
-	\]
+	      \[
+		      (E_1 \cup E_2) \cap E_3 = (E_1 \cap E_3) \cup (E_2 \cap E_3)
+	      \]
+	      \[
+		      (E_1 \cap E_2) \cup E_3 = (E_1 \cup E_3) \cap (E_2 \cup E_3)
+	      \]
+	\item \textbf{Leggi di De Morgan}:
+	      \[
+		      \overline{E_1 \cap E_2}=\overline{E_1} \cup \overline{E_2}
+	      \]
+	      \[
+		      \overline{E_1 \cup E_2}=\overline{E_1} \cap \overline{E_2}
+	      \]
 \end{itemize}
 \subsection{Tipi di eventi}
 \subsubsection{Eventi compatibili}
@@ -507,7 +606,9 @@ Sia $A$ un evento e $\Omega$ lo spazio campionario. Definisco $P(A)$ la probabil
 	\]
 \end{theorem}
 
-\subsection{Probabilità Composta}
+\subsection{Probabilità Congiunta}
+
+
 \subsection{Eventi Indipendente ed Eventi Dipendenti}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Variabili Casuali}
