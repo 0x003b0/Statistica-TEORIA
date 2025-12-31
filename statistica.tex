@@ -379,38 +379,38 @@ Si calcola quando $\mu, \overline{x}, \sigma$ sono positivi e si esprime in perc
 \begin{itemize}
 	\item \textbf{Permutazioni:} uso tutti gli $n$ oggetti. Ordine conta
 	\item \textbf{Disposizioni:} non uso tutti gli $n$ oggetti ma solo $r$ oggetti scelti dall'insieme dove $r<n$. Ordine conta
-	\item \textbf{Combinazioni:} non uso tutti gli $n$ oggetti ma solo $r$ oggetti scelti dall'insieme dove $r<n$. Ordine non conta
+	\item \textbf{Combinazioni:} si parla di gruppi di $k$ elementi. Ordine non conta
 \end{itemize}
 
 \renewcommand{\arraystretch}{1.6}
 \begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{} 
-& \textbf{Ordine conta?} 
-& \textbf{Oggetti usati} 
-& \textbf{Formula} \\[6pt]
-\hline
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{}
+		 & \textbf{Ordine conta?}
+		 & \textbf{Oggetti usati}
+		 & \textbf{Formula}                              \\[6pt]
+		\hline
 
-\textbf{Permutazioni} 
-& \textcolor{green}{\scalebox{1.6}{\checkmark}} 
-& Uso \textbf{tutti} gli $n$ oggetti 
-& $P_n = n!$ \\[8pt]
+		\textbf{Permutazioni}
+		 & \textcolor{green}{\scalebox{1.6}{\checkmark}}
+		 & Uso \textbf{tutti} gli $n$ oggetti
+		 & $P_n = n!$                                    \\[8pt]
 
-\hline
-\textbf{Disposizioni} 
-& \textcolor{green}{\scalebox{1.6}{\checkmark}} 
-& Uso \textbf{$r$ oggetti su $n$} 
-& $D(n,r) = \dfrac{n!}{(n-r)!}$ \\[8pt]
+		\hline
+		\textbf{Disposizioni}
+		 & \textcolor{green}{\scalebox{1.6}{\checkmark}}
+		 & Uso \textbf{$r$ oggetti su $n$}
+		 & $D(n,r) = \dfrac{n!}{(n-r)!}$                 \\[8pt]
 
-\hline
-\textbf{Combinazioni} 
-& \textcolor{red}{\scalebox{1.6}{\texttimes}} 
-& Uso \textbf{$r$ oggetti su $n$} 
-& $C(n,r) = \dfrac{n!}{r!(n-r)!}$ \\[8pt]
+		\hline
+		\textbf{Combinazioni}
+		 & \textcolor{red}{\scalebox{1.6}{\texttimes}}
+		 & Uso \textbf{gruppi di $k$ oggetti su $n$}
+		 & $C_{n,k} = \dfrac{n!}{r!(n-r)!}$               \\[8pt]
 
-\hline
-\end{tabular}
+		\hline
+	\end{tabular}
 \end{center}
 
 
@@ -420,14 +420,14 @@ Una permutazione semplice è un modo di ordinare in successione oggetti distinti
 	IIl \textbf{numero di permutazioni} di $n$ oggetti distinti è il
 	numero di modi diversi per ordinare tali oggetti.
 	\[
-	P_n=n!
+		P_n=n!
 	\]
 \end{theorem}
 
 \begin{esercizio}[Esempio]
 	Se ho $10$ libri, allora avrò:
 	\[
-	P_{10}=10!=3628800 \text{ modi diversi di ordinare 10 libri}
+		P_{10}=10!=3628800 \text{ modi diversi di ordinare 10 libri}
 	\]
 \end{esercizio}
 
@@ -437,38 +437,38 @@ Una permutazione con ripetizione è un modo di ordinare oggetti tra cui alcuni u
 	IIl \textbf{numero di permutazioni} di $n$ oggetti alcuni uguali tra loro è il
 	numero di modi diversi per ordinare tali oggetti.
 	\[
-	P_{\text{numero tot di oggetti}}^{\text{numero di scatole}}=P_n^r=\frac{n!}{r_1!r_2! \cdots r_k!}
+		P_{\text{numero tot di oggetti}}^{\text{numero di scatole}}=P_n^r=\frac{n!}{r_1!r_2! \cdots r_k!}
 	\]
-Devo pensarlo così:
-\begin{enumerate}
-	\item Dividi gli oggetti distinti come se fossero scatole distinte, senza ripetizione \\ ($k$ = conta quante scatole sono)
-	\item Inserisci ogni oggetto nella corrispettiva scatola \\ ($r$ = conta quanti oggetti ha ogni scatola)
-\end{enumerate}
+	Devo pensarlo così:
+	\begin{enumerate}
+		\item Dividi gli oggetti distinti come se fossero scatole distinte, senza ripetizione \\ ($k$ = conta quante scatole sono)
+		\item Inserisci ogni oggetto nella corrispettiva scatola \\ ($r$ = conta quanti oggetti ha ogni scatola)
+	\end{enumerate}
 \end{theorem}
 
 \begin{esercizio}[Esempio]
-Se io ho la parola STATISTICA, ho $n=10$ allora:
-\begin{enumerate}
-	\item Dividi gli oggetti distinti come se fossero scatole distinte \\ ($k$ = conta quante scatole sono) \\
-	S, T, A, I, C quindi $k=5$ scatole
-	\item Inserisci ogni ripetizione nella corrispettiva scatola \\ ($r$ = conta quanti oggetti ha ogni scatola)
-	\begin{itemize}
-		\item scatola S: la parola ha 2 "S" ripetute, quindi $r_1=2$ \\
-		\textcolor{red}{S}TATI\textcolor{red}{S}TICA
-		\item scatola T: la parola ha 3 "T" ripetute, quindi $r_2=3$ \\
-		S\textcolor{red}{T}A\textcolor{red}{T}IS\textcolor{red}{T}ICA
-		\item scatola A: la parola ha 2 "A" ripetute, quindi $r_3=2$ \\
-		ST\textcolor{red}{A}TISTIC\textcolor{red}{A} 
-		\item scatola I: la parola ha 2 "I" ripetute, quindi $r_4=2$ \\
-		STAT\textcolor{red}{I}ST\textcolor{red}{I}CA
-		\item scatola C: la parola ha 1 "C" ripetuta, quindi $r_5=1$ \\
-		STATISTI\textcolor{red}{C}A
-	\end{itemize}
-\end{enumerate}
-Quindi: \\
-\[
-P_{10}^5=\frac{10!}{r_1!r_2!r_3!r_4!r_5!}=\frac{10!}{2!3!2!2!1!}=75600 \text{ modi diversi di ordinare la parola}
-\]
+	Se io ho la parola STATISTICA, ho $n=10$ allora:
+	\begin{enumerate}
+		\item Dividi gli oggetti distinti come se fossero scatole distinte \\ ($k$ = conta quante scatole sono) \\
+		      S, T, A, I, C quindi $k=5$ scatole
+		\item Inserisci ogni ripetizione nella corrispettiva scatola \\ ($r$ = conta quanti oggetti ha ogni scatola)
+		      \begin{itemize}
+			      \item scatola S: la parola ha 2 "S" ripetute, quindi $r_1=2$ \\
+			            \textcolor{red}{S}TATI\textcolor{red}{S}TICA
+			      \item scatola T: la parola ha 3 "T" ripetute, quindi $r_2=3$ \\
+			            S\textcolor{red}{T}A\textcolor{red}{T}IS\textcolor{red}{T}ICA
+			      \item scatola A: la parola ha 2 "A" ripetute, quindi $r_3=2$ \\
+			            ST\textcolor{red}{A}TISTIC\textcolor{red}{A}
+			      \item scatola I: la parola ha 2 "I" ripetute, quindi $r_4=2$ \\
+			            STAT\textcolor{red}{I}ST\textcolor{red}{I}CA
+			      \item scatola C: la parola ha 1 "C" ripetuta, quindi $r_5=1$ \\
+			            STATISTI\textcolor{red}{C}A
+		      \end{itemize}
+	\end{enumerate}
+	Quindi: \\
+	\[
+		P_{10}^5=\frac{10!}{r_1!r_2!r_3!r_4!r_5!}=\frac{10!}{2!3!2!2!1!}=75600 \text{ modi diversi di ordinare la parola}
+	\]
 \end{esercizio}
 
 \subsection{Disposizioni Semplici}
@@ -477,7 +477,7 @@ Nel caso delle disposizioni, non uso tutti gli $n$ oggetti (come nelle permutazi
 	IIl \textbf{numero di disposizioni} di oggetti scelti $k$ tra $n$ oggetti totali distinti è il
 	numero di modi diversi per ordinare $k$ oggetti.
 	\[
-	D_{n,k}=\frac{n!}{(n-k)!}
+		D_{n,k}=\frac{n!}{(n-k)!}
 	\]
 	\begin{enumerate}
 		\item Scelgo $k$ oggetti tra $n$ oggetti totali
@@ -488,7 +488,7 @@ Nel caso delle disposizioni, non uso tutti gli $n$ oggetti (come nelle permutazi
 \begin{esercizio}[Esempio]
 	In quanti modi diversi posso sistemare su una liberia 7 libri scelti da un insieme di 20 libri?
 	\[
-	D_{20,7}=\frac{20!}{(20-7)!}=390700800
+		D_{20,7}=\frac{20!}{(20-7)!}=390700800
 	\]
 \end{esercizio}
 
@@ -498,7 +498,7 @@ Nel caso delle disposizioni con ripetizione, non uso tutti gli $n$ oggetti (come
 	IIl \textbf{numero di disposizioni con ripetizione} di oggetti scelti $k$ tra $n$ oggetti totali distinti è il
 	numero di modi diversi per ordinare $k$ oggetti in cui alcuni possono ripetersi nella stessa sequenza.
 	\[
-	D_{n,k}^R=n^k
+		D_{n,k}^R=n^k
 	\]
 \end{theorem}
 
@@ -509,47 +509,64 @@ Nel caso delle disposizioni con ripetizione, non uso tutti gli $n$ oggetti (come
 		\item Alcune lettere possono ripetersi nella stessa sequenza
 	\end{enumerate}
 	\[
-	D_{26,5}^R=26^5
+		D_{26,5}^R=26\cdot26\cdot26\cdot26\cdot26=26^5=11881376
 	\]
 \end{esercizio}
 
-
 \subsection{Combinazioni}
+Nel caso delle combinazioni, si parla di gruppi il cui numero corrisponde esattamente a quanti oggetti $k$ ho scelto da $n$.
+La scelta $k$ corrisponde solo al numero da cui è formato ogni gruppo.
+\\ \\
+Ovvero, se io scelgo 10 oggetti su 20, allora ogni gruppo dovrà avere esattamente 10 oggetti.
+L'ordine non conta perchè l'importante è la presenza dell'oggetto all'interno del gruppo, che sia primo o ultimo non cambia niente.
+\\ \\
+La domanda è: quanti modi diversi ho di formare questi gruppi?
+\begin{theorem}{}
+	IIl \textbf{numero di combinazioni} è il numero di modi diversi per formare gruppi di $k$ elementi ($k \leq n$).
+	\[
+		C_{n,k}=\binom{n}{k}=\frac{n!}{k!(n-k)!}
+	\]
+	\begin{enumerate}
+		\item Scelgo un numero $k$ dove $k \leq n$
+		\item Ogni gruppo dovrà avere esattamente $k$ oggetti
+		\item Quanti modi diversi ho di formare questi gruppi che contengono esattamente $k$ oggetti?
+	\end{enumerate}
+\end{theorem}
+
+\begin{esercizio}[Esempio]
+	Ho 3 frutti diversi ma la io voglio fare merenda solo con 2. Quante tipe di merende posso creare con 2 frutti?
+	\begin{enumerate}
+		\item Scelgo $k=2$ dove $2<3$
+		\item Ogni gruppo avrà esattamente $2$ frutti
+	\end{enumerate}
+	\[
+		C_{3,2}=\binom{3}{2}=\frac{3!}{2!(3-2)!}=\frac{1 \cdot 2  \cdot 3}{2!1!}=\frac{6}{2}=3
+	\]
+	Ho 3 modi diversi di formare gruppi di $2$ frutti, quindi ho 3 tipi di merende diverse.
+\end{esercizio}
+\begin{esercizio}[Esempio]
+	Voglio giocare a basket e devo formare 2 gruppi di persone per la partita. So che ogni squadra deve avere esattamente 5 giocatori. Le persone che si son presentate come candidate
+	sono 40. Quanti modi diversi ho per formare una squadra? e per formarne due? sapendo che la persona non puo essere contemporanemente scelta in entrambe?
+	\begin{enumerate}
+		\item Scelgo $k=5$ dove $5<40$
+		\item Ogni gruppo avrà esattamente $5$ persone
+		      \[
+			      C_{40,5}=\binom{40}{5}=\frac{40!}{5!(40-5)!}= 657708 \text{ modi diversi per formare una sola squadra}
+		      \]
+		      Ho 657708 modi diversi di formare gruppi di $5$ persone, quindi posso scegliere 1 tra 657708 da mandare in campo.
+
+		\item Se invece voglio formare due squadre (sapendo che la stessa persona non può essere in entrambe) ? quante scelte avrei?
+		      \[
+			      \text{Prima squadra: } C_{40,5}=\binom{40}{5}=\frac{40!}{5!(40-5)!}= 657708
+		      \]
+		      Dato che le persone non possono ripetersi, se io ho formato la prima squadra, avrò per la seconda 35-5 persone ancora disponibili (perchè 5 le ho già scelte nella 1ª squadra):
+		      \[
+			      \text{Seconda squadra: } C_{35,5}=\binom{35}{5}=\frac{35!}{5!(35-5)!}=324632
+		      \]
+		      Quindi i diversi modi per formare le due squadre saranno in totale $657708 \cdot 324632=213846580000$
+	\end{enumerate}
+\end{esercizio}
 \break
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Probabilità}
 \subsection{Operazione insiemi}
