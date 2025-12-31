@@ -19,7 +19,9 @@
 \usepackage{mathrsfs} % https://www.ctan.org/pkg/mathrsfs
 \graphicspath{ {./media/} }
 \usepackage{centernot}
-\usepackage[hidelinks]{hyperref}  
+\usepackage[hidelinks]{hyperref}
+
+
 
 \newtcbtheorem[no counter]{theorem}{Teorema}%
 {colback=blue!5, 
@@ -371,9 +373,49 @@ Si calcola quando $\mu, \overline{x}, \sigma$ sono positivi e si esprime in perc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Calcolo Combinatorio}
 \textbf{Ordine conta:} $abc \neq cba$ vuol dire "2 modi diversi di ordinare gli elementi".  \\
-\textbf{Ordine non conta:} $abc = cba$ vuol dire "c'è solo 1 modo per ordinare gli elementi".
+\textbf{Ordine non conta:} $abc = cba$ vuol dire "c'è solo 1 modo per ordinare gli elementi". \\
+
+\textcolor{red}{Trucco:}
+\begin{itemize}
+	\item \textbf{Permutazioni:} uso tutti gli $n$ oggetti. Ordine conta
+	\item \textbf{Disposizioni:} non uso tutti gli $n$ oggetti ma solo $r$ oggetti scelti dall'insieme dove $r<n$. Ordine conta
+	\item \textbf{Combinazioni:} non uso tutti gli $n$ oggetti ma solo $r$ oggetti scelti dall'insieme dove $r<n$. Ordine non conta
+\end{itemize}
+
+\renewcommand{\arraystretch}{1.6}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{} 
+& \textbf{Ordine conta?} 
+& \textbf{Oggetti usati} 
+& \textbf{Formula} \\[6pt]
+\hline
+
+\textbf{Permutazioni} 
+& \textcolor{green}{\scalebox{1.6}{\checkmark}} 
+& Uso \textbf{tutti} gli $n$ oggetti 
+& $P_n = n!$ \\[8pt]
+
+\hline
+\textbf{Disposizioni} 
+& \textcolor{green}{\scalebox{1.6}{\checkmark}} 
+& Uso \textbf{$r$ oggetti su $n$} 
+& $D(n,r) = \dfrac{n!}{(n-r)!}$ \\[8pt]
+
+\hline
+\textbf{Combinazioni} 
+& \textcolor{red}{\scalebox{1.6}{\texttimes}} 
+& Uso \textbf{$r$ oggetti su $n$} 
+& $C(n,r) = \dfrac{n!}{r!(n-r)!}$ \\[8pt]
+
+\hline
+\end{tabular}
+\end{center}
+
+
 \subsection{Permutazioni Semplici}
-Una permutazione semplice è un modo di ordinare in successione oggetti distinti.
+Una permutazione semplice è un modo di ordinare in successione oggetti distinti (qui non esistono oggetti uguali tra loro, sono tutti distinti).
 \begin{theorem}{}
 	IIl \textbf{numero di permutazioni} di $n$ oggetti distinti è il
 	numero di modi diversi per ordinare tali oggetti.
@@ -430,7 +472,48 @@ P_{10}^5=\frac{10!}{r_1!r_2!r_3!r_4!r_5!}=\frac{10!}{2!3!2!2!1!}=75600 \text{ mo
 \end{esercizio}
 
 \subsection{Disposizioni Semplici}
+Nel caso delle disposizioni, non uso tutti gli $n$ oggetti (come nelle permutazioni) ma solo un sottoinsieme scelto $k$ di $n$ dove $k \leq n$.
+\begin{theorem}{}
+	IIl \textbf{numero di disposizioni} di oggetti scelti $k$ tra $n$ oggetti totali distinti è il
+	numero di modi diversi per ordinare $k$ oggetti.
+	\[
+	D_{n,k}=\frac{n!}{(n-k)!}
+	\]
+	\begin{enumerate}
+		\item Scelgo $k$ oggetti tra $n$ oggetti totali
+		\item $D_{n,k}$ è il numero di modi diversi per ordinare $k$ oggetti
+	\end{enumerate}
+\end{theorem}
+
+\begin{esercizio}[Esempio]
+	In quanti modi diversi posso sistemare su una liberia 7 libri scelti da un insieme di 20 libri?
+	\[
+	D_{20,7}=\frac{20!}{(20-7)!}=390700800
+	\]
+\end{esercizio}
+
 \subsection{Disposizioni con Ripetizione}
+Nel caso delle disposizioni con ripetizione, non uso tutti gli $n$ oggetti (come nelle permutazioni) ma solo un sottoinsieme scelto $k$ di $n$ dove $k \leq n$.
+\begin{theorem}{}
+	IIl \textbf{numero di disposizioni con ripetizione} di oggetti scelti $k$ tra $n$ oggetti totali distinti è il
+	numero di modi diversi per ordinare $k$ oggetti in cui alcuni possono ripetersi nella stessa sequenza.
+	\[
+	D_{n,k}^R=n^k
+	\]
+\end{theorem}
+
+\begin{esercizio}[Esempio]
+	Quante password di 5 caratteri si possono creare con un alfabeto di 26 lettere?
+	\begin{enumerate}
+		\item Scelgo $k=5$ sottoinsieme di $n=26$
+		\item Alcune lettere possono ripetersi nella stessa sequenza
+	\end{enumerate}
+	\[
+	D_{26,5}^R=26^5
+	\]
+\end{esercizio}
+
+
 \subsection{Combinazioni}
 \break
 
