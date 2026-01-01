@@ -671,11 +671,12 @@ Sia $A$ un evento e $\Omega$ lo spazio campionario. Definisco $P(A)$ la probabil
 	      \]
 \end{enumerate}
 \subsubsection{Probabilità Totale}
-\begin{theorem}{}
+\begin{theorem}{Teorema delle probabilità totali a $2$ eventi}
 	SSiano $A_1,A_2$ due eventi, la probabilità dell'unione dei due eventi è uguale alla somma delle due probabilità meno la loro intersezione:
 	\[
 		P(A_1 \cup A_2)=P(A_1)+P(A_2)-P(A_1 \cap A_2)
 	\]
+	Vuol dire: "probabilità che si verifichi almeno uno dei due eventi"
 \end{theorem}
 
 \begin{itemize}
@@ -690,6 +691,31 @@ Sia $A$ un evento e $\Omega$ lo spazio campionario. Definisco $P(A)$ la probabil
 	      \]
 	      (resta uguale)
 \end{itemize}
+
+\begin{theorem}{Teorema delle probabilità totali a $k$ eventi}
+	SSiano $k$ eventi, la probabilità dell'unione di $k$ eventi è uguale a:
+	\begin{align*}
+		P(A_1 \cup A_2 \cup \dots \cup A_k)
+		 & = \sum_{i=1}^{k} P(A_i) +                                              \\
+		 & - \sum_{1 \leq i<j\leq k}^{k} P(A_i \cap A_j) +                        \\
+		 & + \sum_{1 \leq i<j<r \leq k}^{k} P(A_i \cap A_j \cap A_r) +            \\
+		 & - \sum_{1 \leq i<j<r<s \leq k}^{k} P(A_i \cap A_j \cap A_r \cap A_s) + \\
+		 & \cdots                                                                 \\
+		 & +(-1)^{k+1}P(A_1 \cap A_2 \cap A_3 \cap A_4 \cap \cdots \cap A_k) =
+	\end{align*}
+	Ovvero:
+	\begin{align*}
+		P(A_1 \cup A_2 \cup \dots \cup A_k)
+		 & = \text{ somma delle probabilità dei singoli eventi } +               \\
+		 & \quad - [\text{ somma dell'intersezioni degli eventi presi 2 a 2 }] + \\
+		 & + [\text{ somma dell'intersezioni degli eventi presi 3 a 3 }] +       \\
+		 & - [\text{ somma dell'intersezioni degli eventi presi 4 a 4 }] +       \\
+		 & \cdots                                                                \\
+		 & +/- [\text{ somma dell'intersezioni degli eventi presi $k$ a $k$ }]
+	\end{align*}
+	Vuol dire: "probabilità che si verifichi almeno uno tra i $k$ eventi"
+\end{theorem}
+
 \break
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Probabilità Condizionata e Indipendenza}
@@ -736,7 +762,7 @@ Terza osservazione:
 \subsection{Probabilità Congiunta / Composta}
 La probabilità congiunta è la probabilità che due o più eventi si verifichino insieme (accadano entrambi), ossia che si verifichi l'intersezione
 degli eventi.
-\begin{theorem}{}
+\begin{theorem}{Legge delle probabilità composte per 2 eventi}
 	SSi definisce probabilità congiunta la \textbf{probabilità che si verifichino entrambi gli eventi}:
 	\[
 		P(A_1 \cap A_2)=P(A_2 \mid A_1)\cdot P(A_1) \text{ con } P(A_1) \neq 0
@@ -760,16 +786,147 @@ Prima osservazione: $P(A_1) \neq 0$
 \[
 	\begin{aligned}
 		P(A_1 \cap A_2)
-		 & = P(A_2 \mid A_1)\cdot P(A_1)                         \\
-		 & = \frac{}{}                \\
-		 & = \text{per teorema delle probabilità totali}\footnotemark \\ \\
-		 & = \frac{P(E \cap B)+P(A \cap B)-P(E \cap B \cap A)}{P(B)}
+		 & = P(A_2 \mid A_1)\cdot P(A_1)                                                                 \\ \\
+		 & = \frac{P(A_2 \cap A_1)}{P(A_1)} \cdot P(A_1)                                                 \\ \\
+		 & = P(A_2 \cap A_1) \text{ giusto, intersezione è simmetrica, } P(A_1 \cap A_2)=P(A_2 \cap A_1)
 	\end{aligned}
 \]
-\footnotetext{$P(A_1 \cup A_2)=P(A_1)+P(A_2)-P(A_1 \cap A_2)$}
-
-
-
+Seconda osservazione: $P(A_2) \neq 0$
+\[
+	\begin{aligned}
+		P(A_2 \cap A_1)
+		 & = P(A_1 \mid A_2)\cdot P(A_2)                                                                 \\ \\
+		 & = \frac{P(A_1 \cap A_2)}{P(A_2)} \cdot P(A_2)                                                 \\ \\
+		 & = P(A_1 \cap A_2) \text{ giusto, intersezione è simmetrica, } P(A_1 \cap A_2)=P(A_2 \cap A_1)
+	\end{aligned}
+\]
+\begin{theorem}{Legge delle probabilità composte per $k$ eventi}
+	IGeneralizzato a $k$ eventi, \textcolor{green}{questa formula vale solo se} gli eventi su cui condizioniamo
+	\footnote{eventi su cui condizioniamo sono quelli in rosso, dopo la sbarra:
+		$P(A_1 \mid \textcolor{red}{X})$} sono maggiori di zero $P(X)>0$:
+	\[
+		P(A_1 \cap A_2 \cap \dots \cap A_k)
+		= \prod_{i=1}^{k} P\Big(A_i \;\big|\; \bigcap_{j=1}^{i-1} A_j\Big)
+	\]
+	Ovvero:
+	\begin{align*}
+		P(A_1 \cap A_2 \cap \dots \cap A_k)
+		 & = P(A_1) \cdot P(A_2 \mid A_1) \cdot P(A_3 \mid A_1 \cap A_2) \cdot \\
+		 & \quad \cdot P(A_4 \mid A_1 \cap A_2 \cap A_3) \cdots
+		\cdot P(A_k \mid A_1 \cap \dots \cap A_{k-1})
+	\end{align*}
+\end{theorem}
+\begin{esercizio}[Esercizio]
+	Un cliente di un'azienda acquista 3 pc da un lotto di 50 pc di cui 4 sono difettosi. Qual è la probabilità che tutti i 3 pc acquistati siano difettosi? \\
+	Ricordo che: intersezione$=\cap=\land=AND$
+	\begin{enumerate}
+		\item Descrivi a parole quanto richiesto in un evento: \\ $E$=tutti i pc acquistati sono difettosi
+		\item Suddividi l'evento:
+		      \begin{enumerate}
+			      \item $E_1$= primo pc difettoso
+			      \item $E_2$= secondo pc difettoso
+			      \item $E_3$= terzo pc difettoso
+		      \end{enumerate}
+		\item Quindi, l'evento $E$=tutti i pc acquistati sono difettosi diventa: \\ $E=E_1 \cap E_2 \cap E_3$
+		\item Qual è la probabilità che si verifichi $E=E_1 \cap E_2 \cap E_3$? Infatti qui si calcola la probabilità che si verifichino tutti gli eventi insieme
+	\end{enumerate}
+	Dunque applico formula della probabilità congiunta/composta:
+	\[
+		P(E_1 \cap E_2 \cap E_3)=P(E_1)\cdot P(E_2 \mid E_1) \cdot (E_3 \mid E_1 \cap E_2)
+	\]
+	\[
+		P(E_1)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{4}{50}
+	\]
+	\[
+		P(E_2 \mid E_1)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{3}{49}
+	\]
+	\[
+		P(E_3 \mid E_1 \cap E_2)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{2}{48}
+	\]
+	Dunque:
+	\[
+		P(E_1 \cap E_2 \cap E_3)=\frac{4}{50} \cdot \frac{3}{49} \cdot \frac{2}{48}=0.0002=0.02\%
+	\]
+\end{esercizio}
+\begin{esercizio}[Esercizio]
+	Se invece fosse stato: Qual è la probabilità che \textbf{almeno uno dei pc fosse difettoso?} \\Non avrei utilizzato probabilità congiunta
+	ma l'unione. \\ Ricordo che: l'unione $=\cup = \lor = OR$
+	\begin{enumerate}
+		\item Descrivo a parole quanto richiesto in un evento: \\ $E=$almeno un pc acquistato è difettoso
+		\item Suddividi l'evento:
+		      \begin{enumerate}
+			      \item $E_1$= primo pc difettoso oppure no
+			      \item $E_2$= secondo pc difettoso oppure no
+			      \item $E_3$= terzo pc difettoso oppure no
+		      \end{enumerate}
+		\item Quindi, l'evento $E=$almeno un pc acquistato è difettoso, diventa: \\ $E=E_1 \cup E_2 \cup E_3$
+		\item Qual è la probabilità che si verifichi $E=E_1 \cup E_2 \cup E_3$?
+	\end{enumerate}
+	\textcolor{red}{Dunque, ho due approcci:}
+	\begin{itemize}
+		\item \textbf{Uso formula delle probabilità totali a $k=3$ eventi:}
+		      \begin{align*}
+			      P(E_1 \cup E_2 \cup E_3)
+			       & = [P(E_1) + P(E_2) + P(E_3)] +                        \\
+			       & - [P(E_1 \cap E_2)+P(E_1 \cap E_3)+P(E_2 \cap E_3)] + \\
+			       & + [P(E_1 \cap E_2 \cap E_3)] =
+		      \end{align*}
+		      quindi:
+		      \begin{itemize}
+			      \item $P(E_1)=?$
+			      \item $P(E_2)=?$
+			      \item $P(E_3)=?$
+			      \item $P(E_1 \cap E_2)=?$
+			      \item $P(E_1 \cap E_3)=?$
+			      \item $P(E_2 \cap E_3)=?$
+			      \item $P(E_1 \cap E_2 \cap E_3)=?$
+		      \end{itemize}
+		      \begin{align*}
+			      P(E_1 \cup E_2 \cup E_3)
+			       & = [P(E_1) + P(E_2) + P(E_3)] +                        \\
+			       & - [P(E_1 \cap E_2)+P(E_1 \cap E_3)+P(E_2 \cap E_3)] + \\
+			       & + [P(E_1 \cap E_2 \cap E_3)] =
+		      \end{align*}
+		      Se avessi tutti i dati, sarebbe facile, ma dato che non li ho è meglio il secondo approccio. \\
+		\item \textbf{Uso negazione dell'evento:} \\
+		      La negazione di "almeno uno dei pc è difettoso" è "nessuno dei pc è difettoso". Quindi posso usare la sequente formula:
+		      \[
+			      P(E)=1-P(\overline{E})
+		      \]
+		      \begin{enumerate}
+			      \item Descrivi a parole l'evento contrario: \\ $\overline{E}=$nessuno dei pc è difettoso
+			      \item Suddividi l'evento:
+			            \begin{enumerate}
+				            \item $E_1=$ primo pc funzionante
+				            \item $E_2=$ secondo pc funzionante
+				            \item $E_3=$ terzo pc funzionante
+			            \end{enumerate}
+			      \item Quindi, l'evento $\overline{E}=$nessuno dei pc è difettoso diventa: \\ $\overline{E}=E_1 \cap E_2 \cap E_3$
+			      \item Qual è la probabilità che si verifichi $\overline{E}=E_1 \cap E_2 \cap E_3$? Applico probabilità congiunta/composta:
+			            \[
+				            P(E_1 \cap E_2 \cap E_3)=P(E_1)\cdot P(E_2 \mid E_1) \cdot (E_3 \mid E_1 \cap E_2)
+			            \]
+			            \[
+				            P(E_1)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{46}{50}
+			            \]
+			            \[
+				            P(E_2 \mid E_1)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{45}{49}
+			            \]
+			            \[
+				            P(E_3 \mid E_1 \cap E_2)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{44}{48}
+			            \]
+			            Dunque:
+			            \[
+				            P(E_1 \cap E_2 \cap E_3)=\frac{46}{50} \cdot \frac{45}{49} \cdot \frac{44}{48}=0.774
+			            \]
+						Quindi:
+						\[
+						P(E)=1-P(\overline{E})=1-0.774=0.226=22.6\%
+						\]
+		      \end{enumerate}
+	\end{itemize}
+	Pertanto, la probabilità che almeno uno dei pc sia difettoso è $P(E)=0.226$
+\end{esercizio}
 
 
 
