@@ -386,22 +386,22 @@ Si calcola quando $\mu, \overline{x}, \sigma$ sono positivi e si esprime in perc
 \begin{center}
 	\begin{tabular}{|c|c|c|}
 		\hline
-		\textbf{} & \textbf{Ordine conta?} & \textbf{Oggetti usati} \\[6pt]
+		\textbf{} & \textbf{Ordine conta?}                        & \textbf{Oggetti usati} \\[6pt]
 		\hline
 
-		\textbf{Permutazioni} 
-		 & \textcolor{green}{\scalebox{1.6}{\checkmark}} 
-		 & Uso \textbf{tutti} gli $n$ oggetti \\[8pt]
+		\textbf{Permutazioni}
+		          & \textcolor{green}{\scalebox{1.6}{\checkmark}}
+		          & Uso \textbf{tutti} gli $n$ oggetti                                     \\[8pt]
 
 		\hline
-		\textbf{Disposizioni} 
-		 & \textcolor{green}{\scalebox{1.6}{\checkmark}} 
-		 & Uso \textbf{$r$ oggetti su $n$} \\[8pt]
+		\textbf{Disposizioni}
+		          & \textcolor{green}{\scalebox{1.6}{\checkmark}}
+		          & Uso \textbf{$r$ oggetti su $n$}                                        \\[8pt]
 
 		\hline
-		\textbf{Combinazioni} 
-		 & \textcolor{red}{\scalebox{1.6}{\texttimes}} 
-		 & Uso \textbf{gruppi di $k$ oggetti su $n$} \\[8pt]
+		\textbf{Combinazioni}
+		          & \textcolor{red}{\scalebox{1.6}{\texttimes}}
+		          & Uso \textbf{gruppi di $k$ oggetti su $n$}                              \\[8pt]
 
 		\hline
 	\end{tabular}
@@ -695,13 +695,87 @@ Sia $A$ un evento e $\Omega$ lo spazio campionario. Definisco $P(A)$ la probabil
 \section{Probabilità Condizionata e Indipendenza}
 \subsection{Probabilità Condizionata}
 \begin{theorem}{}
-	SSi definisce probabilità condizionata la probabilità che si verifichi un evento $E$ sapendo che si è già verificato l'evento $B$:
+	SSi definisce probabilità condizionata la \textbf{probabilità che si verifichi un evento $E$ sapendo che si è già verificato l'evento $B$}:
+	"probabilità di $E$ dato $B$."
 	\[
 		P(E \mid B)=\frac{P(E \cap B)}{P(B)}
 	\]
+	Inoltre, si ricavano le seguenti formule:
+	\[
+		P(E \cap B)=P(E \mid B) \cdot P(B)
+	\]
+	e:
+	\[
+		P(B)=\frac{P(E \cap B)}{P(E \mid B)}
+	\]
 \end{theorem}
+Prima osservazione:
+\[
+	\begin{aligned}
+		P(E \cup A \mid B)
+		 & = \frac{P((E \cup A)\cap B)}{P(B)}                         \\
+		 & = \frac{P((E \cap B)\cup (A \cap B))}{P(B)}                \\
+		 & = \text{per teorema delle probabilità totali}\footnotemark \\ \\
+		 & = \frac{P(E \cap B)+P(A \cap B)-P(E \cap B \cap A)}{P(B)}
+	\end{aligned}
+\]
+\footnotetext{$P(A_1 \cup A_2)=P(A_1)+P(A_2)-P(A_1 \cap A_2)$}
 
-\subsection{Probabilità Congiunta}
+Seconda osservazione:
+\[
+	\begin{aligned}
+		P(E \cap A \mid B)
+		 & = \frac{P(E \cap A\cap B)}{P(B)}
+	\end{aligned}
+\]
+
+Terza osservazione:
+\[
+	P(\overline{E} \mid B)=1-P(E \mid B)
+\]
+\subsection{Probabilità Congiunta / Composta}
+La probabilità congiunta è la probabilità che due o più eventi si verifichino insieme (accadano entrambi), ossia che si verifichi l'intersezione
+degli eventi.
+\begin{theorem}{}
+	SSi definisce probabilità congiunta la \textbf{probabilità che si verifichino entrambi gli eventi}:
+	\[
+		P(A_1 \cap A_2)=P(A_2 \mid A_1)\cdot P(A_1) \text{ con } P(A_1) \neq 0
+	\]
+	Oppure:
+	\[
+		P(A_1 \cap A_2)=P(A_1 \mid A_2)\cdot P(A_2) \text{ con } P(A_2) \neq 0
+	\]
+	\\
+	Se entrambe sono non nulle, $P(A_1)\land P(A_2) \neq 0$, allora posso usare una delle due formule, il risultato rimane invariato: \\
+	Posso usare questa:
+	\[
+		P(A_1 \cap A_2)=P(A_2 \mid A_1)\cdot P(A_1)
+	\]
+	Oppure questa:
+	\[
+		P(A_1 \cap A_2)=P(A_1 \mid A_2)\cdot P(A_2)
+	\]
+\end{theorem}
+Prima osservazione: $P(A_1) \neq 0$
+\[
+	\begin{aligned}
+		P(A_1 \cap A_2)
+		 & = P(A_2 \mid A_1)\cdot P(A_1)                         \\
+		 & = \frac{}{}                \\
+		 & = \text{per teorema delle probabilità totali}\footnotemark \\ \\
+		 & = \frac{P(E \cap B)+P(A \cap B)-P(E \cap B \cap A)}{P(B)}
+	\end{aligned}
+\]
+\footnotetext{$P(A_1 \cup A_2)=P(A_1)+P(A_2)-P(A_1 \cap A_2)$}
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Eventi Indipendente ed Eventi Dipendenti}
