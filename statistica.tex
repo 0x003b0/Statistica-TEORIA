@@ -20,7 +20,7 @@
 \graphicspath{ {./media/} }
 \usepackage{centernot}
 \usepackage[hidelinks]{hyperref}
-
+\usepackage{cancel}
 
 
 \newtcbtheorem[no counter]{theorem}{Teorema}%
@@ -670,7 +670,7 @@ Sia $A$ un evento e $\Omega$ lo spazio campionario. Definisco $P(A)$ la probabil
 		      \sum_{i=1}^{n} P(A_i)
 	      \]
 \end{enumerate}
-\subsubsection{Probabilità Totale}
+\subsection{Probabilità Totale}
 \begin{theorem}{Teorema delle probabilità totali a $2$ eventi}
 	SSiano $A_1,A_2$ due eventi, la probabilità dell'unione dei due eventi è uguale alla somma delle due probabilità meno la loro intersezione:
 	\[
@@ -715,6 +715,117 @@ Sia $A$ un evento e $\Omega$ lo spazio campionario. Definisco $P(A)$ la probabil
 	\end{align*}
 	Vuol dire: "probabilità che si verifichi almeno uno tra i $k$ eventi"
 \end{theorem}
+\begin{esercizio}[Esercizio]
+	Una segretaria distratta prepara 3 lettere e 3 buste da inviare a 5 persone diverse e mette le lettere nelle buste a caso. \\
+	Qual è la probabilità che \textbf{almeno una} delle 3 lettere sia inserita nella busta corrispondente?
+	\begin{enumerate}
+		\item Descrivi a parole quanto richiesto nell'esercizio: \\
+		$E=$almeno una delle tre lettere è inserita nella busta corrispondente
+		\item Suddividi l'evento:
+		\begin{enumerate}
+			\item $E_1=$la lettera 1 è nella busta 1
+			\item $E_2=$la lettera 2 è nella busta 2
+			\item $E_3=$la lettera 3 è nella busta 3
+		\item Quindi, l'evento $E=$almeno una delle tre lettere è inserita nella busta corrispondente diventa: \\ $E=E_1 \cup E_2 \cup E_3$
+		\item Qual è la probabilità che si verifichi $E=E_1 \cup E_2 \cup E_3$? \\ Infatti qui si calcola la probabilità che almeno uno si verifichi. 
+		\end{enumerate}
+	\end{enumerate}
+	Dunque applico la formula di probabilità totale per $3$ eventi:
+	\begin{align*}
+		P(E_1 \cup E_2 \cup E_3)
+		 & = [P(E_1)+P(E_2)+P(E_3)] +                                              \\
+		 & - [P(E_1 \cap E_2)+P(E_1 \cap E_3)+P(E_2 \cap E_3)]                        \\
+		 & + [P(E_1 \cap E_2 \cap E_3)] =
+	\end{align*}
+	\begin{itemize}
+		\item $P(E_1)$
+		\item $P(E_2)$
+		\item $P(E_3)$
+		\item $P(E_1 \cap E_2)$
+		\item $P(E_1 \cap E_3)$
+		\item $P(E_2 \cap E_2)$
+		\item $P(E_1 \cap E_2 \cap E_3)$
+	\end{itemize}
+	Oppure posso utilizzare la negazione $P(E)=1-P(\overline{E})$:
+	\begin{itemize}
+		\item $E=$almeno una delle tre lettere è inserita nella busta corrispondente
+		\item $\overline{E}=$nessuna delle tre lettere è inserita nella busta corrispondente
+	\end{itemize}
+	 Usando la negazione:
+	 $\overline{E}=$nessuna delle tre lettere è inserita nella busta corrispondente
+	 \begin{itemize}
+		\item $\overline{E_1}=$la lettera 1 non è nella busta 1
+		\item $\overline{E_2}=$la lettera 2 non è nella busta 2
+		\item $\overline{E_3}=$la lettera 3 non è nella busta 3
+	 \end{itemize}
+	 e quindi se voglio che accadano tutti gli eventi insieme allora sarebbe intersezione e non unione (probabilità congiunta): \\
+	 $\overline{E}=$nessuna delle tre lettere è inserita nella busta corrispondente $\implies \overline{E}=\overline{E_1} \cap \overline{E_2} \cap \overline{E_3}$
+	 quindi uso la formula della probabilità congiunta per 3 eventi:
+	\begin{align*}
+		P(\overline{E})
+		 & = P(\overline{E_1} \cap \overline{E_2} \cap \overline{E_3}) \\
+		 & = P(\overline{E_1}) \cdot P(\overline{E_2} \mid \overline{E_1}) \cdot P(\overline{E_3} \mid \overline{E_1} \cap \overline{E_2}) \\
+		 & = \frac{2}{3} \cdot \frac{3}{2} \cdot \frac{2}{3}=\frac{2}{3}
+	\end{align*}
+	\begin{itemize}
+		\item $P(\overline{E_1})=\frac{\text{numero casi favoreli}}{\text{numero casi possibili}}=\frac{4}{3!}=\frac{4}{6}=\frac{2}{3}$ \\
+		Uso tutti gli elementi, ordine conta, ripetizioni no $\implies$ permutazioni semplici $n!$ \\
+		Quindi, casi possibili $3!=6$, ovvero $6$ possibili modi di ordinare gli elementi:
+		\begin{itemize}
+			\item 123
+			\item 132
+			\item 213
+			\item 231
+			\item 312
+			\item 321
+		\end{itemize}
+		\begin{enumerate}
+			\item casi favorevoli che accada $P(\overline{E})$, ovvero tutte le combinazioni in cui $1$ non è nella prima posizione:
+			\begin{itemize}
+			\item $\cancel{123}$
+			\item $\cancel{132}$
+			\item 213
+			\item 231
+			\item 312
+			\item 321
+		\end{itemize}
+		Ci sono $4$ combinazioni favorevoli
+		\end{enumerate}
+		\item $P(\overline{E_2} \mid \overline{E_1})=\frac{\overline{E_2} \cap \overline{E_1}}{P(\overline{E_1})}=\frac{?}{\frac{1}{3}}=\frac{\frac{1}{2}}{\frac{1}{3}}=\frac{3}{2}$ \\
+		tutte e due le buste non vanno nelle buste corrispondenti: \\
+		$P(\overline{E_2} \cap \overline{E_1})=\frac{\text{numero casi favoreli}}{\text{numero casi possibili}}=\frac{?}{3!}=\frac{3}{3!}=\frac{3}{6}=\frac{1}{2}$ \\
+		
+			casi favorevoli che accada $P(\overline{E})$, ovvero tutte le combinazioni in cui $1,2$ non sono nella corrispettiva posizione:
+			\begin{itemize}
+			\item $\cancel{123}$
+			\item $\cancel{132}$
+			\item 213
+			\item 231
+			\item 312
+			\item $\cancel{321}$
+		\end{itemize}
+		Ci sono $3$ combinazioni favorevoli
+		
+		\item $P(\overline{E_3} \mid \overline{E_1} \cap \overline{E_2})=\frac{P(\overline{E_3} \cap \overline{E_1} \cap \overline{E_2})}{P(\overline{E_1} \cap \overline{E_2})}
+		=\frac{?}{\frac{1}{2}}=\frac{\frac{1}{3}}{\frac{1}{2}}=\frac{2}{3}$ \\
+		tutte e tre le buste non vanno nelle buste corrispondenti: \\
+		$P(\overline{E_3} \cap \overline{E_1} \cap \overline{E_2})=\frac{\text{numero casi favoreli}}{\text{numero casi possibili}}=\frac{?}{3!}=\frac{2}{3!}=\frac{2}{6}=\frac{1}{3}$ \\
+		casi favorevoli che accada $P(\overline{E_3} \cap \overline{E_1} \cap \overline{E_2})$, ovvero tutte le combinazioni in cui $1,2,3$ non sono nella corrispettiva posizione:
+			\begin{itemize}
+			\item $\cancel{123}$
+			\item $\cancel{132}$
+			\item $\cancel{213}$
+			\item 231
+			\item 312
+			\item $\cancel{321}$
+		\end{itemize}
+		Ci sono $2$ combinazioni favorevoli
+	\end{itemize}
+	Pertanto:
+	\[
+	P(E)=1-P(\overline{E})=1-\frac{2}{3}=
+	\]
+\end{esercizio}
 
 \break
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
