@@ -717,126 +717,197 @@ Sia $A$ un evento e $\Omega$ lo spazio campionario. Definisco $P(A)$ la probabil
 \end{theorem}
 \begin{esercizio}[Esercizio]
 	Una segretaria distratta prepara 3 lettere e 3 buste da inviare a 5 persone diverse e mette le lettere nelle buste a caso. \\
-	Qual è la probabilità che \textbf{almeno una} delle 3 lettere sia inserita nella busta corrispondente?
+	Qual è la probabilità che \underline{\textbf{almeno una}} delle 3 lettere sia inserita nella busta corrispondente?
 	\begin{enumerate}
 		\item Descrivi a parole quanto richiesto nell'esercizio: \\
-		$E=$almeno una delle tre lettere è inserita nella busta corrispondente
+		      $E=$almeno una delle tre lettere è inserita nella busta corrispondente
 		\item Suddividi l'evento:
-		\begin{enumerate}
-			\item $E_1=$la lettera 1 è nella busta 1
-			\item $E_2=$la lettera 2 è nella busta 2
-			\item $E_3=$la lettera 3 è nella busta 3
-		\item Quindi, l'evento $E=$almeno una delle tre lettere è inserita nella busta corrispondente diventa: \\ $E=E_1 \cup E_2 \cup E_3$
-		\item Qual è la probabilità che si verifichi $E=E_1 \cup E_2 \cup E_3$? \\ Infatti qui si calcola la probabilità che almeno uno si verifichi. 
-		\end{enumerate}
+		      \begin{enumerate}
+			      \item $E_1=$la lettera 1 è nella busta 1
+			      \item $E_2=$la lettera 2 è nella busta 2
+			      \item $E_3=$la lettera 3 è nella busta 3
+			      \item Quindi, l'evento $E=$almeno una delle tre lettere è inserita nella busta corrispondente diventa: \\ $E=E_1 \cup E_2 \cup E_3$
+			      \item Qual è la probabilità che si verifichi $E=E_1 \cup E_2 \cup E_3$? \\ Infatti qui si calcola la probabilità che almeno uno si verifichi.
+		      \end{enumerate}
 	\end{enumerate}
-	Dunque applico la formula di probabilità totale per $3$ eventi:
+	\textcolor{red}{Dunque applico la formula di probabilità totale per $3$ eventi:}
 	\begin{align*}
 		P(E_1 \cup E_2 \cup E_3)
-		 & = [P(E_1)+P(E_2)+P(E_3)] +                                              \\
-		 & - [P(E_1 \cap E_2)+P(E_1 \cap E_3)+P(E_2 \cap E_3)]                        \\
+		 & = [P(E_1)+P(E_2)+P(E_3)] +                          \\
+		 & - [P(E_1 \cap E_2)+P(E_1 \cap E_3)+P(E_2 \cap E_3)] \\
 		 & + [P(E_1 \cap E_2 \cap E_3)] =
 	\end{align*}
 	\begin{itemize}
-		\item $P(E_1)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{?}{3!}$ \\
-		Casi favorevoli che accada $P(E_1)$:
+		\item $P(E_1)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{?}{3!}=\frac{2}{6}=\frac{1}{3}$ \\
+		      Casi favorevoli che accada $P(E_1)$:
+		      \begin{itemize}
+			      \item 123
+			      \item 132
+			      \item $\cancel{213}$
+			      \item $\cancel{231}$
+			      \item $\cancel{312}$
+			      \item $\cancel{321}$
+		      \end{itemize}
+			  2 casi favorevoli.
+		\item $P(E_2)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{1}{3}$ \\
+		      Casi favorevoli che accada $P(E_2)$: uguale a $P(E_1)$
+		\item $P(E_3)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{1}{3}$ \\
+		      Casi favorevoli che accada $P(E_3)$: uguale a $P(E_1)$
+		\item $P(E_1 \cap E_2)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{?}{3!}=\frac{1}{6}$ \\
+		Casi favorevoli che accada $P(E_1 \cap E_2)$, ovvero che la lettera 1 sia in prima posizione e allo stesso tempo 2 sia alla seconda posizione:
+		 \begin{itemize}
+			      \item 123
+			      \item $\cancel{132}$
+			      \item $\cancel{213}$
+			      \item $\cancel{231}$
+			      \item $\cancel{312}$
+			      \item $\cancel{321}$
+		      \end{itemize}
+			  1 caso favorevole.
+		\item $P(E_1 \cap E_3)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\text{uguale a }P(E_1 \cap E_2)=\frac{1}{6}$
+		\item $P(E_2 \cap E_2)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\text{uguale a }P(E_1 \cap E_2)=\frac{1}{6}$
+		\item $P(E_1 \cap E_2 \cap E_3)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{?}{3!}=\frac{1}{6}$ \\
+		Casi favorevoli che accada $P(E_1 \cap E_2 \cap E_3)$, ovvero che allora stesso tempo la lettera 1 sia in prima posizione, la 2 in seconda posizione e la 3 in terza posizione:
 		\begin{itemize}
-			\item 123
-			\item 132
-			\item $\cancel{213}$
-			\item $\cancel{231}$
-			\item $\cancel{312}$
-			\item $\cancel{321}$
-		\end{itemize}
-		\item $P(E_2)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{?}{3!}$ \\
-		Casi favorevoli che accada $P(E_2)$
-		\item $P(E_3)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{?}{3!}$ \\
-		Casi favorevoli che accada $P(E_3)$
-		\item $P(E_1 \cap E_2)$
-		\item $P(E_1 \cap E_3)$
-		\item $P(E_2 \cap E_2)$
-		\item $P(E_1 \cap E_2 \cap E_3)$
+			      \item 123
+			      \item $\cancel{132}$
+			      \item $\cancel{213}$
+			      \item $\cancel{231}$
+			      \item $\cancel{312}$
+			      \item $\cancel{321}$
+		      \end{itemize}
+			  1 caso favorevole.
 	\end{itemize}
-	Oppure posso utilizzare la negazione $P(E)=1-P(\overline{E})$:
+	Pertanto la formula:
+	\begin{align*}
+		P(E_1 \cup E_2 \cup E_3)
+		 & = [P(E_1)+P(E_2)+P(E_3)] +                          \\
+		 & - [P(E_1 \cap E_2)+P(E_1 \cap E_3)+P(E_2 \cap E_3)] \\
+		 & + [P(E_1 \cap E_2 \cap E_3)] =
+	\end{align*}
+	Sostituendo con i valori trovati, diventa:
+	\begin{align*}
+		P(E_1 \cup E_2 \cup E_3)
+		 & = \left[\frac{1}{3}+\frac{1}{3}+\frac{1}{3}\right] +                          \\
+		 & - \left[\frac{1}{6}+\frac{1}{6}+\frac{1}{6}\right] \\
+		 & + \left[\frac{1}{6}\right] = \frac{2}{3}=0.67 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+
+	\textcolor{red}{Oppure posso utilizzare la negazione $P(E)=1-P(\overline{E})$:}
 	\begin{itemize}
 		\item $E=$almeno una delle tre lettere è inserita nella busta corrispondente
 		\item $\overline{E}=$nessuna delle tre lettere è inserita nella busta corrispondente
 	\end{itemize}
-	 Usando la negazione:
-	 $\overline{E}=$nessuna delle tre lettere è inserita nella busta corrispondente
-	 \begin{itemize}
+	Usando la negazione:
+	$\overline{E}=$nessuna delle tre lettere è inserita nella busta corrispondente
+	\begin{itemize}
 		\item $\overline{E_1}=$la lettera 1 non è nella busta 1
 		\item $\overline{E_2}=$la lettera 2 non è nella busta 2
 		\item $\overline{E_3}=$la lettera 3 non è nella busta 3
-	 \end{itemize}
-	 e quindi se voglio che accadano tutti gli eventi insieme allora sarebbe intersezione e non unione (probabilità congiunta): \\
-	 $\overline{E}=$nessuna delle tre lettere è inserita nella busta corrispondente $\implies \overline{E}=\overline{E_1} \cap \overline{E_2} \cap \overline{E_3}$
-	 quindi uso la formula della probabilità congiunta per 3 eventi:
+	\end{itemize}
+	e quindi se voglio che accadano tutti gli eventi insieme allora sarebbe intersezione e non unione (probabilità congiunta): \\
+	$\overline{E}=$nessuna delle tre lettere è inserita nella busta corrispondente $\implies \overline{E}=\overline{E_1} \cap \overline{E_2} \cap \overline{E_3}$
+	quindi uso la formula della probabilità congiunta per 3 eventi:
 	\begin{align*}
 		P(\overline{E})
-		 & = P(\overline{E_1} \cap \overline{E_2} \cap \overline{E_3}) \\
+		 & = P(\overline{E_1} \cap \overline{E_2} \cap \overline{E_3}) =                                                                   \\
 		 & = P(\overline{E_1}) \cdot P(\overline{E_2} \mid \overline{E_1}) \cdot P(\overline{E_3} \mid \overline{E_1} \cap \overline{E_2}) \\
-		 & = \frac{2}{3} \cdot \frac{3}{2} \cdot \frac{2}{3}=\frac{2}{3}
+		 & = \frac{2}{3} \cdot \frac{3}{4} \cdot \frac{2}{3}=\frac{1}{3}
 	\end{align*}
 	\begin{itemize}
 		\item $P(\overline{E_1})=\frac{\text{numero casi favoreli}}{\text{numero casi possibili}}=\frac{4}{3!}=\frac{4}{6}=\frac{2}{3}$ \\
-		Uso tutti gli elementi, ordine conta, ripetizioni no $\implies$ permutazioni semplici $n!$ \\
-		Quindi, casi possibili $3!=6$, ovvero $6$ possibili modi di ordinare gli elementi:
-		\begin{itemize}
-			\item 123
-			\item 132
-			\item 213
-			\item 231
-			\item 312
-			\item 321
-		\end{itemize}
-		\begin{enumerate}
-			\item casi favorevoli che accada $P(\overline{E})$, ovvero tutte le combinazioni in cui $1$ non è nella prima posizione:
-			\begin{itemize}
-			\item $\cancel{123}$
-			\item $\cancel{132}$
-			\item 213
-			\item 231
-			\item 312
-			\item 321
-		\end{itemize}
-		Ci sono $4$ combinazioni favorevoli
-		\end{enumerate}
-		\item $P(\overline{E_2} \mid \overline{E_1})=\frac{\overline{E_2} \cap \overline{E_1}}{P(\overline{E_1})}=\frac{?}{\frac{1}{3}}=\frac{\frac{1}{2}}{\frac{1}{3}}=\frac{3}{2}$ \\
-		tutte e due le buste non vanno nelle buste corrispondenti: \\
-		$P(\overline{E_2} \cap \overline{E_1})=\frac{\text{numero casi favoreli}}{\text{numero casi possibili}}=\frac{?}{3!}=\frac{3}{3!}=\frac{3}{6}=\frac{1}{2}$ \\
-		
-			casi favorevoli che accada $P(\overline{E})$, ovvero tutte le combinazioni in cui $1,2$ non sono nella corrispettiva posizione:
-			\begin{itemize}
-			\item $\cancel{123}$
-			\item $\cancel{132}$
-			\item 213
-			\item 231
-			\item 312
-			\item $\cancel{321}$
-		\end{itemize}
-		Ci sono $3$ combinazioni favorevoli
-		
+		      Uso tutti gli elementi, ordine conta, ripetizioni no $\implies$ permutazioni semplici $n!$ \\
+		      Quindi, casi possibili $3!=6$, ovvero $6$ possibili modi di ordinare gli elementi:
+		      \begin{itemize}
+			      \item 123
+			      \item 132
+			      \item 213
+			      \item 231
+			      \item 312
+			      \item 321
+		      \end{itemize}
+		      \begin{enumerate}
+			      \item casi favorevoli che accada $P(\overline{E})$, ovvero tutte le combinazioni in cui $1$ non è nella prima posizione:
+			            \begin{itemize}
+				            \item $\cancel{123}$
+				            \item $\cancel{132}$
+				            \item 213
+				            \item 231
+				            \item 312
+				            \item 321
+			            \end{itemize}
+			            Ci sono $4$ combinazioni favorevoli
+		      \end{enumerate}
+		\item $P(\overline{E_2} \mid \overline{E_1})=\frac{\overline{E_2} \cap \overline{E_1}}{P(\overline{E_1})}=\frac{?}{\frac{2}{3}}=\frac{\frac{1}{2}}{\frac{2}{3}}=\frac{3}{4}$ \\
+		      tutte e due le buste non vanno nelle buste corrispondenti: \\
+		      $P(\overline{E_2} \cap \overline{E_1})=\frac{\text{numero casi favoreli}}{\text{numero casi possibili}}=\frac{?}{3!}=\frac{3}{3!}=\frac{3}{6}=\frac{1}{2}$ \\
+
+		      casi favorevoli che accada $P(\overline{E})$, ovvero tutte le combinazioni in cui $1,2$ non sono nella corrispettiva posizione:
+		      \begin{itemize}
+			      \item $\cancel{123}$
+			      \item $\cancel{132}$
+			      \item 213
+			      \item 231
+			      \item 312
+			      \item $\cancel{321}$
+		      \end{itemize}
+		      Ci sono $3$ combinazioni favorevoli
+
 		\item $P(\overline{E_3} \mid \overline{E_1} \cap \overline{E_2})=\frac{P(\overline{E_3} \cap \overline{E_1} \cap \overline{E_2})}{P(\overline{E_1} \cap \overline{E_2})}
-		=\frac{?}{\frac{1}{2}}=\frac{\frac{1}{3}}{\frac{1}{2}}=\frac{2}{3}$ \\
-		tutte e tre le buste non vanno nelle buste corrispondenti: \\
-		$P(\overline{E_3} \cap \overline{E_1} \cap \overline{E_2})=\frac{\text{numero casi favoreli}}{\text{numero casi possibili}}=\frac{?}{3!}=\frac{2}{3!}=\frac{2}{6}=\frac{1}{3}$ \\
-		casi favorevoli che accada $P(\overline{E_3} \cap \overline{E_1} \cap \overline{E_2})$, ovvero tutte le combinazioni in cui $1,2,3$ non sono nella corrispettiva posizione:
-			\begin{itemize}
-			\item $\cancel{123}$
-			\item $\cancel{132}$
-			\item $\cancel{213}$
-			\item 231
-			\item 312
-			\item $\cancel{321}$
-		\end{itemize}
-		Ci sono $2$ combinazioni favorevoli
+			      =\frac{?}{\frac{1}{2}}=\frac{\frac{1}{3}}{\frac{1}{2}}=\frac{2}{3}$ \\
+		      tutte e tre le buste non vanno nelle buste corrispondenti: \\
+		      $P(\overline{E_3} \cap \overline{E_1} \cap \overline{E_2})=\frac{\text{numero casi favoreli}}{\text{numero casi possibili}}=\frac{?}{3!}=\frac{2}{3!}=\frac{2}{6}=\frac{1}{3}$ \\
+		      casi favorevoli che accada $P(\overline{E_3} \cap \overline{E_1} \cap \overline{E_2})$, ovvero tutte le combinazioni in cui $1,2,3$ non sono nella corrispettiva posizione:
+		      \begin{itemize}
+			      \item $\cancel{123}$
+			      \item $\cancel{132}$
+			      \item $\cancel{213}$
+			      \item 231
+			      \item 312
+			      \item $\cancel{321}$
+		      \end{itemize}
+		      Ci sono $2$ combinazioni favorevoli
 	\end{itemize}
 	Pertanto:
 	\[
-	P(E)=1-P(\overline{E})=1-\frac{2}{3}=0.33
+		P(E)=1-P(\overline{E})=1-\frac{1}{3}=\frac{2}{3}=0.67 \quad \textcolor{green}{\text{Risposta corretta}}
 	\]
-	Cos'ho sbagliato? deve venire 0.667 piu o meno
+	\textcolor{red}{Oppure un modo più veloce sempre con la negazione $P(E)=1-P(\overline{E})$:} \\
+	$\overline{E}=$nessuna delle tre lettere è inserita nella busta corrispondente
+	\begin{itemize}
+		\item $\overline{E_1}=$la lettera 1 non è nella busta 1
+		\item $\overline{E_2}=$la lettera 2 non è nella busta 2
+		\item $\overline{E_3}=$la lettera 3 non è nella busta 3
+	\end{itemize}
+	Voglio calcolare $P(\overline{E})=P(\overline{E_1} \cap \overline{E_2} \cap \overline{E_3})$ e poi fare $P(E)=1-P(\overline{E})$, quindi:
+	\begin{enumerate}
+		\item Elenco tutti i possibili modi di ordinare le buste:
+		      \begin{itemize}
+			      \item 123
+			      \item 132
+			      \item 213
+			      \item 231
+			      \item 312
+			      \item 321
+		      \end{itemize}
+		\item Tengo fissato un ordine (lettera 1 - busta 1 - prima posizione; lettera 2 - busta 2 - seconda posizione; lettera 3 - busta 3 - terza posizione)
+		\item Elimino i casi in cui 1 è nella prima posizione $\land$ 2 è nella seconda posizione $\land$ 3 è nella terza posizione:
+		      \begin{itemize}
+			      \item $\cancel{123}$ - elimino perchè 1 è nella prima posizione, 2 nella seconda, 3 nella terza
+			      \item $\cancel{132}$ - elimino perchè 1 è nella prima posizione
+			      \item $\cancel{213}$ - elimino perchè 3 è nella terza posizione
+			      \item 231
+			      \item 312
+			      \item $\cancel{321}$ - elimino perchè 2 è nella seconda posizione
+		      \end{itemize}
+			   Mi rimangono 2 casi favorevoli.
+			 \item Pertanto, $P(\overline{E})=P(\overline{E_1} \cap \overline{E_2} \cap \overline{E_3})=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{2}{3!}=\frac{2}{6}=\frac{1}{3}$
+			 \item Alla fine:
+			 \[
+			 P(E)=1-P(\overline{E})=1-\frac{1}{3}=\frac{2}{3}=0.67 \quad \textcolor{green}{\text{Risposta corretta}}
+			 \]
+	\end{enumerate}
+
 \end{esercizio}
 
 \break
@@ -1042,10 +1113,10 @@ Seconda osservazione: $P(A_2) \neq 0$
 			            \[
 				            P(E_1 \cap E_2 \cap E_3)=\frac{46}{50} \cdot \frac{45}{49} \cdot \frac{44}{48}=0.774
 			            \]
-						Quindi:
-						\[
-						P(E)=1-P(\overline{E})=1-0.774=0.226=22.6\%
-						\]
+			            Quindi:
+			            \[
+				            P(E)=1-P(\overline{E})=1-0.774=0.226=22.6\%
+			            \]
 		      \end{enumerate}
 	\end{itemize}
 	Pertanto, la probabilità che almeno uno dei pc sia difettoso è $P(E)=0.226$
