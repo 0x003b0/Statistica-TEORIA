@@ -1208,13 +1208,207 @@ Basta verificare questa uguaglianza:
 	\end{itemize}
 \end{osservazioni}
 \subsection{Fattorizzazione di un evento}
-Serve quando so la probabilità di un evento condizionato e voglio conoscere la probabilità di un evento singolo
-\\
-Tipo, conosco i valori di $P(T \mid M)=x$ e $P(\overline{T} \mid \overline{M})=y$ e voglio conoscere $P(T)=?$ 
+Formula probabilità condizionata:
+\[
+	P(A \mid B)=\frac{P(A \cap B)}{P(B)}
+\]
+posso modificarla algebricamente e ottenere:
+\[
+	P(A \cap B)=P(A \mid B) \cdot P(B)
+\]
+\begin{osservazioni}[Osservazione:]
+	Siano $A,B$ due eventi, vale sempre:
+	\[
+		A=A \cap (B \cup \overline{B}) \implies A=(A \cap B)\cup(A \cap \overline{B})
+	\]
+	$B$ e $\overline{B}$ sono incompatibili, non possono capitare insieme:
+	\begin{itemize}
+		\item $B=$ ho passato Statistica
+		\item $\overline{B}=$ non ho passato Statistica
+	\end{itemize}
+	è ovvio che non possono accadere insieme, l'hai passata oppure no. \\
+	Quindi, $B$ e $\overline{B}$ sono incompatibili:
+	\[
+		B \cap \overline{B} = \emptyset
+	\]
+	Pertanto, \textcolor{red}{se $B$ e $\overline{B}$ sono incompatibili anche gli eventi $(A \cap B)$ e $(A \cap \overline{B})$ lo sono.}
+\end{osservazioni}
+\begin{theorem}{Fattorizzazione di un evento}
+	LLa fattorizzazione di un evento si scrive come:
+	\[
+		P(A \cap B)=P(A \mid B) \cdot P(B)
+	\]
+\end{theorem}
+Quindi:
+\[
+	P(A) = \text{per l'osservazione fatta} = P \left( (A \cap B)\cup (A \cap \overline{B}) \right) =
+\]
+\[
+	(P(A \cap B))\cup (P(A \cap \overline{B})) = \text{formula fattorizzazione evento} = (P(A \mid B) \cdot P(B))\cup(P(A \mid \overline{B}) \cdot P(\overline{B})) =
+\]
+\[
+	=\footnote{dato che gli eventi $(A \cap B)$ e $(A \cap \overline{B})$ sono incompatibili ricordando il 4º assioma: \\
+		\textbf{Probabilità dell'unione di eventi incompatibili:} la probabilità dell'unione di eventi incompatibili
+		è la somma delle loro probabilità
+		\[
+			P\!\left( \bigcup_{i=1}^{n} A_i \right)
+			=
+			\sum_{i=1}^{n} P(A_i)
+		\]} \text{per il 4º assioma}=
+	(P(A \mid B) \cdot P(B)) \textcolor{red}{+}(P(A \mid \overline{B}) \cdot P(\overline{B}))
+\]
 
-
-
+\begin{esercizio}[Esercizio]
+	Siano due eventi:
+	\begin{itemize}
+		\item $M=$avere una certa malattia
+		\item $T=$il risultato del test è positivo
+	\end{itemize}
+	Siano i seguenti dati
+	\begin{itemize}
+		\item $P(M)=0.01$ \\
+		      Probabilità di avere una certa malattia
+		\item $P(T \mid M)=0.9$ \\
+		      Probabilità che il test sia positivo quando ho già una certa malattia
+		\item $P(\overline{T} \mid \overline{M})=0.98$ \\
+		      Probabilità che il test sia negativo quando so di non avere una certa malattia
+	\end{itemize}
+	\textcolor{red}{Qual è la probabilità che il test sia positivo? $P(T)=?$} \\
+	Ricordo dall'osservazione che:
+	\[
+		T=(T \cap M)\cup(T \cap \overline{M})
+	\]
+	Dato che $M, \overline{M}$ sono incompatibili, anche $T \cap M$ e $T \cap \overline{M}$ lo sono.
+	Quindi:
+	\begin{align*}
+		P(T)
+		 & = P((T \cap M) \cup (T \cap \overline{M}))                                 \\
+		 & = (P(T \cap M) \cup P(T \cap \overline{M}))                                \\
+		 & =\text{per l'assioma 4}                                                    \\
+		 & =P(T \cap M) \textcolor{red}{+} P(T \cap \overline{M})                     \\
+		 & = \text{per la formula di fattorizzazione}                                 \\
+		 & = P(T \mid M) \cdot P(M) + P(T \mid \overline{M}) \cdot P(\overline{M})    \\
+		 & = 0.9 \cdot 0.01 + 0.02 \cdot 0.99                                         \\
+		 & =0.009 + 0.0198 = 0.0288 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+	Mi manca trovare:
+	\begin{itemize}
+		\item $P(T \mid \overline{M})=?$ \\
+		      Ricordo che $P(E)=1-P(\overline{E})$, di conseguenza:
+		      \[
+			      P(T \mid \overline{M})=1-P(\overline{T} \mid \overline{M})=1-0.98=0.02
+		      \]
+		\item $P(\overline{M})=?$ \\
+		      Ricordo che $P(\overline{E})=1-P(E)$, di conseguenza:
+		      \[
+			      P(\overline{M})=1-P(M)=1-0.01=0.99
+		      \]
+	\end{itemize}
+\end{esercizio}
+\break
 \subsection{Teorema della Probabilità Assoluta}
+Questo teorema vale se e solo se:
+\begin{itemize}
+	\item Nessuno degli eventi è l'evento impossibile \\
+	\[
+	E_i \neq \emptyset \quad \forall{i} \in \left\{1,2,...,n\right\}
+	\]
+	\item Tutti gli eventi sono due a due incompatibili \\
+	      \[
+		      E_i \cap E_j=\emptyset \quad \forall{i,j} \in \left\{1,2,...,n\right\} i \neq j
+	      \]
+	\item L'unione degli eventi corrisponde allo spazio campionario ("l'unione contiene tutti gli esiti possibili"), ovvero
+	gli eventi formano una partizione di $\Omega$ \\
+	      \[
+		      \bigcup_{i} E_i = \Omega
+	      \]
+	Nell'esempio di un dado, $\Omega=\left\{1,2,3,4,5,6\right\}$: 
+	\begin{itemize}
+		\item $E_1=$esce 1 
+		\item $E_2=$esce 2 
+		\item $E_3=$esce 3 
+		\item $E_4=$esce 4 
+		\item $E_5=$esce 5 
+		\item $E_6=$esce 6 
+	\end{itemize}
+	\[
+	\bigcup_{i} E_i = \Omega \implies E_1 \cup E_2 \cup E_3 \cup E_4 \cup E_5 \cup E_6 = \Omega \implies 1 \cup 2 \cup 3 \cup 4 \cup 5 \cup 6 = \Omega
+	\]
+\end{itemize}
+\begin{theorem}{Teorema della Probabilità Assoluta}
+	SSiano $E_1,..., E_k$ eventi: 
+	\begin{itemize}
+		\item incompatibili
+		\item partizioni di $\Omega$
+	\end{itemize}
+	Sia $E$ un qualsiasi tra gli $k$ eventi, allora la sua probabilità è uguale a:
+	\[
+	P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)
+	\]
+	Ovvero:
+	\[
+	P(E) = P(E \mid E_1) \cdot P(E_1) + P(E \mid E_2) \cdot P(E_2) + \cdots + P(E \mid E_k) \cdot P(E_k)
+	\]
+\end{theorem}
+\begin{esercizio}[Esercizio]
+	In data 29/10/2025 un'azienda acquista microchip da 3 fornitori. 
+	\begin{itemize}
+		\item I microchip del fornitore 1 hanno il 10$\%$ di probabilità di essere difettosi
+		\item I microchip del fornitore 2 hanno il 5$\%$ di probabilità di essere difettosi
+		\item I microchip del fornitore 3 hanno il 2$\%$ di probabilità di essere difettosi
+	\end{itemize}
+	Supponendo che 
+	\begin{itemize}
+		\item il 20$\%$ della fornitura proviene dal fornitore 1
+		\item il 35$\%$ della fornitura proviene dal fornitore 2
+		\item il 45$\%$ della fornitura proviene dal fornitore 3
+	\end{itemize}
+	\textcolor{red}{Se un microchip viene selezionato a caso tra quelli acquistati in tale data qual è la probabilità che sia difettoso? $P(E)=?$}
+	\begin{enumerate}
+		\item Definisco cosa mi sta chiedendo: \\
+		Qual è la probabilità che un microchip pescato a caso tra quelli acquistati sia difettoso? \\
+		$E=$il microchip è difettoso
+		\item Dato che i microchip provengono da fornitori diversi, suddivido gli eventi:
+		\begin{itemize}
+			\item $E_1=$il microchip proviene dal fornitore 1
+			\item $E_2=$il microchip proviene dal fornitore 2
+			\item $E_3=$il microchip proviene dal fornitore 3
+		\end{itemize}
+	\end{enumerate}
+	Ripondo alle seguenti domande:
+	\begin{itemize}
+		\item Gli eventi sono eventi impossibili? No \\
+		Perchè:
+		\begin{itemize}
+			\item $P(E_1)=0.20$
+			\item $P(E_2)=0.35$
+			\item $P(E_3)=0.45$
+		\end{itemize}
+		\item Gli eventi sono incompatibili? Si \\
+		Perchè è impossibile che il microchip pescato provenda da due fornitori diversi
+		\item L'unione degli eventi $E_1,E_2,E_3$ è uguale a $\Omega$? Sì \\
+	\end{itemize}
+	Quindi uso la formula della probabilità assoluta $P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)$
+	\begin{align*}
+		P(E)
+		 & = P(E \mid E_1) \cdot P(E_1) +                                \\
+		 & + P(E \mid E_2) \cdot P(E_2)                                \\
+		 & + P(E \mid E_3) \cdot P(E_3) =                                                    
+	\end{align*}
+	Dove:
+	\begin{itemize}
+		\item $P(E \mid E_1)=0.10$ \\
+		Probabilità che il microchip sia difettoso dato che proviene dal fornitore 1
+		\item $P(E \mid E_2)=0.05$ \\
+		Probabilità che il microchip sia difettoso dato che proviene dal fornitore 2
+		\item $P(E \mid E_3)=0.02$ \\
+		Probabilità che il microchip sia difettoso dato che proviene dal fornitore 3
+	\end{itemize}
+	Quindi:
+	\[
+	P(E)=(0.10 \cdot 0.20)+(0.05 \cdot 0.35)+(0.02 \cdot 0.45)=0.0465 \quad \textcolor{green}{\text{Risposta corretta}}
+	\]
+\end{esercizio}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Variabili Casuali}
