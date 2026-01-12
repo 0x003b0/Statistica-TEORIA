@@ -1335,9 +1335,33 @@ Questo teorema vale se e solo se:
 	\bigcup_{i} E_i = \Omega \implies E_1 \cup E_2 \cup E_3 \cup E_4 \cup E_5 \cup E_6 = \Omega \implies 1 \cup 2 \cup 3 \cup 4 \cup 5 \cup 6 = \Omega
 	\]
 \end{itemize}
-\begin{theorem}{Teorema della Probabilità Assoluta}
-	SSiano $E_1,..., E_k$ eventi: 
+\begin{theorem}{Teorema della Probabilità Assoluta per 2 eventi}
+	QQuesta è valida solo quando ho 2 eventi nello spazio campionario. \\
+	Siano $E_1, E_2$ due eventi: 
 	\begin{itemize}
+		\item con probabilità non nulle $P(E_1),P(E_2) \neq 0$
+		\item incompatibili
+		\item partizioni di $\Omega$
+	\end{itemize}
+	La formula della probabilità assoluta se voglio calcolare $P(E_1)$:
+	\begin{align*}
+		P(E_1)
+		 & = P(E_1 \mid E_2) \cdot P(E_2)+P(E_1 \mid \overline{E_2})\cdot P(\overline{E_2}) =                                \\
+		 &  \text{ma $E_1,E_2$ incompatibili, quindi $P(E_1 \mid E_2)=0$}                                \\
+		 & = P(E_1 \mid \overline{E_2})\cdot P(\overline{E_2}) =                                                    
+	\end{align*}
+	oppure se voglio calcolare $P(E_2)$:
+	\begin{align*}
+		P(E_2)
+		 & = P(E_2 \mid E_1) \cdot P(E_1)+P(E_2 \mid \overline{E_1})\cdot P(\overline{E_1}) =                                \\
+		 &  \text{ma $E_2,E_1$ incompatibili, quindi $P(E_2 \mid E_1)=0$}                                \\
+		 & = P(E_2 \mid \overline{E_1})\cdot P(\overline{E_1}) =                                                    
+	\end{align*}
+\end{theorem}
+\begin{theorem}{Teorema della Probabilità Assoluta per $k$ eventi}
+	SSiano $E_1,\cdots, E_k$ eventi: 
+	\begin{itemize}
+		\item con probabilità non nulle
 		\item incompatibili
 		\item partizioni di $\Omega$
 	\end{itemize}
@@ -1409,6 +1433,158 @@ Questo teorema vale se e solo se:
 	P(E)=(0.10 \cdot 0.20)+(0.05 \cdot 0.35)+(0.02 \cdot 0.45)=0.0465 \quad \textcolor{green}{\text{Risposta corretta}}
 	\]
 \end{esercizio}
+
+\subsection{Formula di Bayes}
+Questo teorema vale se e solo se:
+\begin{itemize}
+	\item Nessuno degli eventi è l'evento impossibile \\
+	\[
+	E_i \neq \emptyset \quad \forall{i} \in \left\{1,2,...,n\right\}
+	\]
+	\item Tutti gli eventi sono due a due incompatibili \\
+	      \[
+		      E_i \cap E_j=\emptyset \quad \forall{i,j} \in \left\{1,2,...,n\right\} i \neq j
+	      \]
+	\item L'unione degli eventi corrisponde allo spazio campionario ("l'unione contiene tutti gli esiti possibili"), ovvero
+	gli eventi formano una partizione di $\Omega$ \\
+	      \[
+		      \bigcup_{i} E_i = \Omega
+	      \]
+\end{itemize}
+\begin{theorem}{Teorema di Bayes a 2 eventi}
+	SSiano $E_1, E_2$ due eventi:
+	\begin{itemize}
+		\item con probabilità non nulle $P(E_1),P(E_2) \neq 0$
+		\item incompatibili
+		\item partizioni di $\Omega$ 
+	\end{itemize}
+	La probabilità condizionata di $E_1$ rispetto a $E_2$ è uguale a:
+\begin{align*}
+		\textcolor{red}{P(E_1 \mid E_2)=}
+		 & \frac{P(E_2 \mid E_1) \cdot P(E_1)}{P(E_2)}=                                \\
+		 & \text{al denominatore sostituisco, per il teorema della probabilità}                            \\
+		 &  \text{assoluta } P(E_2) = P(E_2 \mid E_1) \cdot P(E_1)+P(E_2 \mid \overline{E_1}) \cdot P(\overline{E_1}) \text{ avrò che:}\\
+		& = \frac{P(E_2 \mid E_1) \cdot P(E_1)}{P(E_2 \mid E_1) \cdot P(E_1)+P(E_2 \mid \overline{E_1}) \cdot P(\overline{E_1})} =                           
+	\end{align*}
+
+	Dove:
+	\begin{itemize}
+		\item $P(E_1)$ è la probabilità a priori dell'evento $E_1$ (dato che ho già)
+		\item $P(E_1 \mid E_2)$ è la probabilità a posteriori dell'evento $E_1$ (che calcolo con Bayes)
+	\end{itemize}
+	Quello che fa la formula di Bayes è: \\
+	aggiornare la probabilità dell'evento $E_1$ (probabilità a priori) con informazioni contenute nell'evento $E_2$ 
+	(ottenendo così una probabilità a posteriori).
+\end{theorem}
+
+\begin{theorem}{Teorema di Bayes a $k$ eventi}
+	SSiano $E_1, \cdots, E_k$ eventi:
+	\begin{itemize}
+		\item con probabilità non nulle
+		\item incompatibili
+		\item partizioni di $\Omega$ 
+	\end{itemize}
+	Dato un qualsiasi evento $E$ tra i $k$ eventi, allora la probabilità condizionata di $E_k$ dato $E$
+	\begin{align*}
+		\textcolor{red}{P(E_k \mid E)=}
+		 & \frac{P(E \mid E_k) \cdot P(E_k)}{P(E)}=                                \\
+		 & \text{al denominatore sostituisco, per il teorema della}                            \\
+		 &  \text{probabilità assoluta } P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i) \text{ avrò che:}\\
+		& = \frac{P(E \mid E_k) \cdot P(E_k)}{\sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)} =                                 
+	\end{align*}
+\end{theorem}
+\begin{osservazioni}[Osservazione su formula di Bayes:]
+	Prima di calcolare correttamente la formula di Bayes, è necessario aver già calcolato la probabilità assoluta (che nella formula di Bayes 
+	è al denominatore).
+	\begin{enumerate}
+		\item Scrivi formula di Bayes:
+		\[
+		\textcolor{red}{P(E_k \mid E)=}\frac{P(E \mid E_k) \cdot P(E_k)}{P(E)}= 
+		\]
+		\item Calcola separatamente il denominatore della formula nello step 1, $P(E)$, con la formula della probabilità assoluta:
+		\[
+		P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)=valore
+		\]
+		\item Inserisci il valore ottenuto dallo step 2 nel denominatore della formula di Bayes nello step 1:
+		\begin{align*}
+		\textcolor{red}{P(E_k \mid E)=}
+		 & \frac{P(E \mid E_k) \cdot P(E_k)}{P(E)}=                                \\
+		& = \frac{P(E \mid E_k) \cdot P(E_k)}{valore} =                                 
+	\end{align*}
+	\end{enumerate}
+\end{osservazioni}
+\begin{esercizio}[Esercizio]
+	Siano due eventi:
+	\begin{itemize}
+		\item $M=$avere una certa malattia
+		\item $T=$il risultato del test è positivo
+	\end{itemize}
+	Siano i seguenti dati
+	\begin{itemize}
+		\item $P(M)=0.01$ \\
+		      Probabilità di avere una certa malattia
+		\item $P(T \mid M)=0.9$ \\
+		      Probabilità che il test sia positivo quando ho già una certa malattia
+		\item $P(\overline{T} \mid \overline{M})=0.98$ \\
+		      Probabilità che il test sia negativo quando so di non avere una certa malattia
+	\end{itemize}
+	\textcolor{red}{Qual è la probabilità che il test sia positivo? $P(T)=?$} \\
+	Ricordo dall'osservazione che:
+	\[
+		T=(T \cap M)\cup(T \cap \overline{M})
+	\]
+	Dato che $M, \overline{M}$ sono incompatibili, anche $T \cap M$ e $T \cap \overline{M}$ lo sono.
+	Quindi:
+	\begin{align*}
+		P(T)
+		 & = P((T \cap M) \cup (T \cap \overline{M}))                                 \\
+		 & = (P(T \cap M) \cup P(T \cap \overline{M}))                                \\
+		 & =\text{per l'assioma 4}                                                    \\
+		 & =P(T \cap M) \textcolor{red}{+} P(T \cap \overline{M})                     \\
+		 & = \text{per la formula di fattorizzazione}                                 \\
+		 & = P(T \mid M) \cdot P(M) + P(T \mid \overline{M}) \cdot P(\overline{M})    \\
+		 & = 0.9 \cdot 0.01 + 0.02 \cdot 0.99                                         \\
+		 & =0.009 + 0.0198 = 0.0288 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+	Mi manca trovare:
+	\begin{itemize}
+		\item $P(T \mid \overline{M})=?$ \\
+		      Ricordo che $P(E)=1-P(\overline{E})$, di conseguenza:
+		      \[
+			      P(T \mid \overline{M})=1-P(\overline{T} \mid \overline{M})=1-0.98=0.02
+		      \]
+		\item $P(\overline{M})=?$ \\
+		      Ricordo che $P(\overline{E})=1-P(E)$, di conseguenza:
+		      \[
+			      P(\overline{M})=1-P(M)=1-0.01=0.99
+		      \]
+	\end{itemize}
+	Adesso mi chiedo: \\
+	\textcolor{red}{Qual è la probabilità che un individuo sia affetto dalla malattia sapendo che il test diagnostico ha dato esito positivo? $P(M \mid T)=?$} \\
+	\textbf{Uso Bayes perchè conosco i valori di $P(T \mid M), P(M)$ e posso calcolare $P(T)$ con la probabilità assoluta; se non avessi queste condizioni, non potrei 
+	utilizzare la formula di Bayes.}
+	\begin{enumerate}
+		\item Scrivo la formula di Bayes:
+		\[
+	\textcolor{red}{P(M \mid T)=}\frac{P(T \mid M)\cdot P(M)}{P(T)}
+	\]
+	\item Calcolo separatamente il denominatore con la formula della probabilità assoluta per 2 eventi (M,T):
+		\begin{align*}
+		P(T)
+		 & = P(T \mid M) \cdot P(M)+P(T \mid \overline{M}) \cdot P(\overline{M}) =                          \\
+		 & \text{$T,M$ non sono incompatibili, quindi} P(T \mid M) \neq 0 \\
+		 & = 0.9 \cdot 0.01 + 0.02 \cdot 0.99 = 0.0288
+	\end{align*}
+	\item Inserisco il valore trovato nello step 2 al denominatore nella formula di Bayes nello step 1:
+	\begin{align*}
+		\textcolor{red}{P(M \mid T)}
+		 & = \frac{P(T \mid M)\cdot P(M)}{P(T)} =                          \\
+		 & = \frac{P(T \mid M)\cdot P(M)}{0.0288} = \\
+		 & = \frac{0.9\cdot 0.01}{0.0288}=0.3125 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+	\end{enumerate}
+\end{esercizio}
+\break
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Variabili Casuali}
