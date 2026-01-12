@@ -653,6 +653,10 @@ Sia $A$ un evento e $\Omega$ lo spazio campionario. Definisco $P(A)$ la probabil
 	      \[
 		      P(\overline{A})=1-P(A)
 	      \]
+	      oppure:
+	      \[
+		      P(A)=1-P(\overline{A})
+	      \]
 	\item \textbf{Probabilità dell'evento impossibile:}
 	      \[
 		      P(\emptyset)=0
@@ -953,6 +957,25 @@ Terza osservazione:
 \[
 	P(\overline{E} \mid B)=1-P(E \mid B)
 \]
+\[
+	P(E \mid B)=1-P(\overline{E} \mid B)
+\]
+\begin{osservazioni}[Osservazione:]
+	\begin{align*}
+		P(E \mid \overline{B})
+		 & = \frac{P(E \cap \overline{B})}{P(\overline{B})} =                                                    \\
+		 & \text{per l'assioma 3}                                                                                \\
+		 & = \frac{P(E \cap \overline{B})}{\textcolor{red}{1 - P(B)}} =                                          \\
+		 & \text{sapendo che } P(E \cap \overline{B})=P(E \mid \overline{B})\cdot P(\overline{B}) \text{ e che,} \\
+		 & \text{le due probabilità sono non nulle } P(E),P(\overline{B}) \neq 0,                                \\
+		 & \text{allora posso usare } P(E \cap \overline{B})=P(\overline{B} \mid E)\cdot P(E)                    \\
+		 & \text{poichè il risultato di } P(E \cap \overline{B}) \text{ rimane invariato. Quindi:}               \\
+		 & =  \frac{\textcolor{red}{P(\overline{B} \mid E)\cdot P(E)}}{1 - P(B)}=                                \\
+		 & =  \frac{\textcolor{red}{P(\overline{B} \mid E)}\cdot P(E)}{1 - P(B)} =                               \\
+		 & \text{per l'assioma 3} \\
+		 & =  \frac{(\textcolor{red}{1- P(B \mid E)})\cdot P(E)}{1 - P(B)} =
+	\end{align*}
+\end{osservazioni}
 \subsection{Probabilità Congiunta / Composta}
 La probabilità congiunta è la probabilità che due o più eventi si verifichino insieme (accadano entrambi), ossia che si verifichi l'intersezione
 degli eventi.
@@ -1129,6 +1152,7 @@ Seconda osservazione: $P(A_2) \neq 0$
 	\[
 		P(E_1 \cap E_2)=P(E_1) \cdot P(E_2)
 	\]
+	La probabilità che si verifichi uno non modifica la probabilità dell'altro.
 \end{theorem}
 \begin{theorem}{Indipendenza debole di $k$ eventi}
 	SSiano $k$ eventi. $E_1, E_2, ..., E_k$ sono \textcolor{red}{indipendenti due a due} se, presa l'intersezione di tutti gli eventi due a due, sono tutti
@@ -1310,34 +1334,34 @@ Quindi:
 Questo teorema vale se e solo se:
 \begin{itemize}
 	\item Nessuno degli eventi è l'evento impossibile \\
-	\[
-	E_i \neq \emptyset \quad \forall{i} \in \left\{1,2,...,n\right\}
-	\]
+	      \[
+		      E_i \neq \emptyset \quad \forall{i} \in \left\{1,2,...,n\right\}
+	      \]
 	\item Tutti gli eventi sono due a due incompatibili \\
 	      \[
 		      E_i \cap E_j=\emptyset \quad \forall{i,j} \in \left\{1,2,...,n\right\} i \neq j
 	      \]
 	\item L'unione degli eventi corrisponde allo spazio campionario ("l'unione contiene tutti gli esiti possibili"), ovvero
-	gli eventi formano una partizione di $\Omega$ \\
+	      gli eventi formano una partizione di $\Omega$ \\
 	      \[
 		      \bigcup_{i} E_i = \Omega
 	      \]
-	Nell'esempio di un dado, $\Omega=\left\{1,2,3,4,5,6\right\}$: 
-	\begin{itemize}
-		\item $E_1=$esce 1 
-		\item $E_2=$esce 2 
-		\item $E_3=$esce 3 
-		\item $E_4=$esce 4 
-		\item $E_5=$esce 5 
-		\item $E_6=$esce 6 
-	\end{itemize}
-	\[
-	\bigcup_{i} E_i = \Omega \implies E_1 \cup E_2 \cup E_3 \cup E_4 \cup E_5 \cup E_6 = \Omega \implies 1 \cup 2 \cup 3 \cup 4 \cup 5 \cup 6 = \Omega
-	\]
+	      Nell'esempio di un dado, $\Omega=\left\{1,2,3,4,5,6\right\}$:
+	      \begin{itemize}
+		      \item $E_1=$esce 1
+		      \item $E_2=$esce 2
+		      \item $E_3=$esce 3
+		      \item $E_4=$esce 4
+		      \item $E_5=$esce 5
+		      \item $E_6=$esce 6
+	      \end{itemize}
+	      \[
+		      \bigcup_{i} E_i = \Omega \implies E_1 \cup E_2 \cup E_3 \cup E_4 \cup E_5 \cup E_6 = \Omega \implies 1 \cup 2 \cup 3 \cup 4 \cup 5 \cup 6 = \Omega
+	      \]
 \end{itemize}
 \begin{theorem}{Teorema della Probabilità Assoluta per 2 eventi}
 	QQuesta è valida solo quando ho 2 eventi nello spazio campionario. \\
-	Siano $E_1, E_2$ due eventi: 
+	Siano $E_1, E_2$ due eventi:
 	\begin{itemize}
 		\item con probabilità non nulle $P(E_1),P(E_2) \neq 0$
 		\item incompatibili
@@ -1346,20 +1370,20 @@ Questo teorema vale se e solo se:
 	La formula della probabilità assoluta se voglio calcolare $P(E_1)$:
 	\begin{align*}
 		P(E_1)
-		 & = P(E_1 \mid E_2) \cdot P(E_2)+P(E_1 \mid \overline{E_2})\cdot P(\overline{E_2}) =                                \\
-		 &  \text{ma $E_1,E_2$ incompatibili, quindi $P(E_1 \mid E_2)=0$}                                \\
-		 & = P(E_1 \mid \overline{E_2})\cdot P(\overline{E_2}) =                                                    
+		 & = P(E_1 \mid E_2) \cdot P(E_2)+P(E_1 \mid \overline{E_2})\cdot P(\overline{E_2}) = \\
+		 & \text{ma $E_1,E_2$ incompatibili, quindi $P(E_1 \mid E_2)=0$}                      \\
+		 & = P(E_1 \mid \overline{E_2})\cdot P(\overline{E_2}) =
 	\end{align*}
 	oppure se voglio calcolare $P(E_2)$:
 	\begin{align*}
 		P(E_2)
-		 & = P(E_2 \mid E_1) \cdot P(E_1)+P(E_2 \mid \overline{E_1})\cdot P(\overline{E_1}) =                                \\
-		 &  \text{ma $E_2,E_1$ incompatibili, quindi $P(E_2 \mid E_1)=0$}                                \\
-		 & = P(E_2 \mid \overline{E_1})\cdot P(\overline{E_1}) =                                                    
+		 & = P(E_2 \mid E_1) \cdot P(E_1)+P(E_2 \mid \overline{E_1})\cdot P(\overline{E_1}) = \\
+		 & \text{ma $E_2,E_1$ incompatibili, quindi $P(E_2 \mid E_1)=0$}                      \\
+		 & = P(E_2 \mid \overline{E_1})\cdot P(\overline{E_1}) =
 	\end{align*}
 \end{theorem}
 \begin{theorem}{Teorema della Probabilità Assoluta per $k$ eventi}
-	SSiano $E_1,\cdots, E_k$ eventi: 
+	SSiano $E_1,\cdots, E_k$ eventi:
 	\begin{itemize}
 		\item con probabilità non nulle
 		\item incompatibili
@@ -1367,21 +1391,21 @@ Questo teorema vale se e solo se:
 	\end{itemize}
 	Sia $E$ un qualsiasi tra gli $k$ eventi, allora la sua probabilità è uguale a:
 	\[
-	P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)
+		P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)
 	\]
 	Ovvero:
 	\[
-	P(E) = P(E \mid E_1) \cdot P(E_1) + P(E \mid E_2) \cdot P(E_2) + \cdots + P(E \mid E_k) \cdot P(E_k)
+		P(E) = P(E \mid E_1) \cdot P(E_1) + P(E \mid E_2) \cdot P(E_2) + \cdots + P(E \mid E_k) \cdot P(E_k)
 	\]
 \end{theorem}
 \begin{esercizio}[Esercizio]
-	In data 29/10/2025 un'azienda acquista microchip da 3 fornitori. 
+	In data 29/10/2025 un'azienda acquista microchip da 3 fornitori.
 	\begin{itemize}
 		\item I microchip del fornitore 1 hanno il 10$\%$ di probabilità di essere difettosi
 		\item I microchip del fornitore 2 hanno il 5$\%$ di probabilità di essere difettosi
 		\item I microchip del fornitore 3 hanno il 2$\%$ di probabilità di essere difettosi
 	\end{itemize}
-	Supponendo che 
+	Supponendo che
 	\begin{itemize}
 		\item il 20$\%$ della fornitura proviene dal fornitore 1
 		\item il 35$\%$ della fornitura proviene dal fornitore 2
@@ -1390,47 +1414,47 @@ Questo teorema vale se e solo se:
 	\textcolor{red}{Se un microchip viene selezionato a caso tra quelli acquistati in tale data qual è la probabilità che sia difettoso? $P(E)=?$}
 	\begin{enumerate}
 		\item Definisco cosa mi sta chiedendo: \\
-		Qual è la probabilità che un microchip pescato a caso tra quelli acquistati sia difettoso? \\
-		$E=$il microchip è difettoso
+		      Qual è la probabilità che un microchip pescato a caso tra quelli acquistati sia difettoso? \\
+		      $E=$il microchip è difettoso
 		\item Dato che i microchip provengono da fornitori diversi, suddivido gli eventi:
-		\begin{itemize}
-			\item $E_1=$il microchip proviene dal fornitore 1
-			\item $E_2=$il microchip proviene dal fornitore 2
-			\item $E_3=$il microchip proviene dal fornitore 3
-		\end{itemize}
+		      \begin{itemize}
+			      \item $E_1=$il microchip proviene dal fornitore 1
+			      \item $E_2=$il microchip proviene dal fornitore 2
+			      \item $E_3=$il microchip proviene dal fornitore 3
+		      \end{itemize}
 	\end{enumerate}
 	Ripondo alle seguenti domande:
 	\begin{itemize}
 		\item Gli eventi sono eventi impossibili? No \\
-		Perchè:
-		\begin{itemize}
-			\item $P(E_1)=0.20$
-			\item $P(E_2)=0.35$
-			\item $P(E_3)=0.45$
-		\end{itemize}
+		      Perchè:
+		      \begin{itemize}
+			      \item $P(E_1)=0.20$
+			      \item $P(E_2)=0.35$
+			      \item $P(E_3)=0.45$
+		      \end{itemize}
 		\item Gli eventi sono incompatibili? Si \\
-		Perchè è impossibile che il microchip pescato provenda da due fornitori diversi
+		      Perchè è impossibile che il microchip pescato provenda da due fornitori diversi
 		\item L'unione degli eventi $E_1,E_2,E_3$ è uguale a $\Omega$? Sì \\
 	\end{itemize}
 	Quindi uso la formula della probabilità assoluta $P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)$
 	\begin{align*}
 		P(E)
-		 & = P(E \mid E_1) \cdot P(E_1) +                                \\
-		 & + P(E \mid E_2) \cdot P(E_2)                                \\
-		 & + P(E \mid E_3) \cdot P(E_3) =                                                    
+		 & = P(E \mid E_1) \cdot P(E_1) + \\
+		 & + P(E \mid E_2) \cdot P(E_2)   \\
+		 & + P(E \mid E_3) \cdot P(E_3) =
 	\end{align*}
 	Dove:
 	\begin{itemize}
 		\item $P(E \mid E_1)=0.10$ \\
-		Probabilità che il microchip sia difettoso dato che proviene dal fornitore 1
+		      Probabilità che il microchip sia difettoso dato che proviene dal fornitore 1
 		\item $P(E \mid E_2)=0.05$ \\
-		Probabilità che il microchip sia difettoso dato che proviene dal fornitore 2
+		      Probabilità che il microchip sia difettoso dato che proviene dal fornitore 2
 		\item $P(E \mid E_3)=0.02$ \\
-		Probabilità che il microchip sia difettoso dato che proviene dal fornitore 3
+		      Probabilità che il microchip sia difettoso dato che proviene dal fornitore 3
 	\end{itemize}
 	Quindi:
 	\[
-	P(E)=(0.10 \cdot 0.20)+(0.05 \cdot 0.35)+(0.02 \cdot 0.45)=0.0465 \quad \textcolor{green}{\text{Risposta corretta}}
+		P(E)=(0.10 \cdot 0.20)+(0.05 \cdot 0.35)+(0.02 \cdot 0.45)=0.0465 \quad \textcolor{green}{\text{Risposta corretta}}
 	\]
 \end{esercizio}
 
@@ -1438,15 +1462,15 @@ Questo teorema vale se e solo se:
 Questo teorema vale se e solo se:
 \begin{itemize}
 	\item Nessuno degli eventi è l'evento impossibile \\
-	\[
-	E_i \neq \emptyset \quad \forall{i} \in \left\{1,2,...,n\right\}
-	\]
+	      \[
+		      E_i \neq \emptyset \quad \forall{i} \in \left\{1,2,...,n\right\}
+	      \]
 	\item Tutti gli eventi sono due a due incompatibili \\
 	      \[
 		      E_i \cap E_j=\emptyset \quad \forall{i,j} \in \left\{1,2,...,n\right\} i \neq j
 	      \]
 	\item L'unione degli eventi corrisponde allo spazio campionario ("l'unione contiene tutti gli esiti possibili"), ovvero
-	gli eventi formano una partizione di $\Omega$ \\
+	      gli eventi formano una partizione di $\Omega$ \\
 	      \[
 		      \bigcup_{i} E_i = \Omega
 	      \]
@@ -1456,15 +1480,15 @@ Questo teorema vale se e solo se:
 	\begin{itemize}
 		\item con probabilità non nulle $P(E_1),P(E_2) \neq 0$
 		\item incompatibili
-		\item partizioni di $\Omega$ 
+		\item partizioni di $\Omega$
 	\end{itemize}
 	La probabilità condizionata di $E_1$ rispetto a $E_2$ è uguale a:
-\begin{align*}
+	\begin{align*}
 		\textcolor{red}{P(E_1 \mid E_2)=}
-		 & \frac{P(E_2 \mid E_1) \cdot P(E_1)}{P(E_2)}=                                \\
-		 & \text{al denominatore sostituisco, per il teorema della probabilità}                            \\
-		 &  \text{assoluta } P(E_2) = P(E_2 \mid E_1) \cdot P(E_1)+P(E_2 \mid \overline{E_1}) \cdot P(\overline{E_1}) \text{ avrò che:}\\
-		& = \frac{P(E_2 \mid E_1) \cdot P(E_1)}{P(E_2 \mid E_1) \cdot P(E_1)+P(E_2 \mid \overline{E_1}) \cdot P(\overline{E_1})} =                           
+		 & \frac{P(E_2 \mid E_1) \cdot P(E_1)}{P(E_2)}=                                                                                \\
+		 & \text{al denominatore sostituisco, per il teorema della probabilità}                                                        \\
+		 & \text{assoluta } P(E_2) = P(E_2 \mid E_1) \cdot P(E_1)+P(E_2 \mid \overline{E_1}) \cdot P(\overline{E_1}) \text{ avrò che:} \\
+		 & = \frac{P(E_2 \mid E_1) \cdot P(E_1)}{P(E_2 \mid E_1) \cdot P(E_1)+P(E_2 \mid \overline{E_1}) \cdot P(\overline{E_1})} =
 	\end{align*}
 
 	Dove:
@@ -1473,7 +1497,7 @@ Questo teorema vale se e solo se:
 		\item $P(E_1 \mid E_2)$ è la probabilità a posteriori dell'evento $E_1$ (che calcolo con Bayes)
 	\end{itemize}
 	Quello che fa la formula di Bayes è: \\
-	aggiornare la probabilità dell'evento $E_1$ (probabilità a priori) con informazioni contenute nell'evento $E_2$ 
+	aggiornare la probabilità dell'evento $E_1$ (probabilità a priori) con informazioni contenute nell'evento $E_2$
 	(ottenendo così una probabilità a posteriori).
 \end{theorem}
 
@@ -1482,38 +1506,38 @@ Questo teorema vale se e solo se:
 	\begin{itemize}
 		\item con probabilità non nulle
 		\item incompatibili
-		\item partizioni di $\Omega$ 
+		\item partizioni di $\Omega$
 	\end{itemize}
 	Dato un qualsiasi evento $E$ tra i $k$ eventi, allora la probabilità condizionata di $E_k$ dato $E$
 	\begin{align*}
 		\textcolor{red}{P(E_k \mid E)=}
-		 & \frac{P(E \mid E_k) \cdot P(E_k)}{P(E)}=                                \\
-		 & \text{al denominatore sostituisco, per il teorema della}                            \\
-		 &  \text{probabilità assoluta } P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i) \text{ avrò che:}\\
-		& = \frac{P(E \mid E_k) \cdot P(E_k)}{\sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)} =                                 
+		 & \frac{P(E \mid E_k) \cdot P(E_k)}{P(E)}=                                                      \\
+		 & \text{al denominatore sostituisco, per il teorema della}                                      \\
+		 & \text{probabilità assoluta } P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i) \text{ avrò che:} \\
+		 & = \frac{P(E \mid E_k) \cdot P(E_k)}{\sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)} =
 	\end{align*}
 \end{theorem}
 \begin{osservazioni}[Osservazione su formula di Bayes:]
-	Prima di calcolare correttamente la formula di Bayes, è necessario aver già calcolato la probabilità assoluta (che nella formula di Bayes 
+	Prima di calcolare correttamente la formula di Bayes, è necessario aver già calcolato la probabilità assoluta (che nella formula di Bayes
 	è al denominatore).
 	\begin{enumerate}
 		\item Scrivi formula di Bayes:
-		\[
-		\textcolor{red}{P(E_k \mid E)=}\frac{P(E \mid E_k) \cdot P(E_k)}{P(E)}= 
-		\]
+		      \[
+			      \textcolor{red}{P(E_k \mid E)=}\frac{P(E \mid E_k) \cdot P(E_k)}{P(E)}=
+		      \]
 		\item Calcola separatamente il denominatore della formula nello step 1, $P(E)$, con la formula della probabilità assoluta:
-		\[
-		P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)=valore
-		\]
+		      \[
+			      P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)=valore
+		      \]
 		\item Inserisci il valore ottenuto dallo step 2 nel denominatore della formula di Bayes nello step 1:
-		\begin{align*}
-		\textcolor{red}{P(E_k \mid E)=}
-		 & \frac{P(E \mid E_k) \cdot P(E_k)}{P(E)}=                                \\
-		& = \frac{P(E \mid E_k) \cdot P(E_k)}{valore} =                                 
-	\end{align*}
+		      \begin{align*}
+			      \textcolor{red}{P(E_k \mid E)=}
+			       & \frac{P(E \mid E_k) \cdot P(E_k)}{P(E)}=      \\
+			       & = \frac{P(E \mid E_k) \cdot P(E_k)}{valore} =
+		      \end{align*}
 	\end{enumerate}
 \end{osservazioni}
-\begin{esercizio}[Esercizio]
+\begin{esercizio}[Esercizio 1]
 	Siano due eventi:
 	\begin{itemize}
 		\item $M=$avere una certa malattia
@@ -1561,27 +1585,112 @@ Questo teorema vale se e solo se:
 	\end{itemize}
 	Adesso mi chiedo: \\
 	\textcolor{red}{Qual è la probabilità che un individuo sia affetto dalla malattia sapendo che il test diagnostico ha dato esito positivo? $P(M \mid T)=?$} \\
-	\textbf{Uso Bayes perchè conosco i valori di $P(T \mid M), P(M)$ e posso calcolare $P(T)$ con la probabilità assoluta; se non avessi queste condizioni, non potrei 
-	utilizzare la formula di Bayes.}
+	\textbf{Uso Bayes perchè conosco i valori di $P(T \mid M), P(M)$ e posso calcolare $P(T)$ con la probabilità assoluta; se non avessi queste condizioni, non potrei
+		utilizzare la formula di Bayes.}
 	\begin{enumerate}
 		\item Scrivo la formula di Bayes:
-		\[
-	\textcolor{red}{P(M \mid T)=}\frac{P(T \mid M)\cdot P(M)}{P(T)}
-	\]
-	\item Calcolo separatamente il denominatore con la formula della probabilità assoluta per 2 eventi (M,T):
-		\begin{align*}
-		P(T)
-		 & = P(T \mid M) \cdot P(M)+P(T \mid \overline{M}) \cdot P(\overline{M}) =                          \\
-		 & \text{$T,M$ non sono incompatibili, quindi} P(T \mid M) \neq 0 \\
-		 & = 0.9 \cdot 0.01 + 0.02 \cdot 0.99 = 0.0288
-	\end{align*}
-	\item Inserisco il valore trovato nello step 2 al denominatore nella formula di Bayes nello step 1:
+		      \[
+			      \textcolor{red}{P(M \mid T)=}\frac{P(T \mid M)\cdot P(M)}{P(T)}
+		      \]
+		\item Calcolo separatamente il denominatore con la formula della probabilità assoluta per 2 eventi (M,T):
+		      \begin{align*}
+			      P(T)
+			       & = P(T \mid M) \cdot P(M)+P(T \mid \overline{M}) \cdot P(\overline{M}) = \\
+			       & \text{$T,M$ non sono incompatibili, quindi} P(T \mid M) \neq 0          \\
+			       & = 0.9 \cdot 0.01 + 0.02 \cdot 0.99 = 0.0288
+		      \end{align*}
+		\item Inserisco il valore trovato nello step 2 al denominatore nella formula di Bayes nello step 1:
+		      \begin{align*}
+			      \textcolor{red}{P(M \mid T)}
+			       & = \frac{P(T \mid M)\cdot P(M)}{P(T)} =                                                  \\
+			       & = \frac{P(T \mid M)\cdot P(M)}{0.0288} =                                                \\
+			       & = \frac{0.9\cdot 0.01}{0.0288}=0.3125 \quad \textcolor{green}{\text{Risposta corretta}}
+		      \end{align*}
+	\end{enumerate}
+\end{esercizio}
+\begin{esercizio}[Esercizio 2]
+	In data 29/10/2025 un'azienda acquista microchip da 3 fornitori.
+	\begin{itemize}
+		\item I microchip del fornitore 1 hanno il 10$\%$ di probabilità di essere difettosi
+		\item I microchip del fornitore 2 hanno il 5$\%$ di probabilità di essere difettosi
+		\item I microchip del fornitore 3 hanno il 2$\%$ di probabilità di essere difettosi
+	\end{itemize}
+	Supponendo che
+	\begin{itemize}
+		\item il 20$\%$ della fornitura proviene dal fornitore 1
+		\item il 35$\%$ della fornitura proviene dal fornitore 2
+		\item il 45$\%$ della fornitura proviene dal fornitore 3
+	\end{itemize}
+	\textcolor{red}{Se un microchip viene selezionato a caso tra quelli acquistati in tale data qual è la probabilità che sia difettoso? $P(E)=?$}
+	\begin{enumerate}
+		\item Definisco cosa mi sta chiedendo: \\
+		      Qual è la probabilità che un microchip pescato a caso tra quelli acquistati sia difettoso? \\
+		      $E=$il microchip è difettoso
+		\item Dato che i microchip provengono da fornitori diversi, suddivido gli eventi:
+		      \begin{itemize}
+			      \item $E_1=$il microchip proviene dal fornitore 1
+			      \item $E_2=$il microchip proviene dal fornitore 2
+			      \item $E_3=$il microchip proviene dal fornitore 3
+		      \end{itemize}
+	\end{enumerate}
+	Ripondo alle seguenti domande:
+	\begin{itemize}
+		\item Gli eventi sono eventi impossibili? No \\
+		      Perchè:
+		      \begin{itemize}
+			      \item $P(E_1)=0.20$
+			      \item $P(E_2)=0.35$
+			      \item $P(E_3)=0.45$
+		      \end{itemize}
+		\item Gli eventi sono incompatibili? Si \\
+		      Perchè è impossibile che il microchip pescato provenda da due fornitori diversi
+		\item L'unione degli eventi $E_1,E_2,E_3$ è uguale a $\Omega$? Sì \\
+	\end{itemize}
+	Quindi uso la formula della probabilità assoluta $P(E) = \sum_{i}^{k} P(E \mid E_i) \cdot P(E_i)$
 	\begin{align*}
-		\textcolor{red}{P(M \mid T)}
-		 & = \frac{P(T \mid M)\cdot P(M)}{P(T)} =                          \\
-		 & = \frac{P(T \mid M)\cdot P(M)}{0.0288} = \\
-		 & = \frac{0.9\cdot 0.01}{0.0288}=0.3125 \quad \textcolor{green}{\text{Risposta corretta}}
+		P(E)
+		 & = P(E \mid E_1) \cdot P(E_1) + \\
+		 & + P(E \mid E_2) \cdot P(E_2)   \\
+		 & + P(E \mid E_3) \cdot P(E_3) =
 	\end{align*}
+	Dove:
+	\begin{itemize}
+		\item $P(E \mid E_1)=0.10$ \\
+		      Probabilità che il microchip sia difettoso dato che proviene dal fornitore 1
+		\item $P(E \mid E_2)=0.05$ \\
+		      Probabilità che il microchip sia difettoso dato che proviene dal fornitore 2
+		\item $P(E \mid E_3)=0.02$ \\
+		      Probabilità che il microchip sia difettoso dato che proviene dal fornitore 3
+	\end{itemize}
+	Quindi:
+	\[
+		P(E)=(0.10 \cdot 0.20)+(0.05 \cdot 0.35)+(0.02 \cdot 0.45)=0.0465 \quad \textcolor{green}{\text{Risposta corretta}}
+	\]
+	Adesso mi chiedo: \\
+	\textcolor{red}{Qual è la probabilità che un microchip scelto a caso sia stato fornito dal produttore 2 sapendo che esso è difettoso? $P(E_2 \mid E)=?$}
+	\textbf{Uso Bayes perchè conosco i valori di $P(E \mid E_2), P(E_2)$ e posso calcolare $P(E)$ con la probabilità assoluta; se non avessi queste condizioni, non potrei
+		utilizzare la formula di Bayes.}
+	\begin{enumerate}
+		\item Scrivo la formula di Bayes:
+		      \[
+			      \textcolor{red}{P(E_2 \mid E)=}\frac{P(E \mid E_2) \cdot P(E_2)}{P(E)}
+		      \]
+		\item Calcolo separatamente il denominatore con la formula della probabilità assoluta per 3 eventi $(E_1,E_2,E_3)$:
+		      \begin{align*}
+			      P(E)
+			       & = \sum_{i=1}^{3} P(E \mid E_i)\cdot P(E_i) =                         \\
+			       & = \left( P(E \mid E_1)\cdot P(E_1) \right)
+			      + \left( P(E \mid E_2)\cdot P(E_2) \right)
+			      + \left( P(E \mid E_3)\cdot P(E_3) \right) =                            \\
+			       & = (0.10 \cdot 0.20) + (0.05 \cdot 0.35) + (0.02 \cdot 0.45) = 0.0465
+		      \end{align*}
+		\item Inserisco il valore trovato nello step 2 al denominatore nella formula di Bayes nello step 1:
+		      \begin{align*}
+			      \textcolor{red}{P(E_2 \mid E)}
+			       & = \frac{P(E \mid E_2) \cdot P(E_2)}{P(E)} =                                               \\
+			       & = \frac{P(E \mid E_2) \cdot P(E_2)}{0.0465} =                                             \\
+			       & = \frac{0.05 \cdot 0.35}{0.0465}=0.3763 \quad \textcolor{green}{\text{Risposta corretta}}
+		      \end{align*}
 	\end{enumerate}
 \end{esercizio}
 \break
