@@ -972,7 +972,7 @@ Terza osservazione:
 		 & \text{poichè il risultato di } P(E \cap \overline{B}) \text{ rimane invariato. Quindi:}               \\
 		 & =  \frac{\textcolor{red}{P(\overline{B} \mid E)\cdot P(E)}}{1 - P(B)}=                                \\
 		 & =  \frac{\textcolor{red}{P(\overline{B} \mid E)}\cdot P(E)}{1 - P(B)} =                               \\
-		 & \text{per l'assioma 3} \\
+		 & \text{per l'assioma 3}                                                                                \\
 		 & =  \frac{(\textcolor{red}{1- P(B \mid E)})\cdot P(E)}{1 - P(B)} =
 	\end{align*}
 \end{osservazioni}
@@ -1696,7 +1696,293 @@ Questo teorema vale se e solo se:
 \break
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Variabili Casuali}
+\section{Variabili Aleatorie}
+\subsection{Funzione di massa}
+La funzione di massa indica la probabilità che ha ogni variabile aleatoria discreta che fa parte del supporto $\mathscr{X}$ studiato.
+\begin{theorem}{Funzione di massa per var discrete}
+	LLa \textcolor{red}{funzione di massa di probabilità} di una variabile aleatoria discreta $X$ è definita come:
+	\[
+		p_{X}(x)=P(X=x) \quad \forall{x \in \mathscr{X}}
+	\]
+\end{theorem}
+\begin{osservazioni}[Osservazione:]
+	La funzione assegna una probabilità a ogni variabile aleatoria discreta di $\mathscr{X}$ t.c. la loro somma è uguale a uno:
+	\[
+		\sum_{x \in X} P(X = x) = 1
+	\]
+\end{osservazioni}
+\begin{esercizio}[Esercizio]
+	Lancio tre volte una moneta con due facce: Croce (C) e Testa (T).
+	\begin{enumerate}
+		\item \textbf{Definisco spazio campionario:} \\
+		      Ovvero tutti i possibili esiti, che sono $2 \cdot 2 \cdot 2 = 2^3=8$ quindi 2 possibili esiti ad ogni lancio.
+		      \[
+			      \Omega= \left\{CCC, CTC, CTT, CCT, TTT, TTC, TCT, TCC \right\}
+		      \]
+		\item \textbf{Definisco la variabile aleatoria discreta:} \\
+		      Sia $X$ la variabile aleatoria che conta il numero di teste.
+		      \[
+			      X(\omega)=
+			      \begin{cases}
+				      0 & \text{se } \omega = CCC               \\
+				      1 & \text{se } \omega = CCT,\, CTC,\, TCC \\
+				      2 & \text{se } \omega = TTC,\, TCT,\, CTT \\
+				      3 & \text{se } \omega = TTT
+			      \end{cases}
+		      \]
+
+		\item \textbf{Supporto della variabile aleatoria:} \\
+		      Il supporto di $X$ sarà:
+		      \[
+			      \mathscr{X}= \left\{0,1,2,3 \right\}
+		      \]
+		\item \textbf{Calcolo la funzione di massa per ogni variabile aleatoria del supporto:}
+		      \begin{itemize}
+			      \item $P(X=0)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca tre volte di seguito Croce? $\omega=CCC$
+			            \[
+				            P(X=0)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{1}{8}
+			            \]
+			      \item $P(X=1)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca una sola volta testa? $\omega=CCT,CTC,TCC$
+			            \[
+				            P(X=1)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{3}{8}
+			            \]
+			      \item $P(X=2)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca due volte testa? $\omega=TTC,TCT,CTT$
+			            \[
+				            P(X=2)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{3}{8}
+			            \]
+			      \item $P(X=3)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca tre volte di seguito Testa? $\omega=TTT$
+			            \[
+				            P(X=2)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{1}{8}
+			            \]
+		      \end{itemize}
+		\item \textbf{Controllo se ho correttamente calcolato le funzioni di massa:} per vedere se è corretto, la loro somma deve essere uguale a 1.
+		      \begin{align*}
+			      \sum_{x \in X} P(X = x)
+			       & = 1                       \\[6pt]
+			      P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3)
+			       & = 1                       \\[6pt]
+			      \frac{1}{8}+\frac{3}{8}+\frac{3}{8}+\frac{1}{8}
+			       & = 1                       \\[6pt]
+			      1
+			       & \overset{\checkmark}{=} 1
+		      \end{align*}
+	\end{enumerate}
+\end{esercizio}
+
+\subsection{Funzione di densità}
+La funzione di densità indica la probabilità che ha una variabile aleatoria continua di appartenere ad un certo intervallo (supporto $\mathscr{X}$).
+\begin{theorem}{Funzione di densità per var continue}
+	LLa \textcolor{red}{funzione di densità di probabilità} di una variabile aleatoria continua $X$ è definita come:
+	\[
+		f_{X}(x)=P(X \in [x_1,x_2])=P(x_1 \leq X \leq x_2)=\int_{x_1}^{x_2}f_X(x)dx
+	\]
+	La probabilità dell'appartenenza della variabile aleatoria in un certo intervallo si calcola con l'integrale definito.
+\end{theorem}
+\begin{esercizio}[Esercizio]
+	Sia $X$ variabile aleatoria con supporto $\mathscr{X}=(0,2)$ (intervallo) con funzione di densità di probabilità:
+	\[
+		f_X(x) =
+		\begin{cases}
+			\dfrac{1}{2} & \text{se } 0 < x < 2, \\[2mm]
+			0            & \text{altrimenti.}
+		\end{cases}
+	\]
+	Scelgo ora un sottointervallo di $(0,2)$ e ne calcolo la funzione di densità:
+
+	\begin{align*}
+		P(0.25 \leq X \leq 0.75)
+		 & = \int_{0.25}^{0.75} f_X(x) \, dx                                           \\[1mm]
+		 & = \int_{0.25}^{0.75} \frac{1}{2} \, dx                                      \\[1mm]
+		 & = \frac{1}{2} x \Big|_{0.25}^{0.75}                                         \\[1mm]
+		 & = \left(\frac{1}{2}\cdot 0.75 \right) - \left(\frac{1}{2}\cdot 0.25 \right) \\[1mm]
+		 & = 0.25                                                                      \\
+		 & \text{la probabilità che la var $X$ ha di appartenere a $[0.25,0.75]$}      \\
+		 & \text{è uguale a 0.25}
+	\end{align*}
+	Se io invece calcolo la funzione di densità nell'intervallo $(0,2)$:
+	\begin{align*}
+		P(0 < X < 2)
+		 & = \int_{0}^{2} f_X(x) \, dx                                           \\[1mm]
+		 & = \int_{0}^{2} \frac{1}{2} \, dx                                      \\[1mm]
+		 & = \frac{1}{2} x \Big|_{0}^{2}                                         \\[1mm]
+		 & = \left(\frac{1}{2}\cdot 2 \right) - \left(\frac{1}{2}\cdot 0 \right) \\[1mm]
+		 & = 1                                                                   \\
+		 & \text{corretto poichè è una proprietà della funzione di densità}
+	\end{align*}
+\end{esercizio}
+
+\subsection{Funzione di ripartizione}
+La funzione di ripartizione indica la probabilità che la variabile aleatoria $X$ sia minore e/o uguale ad un certo valore $x$.
+
+\subsubsection{Funzione di ripartizione per variabile aleatoria discreta}
+\begin{theorem}{Funzione di ripartizione per var discrete}
+	LLa \textcolor{red}{funzione di ripartizione} di una variabile aleatoria discreta $X$ è definita come:
+	\[
+		F_{X}(x)=P(X \leq x)=\sum_{i=1, u_i \leq x}^{x} P(X=u_i)
+	\]
+	La probabilità che la variabile aleatoria $X$ sia minore e/o uguale a $x$ è uguale alla somma cumulative delle funzioni di massa di probabilità fino a $x$. \\
+	\[
+		P(X \leq x) = P(X=u_1)+P(X=u_2)+\cdots+P(X=u_{x})
+	\]
+\end{theorem}
+\begin{esercizio}[Esercizio]
+	Lancio tre volte una moneta con due facce: Croce (C) e Testa (T).
+	\begin{enumerate}
+		\item \textbf{Definisco spazio campionario:} \\
+		      Ovvero tutti i possibili esiti, che sono $2 \cdot 2 \cdot 2 = 2^3=8$ quindi 2 possibili esiti ad ogni lancio.
+		      \[
+			      \Omega= \left\{CCC, CTC, CTT, CCT, TTT, TTC, TCT, TCC \right\}
+		      \]
+		\item \textbf{Definisco la variabile aleatoria discreta:} \\
+		      Sia $X$ la variabile aleatoria che conta il numero di teste.
+		      \[
+			      X(\omega)=
+			      \begin{cases}
+				      0 & \text{se } \omega = CCC               \\
+				      1 & \text{se } \omega = CCT,\, CTC,\, TCC \\
+				      2 & \text{se } \omega = TTC,\, TCT,\, CTT \\
+				      3 & \text{se } \omega = TTT
+			      \end{cases}
+		      \]
+
+		\item \textbf{Supporto della variabile aleatoria:} \\
+		      Il supporto di $X$ sarà:
+		      \[
+			      \mathscr{X}= \left\{0,1,2,3 \right\}
+		      \]
+		\item \textbf{Calcolo la funzione di massa per ogni variabile aleatoria del supporto:}
+		      \begin{itemize}
+			      \item $P(X=0)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca tre volte di seguito Croce? $\omega=CCC$
+			            \[
+				            P(X=0)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{1}{8}
+			            \]
+			      \item $P(X=1)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca una sola volta testa? $\omega=CCT,CTC,TCC$
+			            \[
+				            P(X=1)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{3}{8}
+			            \]
+			      \item $P(X=2)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca due volte testa? $\omega=TTC,TCT,CTT$
+			            \[
+				            P(X=2)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{3}{8}
+			            \]
+			      \item $P(X=3)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca tre volte di seguito Testa? $\omega=TTT$
+			            \[
+				            P(X=2)=\frac{\text{casi favorevoli}}{\text{casi possibili}}=\frac{1}{8}
+			            \]
+		      \end{itemize}
+
+		\item \textbf{Calcolo la funzione di ripartizione per ogni valore $x$ del supporto:}
+		      \begin{itemize}
+			      \item $P(X \leq 0)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che non escano affatto Teste?
+			            \[
+				            \textcolor{red}{P(X \leq 0)=}P(X=0)=\frac{1}{8}
+			            \]
+			      \item $P(X \leq 1)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca una testa oppure zero teste?
+			            \[
+				            \textcolor{red}{P(X \leq 1)=}\left[P(X=0)+P(X=1)\right]=\frac{1}{8}+\frac{3}{8}=\frac{1}{2}
+			            \]
+			      \item $P(X \leq 2)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca nessuna, una o due volte testa?
+			            \[
+				            \textcolor{red}{P(X \leq 2)=}\left[P(X=0)+P(X=1)+P(X=2)\right]=\frac{1}{8}+\frac{3}{8}+\frac{3}{8}=\frac{7}{8}
+			            \]
+			      \item $P(X \leq 3)=?$ \\
+			            Lanciano tre volte una moneta, qual è la probabilità che esca nessuna, una, due o tre volte di seguito Testa?
+			            \[
+				            \textcolor{red}{P(X \leq 3)=}\left[P(X=0)+P(X=1)+P(X=2)+P(X=3)\right]=\frac{8}{8}=1
+			            \]
+		      \end{itemize}
+		      Quindi:
+		      \[
+			      F_X(x) =
+			      \begin{cases}
+				      \frac{1}{8} & 0 \le x < 1, \\[2mm]
+				      \frac{4}{8} & 1 \le x < 2, \\[2mm]
+				      \frac{7}{8} & 2 \le x < 3, \\[2mm]
+				      1           & x \ge 3.
+			      \end{cases}
+		      \]
+	\end{enumerate}
+\end{esercizio}
+
+\subsubsection{Funzione di ripartizione per variabile aleatoria continua}
+\begin{theorem}{Funzione di ripartizione per var continue}
+	LLa \textcolor{red}{funzione di ripartizione} di una variabile aleatoria continua $X$ è definita come:
+	\[
+		F_{X}(x)=P(X \leq x)=\int_{- \infty}^{x}f_X(u)du
+	\]
+	La probabilità che la variabile aleatoria $X$ sia minore e/o uguale a $x$ è uguale all'integrale definito da - inf a $x$. \\
+\end{theorem}
+\begin{esercizio}[Esercizio]
+	Sia $X$ variabile aleatoria con supporto $\mathscr{X}=(0,2)$ (intervallo) con funzione di densità di probabilità:
+	\[
+		f_X(x) =
+		\begin{cases}
+			\dfrac{1}{2} & \text{se } 0 < x < 2, \\[2mm]
+			0            & \text{altrimenti}
+		\end{cases}
+	\]
+	\textbf{Calcolo la funzione di ripartizione per $x$:}
+	\begin{enumerate}
+		\item $P(X \leq x)=?$
+		      \begin{align*}
+			      P(X \leq x)
+			       & = \int_{0}^{x}f_X(u)du                                  \\
+			       & = \int_{0}^{x}\frac{1}{2}du                             \\
+			       & = \frac{1}{2}u \Big|_{0}^{x}                            \\
+			       & = \frac{1}{2}\cdot x - \frac{1}{2}\cdot 0 = \frac{x}{2}
+		      \end{align*}
+		\item Adesso che ho $P(X \leq x)=\frac{x}{2}$ posso calcolarlo per qualsiasi valore di $x$ che sta nell'intervallo (0,2):
+		\begin{itemize}
+			\item $P(X \leq 0.2)=?$
+			\[
+			\textcolor{red}{P(X \leq 0.2)=}\frac{x}{2}=\frac{0.2}{2}
+			\]
+			\item $P(X \leq 0.5)=?$
+			\[
+			\textcolor{red}{P(X \leq 0.5)=}\frac{x}{2}=\frac{0.5}{2}
+			\]
+			\item $P(X \leq 1)=?$
+			\[
+			\textcolor{red}{P(X \leq 1)=}\frac{x}{2}=\frac{1}{2}
+			\]
+			\item $P(X \leq 1.5)=?$
+			\[
+			\textcolor{red}{P(X \leq 1.5)=}\frac{x}{2}=\frac{1.5}{2}
+			\]
+			\item $P(X \leq 2)=?$
+			\[
+			\textcolor{red}{P(X \leq 2)=}\frac{x}{2}=\frac{2}{2}=1
+			\]
+		\end{itemize}
+	\end{enumerate}
+\end{esercizio}
+\begin{osservazioni}[Osservazione:]
+	
+\end{osservazioni}
+
+\subsection{Valore atteso}
+\subsubsection{Valore atteso di una variabile aleatoria discreta}
+\subsubsection{Valore atteso di una variabile aleatoria continua}
+\subsection{Varianza di una variabile aleatoria}
+\subsection{Deviazione standard di una variabile aleatoria}
+\subsection{Distribuzione di probabilità congiunta}
+\subsubsection{Distribuzione di probabilità congiunta di variabili aleatorie discrete}
+\subsubsection{Distribuzione di probabilità congiunta di variabili aleatorie continue}
+\subsection{Funzioni di massa / densità di probabilità condizionate}
+\subsubsection{Funzioni di massa di probabilità condizionate}
+\subsubsection{Funzioni di densità di probabilità condizionate}
+\subsection{Variabili aleatorie indipendenti}
+\subsection{Variabili aleatorie identicamente distribuite $\&$ i.i.d}
 \subsection{Famiglie Parametriche}
 \section{Inferenza Statistica}
 \subsection{Stima Puntuale}
