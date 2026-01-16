@@ -2836,12 +2836,12 @@ Si usa quando, avendo un intervallo $[a,b]$ voglio calcolare la probabilità che
 		f_X(x;[a',b'])=P(a' \leq x \leq b')= \int_{a'}^{b'}f_X(x;[a',b'])
 		\begin{cases}
 			\int_{a'}^{b'}\left(\frac{1}{b-a}\right)dx & \text{se } x \in[a,b] \\
-			0             & \text{altrimenti }
+			0                                          & \text{altrimenti }
 		\end{cases}
 	\]
 	Oppure semplicemente si scrive:
 	\[
-	f_X(x;[a',b'])=P(a < a' \leq x \leq b' < b)=\int_{a'}^{b'}\left(\frac{1}{b-a}\right)dx=\textcolor{red}{\frac{b'-a'}{b-a}}
+		f_X(x;[a',b'])=P(a < a' \leq x \leq b' < b)=\int_{a'}^{b'}\left(\frac{1}{b-a}\right)dx=\textcolor{red}{\frac{b'-a'}{b-a}}
 	\]
 	Sia la funzione di ripartizione:
 	\[
@@ -2885,22 +2885,107 @@ Si usa quando, avendo un intervallo $[a,b]$ voglio calcolare la probabilità che
 	\end{itemize}
 	\begin{align*}
 		\textcolor{red}{P(10<X<15)+P(25<X<30)}
-		 & = \left[\int_{a'}^{b'}f_X(x)dx\right]+\left[\int_{a'}^{b'}f_X(x)dx\right]                                                                                                                        \\
-		 & = \left[\int_{10}^{15}f_X(x)dx\right]+\left[\int_{25}^{30}f_X(x)dx\right]  \\
-		 & = \left[\int_{10}^{15}(\frac{1}{b-a})dx\right]+\left[\int_{25}^{30}(\frac{1}{b-a})dx\right]  \\
-		 & = \left[\int_{10}^{15}(\frac{1}{30-0})dx\right]+\left[\int_{25}^{30}(\frac{1}{30-0})dx\right]  \\
+		 & = \left[\int_{a'}^{b'}f_X(x)dx\right]+\left[\int_{a'}^{b'}f_X(x)dx\right]                                                                               \\
+		 & = \left[\int_{10}^{15}f_X(x)dx\right]+\left[\int_{25}^{30}f_X(x)dx\right]                                                                               \\
+		 & = \left[\int_{10}^{15}(\frac{1}{b-a})dx\right]+\left[\int_{25}^{30}(\frac{1}{b-a})dx\right]                                                             \\
+		 & = \left[\int_{10}^{15}(\frac{1}{30-0})dx\right]+\left[\int_{25}^{30}(\frac{1}{30-0})dx\right]                                                           \\
 		 & = \left[\frac{1}{30}x \Big|_{10}^{15}\right]+\left[\frac{1}{30}x \Big|_{25}^{30}\right] = \frac{1}{3} \quad \textcolor{green}{\text{Risposta corretta}}
 	\end{align*}
 	Oppure semplicemente:
 	\begin{align*}
 		\textcolor{red}{P(10<X<15)+P(25<X<30)}
-		 & = \left[\frac{b'-a'}{b-a}\right]+\left[\frac{b'-a'}{b-a}\right]         \\
-		 & = \left[\frac{15-10}{30-0}\right]+\left[\frac{30-25}{30-0}\right]         \\
+		 & = \left[\frac{b'-a'}{b-a}\right]+\left[\frac{b'-a'}{b-a}\right]                                         \\
+		 & = \left[\frac{15-10}{30-0}\right]+\left[\frac{30-25}{30-0}\right]                                       \\
 		 & = \frac{5}{30}+\frac{5}{30}=\frac{10}{30}=\frac{1}{3} \quad \textcolor{green}{\text{Risposta corretta}}
 	\end{align*}
 \end{esercizio}
 \subsubsection{Distribuzione Normale}
+Molto usata in Statistica, la distribuzione normale rappresenta sul piano cartesiano una curva a campana, detta "curva gaussiana".
+La probabilità più elevata coincide con il valore medio centrale (che spezza la camapana a metà) e descresce spostandosi a destra o a sinistra.
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{grafico_distribuzione_normale.png}
+\end{center}
+\begin{theorem}{$X \sim$ N($\mu, \sigma^2$)}
+	SSia $X$ una variabile aleatoria e sia $\mu$ la media (dove sta il centro della camapana) e $\sigma^2$ la varianza (quanto è larga la campana) definisco:
+	\[
+		f_X(x;\mu,\sigma^2)=\frac{1}{\sigma \sqrt{2 \pi}}\cdot \mathrm{e}^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+	\]
+	dove:
+	\begin{itemize}
+		\item $\mu=$ rappresenta il valore atteso $\mathbb{E}_{\mu,\sigma^2}[X]$ (dato che si sta parlando di var aleatorie)
+		\item $\sigma^2=$ rappresenta la varianza $\mathbb{V}_{\mu,\sigma^2}[X]$ (dato che si sta parlando di var aleatorie)
+	\end{itemize}
+	Per calcolare la probabilità di un certo valore $x$ sotto la curva uso la funzione di ripartizione:
+	\[
+		\textcolor{red}{P(X \leq x;\mu,\sigma^2)=}F_X(x; \mu,\sigma^2)=\int_{-\infty}^{x}\left(\frac{1}{\sigma \sqrt{2 \pi}}\cdot \mathrm{e}^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}\right)dx
+	\]
+	Oppure:
+	\[
+		\textcolor{red}{P(X \geq x;\mu,\sigma^2)=}1 - F_X(x; \mu,\sigma^2)=1 - \left[\int_{-\infty}^{x}\left(\frac{1}{\sigma \sqrt{2 \pi}}\cdot \mathrm{e}^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}\right)dx\right]
+	\]
+	Ma questi non sono pratici da calcolare! Quindi come calcolo la funzione di ripartizione? Vedi Distribuzione Normale Standard.
+\end{theorem}
+\begin{osservazioni}[Note:]
+	\textcolor{red}{Voglio calcolare la deviazione standard:} \\
+	Ottengo la deviazione standard $\sigma$ applicando la radice quadrata alla varianza:
+	\[
+		DS_{\mu, \sigma^2}[X]=\sqrt{\mathbb{V}_{\mu,\sigma^2}[X]}
+	\]
+	\textcolor{red}{Voglio calcolare la varianza:} \\
+	Elevo al quadrato la deviazione standard per ottenere la varianza $\sigma^2$:
+	\[
+		\mathbb{V}_{\mu,\sigma^2}[X]=\left(DS_{\mu, \sigma^2}[X]\right)^2
+	\]
+\end{osservazioni}
+\begin{esempio}[Attenzione!]
+	La distribuzione Normale è individuata indifferentemente usando $(\mu, \sigma^2)$ oppure $(\mu, \sigma)$: \\
+	Ad esempio:
+	\begin{itemize}
+		\item $X$ ha distribuzione Normale di media 0 e varianza 9, $X \sim$ N ($\mu,\sigma^2$)
+		      \[
+			      X \sim \text{N} (0,9)
+		      \]
+		\item $X$ ha distribuzione Normale di media 0 e deviazione standard 3, $X \sim$ N ($\mu,\sigma$)
+		      \[
+			      X \sim \text{N} (0,3)
+		      \]
+	\end{itemize}
+\end{esempio}
+
 \subsubsection{Distribuzione Normale Standard}
+La Distribuzione Normale Standard è un caso particolare della Distribuzione Normale. In quest'ultima, posso associare a $\mu,\sigma^2$ i valori che desidero, mentre
+la Distribuzione Normale Standard ha valori specifici per questi due parametri:
+\[
+	\mu=0 \quad \quad \quad \sigma^2=1
+\]
+Abbiamo detto che calcolare la funzione di ripartizione con la Distribuzione Normale non è pratico poichè richiede di svolgere un integrale un pò ostico:
+\[
+	\textcolor{red}{P(X \leq x;\mu,\sigma^2)=}F_X(x; \mu,\sigma^2)=\int_{-\infty}^{x}\left(\frac{1}{\sigma \sqrt{2 \pi}}\cdot \mathrm{e}^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}\right)dx=????
+\]
+\begin{theorem}{Formula di Standardizzazione}
+	SSia $X$ una variabile aleatoria e standardizzo $X$ applicando la seguente formula:
+	\[
+		\textcolor{red}{Z} = \frac{X-\mu}{\sigma}
+	\]
+	Trasformo $X$ in $Z$ per poter calcolare $P(X \leq x;\mu,\sigma^2)$.
+	\begin{esempio}[Esempio:]
+		Ho distribuzione normale $X \sim$ N($10,4$) con media $\mu=10$ e varianza $\sigma^2=4$. \textcolor{red}{$P(X \leq 12)$=?} \\
+		Dato che non posso usare quell'integrale enorme, standardizzo la variabile.
+		\begin{enumerate}
+			\item Applico la formula:
+			      \[
+				      Z = \frac{X-\mu}{\sigma}=\frac{12-10}{\sqrt{4}}=1
+			      \]
+			\item Associo il valore a $P(Z \leq z)=\phi(z)$:
+			\[
+				P(Z \leq 1)=\phi(1)
+			\]
+			\item Guardo le tabelle della Distribuzione Normale Standard per trovare il valore:
+		\end{enumerate}
+	\end{esempio}
+\end{theorem}
+
+
 \section{Inferenza Statistica}
 \subsection{Stima Puntuale}
 \subsection{Stima Intervallare}
