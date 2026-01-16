@@ -2657,7 +2657,7 @@ su una singola prova / esperimento.
 \end{esercizio}
 
 \subsubsection{Distribuzione Binomiale}
-Si usa quando interessa la prob. di successi ottenuti e devo ripetere lo stesso esperimento bernoulliano $n$ volte ognuno con probabilità di successo pari a $\theta$.\\
+Si usa quando mi interessa la prob. di successi ottenuti e devo ripetere lo stesso esperimento bernoulliano $n$ volte ognuno con probabilità di successo pari a $\theta$.\\
 Ogni prova ha probabilità pari a $\theta$ ed è indipendente alle altre ("mi dimentico i valori di probabilità ottenuti nelle prove precedenti").
 
 \begin{theorem}{$X \sim$ Binomiale($n;\theta$) }
@@ -2665,7 +2665,7 @@ Ogni prova ha probabilità pari a $\theta$ ed è indipendente alle altre ("mi di
 	\\
 	\textcolor{red}{Qual è la probabilità di ottenere $k$ successi in $n$ prove effetuate? $P(X=k)?$}
 	\[
-		\binom{n}{k} \cdot \theta^k \cdot (1-\theta)^{n-k}
+		p_X(k;\theta)=\binom{n}{k} \cdot \theta^k \cdot (1-\theta)^{n-k}
 	\]
 \end{theorem}
 \begin{osservazioni}[Osservazione]
@@ -2686,18 +2686,219 @@ Ogni prova ha probabilità pari a $\theta$ ed è indipendente alle altre ("mi di
 	La probabilità di fare canestro in un singolo tiro è del 60$\%$, Qual è la probabilità di fare esattamente 7 canestri in 10 lanci effettuati? $X \sim$ Binomiale($10;0.6$)
 	\begin{align*}
 		\textcolor{red}{P(X=7)}
-		 & = \binom{n}{k} \cdot \theta^k \cdot (1-\theta)^{n-k}                   \\[2mm]
-		 & = \binom{10}{7} \cdot \theta^7 \cdot (1-\theta)^{10-7}                 \\[2mm]
-		 & = \frac{10!}{7!(10-7)!} \cdot \theta^7 \cdot (1-\theta)^{3}            \\[2mm]
-		 & = 120 \cdot \theta^7 \cdot (1-\theta)^{3} \\
-		 & \text{probabilità di fare canestro in un singolo tiro è del 60$\%$}                                                                \\
+		 & = \binom{n}{k} \cdot \theta^k \cdot (1-\theta)^{n-k}                \\[2mm]
+		 & = \binom{10}{7} \cdot \theta^7 \cdot (1-\theta)^{10-7}              \\[2mm]
+		 & = \frac{10!}{7!(10-7)!} \cdot \theta^7 \cdot (1-\theta)^{3}         \\[2mm]
+		 & = 120 \cdot \theta^7 \cdot (1-\theta)^{3}                           \\
+		 & \text{probabilità di fare canestro in un singolo tiro è del 60$\%$} \\
 		 & = 120 \cdot (0.6)^7 \cdot (1-0.6)^{3} = 0.215
 	\end{align*}
 	Quindi la probabilità di fare esattamente 7 canestri su 10 lanci quando $\theta=0.6$ è del 21.5$\%$
 \end{esercizio}
+\begin{esercizio}[Esercizio]
+	Sia un'auto con un pneumatico di scorta. L'auto si ferma se 2 (o più) pneumatici si forano. Supponiamo che all'inzio del viaggio tutti e 5 gli pneumatici
+	siano usati e che si forino indipendentemente con probabilità $\theta=0.01$. \\
+	Sia $X$ la variabile aleatoria che rappresenta il numero di pneumatici che si forano durante il viaggio:
+	\[
+		X \sim \text{Binomiale}(n=5;\theta=0.01)
+	\]
+	\textcolor{red}{Qual è la probabilità che l'auto si fermi?} \\
+	È un esperimento bernoulliano poichè lo pneumatico ha due opzioni: si fora (successo) oppure no (insuccesso).
+	L'auto si fermerà se 2 o più pneumatici si foreranno, quindi il numero di successi (foratura) $k$ affinchè avvenga quanto richiesto deve essere:
+	\[
+		k \geq 2
+	\]
+	L'auto si fermerà se avremo $ k \geq 2$ successi, quindi il quesito diventa \textcolor{red}{$P(X \geq 2)=?$} \\ \\
+	\textbf{Risoluzione:}
+	\begin{align*}
+		P(X \geq 2)
+		 & = \sum_{k=2}^{5}\left(\binom{5}{k}\cdot \theta^k \cdot (1-\theta)^{5-k}\right) =                     \\
+		 & = \binom{5}{2} \cdot \theta^2 \cdot (1-\theta)^{5-2} +                                               \\
+		 & + \binom{5}{3} \cdot \theta^3 \cdot (1-\theta)^{5-3} +                                               \\
+		 & + \binom{5}{4} \cdot \theta^4 \cdot (1-\theta)^{5-4} +                                               \\
+		 & + \binom{5}{5} \cdot \theta^5 \cdot (1-\theta)^{5-5} =                                               \\
+		 & = 10 \cdot \theta^2 \cdot (1-\theta)^{3} +                                                           \\
+		 & + 10 \cdot \theta^3 \cdot (1-\theta)^{2} +                                                           \\
+		 & + 5 \cdot \theta^4 \cdot (1-\theta)^{1} +                                                            \\
+		 & + 1 \cdot \theta^5 \cdot 1 =                                                                         \\
+		 & = 10 \cdot 0.01^2 \cdot (1-0.01)^{3} + 10 \cdot 0.01^3 \cdot (1-0.01)^{2} +                          \\
+		 & + 5 \cdot 0.01^4 \cdot (1-0.01) + 0.01^5 = 0.00098 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+	\textcolor{red}{Qual è la probabilità di terminare il viaggio?} \\
+	Abbiamo detto che l'auto si ferma se si forano 2 o più pneumatici, quindi basta che se ne forino 2 e siamo spacciati.
+	Quindi, l'auto non si ferma se:
+	\begin{itemize}
+		\item Non si fora nessun pneumatico
+		\item Se ne fora solo uno
+	\end{itemize}
+	Affinchè l'auto termini il viaggio se ne devono forare meno di 2. \\
+	Il quesito diventa \textcolor{red}{$P(X<2)=?$} \\ \\
+	\textbf{Soluzione:}
+	\begin{align*}
+		P(X < 2)
+		 & = P(X=0) + P(X=1)                                                                                                                        \\
+		 & = \left[\binom{5}{k}\cdot \theta^k \cdot (1-\theta)^{5-k}\right] + \left[\binom{5}{k}\cdot \theta^k \cdot (1-\theta)^{5-k}\right]        \\
+		 & = \left[\binom{5}{0}\cdot \theta^0 \cdot (1-\theta)^{5-0}\right] + \left[\binom{5}{1}\cdot \theta^1 \cdot (1-\theta)^{5-1}\right]        \\
+		 & = \left[(1-0.01)^{5}\right] + \left[5 \cdot 0.01^1 \cdot (1-0.01)^{4}\right]                                                             \\
+		 & = \left[(1-0.01)^{5}\right] + \left[5 \cdot 0.01^1 \cdot (1-0.01)^{4}\right] = 0.99902 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+	\begin{osservazioni}[Osservazione su $P(X < 2)$]
+		Ricordo che $P(X < 2)$ corrisponde alla funzione di ripartizione che si calcola come:
+		\[
+			P(X \leq x_n) = \sum_{i=0}^{n} \left(P(X=x_i)\right)
+		\]
+		oppure:
+		\[
+			P(X < x_n) = \sum_{i=0}^{n-1} \left(P(X=x_i)\right)
+		\]
+		Ossia come somma cumulativa delle funzioni di massa di probabilità fino a $x_n$ (nel caso di $\leq$) oppure fino a $x_{n-1}$ (nel caso di $<$)
+	\end{osservazioni}
+\end{esercizio}
+
 \subsubsection{Distribuzione di Poisson}
+Si usa quando mi interessa la probabilità di eventi accaduti in un certo intervallo (di tempo, spazio o altro) e non vengono indicate le prove totali effettuate
+\footnote{Se invece vengono indicate le prove tot effettuate è Binomiale, non Poisson. Ovvero: \\
+	Se fosse "Probabilità che accada un incidente nei primi 15km di autostrada (intervallo [0-15]) quando passano 50000 auto" è Binomiale perchè specifico il tot di prove effettuate.}
+. Esempi:
+\begin{itemize}
+	\item Probabilità di ricevere 30 chiamate dalle 9:00 alle 11:00
+	\item Probabilità che tra le 8:00 e le 11:00 in Via Guidoni passino 1500 persone
+	\item Probabilità che sfogliando le prime 200 pagine (intervallo [1-200]) trovo almeno un errore di ortografia
+	\item Probabilità che accada un incidente nei primi 15km di autostrada (intervallo [0-15])
+\end{itemize}
+\begin{theorem}{$X \sim$ Poisson($\lambda$)}
+	SSia $X$ la variabile aleatoria e $\lambda$ il numero medio di eventi che si verificano in un certo intervallo. \textcolor{red}{Qual è la probabilità che
+		si verifichino $x$ eventi in un intervallo di tempo con un certo parametro $\lambda$? $P(X=x)=?$}
+	\[
+		p_X(x;\lambda)=\frac{\lambda^x}{x!}\cdot \mathrm{e}^{-\lambda}
+	\]
+\end{theorem}
+\begin{theorem}{Media e Varianza di $X \sim$ Poisson($\lambda$)}
+	S\[
+		\textcolor{red}{\mathbb{E}_{\lambda}[X]}=\lambda
+	\]
+	e
+	\[
+		\textcolor{red}{\mathbb{V}_{\lambda}[X]}=\lambda
+	\]
+\end{theorem}
+\begin{esercizio}[Esercizio]
+	Si supponga che il numero di guasti che si verificano in un anno presso una centralina telefonica si possa rappresentare con una variabile aleatoria con distribuzione di Poisson di
+	parametro $\lambda=3$. \\ \textcolor{red}{Qual è la probabilità che in un anno si verifichino zero guasti?$P(X=0)=?$}
+	\[
+		P(X=0)=\frac{\lambda^x}{x!} \cdot \mathrm{e}^{-\lambda}=\frac{3^0}{0!} \cdot \mathrm{e}^{-3}=0.0498 \quad \textcolor{green}{\text{Risposta corretta}}
+	\]
+	\textcolor{red}{Qual è la probabilità di avere almeno due guasti in due anni?} \\
+	Ho definito che $\lambda=3$ vale solo per un certo intervallo di tempo: 1 anno; Ma se invece mi chiede 2 anni?
+	Allora avrò due variabili aleatorie:
+	\begin{itemize}
+		\item $X$: guasti verificati nel primo anno $X \sim$Poisson($\lambda$)
+		\item $Y$: guasti verificati nel secondo anno $Y \sim$Poisson($\lambda$)
+	\end{itemize}
+	$X + Y \sim$ Poisson($2\lambda$) \\
+	Quindi il quesito diventa \textcolor{red}{$P(X+Y \geq 2)=?$} \\
+	Sapendo che la funzione di ripartizione è $P(X < x)$ e che se ho $P(X \geq x_n)$ per la funzione di ripartizione ottengo: $P(X \geq x_n)=1-P(X \leq x_{n-1})$, dunque:
+	\begin{align*}
+		P(X+Y \geq 2)
+		 & = 1-\left[P(X + Y \leq 1)\right]                                                                                 \\
+		 & = 1-\left[P(X + Y = 0)+P(X + Y = 1)\right]                                                                       \\
+		 & = 1-\left[\frac{\lambda^x}{x!}\cdot \mathrm{e}^{-\lambda}+\frac{\lambda^x}{x!}\cdot \mathrm{e}^{-\lambda}\right] \\
+		 & = 1-\left[\frac{(6)^0}{0!}\cdot \mathrm{e}^{-6}+\frac{6^1}{1!}\cdot \mathrm{e}^{-6}\right]                       \\
+		 & = 1-\left[\mathrm{e}^{-6}+6\mathrm{e}^{-6}\right]                                                                \\
+		 & = 1-7\mathrm{e}^{-6}= 0.9827 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+\end{esercizio}
+\begin{esercizio}[Esercizio]
+	Un tipografo, in media, commette un errore ogni 500 parole. Una pagina contiene 300 parole. \textcolor{red}{Qual è la probabilità che non ci siano più di 2 errori in 5 pagine?}
+	\\ \\
+	\textbf{Soluzione:} \\
+	5 pagine contengono in totale $300 \cdot 5=1500$ parole. Sapendo che il tipografo commette in media un errore ogni 500 parole, allora in 5 pagine commetterà in media 3 errori, quindi $\lambda=3$.
+	\\
+	Posso esprimere la variabile aleatoria $X$ come il numero di errori presenti nell'intervallo [0-1500] parole.
+	Il quesito richiede  \textcolor{red}{$P(X \leq 2)=?$} \\
+	\begin{align*}
+		\textcolor{red}{P(X \leq 2)}
+		 & = P(X =0)+P(X =1)+P(X =2)                                                                                                                         \\
+		 & = \frac{\lambda^0}{0!}\cdot \mathrm{e}^{-\lambda}+\frac{\lambda^1}{1!}\cdot \mathrm{e}^{-\lambda}+\frac{\lambda^2}{2!}\cdot \mathrm{e}^{-\lambda} \\
+		 & = \mathrm{e}^{-\lambda}+\lambda\mathrm{e}^{-\lambda}+\frac{\lambda^2}{2}\cdot \mathrm{e}^{-\lambda}                                               \\
+		 & = \mathrm{e}^{-3}+3\mathrm{e}^{-3}+\frac{3^2}{2}\cdot \mathrm{e}^{-3}                                                                             \\
+		 & = \mathrm{e}^{-3}+3\mathrm{e}^{-3}+\frac{9}{2}\mathrm{e}^{-3}                                                                                     \\
+		 & = \left(1+3+\frac{9}{2}\right)\mathrm{e}^{-3}                                                                                                     \\
+		 & =\frac{17}{2}\mathrm{e}^{-3} = 0.4232 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+\end{esercizio}
 \subsection{Distribuzioni per variabili continue}
 \subsubsection{Distribuzione Uniforme}
+Si usa quando, avendo un intervallo $[a,b]$ voglio calcolare la probabilità che un evento accada in un suo sottointervallo quando tutti i valori sono equiprobabili.
+\begin{theorem}{$X \sim$ Uniforme $[a,b]$}
+	SSia $X$ la variabile aleatoria continua, sia $[a,b]$ l'intervallo e sia $[a',b']$ sottointervallo.
+	\[
+		f_X(x;[a',b'])=P(a' \leq x \leq b')= \int_{a'}^{b'}f_X(x;[a',b'])
+		\begin{cases}
+			\int_{a'}^{b'}\left(\frac{1}{b-a}\right)dx & \text{se } x \in[a,b] \\
+			0             & \text{altrimenti }
+		\end{cases}
+	\]
+	Oppure semplicemente si scrive:
+	\[
+	f_X(x;[a',b'])=P(a < a' \leq x \leq b' < b)=\int_{a'}^{b'}\left(\frac{1}{b-a}\right)dx=\textcolor{red}{\frac{b'-a'}{b-a}}
+	\]
+	Sia la funzione di ripartizione:
+	\[
+		F_X(x)=P(X \leq x)=\int_{-\infty}^{x}f_X(u)du=
+		\begin{cases}
+			0               & \text{se } x < a      \\
+			\frac{x-a}{b-a} & \text{se } x \in[a,b] \\
+			1               & \text{se } x >b
+		\end{cases}
+	\]
+\end{theorem}
+\begin{theorem}{Media e Varianza di $X \sim$ Uniforme $[a,b]$}
+	S\[
+		\textcolor{red}{\mathbb{E}_{a,b}[X]}=\frac{a+b}{2}
+	\]
+	e
+	\[
+		\textcolor{red}{\mathbb{V}_{a,b}[X]}=\frac{(b-a)^2}{12}
+	\]
+\end{theorem}
+\begin{esercizio}[Esercizio]
+	Ad una certa fermata passa un autobus ogni 15 minuti a partire dalle 7:00 (quindi alle 7:00, 7:15, 7:30, 7:45, $\cdots$).
+	\textcolor{red}{Arrivo alla fermata in un momento casuale tra le 7:00 e le 7:30, quale sarà la probabilità di dover attendere meno di 5 minuti per prendere il prossimo bus?} \\
+	\\ \textbf{Soluzione:} \\
+	Sia $X$ la variabile aleatoria che rappresenta l'istante in cui arrivo alla fermata e $[0,30]$ il sottointervallo in cui arrivo, allora: $X \sim$ Uniforme $[0,30]$. \\
+	Il bus passa ogni 15 minuti (7:00, 7:15, 7:30)e per far in modo che io aspetti meno di 5 minuti, dovrei arrivare dopo le 7:10 ma prima delle 7:15, oppure dopo le 7:25 ma prima delle 7:30.
+	\\
+	Il quesito diventa \textcolor{red}{$P(10<X<15)=?$} \textbf{oppure}\footnote{
+		Ricordo che $P(E_1 \cap E_2)=P(E_1)+P(E_2)-P(E_1 \cap E_2)$
+		ma se $E_1,E_2$ sono incompatibili, allora diventa: $P(E_1 \cap E_2)=P(E_1)+P(E_2)$
+
+	} \textcolor{red}{$P(25<X<30)=?$} Dato che sono due eventi incompatibili (non possono accadere insieme, o prendo il bus
+	tra le 7:10 e le 7:15 o prendo il bus delle 7:25 e le 7:30) e "oppure" rappresenta l'unione, quindi:
+	\[
+		P(10<X<15) \cup P(25<X<30)=P(10<X<15)+P(25<X<30)
+	\]
+	Quindi, il quesito diventa \textcolor{red}{$P(10<X<15)+P(25<X<30)=?$}
+	\begin{itemize}
+		\item $[a,b]$ intervallo
+		\item $[a',b']$ sottointervallo
+	\end{itemize}
+	\begin{align*}
+		\textcolor{red}{P(10<X<15)+P(25<X<30)}
+		 & = \left[\int_{a'}^{b'}f_X(x)dx\right]+\left[\int_{a'}^{b'}f_X(x)dx\right]                                                                                                                        \\
+		 & = \left[\int_{10}^{15}f_X(x)dx\right]+\left[\int_{25}^{30}f_X(x)dx\right]  \\
+		 & = \left[\int_{10}^{15}(\frac{1}{b-a})dx\right]+\left[\int_{25}^{30}(\frac{1}{b-a})dx\right]  \\
+		 & = \left[\int_{10}^{15}(\frac{1}{30-0})dx\right]+\left[\int_{25}^{30}(\frac{1}{30-0})dx\right]  \\
+		 & = \left[\frac{1}{30}x \Big|_{10}^{15}\right]+\left[\frac{1}{30}x \Big|_{25}^{30}\right] = \frac{1}{3} \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+	Oppure semplicemente:
+	\begin{align*}
+		\textcolor{red}{P(10<X<15)+P(25<X<30)}
+		 & = \left[\frac{b'-a'}{b-a}\right]+\left[\frac{b'-a'}{b-a}\right]         \\
+		 & = \left[\frac{15-10}{30-0}\right]+\left[\frac{30-25}{30-0}\right]         \\
+		 & = \frac{5}{30}+\frac{5}{30}=\frac{10}{30}=\frac{1}{3} \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+\end{esercizio}
 \subsubsection{Distribuzione Normale}
 \subsubsection{Distribuzione Normale Standard}
 \section{Inferenza Statistica}
