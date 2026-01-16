@@ -2476,7 +2476,7 @@ Ricordo che per due eventi, la probabilità condizionata è definita come:
 		      \[
 			      f_{X,Y}(x,y)=P(x_1 \leq X \leq x_2 , y_1 \leq Y \leq y_2)=\int_{y_1}^{y_2}\left(\int_{x_1}^{x_2}f_{X,Y}(x,y) dx\right)dy
 		      \]
-		\item funzione di massa di probabilità marginale di $Y$, ovvero
+		\item funzione di densità di probabilità marginale di $Y$, ovvero
 		      \[
 			      f_{Y}(y)=P(y_1 \leq Y \leq y_2)=\int_{x_1}^{x_2}(f_{X,Y}(x,y))dx
 		      \]
@@ -2507,10 +2507,199 @@ Ricordo che per due eventi, la probabilità condizionata è definita come:
 		      \]
 	\end{enumerate}
 \end{esercizio}
-
 \subsection{Variabili aleatorie indipendenti}
-\subsection{Variabili aleatorie identicamente distribuite $\&$ i.i.d}
+Ricordo che $E_1,E_2$ sono due eventi indipendenti se vale:
+\[
+	P(E_1 \cap E_2)=P(E_1) \cdot P(E_2)
+\]
+La probabilità che si verifichi uno non modifica la probabilità dell'altro.
+\subsubsection{Variabili aleatorie discrete indipendenti}
+\begin{theorem}{var discrete indipendenti}
+	SSiano $X,Y$ due variabili aleatorie discrete con funzione di massa di probabilità congiunta $p_{X,Y}(x,y)$ e funzioni di massa di prob. marginali $p_X(x),p_Y(y)$.
+	Si dice che \textcolor{red}{$X,Y$ sono indipendenti se} la funzione di massa di prob. congiunta è uguale al prodotto delle funzioni di massa di prob. marginali:
+	\[
+		\textcolor{red}{p_{X,Y}(x,y)= } p_X(x) \cdot p_Y(y)
+	\]
+	scrivendolo esteso:
+	\[
+		\textcolor{red}{P(X=x,Y=y)=}P(X=x) \cdot P(Y=y)
+	\]
+\end{theorem}
+\subsubsection{Variabili aleatorie continue indipendenti}
+\begin{theorem}{var continue indipendenti}
+	SSiano $X,Y$ due variabili aleatorie continue con funzione di densità di probabilità congiunta $f_{X,Y}(x,y)$ e funzioni di densità di prob. marginali $f_X(x),f_Y(y)$.
+	Si dice che \textcolor{red}{$X,Y$ sono indipendenti se} la funzione di densità di prob. congiunta è uguale al prodotto delle funzioni di densità di prob. marginali:
+	\[
+		\textcolor{red}{f_{X,Y}(x,y)= } f_X(x) \cdot f_Y(y)
+	\]
+	scrivendolo esteso:
+	\[
+		\int_{y_1}^{y_2}\left(\int_{x_1}^{x_2}f_{X,Y}(x,y) dx\right)dy=\left(\int_{y_1}^{y_2}(f_{X,Y}(x,y))dy \right) \cdot \left(\int_{x_1}^{x_2}(f_{X,Y}(x,y))dx \right)
+	\]
+	Poichè:
+	\begin{itemize}
+		\item $f_{X,Y}(x,y)=P(x_1 \leq X \leq x_2 , y_1 \leq Y \leq y_2)=\int_{y_1}^{y_2}\left(\int_{x_1}^{x_2}f_{X,Y}(x,y) dx\right)dy$
+		\item $f_X(x)=P(x_1 \leq X \leq x_2)=\int_{y_1}^{y_2}(f_{X,Y}(x,y))dy$
+		\item $f_{Y}(y)=P(y_1 \leq Y \leq y_2)=\int_{x_1}^{x_2}(f_{X,Y}(x,y))dx$
+	\end{itemize}
+\end{theorem}
+\subsection{Variabili aleatorie identicamente distribuite (i.d)}
+Le variabili aleatorie si dicono \textcolor{red}{identicamente distribuite} se hanno \textbf{tutte} lo stesso valore di probabilità.
+Ovvero, per ogni valore possibile $X \in \mathscr{X}$, il valore di probabilità è il medesimo.
+\begin{esempio}[Esempio]
+	Lancio più volte lo stesso dado.
+	Sia $X_i$ la variabile aleatoria che rappresenta
+	il risultato dell'$i$-esimo lancio, con supporto
+	\[
+		\mathscr{X} = \{1,2,3,4,5,6\}.
+	\]
+	Per ogni $i$ vale:
+	\[
+		P(X_i = k) = \frac{1}{6}, \quad k=1,\dots,6.
+	\]
+	Poiché tutte le variabili aleatorie $X_i$ hanno la
+	stessa distribuzione di probabilità (Bernoulli, Binomiale, Normale, $\cdots$),
+	esse sono identicamente distribuite.
+\end{esempio}
+
+\subsection{Variabili aleatorie indipendenti identicamente distribuite (i.i.d)}
+Due variabili aleatorie si dicono \textcolor{red}{indipendenti e identicamente distribuite} se:
+\begin{itemize}
+	\item sono tutte indipendenti tra loro (la probabilità congiunta è uguale al prodotto delle prob. marginali)
+	\item hanno tutte lo stesso valore di probabilità (le funzioni di massa di prob. hanno la stessa probabilità, le funzioni di massa di prob. congiunta hanno la stessa probabilità, ...)
+\end{itemize}
+\begin{esempio}[Esempio]
+	Lancio di due monete. Siano $X,Y$ variabili aleatorie discrete che rappresentano l'esito dei due lanci:
+	\begin{itemize}
+		\item $X$ assume valore 1 se l'esito del primo lancio è testa, zero altrimenti.
+		\item $Y$ assume valore 1 se l'esito del primo lancio è testa, zero altrimenti.
+	\end{itemize}
+	\begin{center}
+		\includegraphics[width=0.8\linewidth]{moneta.png}
+	\end{center}
+\end{esempio}
+\break
+
 \section{Famiglie Parametriche}
+Sia $\theta$ indicata come la \textcolor{red}{probabilità di successo}.
+
+\subsection{Distribuzioni per variabili discrete}
+\subsubsection{Distribuzione di Bernoulli}
+Si usa quando gli esiti dell'esperimento possono essere solo due:
+\begin{itemize}
+	\item 1 - Successo
+	\item 0 - Insuccesso
+\end{itemize}
+su una singola prova / esperimento.
+\begin{theorem}{$X \sim$ Bernoulli($\theta$)}
+	SSia $X$ la variabile aleatoria che può assumere solo due valori:
+	\[
+		X =
+		\begin{cases}
+			1 & \text{se l'esito è un successo} \\
+			0 & \text{altrimenti}
+		\end{cases}
+	\]
+	e sia $\theta \in[0,1]$ la probabilità di successo dell'esperimento.
+	Essendo i due esiti complementari, posso scriverli come:
+	\[
+		\textcolor{red}{P(X=1)=}\theta \quad \quad \quad \textcolor{red}{P(X=0)=}1-\theta
+	\]
+	Formula generale:
+	\[
+		p_X(x;\theta)=\theta^x(1-\theta)^{1-x}
+	\]
+	che è un modo compatto di scrivere le due sopra. Difatti:
+	\begin{itemize}
+		\item Successo:
+		      \[
+			      p_X(x;\theta)=p_X(1;\theta)=\theta^x(1-\theta)^{1-x}=\theta^1(1-\theta)^{1-1}=\theta
+		      \]
+		\item Insuccesso:
+		      \[
+			      p_X(x;\theta)=p_X(0;\theta)=\theta^x(1-\theta)^{1-x}=\theta^0(1-\theta)^{1-0}=1-\theta
+		      \]
+	\end{itemize}
+\end{theorem}
+\begin{theorem}{Media e Varianza di $X \sim$ Bernoulli($\theta$)}
+	S\[
+		\textcolor{red}{\mathbb{E}_{\theta}[X]}=\theta
+	\]
+	e
+	\[
+		\textcolor{red}{\mathbb{V}_{\theta}[X]}=\theta \cdot (1-\theta)
+	\]
+\end{theorem}
+
+\begin{esercizio}[Esempio]
+	Lancio una moneta. \\
+	$X$ è l'esito del lancio, e possono essere sono solo due: T oppure C (o si verifica testa oppure si verficia croce), ecco perchè uso la Distribuzione Bernoulliana. \\ \\
+	Scommetto che esca Testa (quindi scelgo come successo "Testa"):
+	\begin{itemize}
+		\item Se esce Testa, sarà un Successo e quindi assocerò a $X$ il valore di 1:
+		      \[
+			      X=1
+		      \]
+		\item Se esce Croce, sarà un Insuccesso e quindi assocerò a $X$ il valore di 0:
+		      \[
+			      X=0
+		      \]
+	\end{itemize}
+	\textcolor{red}{Qual è la probabilità che esca Testa? $P(X=1)=?$}
+	\[
+		P(X=1)=\frac{1}{2}
+	\]
+	Quindi la probabilità di successo è uguale $\theta=\frac{1}{2}$.
+	In questo esperimento, si ha una variabile Bernoulliana $X$ di parametro $\theta=\frac{1}{2}$:
+	\[
+		X \sim \text{Bernoulli}\left(\frac{1}{2}\right)
+	\]
+\end{esercizio}
+
+\subsubsection{Distribuzione Binomiale}
+Si usa quando interessa la prob. di successi ottenuti e devo ripetere lo stesso esperimento bernoulliano $n$ volte ognuno con probabilità di successo pari a $\theta$.\\
+Ogni prova ha probabilità pari a $\theta$ ed è indipendente alle altre ("mi dimentico i valori di probabilità ottenuti nelle prove precedenti").
+
+\begin{theorem}{$X \sim$ Binomiale($n;\theta$) }
+	SSia $X$ il numero di successi di $n$ prove bernoulliane effettuate e sia $\theta$ la probabilità di successo di ogni prova.
+	\\
+	\textcolor{red}{Qual è la probabilità di ottenere $k$ successi in $n$ prove effetuate? $P(X=k)?$}
+	\[
+		\binom{n}{k} \cdot \theta^k \cdot (1-\theta)^{n-k}
+	\]
+\end{theorem}
+\begin{osservazioni}[Osservazione]
+	\[
+		\binom{n}{k}=\frac{n!}{k! \cdot (n-k)!}
+	\]
+\end{osservazioni}
+\begin{theorem}{Media e Varianza di $X \sim$ Binomiale($n;\theta$) }
+	S\[
+		\textcolor{red}{\mathbb{E}_{\theta}[X]}=n \cdot \theta
+	\]
+	e
+	\[
+		\textcolor{red}{\mathbb{V}_{\theta}[X]}=n \cdot \theta \cdot (1-\theta)
+	\]
+\end{theorem}
+\begin{esercizio}[Esercizio]
+	La probabilità di fare canestro in un singolo tiro è del 60$\%$, Qual è la probabilità di fare esattamente 7 canestri in 10 lanci effettuati? $X \sim$ Binomiale($10;0.6$)
+	\begin{align*}
+		\textcolor{red}{P(X=7)}
+		 & = \binom{n}{k} \cdot \theta^k \cdot (1-\theta)^{n-k}                   \\[2mm]
+		 & = \binom{10}{7} \cdot \theta^7 \cdot (1-\theta)^{10-7}                 \\[2mm]
+		 & = \frac{10!}{7!(10-7)!} \cdot \theta^7 \cdot (1-\theta)^{3}            \\[2mm]
+		 & = 120 \cdot \theta^7 \cdot (1-\theta)^{3} \\
+		 & \text{probabilità di fare canestro in un singolo tiro è del 60$\%$}                                                                \\
+		 & = 120 \cdot (0.6)^7 \cdot (1-0.6)^{3} = 0.215
+	\end{align*}
+	Quindi la probabilità di fare esattamente 7 canestri su 10 lanci quando $\theta=0.6$ è del 21.5$\%$
+\end{esercizio}
+\subsubsection{Distribuzione di Poisson}
+\subsection{Distribuzioni per variabili continue}
+\subsubsection{Distribuzione Uniforme}
+\subsubsection{Distribuzione Normale}
+\subsubsection{Distribuzione Normale Standard}
 \section{Inferenza Statistica}
 \subsection{Stima Puntuale}
 \subsection{Stima Intervallare}
