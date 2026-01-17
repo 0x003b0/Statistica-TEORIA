@@ -2965,27 +2965,126 @@ Abbiamo detto che calcolare la funzione di ripartizione con la Distribuzione Nor
 \begin{theorem}{Formula di Standardizzazione}
 	SSia $X$ una variabile aleatoria e standardizzo $X$ applicando la seguente formula:
 	\[
-		\textcolor{red}{Z} = \frac{X-\mu}{\sigma}
+		\textcolor{red}{Z} = \frac{x-\mu}{\sigma}
 	\]
 	Trasformo $X$ in $Z$ per poter calcolare $P(X \leq x;\mu,\sigma^2)$.
 	\begin{esempio}[Esempio:]
-		Ho distribuzione normale $X \sim$ N($10,4$) con media $\mu=10$ e varianza $\sigma^2=4$. \textcolor{red}{$P(X \leq 12)$=?} \\
+		La colazione degli italiani.
+		Le analisi dichiarano che in media la popolazione mangia 10 biscotti con il caffè latte la mattina e varianza pari a 4 (nella pratica molte persone ne mangiano 8 o 12, con scostamenti tipici di circa 2 biscotti). La variabile aleatoria $X$ rappresenta il numero
+		di biscotti mangiati da un individuo.
+		Ho distribuzione normale $X \sim$ N($10,4$) con media $\mu=10$ e varianza $\sigma^2=4$.
+		\textcolor{red}{Data $X \sim$ N($10,4$) qual è la probabilità che il numero di biscotti mangiati sia minore-uguale a 12? $P(X \leq 12)$=?} \\
 		Dato che non posso usare quell'integrale enorme, standardizzo la variabile.
 		\begin{enumerate}
 			\item Applico la formula:
 			      \[
-				      Z = \frac{X-\mu}{\sigma}=\frac{12-10}{\sqrt{4}}=1
+				      Z = \frac{x-\mu}{\sigma}=\frac{12-10}{\sqrt{4}}=1
 			      \]
 			\item Associo il valore a $P(Z \leq z)=\phi(z)$:
-			\[
-				P(Z \leq 1)=\phi(1)
-			\]
-			\item Guardo le tabelle della Distribuzione Normale Standard per trovare il valore:
+			      \[
+				      P(Z \leq 1)=\phi(1)
+			      \]
+			\item Guardo le tavola di $\phi(\cdot)$ per trovare il valore: $\phi(1)=0.8413$
+			      \begin{center}
+				      \includegraphics[width=0.5\linewidth]{tavolaz.png}
+			      \end{center}
+			      Pertanto:
+			      \[
+				      \textcolor{red}{P(X \leq 12)}=0.8413 \quad \textcolor{green}{\text{Risposta corretta}}
+			      \]
+			      La probabilità che il numero di biscotti sia minore-uguale a 12 è del 84.13$\%$ e rappresenta l'area in blu sottostante della campana da $\phi(1)$ fino a $-\infty$
+			      \begin{center}
+				      \includegraphics[width=0.7\linewidth]{esercizioz.png}
+			      \end{center}
 		\end{enumerate}
 	\end{esempio}
 \end{theorem}
+\subsubsection{Proprietà di $\phi(\cdot)$}
+\begin{enumerate}
+	\item \[
+		      0 \leq \phi(z) \leq 1 \quad z \in \mathbb{R}
+	      \]
+	\item \[
+		      \textcolor{red}{\phi(-z)}=1-\phi(z)
+	      \]
+	      Segue che:
+	      \[
+		      \textcolor{red}{P(X \geq x)}=P(X \geq z)=P(X \leq -z)=\phi(-z)=1-\phi(z)
+	      \]
+	\item Se $X$ una variabile aleatoria continua con Distribuzione Normale di media $\mu$ e varianza $\sigma^2$: $X \sim$ N($\mu,\sigma^2$), allora
+	      \[
+		      \textcolor{red}{P(X \leq x)}=\phi\left(\frac{x-\mu}{\sigma}\right)=\phi\left(z\right)
+	      \]
+	\item Per ogni $x_1,x_2 \in \mathbb{R}$
+	      \[
+		      \textcolor{red}{P(x_1 \leq X \leq x_1)}=\phi\left(\frac{x_2-\mu}{\sigma}\right)-\phi\left(\frac{x_1-\mu}{\sigma}\right)=\phi\left(z_2\right)-\phi\left(z_1\right)
+	      \]
+	\item \[
+		      \textcolor{red}{P(x_1 \leq X \leq x_1)}=\phi\left(\frac{x_2-\mu}{\sigma}\right)-\phi\left(\frac{x_1-\mu}{\sigma}\right)=\phi\left(z_2\right)-\phi\left(-z_1\right)=\phi\left(z_2\right)-\left[1-\phi\left(z_1\right)\right]
+	      \]
+\end{enumerate}
+\begin{esercizio}[Esercizio:]
+	Il tempo di installazione di un dato software $X$ ha distribuzione normale con una media $\mu=20$ minuti e varianza $\sigma^2=16$ minuti.
+	\[
+		X \sim \text{N}(20,16)
+	\]
+	\textcolor{red}{Qual è la probabilità che il software venga installato in meno di 15 minuti?$P(X \leq 15)=?$}
+	\begin{enumerate}
+		\item Standardizzo la variabile:
+		      \[
+			      Z = \frac{x-\mu}{\sigma}=\frac{15-20}{\sqrt{16}}=-\frac{5}{4}=-1.25
+		      \]
+		\item Trovo il valore di $\phi(z)$ nella tavola:
+		      \begin{align*}
+			      \phi(z)
+			       & = \phi(-1.25)  \\
+			       & = 1-\phi(1.25) \\
+			       & = 1-(0.8944)   \\
+			       & = 0.1056
+		      \end{align*}
+	\end{enumerate}
+	La probabilità che il software $X$ venga installato in meno di 15 minuti è del 10.56$\%$.
+\end{esercizio}
+\begin{esempio}[Problema indiretto:]
+	Normalmente il quesito richiede di trovare la probabilità $p$ dati i valori $x, \mu, \sigma^2$ della Distribuzione Normale $X \sim$N($\mu, \sigma^2$), ovvero trova $p$:
+	\[
+		P(X \leq x; \mu, \sigma^2)=p
+	\]
+	\textcolor{red}{Il problema inverso} invece richiede che, dato $p, \mu, \sigma^2$ della Distribuzione Normale $X \sim$N($\mu, \sigma^2$) trovare $x$:
+	\[
+		P(X \leq x; \mu, \sigma^2)=p
+	\]
+	Per trovare $x$ conoscendo $p, \mu, \sigma^2$ basta applicare la formula:
+	\[
+		x=z \cdot \sigma+\mu
+	\]
+	\begin{esercizio}[Problema indiretto:]
+		Sia $X=$tempo istallazione software con $X \sim$ N($\mu=20, \sigma^2=16$).
+		\begin{itemize}
+			\item \textcolor{red}{Tempo di installazione del software per cui il 90$\%$ dei tempi sono inferiori a tale tempo}
+			      Trova il valore di $x$ dato p=0.9; Ovvero
+			      trova il tempo (minuti) di istallazione per cui il 90$\%$ dei dati sono concentrati (no concentrati no...) sotto tale soglia (di minuti).
+			      \begin{enumerate}
+				      \item \textbf{Trova $z$:} \\
+				            Per quale valore di $z$ ho che $\phi(z)=0.9$? Guardo la tavola:
+				            \[
+					            z=1.28
+				            \]
+				      \item \textbf{Trova $x$:}
+							\begin{align*}
+								x 
+								& = z\cdot \sigma + \mu \\
+								& = 1.28 \cdot \sqrt{16}+20 \\
+								& = 25.12
+							\end{align*}
+			      \end{enumerate}
+				  Pertanto, 
 
+			\item \textcolor{red}{Tempo di installazione del software per cui il 20$\%$ dei tempi sono inferiori a tale tempo}
+		\end{itemize}
 
+	\end{esercizio}
+\end{esempio}
 \section{Inferenza Statistica}
 \subsection{Stima Puntuale}
 \subsection{Stima Intervallare}
