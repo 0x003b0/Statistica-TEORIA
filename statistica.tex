@@ -3062,8 +3062,8 @@ Abbiamo detto che calcolare la funzione di ripartizione con la Distribuzione Nor
 		Sia $X=$tempo istallazione software con $X \sim$ N($\mu=20, \sigma^2=16$).
 		\begin{itemize}
 			\item \textcolor{red}{Tempo di installazione del software per cui il 90$\%$ dei tempi sono inferiori a tale tempo}
-			      Trova il valore di $x$ dato p=0.9; Ovvero
-			      trova il tempo (minuti) di istallazione per cui il 90$\%$ dei dati sono concentrati (no concentrati no...) sotto tale soglia (di minuti).
+			      Trova il valore di $x$ dato p=0.9; ovvero,trova il tempo di installazione (in minuti) tale che il 90$\%$ dei tempi osservati risulta inferiore a questo valore.
+
 			      \begin{enumerate}
 				      \item \textbf{Trova $z$:} \\
 				            Per quale valore di $z$ ho che $\phi(z)=0.9$? Guardo la tavola:
@@ -3071,16 +3071,41 @@ Abbiamo detto che calcolare la funzione di ripartizione con la Distribuzione Nor
 					            z=1.28
 				            \]
 				      \item \textbf{Trova $x$:}
-							\begin{align*}
-								x 
-								& = z\cdot \sigma + \mu \\
-								& = 1.28 \cdot \sqrt{16}+20 \\
-								& = 25.12
-							\end{align*}
+				            \begin{align*}
+					            x
+					             & = z\cdot \sigma + \mu                                     \\
+					             & = 1.28 \cdot \sqrt{16}+20                                 \\
+					             & = 25.12 \quad \textcolor{green}{\text{Risposta corretta}}
+				            \end{align*}
 			      \end{enumerate}
-				  Pertanto, 
-
+			      Pertanto, il 90$\%$ dei tempi di istallazione sono inferiori a 25.12 minuti
 			\item \textcolor{red}{Tempo di installazione del software per cui il 20$\%$ dei tempi sono inferiori a tale tempo}
+			      Trova il valore di $x$ dato p=0.2; ovvero,trova il tempo di installazione (in minuti) tale che il 20$\%$ dei tempi osservati risulta inferiore a questo valore.
+
+			      \begin{enumerate}
+				      \item \textbf{Trova $z$:} \\
+				            Per quale valore di $z$ ho che $\phi(z)=0.2$? Guardo la tavola: \\
+							Ma nella tavola i valori partono da 0.5, quindi faccio:
+				            \[
+					            1-z=1-0.2=0.8
+				            \]
+							Per quale valore di $z$ ho che $\phi(z)=0.8$? Guardo la tavola: \\
+							\[
+							z=0.84
+							\]
+							Impostalo negativo $\phi(-z)$:
+							\[
+							-z=-0.84
+							\]
+				      \item \textbf{Trova $x$:}
+				            \begin{align*}
+					            x
+					             & = -z\cdot \sigma + \mu                                     \\
+					             & = -0.84 \cdot \sqrt{16}+20                                 \\
+					             & = 16.64 \quad \textcolor{green}{\text{Risposta corretta}}
+				            \end{align*}
+			      \end{enumerate}
+			      Pertanto, il 20$\%$ dei tempi di istallazione sono inferiori a 16.64 minuti
 		\end{itemize}
 
 	\end{esercizio}
