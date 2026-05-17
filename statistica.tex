@@ -21,6 +21,7 @@
 \usepackage{centernot}
 \usepackage[hidelinks]{hyperref}
 \usepackage{cancel}
+\usepackage{eurosym}
 
 
 \newtcbtheorem[no counter]{theorem}{Teorema}%
@@ -3085,23 +3086,23 @@ Abbiamo detto che calcolare la funzione di ripartizione con la Distribuzione Nor
 			      \begin{enumerate}
 				      \item \textbf{Trova $z$:} \\
 				            Per quale valore di $z$ ho che $\phi(z)=0.2$? Guardo la tavola: \\
-							Ma nella tavola i valori partono da 0.5, quindi faccio:
+				            Ma nella tavola i valori partono da 0.5, quindi faccio:
 				            \[
 					            1-z=1-0.2=0.8
 				            \]
-							Per quale valore di $z$ ho che $\phi(z)=0.8$? Guardo la tavola: \\
-							\[
-							z=0.84
-							\]
-							Impostalo negativo $\phi(-z)$:
-							\[
-							-z=-0.84
-							\]
+				            Per quale valore di $z$ ho che $\phi(z)=0.8$? Guardo la tavola: \\
+				            \[
+					            z=0.84
+				            \]
+				            Impostalo negativo $\phi(-z)$:
+				            \[
+					            -z=-0.84
+				            \]
 				      \item \textbf{Trova $x$:}
 				            \begin{align*}
 					            x
-					             & = -z\cdot \sigma + \mu                                     \\
-					             & = -0.84 \cdot \sqrt{16}+20                                 \\
+					             & = -z\cdot \sigma + \mu                                    \\
+					             & = -0.84 \cdot \sqrt{16}+20                                \\
 					             & = 16.64 \quad \textcolor{green}{\text{Risposta corretta}}
 				            \end{align*}
 			      \end{enumerate}
@@ -3119,40 +3120,148 @@ Far inferenza statistica significa dedurre informazioni sul \textcolor{red}{feno
 Come formo il campione dalla popolazione?
 \begin{itemize}
 	\item \textbf{Campione da popolazioni finite:} La popolazione esiste già prima dell'osservazione. Per formare il campione seleziono in modo casuale.
-	\item \textbf{Campione da variabili aleatorie:} La popolazione non esiste, formo il campione con la creazione di dati attraverso l'esperimento. 
+	\item \textbf{Campione da variabili aleatorie:} La popolazione non esiste, formo il campione con la creazione di dati attraverso l'esperimento.
 \end{itemize}
-\begin{esempio}[Esempio campionamento da popolazioni finite: Studio Salariale]
+\begin{esempio}[Esempio \textcolor{orange}{campionamento da popolazioni finite}: Studio Salariale]
 	Voglio conoscere il salario annuo iniziale di laureati di 1º livello in informatica nelle aziende italiane in un dato anno:
 	\begin{itemize}
 		\item Fenomeno di interesse: salario annuo (parametro incognito)
-		\item Campione: sottoinsieme di informatici di 1º livello occupati in aziende italiane 
+		\item Campione: sottoinsieme di informatici di 1º livello occupati in aziende italiane
 	\end{itemize}
 	Attraverso la media aritmetica dei valori osservati (vari stipendi annui) posso stimare lo stipendio medio incognito di tutta la popolazione.
 \end{esempio}
-\begin{esempio}[Esempio campionamento da variabili aleatorie: Studio Componenti Elettronici]
+\begin{esempio}[Esempio \textcolor{orange}{campionamento da variabili aleatorie}: Studio Componenti Elettronici]
 	Voglio conoscere la durata di vita di componenti elettronici prodotti da un'azienda italiana:
 	\begin{itemize}
 		\item Fenomeno di interesse: duarata di vita di un componente (parametro incognito)
-		\item Campione: un campione di componenti viene messo in funzione e viene registrato il tempo che intercorre fino alla sua rottura 
+		\item Campione: un campione di componenti viene messo in funzione e viene registrato il tempo che intercorre fino alla sua rottura
 	\end{itemize}
 	Attraverso la media aritmetica dei valori creati (vari tempi di vita) posso stimare la durata di vita media incognita di tutta la popolazione.
 \end{esempio}
-In entrambi i metodi di campionamento, i dati campionari sono generati da un meccanismo aleatorio (il primo li sceglie in modo casuale mentre il secondo li crea) che chiamo 
-\textbf{osservazioni}. 
+In entrambi i metodi di campionamento, i dati campionari sono generati da un meccanismo aleatorio (il primo li sceglie in modo casuale mentre il secondo li crea) che chiamo
+\textbf{osservazioni}.
 \begin{align*}
 	\text{ogni osservazione } x \text{ è la realizzazione della variabile aletoria } X
 \end{align*}
-dove \textcolor{red}{$X$ è il fenomeno di interesse} che ha nella popolazione una sua distribuzione. 
-\begin{itemize}
-	\item Studio Salariale: la variabile aleatoria è $X = $ stipendio iniziale annuo \\
-	e dalla lista estraggo:
+dove \textcolor{red}{$X$ è il fenomeno di interesse} che ha nella popolazione una sua distribuzione.
+\begin{esempio}
 	\begin{itemize}
-		\item prima estrazione: $x_1 = 28.000$ € (Luigi)
-		\item prima estrazione: $x_2 = 40.000$ € (Marco)
-		\item $\cdots$
+		\item Studio Salariale: la variabile aleatoria è $X = $ (stipendio iniziale annuo)
+		      e dalla lista estraggo:
+		      \begin{itemize}
+			      \item prima estrazione: $x_1 = 28.000$ \euro \, (Alice)
+			      \item seconda estrazione: $x_2 = 40.000$ \euro \, (Marco)
+			      \item $\cdots$
+		      \end{itemize}
+		\item Studio Componenti Elettronici: la variabile aleatoria è $X = $ (tempo di vita di un componente) accendo i componenti e registro i minuti:
+		      \begin{itemize}
+			      \item primo a spengersi: $x_1 = 3000$ minuti
+			      \item secondo a spengersi: $x_2 = 3500$ minuti
+			      \item $\cdots$
+		      \end{itemize}
 	\end{itemize}
-	\item Studio Componeneti elettronici: la variabile aleatoria è $X = $ tempo di vita di un componente
-\end{itemize}
+\end{esempio}
+L'obiettivo è individuare il valore del parametro ignoto attraverso i dati campionari: \\
+si effettuano $n$ prove ($n$ lanci di moneta, $n$ estrazioni da una lista, attivazione di $n$ componenti elettronici, ...)
+e si utilizzano i dati osservati per ottenere il parametro ignoto.
+\begin{theorem}{Campione aletorio e Campione osservato}
+	S\begin{itemize}
+		\item \textcolor{red}{Campione aleatorio} di numerosità $n$ (prova $i-$esima):
+		      \[
+			      \vec{X} = \left(X_1,X_2, \cdots, X_n \right)
+		      \]
+		\item \textcolor{red}{Campione osservato} $x_i$ è il risultato della $i-$esima variabile aleatoria:
+		      \[
+			      X_i = x_i
+		      \]
+	\end{itemize}
+\end{theorem}
+\begin{esempio}
+	\begin{itemize}
+		\item Studio salariale: estraggo 3 persone dalla lista
+		      \begin{align*}
+			      X_1 = 40.000 \text{\euro} \\
+			      X_2 = 50.000 \text{\euro} \\
+			      X_3 = 60.000 \text{\euro}
+		      \end{align*}
+		\item Studio Componenti Elettronici: attivo e studio la durata di vita di 4 componenti
+		      \begin{align*}
+			      X_1 = 500 \text{ minuti}  \\
+			      X_2 = 3000 \text{ minuti} \\
+			      X_3 = 100 \text{ minuti}  \\
+			      X_4 = 7000 \text{ minuti}
+		      \end{align*}
+	\end{itemize}
+\end{esempio}
+\begin{theorem}{Modello Statistico}
+	SFamiglia parametrica di leggi di probabilità della variabile aletoria multipla $\vec{X} = \left(X_1, \cdots, X_n \right)$
+	\begin{align*}
+		\mathcal{F}_{\vec{X}} = \left\{ p_{\vec{X}}(\cdot, \theta); \, \theta \in \Theta \right\} \quad \text{oppure} \quad  \mathcal{F}_{\vec{X}} = \left\{ f_{\vec{X}}(\cdot; \theta); \, \theta \in \Theta \right\}
+	\end{align*}
+\end{theorem}
+\begin{theorem}{Campione Casuale}
+	SUn \textcolor{red}{campione casuale $\vec{X}$} di ampiezza $n$ è composto da $n$ variabili aleatorie $X_1, \cdots, X_n$ i.i.d quindi la probabilità (funzione di massa di probabilita $p_{\vec{X}}$/
+	funzione di densità di probabilità $f_{\vec{X}}$) di osservare un generico campione $\vec{x}=(x_1, \cdots, x_n)$ è:
+	\begin{align*}
+		p_{\vec{X}}(\vec{x};\theta) = p_{\vec{X}}(x_1, \cdots, x_n;\theta) = \prod_{i=1}^{n}p_{\vec{X}}(\vec{x_i};\theta) \quad \quad \text{(caso discreto)} \\
+		f_{\vec{X}}(\vec{x};\theta) = f_{\vec{X}}(x_1, \cdots, x_n;\theta) = \prod_{i=1}^{n}f_{\vec{X}}(\vec{x_i};\theta) \quad \quad \text{(caso continuo)}
+	\end{align*}
+\end{theorem}
+\begin{esempio}
+	Nel caso dei componenti elettronici
+	\begin{align*}
+		 & X_1 = 500 \quad \quad \text{il 1º dura 500 minuti}   \\
+		 & X_2 = 3000 \quad \quad \text{il 2º dura 3000 minuti} \\
+		 & X_3 = 100 \quad \quad \text{il 3º dura 100 minuti}   \\
+		 & X_4 = 7000 \quad \quad \text{il 4º dura 7000 minuti}
+	\end{align*}
+	e sapendo che $X \sim Bernoulli(\theta)$ con $\Theta =  [0,1]$ allora la probabilità di osservare il campione $\vec{x}=(500,3000,100,7000)$ (in minuti) sarà:
+	\begin{enumerate}
+		\item Prendo 4 componenti nuovi
+		\item Registro la loro durata e risulta che:
+		      \begin{align*}
+			      X_1 = 500  \\
+			      X_2 = 2000 \\
+			      X_3 = 100  \\
+			      X_4 = 40   \\
+		      \end{align*}
+		      posso vedere che per $X_1,X_3$ risulta un successo (1), mentre per gli altri un insuccesso (0). Quindi la probabilità di osservare 
+			  il campione $\vec{x}=(500,3000,100,7000)$ (in minuti) sarà:
+	\begin{align*}
+		 & p_{\vec{X}}(\vec{x}; \theta)=                                                                                                                                                                          \\
+		 & =P(\vec{X}=\vec{x}; \theta)                                                                                                                                                                            \\
+		 & = P(X_1=1,X_2=0,X_3=1,X_4=0; \theta)                                                                                                                                                         \\
+		 & =\prod_{i=1}^{4}P(\vec{X_i}=\vec{x_i}; \theta)                                                                                                                                                         \\
+		 & =\prod_{i=1}^{4}\left(\theta^{x_i}(1-\theta)^{1-x_i}\right)                                                                                                                                            \\
+		 & =\left(\theta^{1}(1-\theta)^{1-1}\right) \cdot \left(\theta^{0}(1-\theta)^{1-0}\right) \cdot \left(\theta^{1}(1-\theta)^{1-1}\right) \cdot \left(\theta^{0}(1-\theta)^{1-0}\right) \\
+		 & = \theta^{1+0+1+0}(1-\theta)^{(1+1+1+1)-(1+0+1+0)}                                                                                                                                 \\
+		 & = \theta^{2}(1-\theta)^{4-(2)} \\
+		 & = \theta^{2}(1-\theta)^2
+	\end{align*}
+	Ho trovato la funzione di verosomiglianza $\mathbf{L}(\theta) = \theta^{2}(1-\theta)^2$
+	\item Applico la funzione di Log-verosomiglianza a $\mathbf{L}(\theta)$ ovvero:
+	\begin{align*}
+		\ell(\theta) = \ell(\mathbf{L}(\theta)) &= \ln\left[\theta^{2}(1-\theta)^2\right] \\
+		&= \ln(\theta^{2})+\ln((1-\theta)^2) \\
+		&= 2\ln(\theta)+2\ln(1-\theta)
+	\end{align*}
+	\item Calcolo derivata:
+	\begin{align*}
+		\ell'(\theta) &= (2\ln(\theta)+2\ln(1-\theta))' \\
+		&= (2\ln(\theta))'+(2\ln(1-\theta))' \\
+		&= (2 \cdot \frac{1}{\theta}) + (2 \cdot \frac{1}{1-\theta}\cdot (-1)) \\
+		&= \frac{2}{\theta} - \frac{2}{1- \theta}
+	\end{align*}
+	\item Impongo derivata uguale a zero: 
+	\begin{align*}
+		\frac{2}{\theta} - \frac{2}{1- \theta} &= 0 \\
+		\frac{1}{\theta} - \frac{1}{1- \theta} &= 0 \\
+		\theta &= 1-\theta \\
+		\theta &= 0.5 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+		\end{enumerate}
+\end{esempio}
+
 \subsubsection{Stimatore vs Stima}
 
 
