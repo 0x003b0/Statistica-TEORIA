@@ -3220,50 +3220,180 @@ e si utilizzano i dati osservati per ottenere il parametro ignoto.
 		\item Prendo 4 componenti nuovi
 		\item Registro la loro durata e risulta che:
 		      \begin{align*}
-			      X_1 = 500  \\
-			      X_2 = 2000 \\
-			      X_3 = 100  \\
-			      X_4 = 40   \\
+			      \begin{cases}
+				      X_1 = 500  \\
+				      X_2 = 2000 \\
+				      X_3 = 100  \\
+				      X_4 = 40   \\
+			      \end{cases}
 		      \end{align*}
-		      posso vedere che per $X_1,X_3$ risulta un successo (1), mentre per gli altri un insuccesso (0). Quindi la probabilità di osservare 
-			  il campione $\vec{x}=(500,3000,100,7000)$ (in minuti) sarà:
-	\begin{align*}
-		 & p_{\vec{X}}(\vec{x}; \theta)=                                                                                                                                                                          \\
-		 & =P(\vec{X}=\vec{x}; \theta)                                                                                                                                                                            \\
-		 & = P(X_1=1,X_2=0,X_3=1,X_4=0; \theta)                                                                                                                                                         \\
-		 & =\prod_{i=1}^{4}P(\vec{X_i}=\vec{x_i}; \theta)                                                                                                                                                         \\
-		 & =\prod_{i=1}^{4}\left(\theta^{x_i}(1-\theta)^{1-x_i}\right)                                                                                                                                            \\
-		 & =\left(\theta^{1}(1-\theta)^{1-1}\right) \cdot \left(\theta^{0}(1-\theta)^{1-0}\right) \cdot \left(\theta^{1}(1-\theta)^{1-1}\right) \cdot \left(\theta^{0}(1-\theta)^{1-0}\right) \\
-		 & = \theta^{1+0+1+0}(1-\theta)^{(1+1+1+1)-(1+0+1+0)}                                                                                                                                 \\
-		 & = \theta^{2}(1-\theta)^{4-(2)} \\
-		 & = \theta^{2}(1-\theta)^2
-	\end{align*}
-	Ho trovato la funzione di verosomiglianza $\mathbf{L}(\theta) = \theta^{2}(1-\theta)^2$
-	\item Applico la funzione di Log-verosomiglianza a $\mathbf{L}(\theta)$ ovvero:
-	\begin{align*}
-		\ell(\theta) = \ell(\mathbf{L}(\theta)) &= \ln\left[\theta^{2}(1-\theta)^2\right] \\
-		&= \ln(\theta^{2})+\ln((1-\theta)^2) \\
-		&= 2\ln(\theta)+2\ln(1-\theta)
-	\end{align*}
-	\item Calcolo derivata:
-	\begin{align*}
-		\ell'(\theta) &= (2\ln(\theta)+2\ln(1-\theta))' \\
-		&= (2\ln(\theta))'+(2\ln(1-\theta))' \\
-		&= (2 \cdot \frac{1}{\theta}) + (2 \cdot \frac{1}{1-\theta}\cdot (-1)) \\
-		&= \frac{2}{\theta} - \frac{2}{1- \theta}
-	\end{align*}
-	\item Impongo derivata uguale a zero: 
-	\begin{align*}
-		\frac{2}{\theta} - \frac{2}{1- \theta} &= 0 \\
-		\frac{1}{\theta} - \frac{1}{1- \theta} &= 0 \\
-		\theta &= 1-\theta \\
-		\theta &= 0.5 \quad \textcolor{green}{\text{Risposta corretta}}
-	\end{align*}
-		\end{enumerate}
+		      posso vedere che per $X_1,X_3$ risulta un successo (1), mentre per gli altri un insuccesso (0).
+		      \begin{align*}
+			      \begin{cases}
+				      X_1 = 500  \\
+				      X_2 = 2000 \\
+				      X_3 = 100  \\
+				      X_4 = 40   \\
+			      \end{cases}
+			      \implies
+			      \begin{cases}
+				      X_1 = 1 \\
+				      X_2 = 0 \\
+				      X_3 = 1 \\
+				      X_4 = 0 \\
+			      \end{cases}
+		      \end{align*}
+
+
+		      Quindi la probabilità di osservare
+		      il campione $\vec{x}=(500,3000,100,7000)$ (in minuti) sarà:
+		      \begin{align*}
+			       & p_{\vec{X}}(\vec{x}; \theta)=                                                                                                                                                      \\
+			       & =P(\vec{X}=\vec{x}; \theta)                                                                                                                                                        \\
+			       & = P(X_1=1,X_2=0,X_3=1,X_4=0; \theta)                                                                                                                                               \\
+			       & =\prod_{i=1}^{4}P(\vec{X_i}=\vec{x_i}; \theta)                                                                                                                                     \\
+			       & =\prod_{i=1}^{4}\left(\theta^{x_i}(1-\theta)^{1-x_i}\right)                                                                                                                        \\
+			       & =\left(\theta^{1}(1-\theta)^{1-1}\right) \cdot \left(\theta^{0}(1-\theta)^{1-0}\right) \cdot \left(\theta^{1}(1-\theta)^{1-1}\right) \cdot \left(\theta^{0}(1-\theta)^{1-0}\right) \\
+			       & = \theta^{1+0+1+0}(1-\theta)^{(1+1+1+1)-(1+0+1+0)}                                                                                                                                 \\
+			       & = \theta^{2}(1-\theta)^{4-(2)}                                                                                                                                                     \\
+			       & = \theta^{2}(1-\theta)^2
+		      \end{align*}
+		      Ho trovato la funzione di verosomiglianza $\mathbf{L}(\theta) = \theta^{2}(1-\theta)^2$
+		\item Applico la funzione di Log-verosomiglianza a $\mathbf{L}(\theta)$ ovvero:
+		      \begin{align*}
+			      \ell(\theta) = \ell(\mathbf{L}(\theta)) & = \ln\left[\theta^{2}(1-\theta)^2\right] \\
+			                                              & = \ln(\theta^{2})+\ln((1-\theta)^2)      \\
+			                                              & = 2\ln(\theta)+2\ln(1-\theta)
+		      \end{align*}
+		\item Calcolo derivata:
+		      \begin{align*}
+			      \ell'(\theta) & = (2\ln(\theta)+2\ln(1-\theta))'                                      \\
+			                    & = (2\ln(\theta))'+(2\ln(1-\theta))'                                   \\
+			                    & = (2 \cdot \frac{1}{\theta}) + (2 \cdot \frac{1}{1-\theta}\cdot (-1)) \\
+			                    & = \frac{2}{\theta} - \frac{2}{1- \theta}
+		      \end{align*}
+		\item Impongo derivata uguale a zero:
+		      \begin{align*}
+			      \frac{2}{\theta} - \frac{2}{1- \theta} & = 0                                                     \\
+			      \frac{1}{\theta} - \frac{1}{1- \theta} & = 0                                                     \\
+			      \theta                                 & = 1-\theta                                              \\
+			      \theta                                 & = 0.5 \quad \textcolor{green}{\text{Risposta corretta}}
+		      \end{align*}
+	\end{enumerate}
 \end{esempio}
 
-\subsubsection{Stimatore vs Stima}
+\subsection{Distribuzione $\chi^2$}
+Utilizzo questa distribuzione quando ho un campione estratto da una popolazione Normale (ovvero quando i dati della popolazione si distribuiscono seguendo
+la distribuzione Normale $X \sim N(\mu, \sigma^2)$).
+\begin{theorem}{$X \sim \chi^2_\nu$}
+	UUna variabile aleatoria continua $X$ ha distribuzione $\chi^2$ con $\nu$ gradi di libertà se non assume mai valori negativi:
+	\begin{align*}
+		\mathscr{X} = [0, +\infty)
+	\end{align*}
+\end{theorem}
+\begin{theorem}{Media e Varianza di $X \sim \chi^2_\nu$}
+	S\[
+		\textcolor{red}{\mathbb{E}[X]}=\nu
+	\]
+	e
+	\[
+		\textcolor{red}{\mathbb{V}[X]}=2 \cdot \nu
+	\]
+\end{theorem}
+\textbf{Proprietà di $\chi^2$:}
+\begin{enumerate}
+	\item Dalla Normale a Chi-Quadro: ho una variabile normale standard $Z$ (quindi già standardizzata), se la elevo al quadrato ottengo una Chi-Quadro con 1 grado di libertà
+	      \begin{align*}
+		      Z^2 \sim \chi^2_{\nu=1}
+	      \end{align*}
+	      \begin{esempio}
+		      Se ho $Z=\frac{x-\mu}{\sigma}=-1.5$, elevandolo al quadrato ottengo $P(Z^2 \leq 2.25)$ che equivale a $P(\sqrt{Z^2} \leq \sqrt{2.25})=P(|Z| \leq 1.5)=
+			      P(-1.5 \leq Z \leq 1.5)$.
+		      \begin{enumerate}
+			      \item Se cerco nella tavola della Normale Standard:
+			            \begin{align*}
+				            P(-1.5 \leq Z \leq 1.5) & = \phi(1.5) - \phi(-1.5)        \\
+				                                    & = \phi(1.5) - [1- \phi(1.5)]    \\
+				                                    & = 0.9332 - [1- 0.9332] = 0.8664
+			            \end{align*}
+			      \item Se cerco nella tavola della Chi-Quadro:
+			            \begin{align*}
+				            P(\chi^2_\nu=1 \leq x_p) & = P(\chi^2_\nu=1 \leq 2.25)                                       \\
+				                                     & \text{cerco il valore che sta in mezzo tra } 1.32 \text{ e } 2.71 \\
+				                                     & \text{che corrispondono a } p=0.750 \text{ e } p=0.900            \\
+				                                     & = \frac{0.750+0.900}{2}=0.825
+			            \end{align*}
+			            \begin{center}
+				            \includegraphics[width=0.7\linewidth]{es-chi.png}
+			            \end{center}
+		      \end{enumerate}
+	      \end{esempio}
+	\item Proprietà della somma:
+	Se sommo diverse variabili Chi-Quadro indipendenti, ottengo ancora una Chi-Quadro:
+	\begin{align*}
+		\sum_{i=1}^{n} X_i \sim \chi^2_v \quad \text{ con } \quad \nu = \sum_{i=1}^{n}\nu_i
+	\end{align*}
+\begin{esempio}
+	Siano:
+	\begin{align*}
+		\begin{cases}
+		X_1 \sim \chi^2_2 \\
+		X_2 \sim \chi^2_3 \\
+		X_3 \sim \chi^2_5
+	\end{cases}
+	\end{align*}
+	la loro somma sarà:
+\begin{align*}
+	X_1+X_2+X_3 \text{ con } \nu = 2+3+5=10 \text{ gradi di libertà } \implies X_1+X_2+X_3 \sim \chi^2_{10}
+\end{align*}
+\end{esempio}
+	\item Somma di normali standardizzate al quadrato: se ho $n$ variabili Normali (anche con medie $\mu_i$ e varianze $\sigma_i^2$ diverse), le standardizzo singolarmente, le elevo al quadrato,
+	poi le sommo. Il risultato equivale ad una $\chi^2$ con $\nu = n$ gradi di libertà
+	\begin{esempio}
+		Ho 3 sensori che misurano la temperatura (ognuno con media e varianza), e standardizzandoli ottengo:
+		\begin{align*}
+			\begin{cases}
+				Z_1 = 1 \implies 1^2=1 \\
+			Z_2 = -2 \implies (-2)^2 = 4 \\
+			Z_3 = 0.5 \implies 0.5^2 = 0.25
+			\end{cases}
+		\end{align*}
+		Sommandoli $1+4+0.25=5.25$ e quindi con Chi-Quadro avrò $x_p=5.25$ e $\nu=3$:
+		\begin{align*}
+			P(\chi^2_3 \leq 5.25) = 0.825
+		\end{align*}
+	\end{esempio} 
+\end{enumerate}
 
+\begin{theorem}{Formule}
+	SSia $X_1, \cdots, X_n$ un campione casuale da una popolazione Normale con media $\mu$ e varianza $\sigma^2$. slide 32
+\end{theorem}
+
+\begin{esercizio}[Esercizio]
+	Il diametro delle viti prodotte da un'azienda ha distribuzione Normale con $\mu = 150$ mm e varianza $\sigma^2=100$ mm$^2$. Siano $n=9$ 
+	estratte dalla produzione (campione). \textcolor{red}{Qual è la probabilità che la media campionaria assuma valori tra 145 e 155 mm?}
+	\begin{align*}
+		\textcolor{red}{P(145 \leq \overline{X} \leq 155)} &= \phi\left(\frac{x_2-\mu}{\sqrt{\frac{\sigma^2}{n}}}\right) - \phi\left(\frac{x_1-\mu}{\sqrt{\frac{\sigma^2}{n}}}\right) \\
+		&=  \phi\left(\frac{155-150}{\sqrt{\frac{100}{9}}}\right) - \phi\left(\frac{145-150}{\sqrt{\frac{100}{9}}}\right) \\
+		&=  \phi\left(\frac{155-150}{10/3}\right) - \phi\left(\frac{145-150}{10/3}\right) \\
+		&=  \phi(1.5) - \phi(-1.5) \\
+		&=  \phi(1.5) - [1-\phi(1.5)] \\
+		&=  0.9332 - [1-0.9332] = 0.8664 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*} 
+	\textcolor{red}{Qual è la probabilità che la varianza campionaria sia maggiore di 121 mm?}
+	\begin{align*}
+		\textcolor{red}{P(S^2>121)} &= P\left(\chi^2_{\nu=n-1} > \frac{(n-1)\cdot S^2}{\sigma^2}\right) \\
+		&= P\left(\chi^2_{\nu=9-1} > \frac{(9-1)\cdot 121}{100}\right) \\
+		&= P\left(\chi^2_{\nu=8} > \frac{(8)\cdot 121}{100}\right) \\
+		&= P\left(\chi^2_{8} > 9.68\right) \\
+		&= 1-  P\left(\chi^2_{8} \leq 9.68\right) \\
+		&= 1 - 0.700 = 0.3
+	\end{align*}
+	o meglio scrivere $1-  P\left(\chi^2_{8} \leq 9.68\right) \in (0.25, 0.5)$ \textcolor{green}{\text{Risposta corretta}}
+\end{esercizio}
+\subsection{Distribuzione $T-$Student}
+Utilizzo questa distribuzione quando ho un campione estratto da una popolazione Normale (ovvero quando i dati della popolazione si distribuiscono seguendo
+la distribuzione Normale $X \sim N(\mu, \sigma^2)$).
 
 \subsection{Stima Puntuale}
 
