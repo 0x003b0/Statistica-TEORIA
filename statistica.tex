@@ -3563,7 +3563,84 @@ Utile quando:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Stima Puntuale}
+Siano i dati osservati
+\begin{align*}
+	\vec{x} = (x_1, \cdots, x_n)
+\end{align*}
+la realizzazione di un campione casuale 
+\begin{align*}
+	\vec{X} = \left(X_1, \cdots, X_n \right)
+\end{align*}
+da una popolazione $X$ (Normale, Binomiale, Bernoulliana, Poisson, ecc...). \\
+La \textcolor{red}{stima puntuale} risponde alla domanda: "qual è il valore del parametro ($\mu, \theta, \cdots$) che ha generato i dati che sto osservando?"
+\subsubsection{Funzione di Verosomiglianza}
+\begin{theorem}{funzione di verosomiglianza}
+	SSia $\vec{X}=(X_1, \cdots, X_n)$ un campione con funzione di massa/densità di probabilità congiunta 
+	\begin{align*}
+		&p_{\vec{X}}(\cdot;\theta) = p_{(X_1,\cdots,X_n)}(\cdot;\theta)=P(X_1=x_1, \cdots, X_n=x_n) \\
+		&f_{\vec{X}}(\cdot;\theta) = f_{(X_1,\cdots,X_n)}(\cdot;\theta)
+	\end{align*}
+	e sia $\vec{x}=(x_1,\cdots, x_n)$ una sua realizzazione. \\
+	Si chiama \textcolor{red}{funzione di verosomiglianza} associata al campione osservato $\vec{x}$ la funzione:
+	\begin{align*}
+		\mathscr{L}(\theta) = \mathscr{L}(\theta; \vec{x}) = \begin{cases}
+			\prod_{i=1}^{n}p_X(x_i;\theta) \quad \text{se } X \text{ discreta}\\
+			\prod_{i=1}^{n}f_X(x_i;\theta) \quad \text{se } X \text{ continua}
+		\end{cases}
+	\end{align*}
+\end{theorem}
+La funzione di verosomiglianza è il prodotto delle $n$ funzioni di massa/densità di probabilità.
 
+\subsubsection{Funzione di Log-Verosomiglianza}
+\begin{theorem}{funzione di log-verosomiglianza}
+	SSi chiama \textcolor{red}{funzione di log-verosomiglianza} associata al campione osservato $\vec{x}$ la funzione logaritmo naturale che prende come input la funzione 
+	di verosomiglianza: 
+	\begin{align*}
+		\ell(\theta) = \ell(\mathscr{L}(\theta; \vec{x})) =\ln(\mathscr{L}(\theta; \vec{x})) = \begin{cases}
+			\sum_{i=1}^{n}\left(\ln\left(p_X(x_i;\theta)\right)\right) \quad \text{se } X \text{ discreta}\\
+			\sum_{i=1}^{n}\left(\ln\left(f_X(x_i;\theta)\right)\right) \quad \text{se } X \text{ continua}
+		\end{cases}
+	\end{align*}
+\end{theorem}
+La funzione di log-verosomiglianza è la somma delle $n$ funzioni di massa/densità di probabilità a cui viene applicato il logaritmo naturale (prima applico $\ln$ a ogni funzione di massa/
+densità di probabilità e poi le sommo).
+\subsubsection{Metodo della Massima Verosomiglianza}
+Serve per trovare il valore del parametro ignoto.
+\begin{enumerate}
+	\item \textcolor{red}{Trovo la funzione di verosomiglianza:}
+	\begin{align*}
+		\mathscr{L}(\theta; \vec{x}) = \begin{cases}
+			\prod_{i=1}^{n}p_X(x_i;\theta) \quad \text{se } X \text{ discreta}\\
+			\prod_{i=1}^{n}f_X(x_i;\theta) \quad \text{se } X \text{ continua}
+		\end{cases}
+	\end{align*}
+	\item \textcolor{red}{Trovo la funzione di log-verosomiglianza applicando il logaritmo naturale alla funzione del punto 1:} 
+	\begin{align*}
+	\ell(\theta) = \ell(\mathscr{L}(\theta; \vec{x})) =\ln(\mathscr{L}(\theta; \vec{x}))	
+	\end{align*}
+	\item \textcolor{red}{Calcolo la derivata di $\ell(\theta)$ del punto 2}
+	\item \textcolor{red}{Impongo la derivata uguale a zero (trovo il punto stazionario):}
+	\begin{align*}
+		\ell'(\theta)=0
+	\end{align*}
+	\item \textcolor{red}{Verifico che la derivata seconda sia negativa:}
+	il punto stazionario è un punto di massimo se la derivata seconda è negativa
+	\begin{itemize}
+		\item Se il parametro ignoto è solo uno, controllo che la derivata seconda sia negativa (il punto stazionario è un punto di massimo)
+		\begin{align*}
+			\ell''(\theta)<0
+		\end{align*}
+		\item Se il parametro ignoto è più di uno, controllo che la derivata parziale seconda sia negativa con il test dell'Hessiana
+	\end{itemize}
+\end{enumerate}
+\subsubsection{Metodi per valutare gli stimatori}
+Ho trovato lo stimatore (non stima) per il parametro ignoto e devo valutare se questo è il candidato giusto verificando:
+\begin{itemize}
+	\item Non distorsione
+	\item Efficienza
+	\item Consistenza
+\end{itemize}
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Stima Intervallare}
