@@ -12,7 +12,7 @@
 \usepackage{subcaption}  % per avere subfigure
 \tcbuselibrary{theorems}
 \usepackage{tikz}
-\usetikzlibrary{automata, positioning, arrows}
+\usetikzlibrary{automata, positioning, arrows, shapes.geometric}
 \tcbuselibrary{breakable}
 \usepackage{graphicx}
 \usepackage[table]{xcolor} % da mettere nel preambolo
@@ -3300,6 +3300,9 @@ la distribuzione Normale $X \sim N(\mu, \sigma^2)$).
 		\textcolor{red}{\mathbb{V}[X]}=2 \cdot \nu
 	\]
 \end{theorem}
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{chi-quadro.png}
+\end{center}
 \textbf{Proprietà di $\chi^2$:}
 \begin{enumerate}
 	\item Dalla Normale a Chi-Quadro: ho una variabile normale standard $Z$ (quindi già standardizzata), se la elevo al quadrato ottengo una Chi-Quadro con 1 grado di libertà
@@ -3329,72 +3332,236 @@ la distribuzione Normale $X \sim N(\mu, \sigma^2)$).
 		      \end{enumerate}
 	      \end{esempio}
 	\item Proprietà della somma:
-	Se sommo diverse variabili Chi-Quadro indipendenti, ottengo ancora una Chi-Quadro:
-	\begin{align*}
-		\sum_{i=1}^{n} X_i \sim \chi^2_v \quad \text{ con } \quad \nu = \sum_{i=1}^{n}\nu_i
-	\end{align*}
-\begin{esempio}
-	Siano:
-	\begin{align*}
-		\begin{cases}
-		X_1 \sim \chi^2_2 \\
-		X_2 \sim \chi^2_3 \\
-		X_3 \sim \chi^2_5
-	\end{cases}
-	\end{align*}
-	la loro somma sarà:
-\begin{align*}
-	X_1+X_2+X_3 \text{ con } \nu = 2+3+5=10 \text{ gradi di libertà } \implies X_1+X_2+X_3 \sim \chi^2_{10}
-\end{align*}
-\end{esempio}
+	      Se sommo diverse variabili Chi-Quadro indipendenti, ottengo ancora una Chi-Quadro:
+	      \begin{align*}
+		      \sum_{i=1}^{n} X_i \sim \chi^2_v \quad \text{ con } \quad \nu = \sum_{i=1}^{n}\nu_i
+	      \end{align*}
+	      \begin{esempio}
+		      Siano:
+		      \begin{align*}
+			      \begin{cases}
+				      X_1 \sim \chi^2_2 \\
+				      X_2 \sim \chi^2_3 \\
+				      X_3 \sim \chi^2_5
+			      \end{cases}
+		      \end{align*}
+		      la loro somma sarà:
+		      \begin{align*}
+			      X_1+X_2+X_3 \text{ con } \nu = 2+3+5=10 \text{ gradi di libertà } \implies X_1+X_2+X_3 \sim \chi^2_{10}
+		      \end{align*}
+	      \end{esempio}
 	\item Somma di normali standardizzate al quadrato: se ho $n$ variabili Normali (anche con medie $\mu_i$ e varianze $\sigma_i^2$ diverse), le standardizzo singolarmente, le elevo al quadrato,
-	poi le sommo. Il risultato equivale ad una $\chi^2$ con $\nu = n$ gradi di libertà
-	\begin{esempio}
-		Ho 3 sensori che misurano la temperatura (ognuno con media e varianza), e standardizzandoli ottengo:
-		\begin{align*}
-			\begin{cases}
-				Z_1 = 1 \implies 1^2=1 \\
-			Z_2 = -2 \implies (-2)^2 = 4 \\
-			Z_3 = 0.5 \implies 0.5^2 = 0.25
-			\end{cases}
-		\end{align*}
-		Sommandoli $1+4+0.25=5.25$ e quindi con Chi-Quadro avrò $x_p=5.25$ e $\nu=3$:
-		\begin{align*}
-			P(\chi^2_3 \leq 5.25) = 0.825
-		\end{align*}
-	\end{esempio} 
+	      poi le sommo. Il risultato equivale ad una $\chi^2$ con $\nu = n$ gradi di libertà
+	      \begin{esempio}
+		      Ho 3 sensori che misurano la temperatura (ognuno con media e varianza), e standardizzandoli ottengo:
+		      \begin{align*}
+			      \begin{cases}
+				      Z_1 = 1 \implies 1^2=1       \\
+				      Z_2 = -2 \implies (-2)^2 = 4 \\
+				      Z_3 = 0.5 \implies 0.5^2 = 0.25
+			      \end{cases}
+		      \end{align*}
+		      Sommandoli $1+4+0.25=5.25$ e quindi con Chi-Quadro avrò $x_p=5.25$ e $\nu=3$:
+		      \begin{align*}
+			      P(\chi^2_3 \leq 5.25) = 0.825
+		      \end{align*}
+	      \end{esempio}
 \end{enumerate}
 
 \begin{theorem}{Formule}
-	SSia $X_1, \cdots, X_n$ un campione casuale da una popolazione Normale con media $\mu$ e varianza $\sigma^2$. slide 32
+	SSia $X_1, \cdots, X_n$ un campione casuale da una popolazione Normale $X \sim N(\mu, \sigma^2)$ per calcolare la probabilità sulla somma, media e/o varianza uso le seguenti formule:
+	\begin{enumerate}
+		\item \textcolor{red}{Somma}
+		      \begin{align*}
+			      \sum_{i=1}^{n} X_i \sim N(n \cdot \mu, n \cdot \sigma^2)
+		      \end{align*}
+		      Uso tavole di Z
+		\item \textcolor{red}{Media}
+		      \begin{align*}
+			      \overline{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
+		      \end{align*}
+		      Uso tavole di Z
+		\item \textcolor{red}{Varianza}
+		      \begin{align*}
+			      \frac{(n-1)\cdot S^2}{\sigma^2} \sim \chi^2_{\nu=n-1}
+		      \end{align*}
+		      Uso tavole di Chi-Quadro
+	\end{enumerate}
+
 \end{theorem}
 
 \begin{esercizio}[Esercizio]
-	Il diametro delle viti prodotte da un'azienda ha distribuzione Normale con $\mu = 150$ mm e varianza $\sigma^2=100$ mm$^2$. Siano $n=9$ 
-	estratte dalla produzione (campione). \textcolor{red}{Qual è la probabilità che la media campionaria assuma valori tra 145 e 155 mm?}
+	Il diametro delle viti prodotte da un'azienda ha distribuzione Normale con $\mu = 150$ mm e varianza $\sigma^2=100$ mm$^2$. Siano $n=9$
+	estratte dalla produzione (campione). Qual è la probabilità che la media campionaria assuma valori tra 145 e 155 mm?
 	\begin{align*}
-		\textcolor{red}{P(145 \leq \overline{X} \leq 155)} &= \phi\left(\frac{x_2-\mu}{\sqrt{\frac{\sigma^2}{n}}}\right) - \phi\left(\frac{x_1-\mu}{\sqrt{\frac{\sigma^2}{n}}}\right) \\
-		&=  \phi\left(\frac{155-150}{\sqrt{\frac{100}{9}}}\right) - \phi\left(\frac{145-150}{\sqrt{\frac{100}{9}}}\right) \\
-		&=  \phi\left(\frac{155-150}{10/3}\right) - \phi\left(\frac{145-150}{10/3}\right) \\
-		&=  \phi(1.5) - \phi(-1.5) \\
-		&=  \phi(1.5) - [1-\phi(1.5)] \\
-		&=  0.9332 - [1-0.9332] = 0.8664 \quad \textcolor{green}{\text{Risposta corretta}}
-	\end{align*} 
-	\textcolor{red}{Qual è la probabilità che la varianza campionaria sia maggiore di 121 mm?}
+		\textcolor{red}{P(145 \leq \overline{X} \leq 155)} & = \phi\left(\frac{x_2-\mu}{\sqrt{\frac{\sigma^2}{n}}}\right) - \phi\left(\frac{x_1-\mu}{\sqrt{\frac{\sigma^2}{n}}}\right) \\
+		                                                   & \text{devo calcolare la prob. sulla media uso proprietà 2 delle formule;}                                                 \\
+		                                                   & \text{"standardizzo" usando la formula 2}                                                                                 \\
+		                                                   & =  \phi\left(\frac{155-150}{\sqrt{\frac{100}{9}}}\right) - \phi\left(\frac{145-150}{\sqrt{\frac{100}{9}}}\right)          \\
+		                                                   & =  \phi\left(\frac{155-150}{10/3}\right) - \phi\left(\frac{145-150}{10/3}\right)                                          \\
+		                                                   & =  \phi(1.5) - \phi(-1.5)                                                                                                 \\
+		                                                   & =  \phi(1.5) - [1-\phi(1.5)]                                                                                              \\
+		                                                   & =  0.9332 - [1-0.9332] = 0.8664 \quad \textcolor{green}{\text{Risposta corretta}}
+	\end{align*}
+	Qual è la probabilità che la varianza campionaria sia maggiore di 121 mm?
 	\begin{align*}
-		\textcolor{red}{P(S^2>121)} &= P\left(\chi^2_{\nu=n-1} > \frac{(n-1)\cdot S^2}{\sigma^2}\right) \\
-		&= P\left(\chi^2_{\nu=9-1} > \frac{(9-1)\cdot 121}{100}\right) \\
-		&= P\left(\chi^2_{\nu=8} > \frac{(8)\cdot 121}{100}\right) \\
-		&= P\left(\chi^2_{8} > 9.68\right) \\
-		&= 1-  P\left(\chi^2_{8} \leq 9.68\right) \\
-		&= 1 - 0.700 = 0.3
+		\textcolor{red}{P(S^2>121)} & = P\left(\chi^2_{\nu=n-1} > \frac{(n-1)\cdot S^2}{\sigma^2}\right)           \\
+		                            & \text{devo calcolare la prob. sulla varianza uso proprietà 3 delle formule;} \\
+		                            & \text{"standardizzo" usando la formula 3}                                    \\
+		                            & = P\left(\chi^2_{\nu=9-1} > \frac{(9-1)\cdot 121}{100}\right)                \\
+		                            & = P\left(\chi^2_{\nu=8} > \frac{(8)\cdot 121}{100}\right)                    \\
+		                            & = P\left(\chi^2_{8} > 9.68\right)                                            \\
+		                            & = 1-  P\left(\chi^2_{8} \leq 9.68\right)                                     \\
+		                            & = 1 - 0.700 = 0.3
 	\end{align*}
 	o meglio scrivere $1-  P\left(\chi^2_{8} \leq 9.68\right) \in (0.25, 0.5)$ \textcolor{green}{\text{Risposta corretta}}
 \end{esercizio}
 \subsection{Distribuzione $T-$Student}
 Utilizzo questa distribuzione quando ho un campione estratto da una popolazione Normale (ovvero quando i dati della popolazione si distribuiscono seguendo
 la distribuzione Normale $X \sim N(\mu, \sigma^2)$).
-
+\begin{osservazioni}[Nota]
+	Uso la distribuzione T-Student quando voglio calcolare la probabilità della media e ho $\sigma^2$ ignoto.
+\end{osservazioni}
+\begin{theorem}{Media e Varianza di $X \sim t_\nu$}
+	S\[
+		\textcolor{red}{\mathbb{E}[X]}=0
+	\]
+	e
+	\[
+		\textcolor{red}{\mathbb{V}[X]}=\frac{\nu}{\nu-2} \quad \text{ con } \nu>2
+	\]
+\end{theorem}
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{t-student.png}
+\end{center}
+\begin{theorem}{Formule}
+	SSia $X_1, \cdots, X_n$ un campione casuale da una popolazione Normale $X \sim N(\mu, \sigma^2)$ per calcolare la probabilità sulla media uso la seguente formula:
+	\begin{align*}
+		\frac{\sqrt{n}(\overline{X}-\mu)}{\sqrt{S^2}} \sim t_{\nu=n-1}
+	\end{align*}
+\end{theorem}
+\begin{esercizio}[Esercizio]
+	Il diametro delle viti prodotte da un'azienda ha distribuzione Normale con $\mu = 150$ mm e varianza $\sigma^2=100$ mm$^2$. Siano $n=9$
+	estratte dalla produzione (campione). Qual è la probabilità che la media campionaria assuma valori che distano dalla media non più di $\left(1.86 \cdot \sqrt{\frac{\sigma^2}{n}}\right)$?
+	\begin{itemize}
+		\item Uso la Normale Standard perchè conosco $\sigma^2$:
+		      \begin{align*}
+			       & \textcolor{red}{P\left(\mu - \left(1.86 \cdot \sqrt{\frac{\sigma^2}{n}}\right) \leq \overline{X} \leq \mu + \left(1.86 \cdot \sqrt{\frac{\sigma^2}{n}}\right)\right)} = \\
+			       & = P\left(\mu -1.86 \leq \overline{X} \cdot \sqrt{\frac{n}{\sigma^2}} \leq \mu + 1.86 \right)                                                                            \\
+			       & = P\left(-1.86 \leq \overline{X} \cdot \sqrt{\frac{n}{\sigma^2}} - \mu \leq 1.86 \right)                                                                                \\
+			       & = P\left(-1.86 \leq \frac{\overline{X}  - \mu}{\sqrt{\frac{\sigma^2}{n}}} \leq 1.86 \right)                                                                             \\
+			       & = P\left(-1.86 \leq Z \leq 1.86 \right)                                                                                                                                 \\
+			       & = \phi(z_2) - \phi(z_1)                                                                                                                                                 \\
+			       & = \phi(1.86) - \phi(-1.86)                                                                                                                                              \\
+			       & = \phi(1.86) - [1-\phi(-1.86)] = 0.9371
+		      \end{align*}
+		\item Uso la T-Student perchè $\sigma^2$ ignoto (suppongo che l'es non mi abbia dato il valore di $\sigma^2$):
+		      \begin{align*}
+			       & \textcolor{red}{P\left(\mu - \left(1.86 \cdot \sqrt{\frac{\sigma^2}{n}}\right) \leq \overline{X} \leq \mu + \left(1.86 \cdot \sqrt{\frac{\sigma^2}{n}}\right)\right)} = \\
+			       & \sigma^2 \text{ è ignoto, quindi lo sostituisco con } S^2                                                                                                               \\
+			       & P\left(\mu - \left(1.86 \cdot \sqrt{\frac{S^2}{n}}\right) \leq \overline{X} \leq \mu + \left(1.86 \cdot \sqrt{\frac{S^2}{n}}\right)\right) =                            \\
+			       & \text{uso formula per standardizzare}                                                                                                                                   \\
+			       & = P\left(-1.86 \leq \frac{\sqrt{n}(\overline{X}  - \mu)}{\sqrt{S^2}} \leq 1.86 \right)                                                                                  \\
+			       & = P\left(-1.86 \leq T_{\nu=n-1} \leq 1.86 \right)                                                                                                                       \\
+			       & = P\left(-1.86 \leq T_{\nu=8} \leq 1.86 \right)                                                                                                                         \\
+			       & = P\left(-1.86 \leq T_{8} \leq 1.86 \right)                                                                                                                             \\
+			       & = \phi(t_{p_2}) - \phi(t_{p_1})                                                                                                                                         \\
+			       & = \phi(1.86) - \phi(-1.86)                                                                                                                                              \\
+			       & = \phi(1.86) - [1-\phi(-1.86)]                                                                                                                                          \\
+			       & = 0.95 - [1-0.95] = 0.90                                                                                                                                                \\
+		      \end{align*}
+		      \begin{center}
+			      \includegraphics[width=0.6\linewidth]{es-t-stud.png}
+		      \end{center}
+	\end{itemize}
+\end{esercizio}
+\newpage
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{3.5}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Situazione} & \textbf{Formula} & \textbf{Distribuzione} & \textbf{Tavola} \\[6pt]
+\hline
+Probabilità sulla \textbf{somma}, $\sigma^2$ nota & 
+$\dfrac{\displaystyle\sum X_i - n\mu}{\sqrt{n\sigma^2}}$ & 
+$N(0,1)$ & 
+Normale standard \\[6pt]
+\hline
+Probabilità sulla \textbf{media}, $\sigma^2$ nota & 
+$\dfrac{\overline{X} - \mu}{\sqrt{\sigma^2/n}}$ & 
+$N(0,1)$ & 
+Normale standard \\[6pt]
+\hline
+Probabilità sulla \textbf{varianza} & 
+$\dfrac{(n-1)S^2}{\sigma^2}$ & 
+$\chi^2_{n-1}$ & 
+Chi-quadro \\[6pt]
+\hline
+Probabilità sulla \textbf{media}, $\sigma^2$ \textbf{ignota} & 
+$\dfrac{\sqrt{n}(\overline{X} - \mu)}{\sqrt{S^2}}$ & 
+$t_{n-1}$ & 
+T-Student \\[6pt]
+\hline
+\end{tabular}
+\caption{Quale distribuzione usare}
+\end{table}
+\newpage
+\subsection{Teorema del Limite Centrale}
+Questo teorema semplifica le cose quando voglio calcolare la probabilità della somma e della media di variabili aleatorie quando ho un campione di grandi dimensioni. Ho la possibilità
+di utilizzare la Distribuzione Normale per approssimare il comportamento di somme e media campionarie, quando non conosco la distribuzione della popolazione di partenza (oppure so con
+certezza che non ha distribuzione normale).
+Utile quando:
+\begin{itemize}
+	\item La popolazione di partenza non ha Distribuzione Normale oppure non so che distribuzione abbia (può essere di Bernoulli, Binomiale, ...)
+	\item Il campione è di grandi dimensioni
+	\item La varianza $\sigma^2$ è finita e maggiore di zero
+\end{itemize}
+\begin{theorem}{Teorema del Limite Centrale}
+	SSiano una successione di variabili aleatorie i.i.d con valore atteso $\mathbb{E}[X_i]=\mu$ e varianza $0<\mathbb{V}[X_i]=\sigma^2 < + \infty$, allora:
+	\begin{enumerate}
+		\item La variabile standardizzata della media campionaria converge ad una Normale Standard:
+		\begin{align*}
+			\frac{\sqrt{n}(\overline{X}_n - \mu)}{\sqrt{\sigma^2}} \textcolor{cyan}{\overset{d}{\longrightarrow}} N(0,1)
+		\end{align*}
+		\item La variabile standardizzata della somma converge ad una Normale Standard:
+		\begin{align*}
+			\frac{\sum^{n}_{i=1} \left(X_i\right) - n \mu}{\sqrt{n\sigma^2}} \textcolor{cyan}{\overset{d}{\longrightarrow}} N(0,1)
+		\end{align*}
+		\item La variabile standardizzata della media campionaria con $\sigma^2$ ignoto, converge ad una Normale Standard:
+		\begin{align*}
+			\frac{\sqrt{n}(\overline{X}_n - \mu)}{\sqrt{S^2}} \textcolor{cyan}{\overset{d}{\longrightarrow}} N(0,1)
+		\end{align*}
+	\end{enumerate}
+\end{theorem}
+\begin{osservazioni}[Come usare il Teorema del Limite Centrale?]
+	Se voglio calcolare la probabilità di una somma o media di una popolazione con distribuzione non Normale (Bernoulli, Binomiale, Poisson, ...) con campione sufficientemente grande,
+	posso standardizzare le variabili aleatorie 
+	e poi calcolare con la tavola di Z. Ricordo che:
+	\begin{align*}
+		\underset{\text{Media}}{\frac{\sqrt{n}(\overline{X}_n - \mu)}{\sqrt{\sigma^2}} \, \textcolor{cyan}{\simeq} \, N(0,1)} 
+    \quad \quad \quad \quad 
+    \underset{\text{Somma}}{\frac{\sum^{n}_{i=1} \left(X_i\right) - n \mu}{\sqrt{n\sigma^2}} \, \textcolor{cyan}{\simeq} \, N(0,1)}
+	\end{align*}
+	\begin{align*}
+		\underset{\text{Media}}{\overline{X}_n \simeq N\left(\mu, \frac{\sigma^2}{n}\right)} 
+    \quad \quad \quad \quad 
+    \underset{\text{Somma}}{\sum X_i \simeq N\left(n\mu, n\sigma^2\right)}
+	\end{align*}
+	e che:
+	\begin{align*}
+		Z = \frac{x-\mu}{\sqrt{\sigma^2}} \quad \quad \quad N(\mu, \sigma^2)
+	\end{align*}
+	quindi per standardizzare i valori faccio:
+	\begin{align*}
+		\underset{\text{Media}}{\phi\left(\frac{\sqrt{n}(x - \mu)}{\sqrt{\sigma^2}}\right)} 
+    \quad \quad \quad \quad 
+    \underset{\text{Somma}}{\phi\left(\frac{x - n \mu}{\sqrt{n\sigma^2}}\right)}
+	\end{align*}
+	e poi guardo le tavole di Z e trovo i valori.
+\end{osservazioni}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Stima Puntuale}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
