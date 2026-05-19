@@ -3828,15 +3828,15 @@ Ho trovato lo stimatore per il parametro ignoto e voglio verificare le sue propr
 \begin{theorem}{Non distorsione}
 	SSia $T_n(\vec{X})$ uno stimatore per il parametro $\theta$ di un certo modello statistico. Lo stimatore è detto \textcolor{red}{non distorto} se:
 	\begin{align*}
-		\mathbb{E}[T_n(\vec{X})] = \theta
+		\mathbb{E}_{\theta}[T_n(\vec{X})] = \theta
 	\end{align*}
 	E \textcolor{red}{distorto} se:
 	\begin{align*}
-		\mathbb{E}[T_n(\vec{X})] \neq \theta
+		\mathbb{E}_{\theta}[T_n(\vec{X})] \neq \theta
 	\end{align*}
 	Nel caso in cui lo stimatore fosse distorto, si calcola il valore della \textcolor{red}{distorsione} come segue:
 	\begin{align*}
-		\mathbb{E}[T_n(\vec{X})] - \theta
+		\mathbb{B}_{\theta}(T_n(\vec{X})) = \mathbb{E}_{\theta}[T_n(\vec{X})] - \theta
 	\end{align*}
 \end{theorem}
 \begin{esempio}[Stimatore non distorto]
@@ -3878,8 +3878,15 @@ Ho trovato lo stimatore per il parametro ignoto e voglio verificare le sue propr
 		\mathbb{B} = - \frac{\lambda}{n} =- \frac{4}{5} = -0.8
 	\end{align*}
 \end{esempio}
-\begin{theorem}{Efficienza (Errore quadratico medio)}
-	SSia
+\begin{theorem}{Efficienza}
+	SSia $T$ uno stimatore per il parametro $\theta$ di un certo modello statistico. L'\textcolor{red}{errore quadratico medio} di T viene definito come:
+	\begin{align*}
+		MSE_{\theta}(T) = \mathbb{V}_{\theta}[T(\vec{X})] + \mathbb{B}_{\theta}(T(\vec{X}))^2
+	\end{align*}
+	e se il parametro non è distorto\footnote{perchè quando il parametro non è distorto, per definizione $\mathbb{B}_{\theta}(T(\vec{X}))=0$}:
+	\begin{align*}
+		MSE_{\theta}(T) = \mathbb{V}_{\theta}[T(\vec{X})]
+	\end{align*}
 \end{theorem}
 \begin{theorem}{Consistenza}
 	SSia
