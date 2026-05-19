@@ -3870,12 +3870,12 @@ Ho trovato lo stimatore per il parametro ignoto e voglio verificare le sue propr
 	\end{align*}
 	Lo stimatore è distorto, calcolo il valore della distorsione:
 	\begin{align*}
-		\mathbb{B} = \mathbb{E}[T_n(\vec{X})] - \lambda &=  \frac{n-1}{n}\lambda - \lambda \\
+		\mathbb{B}_{\lambda}(T_n(\vec{X})) &= \mathbb{E}[T_n(\vec{X})] - \lambda  \\ &=  \frac{n-1}{n}\lambda - \lambda \\
 		&= - \frac{\lambda}{n}
 	\end{align*}
 	Nel caso avessi $n=5, \lambda=4$ allora la distorsione sarebbe:
 	\begin{align*}
-		\mathbb{B} = - \frac{\lambda}{n} =- \frac{4}{5} = -0.8
+		\mathbb{B}_{\lambda}(T_n(\vec{X})) = - \frac{\lambda}{n} =- \frac{4}{5} = -0.8
 	\end{align*}
 \end{esempio}
 \begin{theorem}{Efficienza}
@@ -3888,32 +3888,58 @@ Ho trovato lo stimatore per il parametro ignoto e voglio verificare le sue propr
 		MSE_{\theta}(T) = \mathbb{V}_{\theta}[T(\vec{X})]
 	\end{align*}
 \end{theorem}
+Siano $T_1(\vec{X}), T_2(\vec{X})$ due stimatori del parametro $\theta$. Lo stimatore $T_1$ è \textcolor{red}{più efficiente} di $T_2$ se
+\begin{align*}
+	MSE_{\theta}(T_1(\vec{X})) \leq MSE_{\theta}(T_2(\vec{X}))
+\end{align*} 
+e misuro \textcolor{red}{quanto è più efficiente} dalla formula:
+\begin{align*}
+	\text{eff}_{\theta}(T_1,T_2) = \frac{MSE_{\theta}(T_1(\vec{X}))}{MSE_{\theta}(T_2(\vec{X}))}
+\end{align*}
+Quindi nella prima indico qual è lo stimatore più efficiente tra i due e nella seconda di quanto (valore numerico) è più efficiente dell'altro.
 \begin{theorem}{Consistenza}
-	SSia
+	UUno stimatore $T(\vec{X})$ per il parametro $\theta$ di un certo modello statistico si dice \textcolor{red}{consistente} se:
+	\begin{align*}
+		\lim_{n \to \infty} MSE_{\theta}(T(\vec{X})) = 0
+	\end{align*}
 \end{theorem}
 \begin{table}[h]
 \centering
-\begin{tabular}{cccc}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ccccc}
 \toprule
-\textbf{Modello per} & \textbf{Dimensione} & \textbf{Parametro} & \textbf{Migliore} \\
-\textbf{la popolazione} & \textbf{del campione} & \textbf{da stimare} & \textbf{stimatore} \\
+\textbf{Modello per} & \textbf{Dimensione} & \textbf{Parametro} & \textbf{Migliore} & \textbf{Distribuzione}\\
+\textbf{la popolazione} & \textbf{del campione} & \textbf{da stimare} & \textbf{stimatore} & \textbf{campionaria} \\
 \midrule
-$X \sim N(\mu, \sigma^2)$ & qualsiasi & $\mu$ & $\bar{X} = \frac{1}{n} \sum X_i$ \\
+$X \sim N(\mu, \sigma^2)$ & qualsiasi & $\mu$ & $\bar{X} = \frac{1}{n} \sum X_i$ & $N\left(\mu, \frac{\sigma^2}{n}\right)$\\
 \addlinespace
-$X \sim f(\mu, \sigma^2)$ & $n$ grande & $\mu$ & $\bar{X} = \frac{1}{n} \sum X_i$ \\
+$X \sim f(\mu, \sigma^2)$ & $n$ grande & $\mu$ & $\bar{X} = \frac{1}{n} \sum X_i$ & $N\left(\mu, \frac{\sigma^2}{n}\right)$ \\
 \addlinespace
-$X \sim Ber(p)$ & $n$ grande & $p$ & $\hat{p} = \frac{1}{n} \sum X_i$ \\
+$X \sim Ber(\theta)$ & $n$ grande & $\theta$ & $\hat{\theta} = \frac{1}{n} \sum X_i$ & $N\left(\theta, \frac{\theta(1-\theta)}{n}\right)$ \\
 \addlinespace
-$X \sim \mathcal{P}(\lambda)$ & qualsiasi & $\lambda$ & $\bar{X} = \frac{1}{n} \sum X_i$ \\
+$X \sim \mathcal{P}(\lambda)$ & qualsiasi & $\lambda$ & $\bar{X} = \frac{1}{n} \sum X_i$ & $N\left(\lambda, \frac{\lambda}{n}\right)$ \\
 \addlinespace
-$X \sim N(\mu, \sigma^2)$ & qualsiasi & $\sigma^2$ & $\bar{S}^2 = \frac{1}{n-1} \sum (X_i - \bar{X})^2$ \\
+$X \sim N(\mu, \sigma^2)$ & qualsiasi & $\sigma^2$ & $\bar{S}^2 = \frac{1}{n-1} \sum (X_i - \bar{X})^2$ & $\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Stima Intervallare}
+Sappiamo che con la stima puntuale possiamo trovare uno stimatore per un parametro ignoto $\theta$ a cui possiamo attribuire un valore numerico (stima). \\ Un "buon"
+stimatore assume valori vicini al vero valore del parametro $\theta$, ma la probabilità che lo stimatore assuma valore esattamente uguale al parametro è pari a zero. Quindi, oltre
+alla stima puntuale, si riporta un \textcolor{red}{intervallo di confidenza}, ossia un intervallo di valori che ci aspettiamo contenga, con un certo \textcolor{red}{livello di confidenza},
+ il vero valore del parametro.
+ \begin{theorem}{Intervallo di Confidenza}
+	SSia
+ \end{theorem}
+  \begin{theorem}{Livello di Confidenza}
+	SSia
+ \end{theorem}
+\subsubsection{Come costruire gli intervalli di confidenza: Metodo delle quantità pivot}
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Verifica delle Ipotesi}
