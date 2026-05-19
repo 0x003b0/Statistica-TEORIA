@@ -22,6 +22,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{cancel}
 \usepackage{eurosym}
+\usepackage{booktabs}
 
 
 \newtcbtheorem[no counter]{theorem}{Teorema}%
@@ -3477,34 +3478,34 @@ la distribuzione Normale $X \sim N(\mu, \sigma^2)$).
 \end{esercizio}
 \newpage
 \begin{table}[h]
-\centering
-\renewcommand{\arraystretch}{3.5}
-\begin{tabular}{|l|c|c|c|}
-\hline
-\textbf{Situazione} & \textbf{Formula} & \textbf{Distribuzione} & \textbf{Tavola} \\[6pt]
-\hline
-Probabilità sulla \textbf{somma}, $\sigma^2$ nota & 
-$\dfrac{\displaystyle\sum X_i - n\mu}{\sqrt{n\sigma^2}}$ & 
-$N(0,1)$ & 
-Normale standard \\[6pt]
-\hline
-Probabilità sulla \textbf{media}, $\sigma^2$ nota & 
-$\dfrac{\overline{X} - \mu}{\sqrt{\sigma^2/n}}$ & 
-$N(0,1)$ & 
-Normale standard \\[6pt]
-\hline
-Probabilità sulla \textbf{varianza} & 
-$\dfrac{(n-1)S^2}{\sigma^2}$ & 
-$\chi^2_{n-1}$ & 
-Chi-quadro \\[6pt]
-\hline
-Probabilità sulla \textbf{media}, $\sigma^2$ \textbf{ignota} & 
-$\dfrac{\sqrt{n}(\overline{X} - \mu)}{\sqrt{S^2}}$ & 
-$t_{n-1}$ & 
-T-Student \\[6pt]
-\hline
-\end{tabular}
-\caption{Quale distribuzione usare}
+	\centering
+	\renewcommand{\arraystretch}{3.5}
+	\begin{tabular}{|l|c|c|c|}
+		\hline
+		\textbf{Situazione}                                          & \textbf{Formula} & \textbf{Distribuzione} & \textbf{Tavola} \\[6pt]
+		\hline
+		Probabilità sulla \textbf{somma}, $\sigma^2$ nota            &
+		$\dfrac{\displaystyle\sum X_i - n\mu}{\sqrt{n\sigma^2}}$     &
+		$N(0,1)$                                                     &
+		Normale standard                                                                                                           \\[6pt]
+		\hline
+		Probabilità sulla \textbf{media}, $\sigma^2$ nota            &
+		$\dfrac{\overline{X} - \mu}{\sqrt{\sigma^2/n}}$              &
+		$N(0,1)$                                                     &
+		Normale standard                                                                                                           \\[6pt]
+		\hline
+		Probabilità sulla \textbf{varianza}                          &
+		$\dfrac{(n-1)S^2}{\sigma^2}$                                 &
+		$\chi^2_{n-1}$                                               &
+		Chi-quadro                                                                                                                 \\[6pt]
+		\hline
+		Probabilità sulla \textbf{media}, $\sigma^2$ \textbf{ignota} &
+		$\dfrac{\sqrt{n}(\overline{X} - \mu)}{\sqrt{S^2}}$           &
+		$t_{n-1}$                                                    &
+		T-Student                                                                                                                  \\[6pt]
+		\hline
+	\end{tabular}
+	\caption{Quale distribuzione usare}
 \end{table}
 \newpage
 \subsection{Teorema del Limite Centrale}
@@ -3521,32 +3522,32 @@ Utile quando:
 	SSiano una successione di variabili aleatorie i.i.d con valore atteso $\mathbb{E}[X_i]=\mu$ e varianza $0<\mathbb{V}[X_i]=\sigma^2 < + \infty$, allora:
 	\begin{enumerate}
 		\item La variabile standardizzata della media campionaria converge ad una Normale Standard:
-		\begin{align*}
-			\frac{\sqrt{n}(\overline{X}_n - \mu)}{\sqrt{\sigma^2}} \textcolor{cyan}{\overset{d}{\longrightarrow}} N(0,1)
-		\end{align*}
+		      \begin{align*}
+			      \frac{\sqrt{n}(\overline{X}_n - \mu)}{\sqrt{\sigma^2}} \textcolor{cyan}{\overset{d}{\longrightarrow}} N(0,1)
+		      \end{align*}
 		\item La variabile standardizzata della somma converge ad una Normale Standard:
-		\begin{align*}
-			\frac{\sum^{n}_{i=1} \left(X_i\right) - n \mu}{\sqrt{n\sigma^2}} \textcolor{cyan}{\overset{d}{\longrightarrow}} N(0,1)
-		\end{align*}
+		      \begin{align*}
+			      \frac{\sum^{n}_{i=1} \left(X_i\right) - n \mu}{\sqrt{n\sigma^2}} \textcolor{cyan}{\overset{d}{\longrightarrow}} N(0,1)
+		      \end{align*}
 		\item La variabile standardizzata della media campionaria con $\sigma^2$ ignoto, converge ad una Normale Standard:
-		\begin{align*}
-			\frac{\sqrt{n}(\overline{X}_n - \mu)}{\sqrt{S^2}} \textcolor{cyan}{\overset{d}{\longrightarrow}} N(0,1)
-		\end{align*}
+		      \begin{align*}
+			      \frac{\sqrt{n}(\overline{X}_n - \mu)}{\sqrt{S^2}} \textcolor{cyan}{\overset{d}{\longrightarrow}} N(0,1)
+		      \end{align*}
 	\end{enumerate}
 \end{theorem}
 \begin{osservazioni}[Come usare il Teorema del Limite Centrale?]
 	Se voglio calcolare la probabilità di una somma o media di una popolazione con distribuzione non Normale (Bernoulli, Binomiale, Poisson, ...) con campione sufficientemente grande,
-	posso standardizzare le variabili aleatorie 
+	posso standardizzare le variabili aleatorie
 	e poi calcolare con la tavola di Z. Ricordo che:
 	\begin{align*}
-		\underset{\text{Media}}{\frac{\sqrt{n}(\overline{X}_n - \mu)}{\sqrt{\sigma^2}} \, \textcolor{cyan}{\simeq} \, N(0,1)} 
-    \quad \quad \quad \quad 
-    \underset{\text{Somma}}{\frac{\sum^{n}_{i=1} \left(X_i\right) - n \mu}{\sqrt{n\sigma^2}} \, \textcolor{cyan}{\simeq} \, N(0,1)}
+		\underset{\text{Media}}{\frac{\sqrt{n}(\overline{X}_n - \mu)}{\sqrt{\sigma^2}} \, \textcolor{cyan}{\simeq} \, N(0,1)}
+		\quad \quad \quad \quad
+		\underset{\text{Somma}}{\frac{\sum^{n}_{i=1} \left(X_i\right) - n \mu}{\sqrt{n\sigma^2}} \, \textcolor{cyan}{\simeq} \, N(0,1)}
 	\end{align*}
 	\begin{align*}
-		\underset{\text{Media}}{\overline{X}_n \simeq N\left(\mu, \frac{\sigma^2}{n}\right)} 
-    \quad \quad \quad \quad 
-    \underset{\text{Somma}}{\sum X_i \simeq N\left(n\mu, n\sigma^2\right)}
+		\underset{\text{Media}}{\overline{X}_n \simeq N\left(\mu, \frac{\sigma^2}{n}\right)}
+		\quad \quad \quad \quad
+		\underset{\text{Somma}}{\sum X_i \simeq N\left(n\mu, n\sigma^2\right)}
 	\end{align*}
 	e che:
 	\begin{align*}
@@ -3554,9 +3555,9 @@ Utile quando:
 	\end{align*}
 	quindi per standardizzare i valori faccio:
 	\begin{align*}
-		\underset{\text{Media}}{\phi\left(\frac{\sqrt{n}(x - \mu)}{\sqrt{\sigma^2}}\right)} 
-    \quad \quad \quad \quad 
-    \underset{\text{Somma}}{\phi\left(\frac{x - n \mu}{\sqrt{n\sigma^2}}\right)}
+		\underset{\text{Media}}{\phi\left(\frac{\sqrt{n}(x - \mu)}{\sqrt{\sigma^2}}\right)}
+		\quad \quad \quad \quad
+		\underset{\text{Somma}}{\phi\left(\frac{x - n \mu}{\sqrt{n\sigma^2}}\right)}
 	\end{align*}
 	e poi guardo le tavole di Z e trovo i valori.
 \end{osservazioni}
@@ -3567,7 +3568,7 @@ Siano i dati osservati
 \begin{align*}
 	\vec{x} = (x_1, \cdots, x_n)
 \end{align*}
-la realizzazione di un campione casuale 
+la realizzazione di un campione casuale
 \begin{align*}
 	\vec{X} = \left(X_1, \cdots, X_n \right)
 \end{align*}
@@ -3575,31 +3576,31 @@ da una popolazione $X$ (Normale, Binomiale, Bernoulliana, Poisson, ecc...). \\
 La \textcolor{red}{stima puntuale} risponde alla domanda: "qual è il valore del parametro ($\mu, \theta, \cdots$) che ha generato i dati che sto osservando?"
 \subsubsection{Funzione di Verosomiglianza}
 \begin{theorem}{funzione di verosomiglianza}
-	SSia $\vec{X}=(X_1, \cdots, X_n)$ un campione con funzione di massa/densità di probabilità congiunta 
+	SSia $\vec{X}=(X_1, \cdots, X_n)$ un campione con funzione di massa/densità di probabilità congiunta
 	\begin{align*}
-		&p_{\vec{X}}(\cdot;\theta) = p_{(X_1,\cdots,X_n)}(\cdot;\theta)=P(X_1=x_1, \cdots, X_n=x_n) \\
-		&f_{\vec{X}}(\cdot;\theta) = f_{(X_1,\cdots,X_n)}(\cdot;\theta)
+		 & p_{\vec{X}}(\cdot;\theta) = p_{(X_1,\cdots,X_n)}(\cdot;\theta)=P(X_1=x_1, \cdots, X_n=x_n) \\
+		 & f_{\vec{X}}(\cdot;\theta) = f_{(X_1,\cdots,X_n)}(\cdot;\theta)
 	\end{align*}
 	e sia $\vec{x}=(x_1,\cdots, x_n)$ una sua realizzazione. \\
 	Si chiama \textcolor{red}{funzione di verosomiglianza} associata al campione osservato $\vec{x}$ la funzione:
 	\begin{align*}
 		\mathscr{L}(\theta) = \mathscr{L}(\theta; \vec{x}) = \begin{cases}
-			\prod_{i=1}^{n}p_X(x_i;\theta) \quad \text{se } X \text{ discreta}\\
-			\prod_{i=1}^{n}f_X(x_i;\theta) \quad \text{se } X \text{ continua}
-		\end{cases}
+			                                                     \prod_{i=1}^{n}p_X(x_i;\theta) \quad \text{se } X \text{ discreta} \\
+			                                                     \prod_{i=1}^{n}f_X(x_i;\theta) \quad \text{se } X \text{ continua}
+		                                                     \end{cases}
 	\end{align*}
 \end{theorem}
 La funzione di verosomiglianza è il prodotto delle $n$ funzioni di massa/densità di probabilità.
 
 \subsubsection{Funzione di Log-Verosomiglianza}
 \begin{theorem}{funzione di log-verosomiglianza}
-	SSi chiama \textcolor{red}{funzione di log-verosomiglianza} associata al campione osservato $\vec{x}$ la funzione logaritmo naturale che prende come input la funzione 
-	di verosomiglianza: 
+	SSi chiama \textcolor{red}{funzione di log-verosomiglianza} associata al campione osservato $\vec{x}$ la funzione logaritmo naturale che prende come input la funzione
+	di verosomiglianza:
 	\begin{align*}
 		\ell(\theta) = \ell(\mathscr{L}(\theta; \vec{x})) =\ln(\mathscr{L}(\theta; \vec{x})) = \begin{cases}
-			\sum_{i=1}^{n}\left(\ln\left(p_X(x_i;\theta)\right)\right) \quad \text{se } X \text{ discreta}\\
-			\sum_{i=1}^{n}\left(\ln\left(f_X(x_i;\theta)\right)\right) \quad \text{se } X \text{ continua}
-		\end{cases}
+			                                                                                       \sum_{i=1}^{n}\left(\ln\left(p_X(x_i;\theta)\right)\right) \quad \text{se } X \text{ discreta} \\
+			                                                                                       \sum_{i=1}^{n}\left(\ln\left(f_X(x_i;\theta)\right)\right) \quad \text{se } X \text{ continua}
+		                                                                                       \end{cases}
 	\end{align*}
 \end{theorem}
 La funzione di log-verosomiglianza è la somma delle $n$ funzioni di massa/densità di probabilità a cui viene applicato il logaritmo naturale (prima applico $\ln$ a ogni funzione di massa/
@@ -3608,38 +3609,300 @@ densità di probabilità e poi le sommo).
 Serve per trovare il valore del parametro ignoto.
 \begin{enumerate}
 	\item \textcolor{red}{Trovo la funzione di verosomiglianza:}
-	\begin{align*}
-		\mathscr{L}(\theta; \vec{x}) = \begin{cases}
-			\prod_{i=1}^{n}p_X(x_i;\theta) \quad \text{se } X \text{ discreta}\\
-			\prod_{i=1}^{n}f_X(x_i;\theta) \quad \text{se } X \text{ continua}
-		\end{cases}
-	\end{align*}
-	\item \textcolor{red}{Trovo la funzione di log-verosomiglianza applicando il logaritmo naturale alla funzione del punto 1:} 
-	\begin{align*}
-	\ell(\theta) = \ell(\mathscr{L}(\theta; \vec{x})) =\ln(\mathscr{L}(\theta; \vec{x}))	
-	\end{align*}
+	      \begin{align*}
+		      \mathscr{L}(\theta; \vec{x}) = \begin{cases}
+			                                     \prod_{i=1}^{n}p_X(x_i;\theta) \quad \text{se } X \text{ discreta} \\
+			                                     \prod_{i=1}^{n}f_X(x_i;\theta) \quad \text{se } X \text{ continua}
+		                                     \end{cases}
+	      \end{align*}
+	\item \textcolor{red}{Trovo la funzione di log-verosomiglianza applicando il logaritmo naturale alla funzione del punto 1:}
+	      \begin{align*}
+		      \ell(\theta) = \ell(\mathscr{L}(\theta; \vec{x})) =\ln(\mathscr{L}(\theta; \vec{x}))
+	      \end{align*}
 	\item \textcolor{red}{Calcolo la derivata di $\ell(\theta)$ del punto 2}
 	\item \textcolor{red}{Impongo la derivata uguale a zero (trovo il punto stazionario):}
-	\begin{align*}
-		\ell'(\theta)=0
-	\end{align*}
+	      \begin{align*}
+		      \ell'(\theta)=0
+	      \end{align*}
 	\item \textcolor{red}{Verifico che la derivata seconda sia negativa:}
-	il punto stazionario è un punto di massimo se la derivata seconda è negativa
-	\begin{itemize}
-		\item Se il parametro ignoto è solo uno, controllo che la derivata seconda sia negativa (il punto stazionario è un punto di massimo)
-		\begin{align*}
-			\ell''(\theta)<0
-		\end{align*}
-		\item Se il parametro ignoto è più di uno, controllo che la derivata parziale seconda sia negativa con il test dell'Hessiana
-	\end{itemize}
+	      il punto stazionario è un punto di massimo se la derivata seconda è negativa
+	      \begin{itemize}
+		      \item Se il parametro ignoto è solo uno, controllo che la derivata seconda sia negativa (il punto stazionario è un punto di massimo)
+		            \begin{align*}
+			            \ell''(\theta)<0
+		            \end{align*}
+		      \item Se i parametri ignoti sono due, controllo che la derivata parziale seconda sia negativa con il test dell'Hessiana
+	      \end{itemize}
 \end{enumerate}
+\begin{esempio}[Esempio: Stima di MV per il modello di Poisson]
+	Sia $X_1,\cdots, X_n$ un campione casuale da una popolazione $X$ con $X \sim$ Possion $(\lambda)$.
+	\begin{enumerate}
+		\item Trovo la funzione di verosomiglianza
+		      \begin{align*}
+			      \mathscr{L}(\lambda; \vec{x}) & = \prod_{i=1}^{n}\left(e^{-\lambda}\frac{\lambda^{x_i}}{x_i!}\right)                                                                                                      \\
+			                                    & = \left(e^{-\lambda}\frac{\lambda^{x_1}}{x_1!}\right) \cdot \left(e^{-\lambda}\frac{\lambda^{x_2}}{x_2!}\right) \dots \left(e^{-\lambda}\frac{\lambda^{x_n}}{x_n!}\right) \\
+			                                    & = e^{-n\lambda}\frac{\lambda^{(x_1+x_2+\dots+x_n)}}{x_1! \cdot x_2! \cdots x_n!}                                                                                          \\
+			                                    & = e^{-n\lambda}\frac{\lambda^{\left(\sum x_i\right)}}{\prod x_i!}
+		      \end{align*}
+		\item Trovo la funzione di log-verosomiglianza
+		      \begin{align*}
+			      \ell(\lambda; \vec{x}) & = \ln\left(e^{-n\lambda} \cdot \frac{\lambda^{\left(\sum x_i\right)}}{\prod x_i!}\right)                       \\
+			                             & \text{per le proprietà dei logaritmi}                                                                          \\
+			                             & = \ln\left(e^{-n\lambda}\right) + \ln\left(\frac{\lambda^{\left(\sum x_i\right)}}{\prod x_i!}\right)           \\
+			                             & = \ln\left(e^{-n\lambda}\right) + \ln\left(\lambda^{\left(\sum x_i\right)}\right) - \ln\left(\prod x_i!\right) \\
+			                             & = -n \lambda \cdot \ln(e) + \sum x_i \cdot \ln(\lambda) - \ln \left(\prod x_i! \right)                         \\
+			                             & \text{so che } \ln(e)=1 \text{ quindi}                                                                         \\
+			                             & = -n \lambda + \sum x_i \cdot \ln(\lambda) - \ln \left(\prod x_i! \right)
+		      \end{align*}
+		\item Calcolo la derivata \\
+		      in questo caso devo derivare rispetto a $\lambda$ quindi tutto ciò che non contiene $\lambda$ scompare:
+		      \begin{align*}
+			      \ell'(\lambda) & = \left(-n \lambda + \sum x_i \cdot \ln(\lambda) - \ln \left(\prod x_i! \right)\right)'                   \\
+			                     & = \left(-n \lambda\right)' + \left(\sum x_i \cdot \ln(\lambda)\right)'                                    \\
+			                     & = -n + \left[\left(\sum x_i \cdot \ln(\lambda)\right) + \left(\sum x_i \cdot \ln(\lambda)\right)\right]'  \\
+			                     & = -n + \left[\left(\sum x_i' \cdot \ln(\lambda)\right) + \left(\sum x_i \cdot \ln(\lambda)'\right)\right] \\
+			                     & = -n + \left(\sum x_i \cdot \ln(\lambda)'\right)                                                          \\
+			                     & = -n + \left(\sum x_i \cdot \frac{1}{\lambda}\right)                                                      \\
+			                     & = -n + \left(\frac{\sum x_i}{\lambda}\right)
+		      \end{align*}
+		\item Impongo derivata prima uguale a zero e trovo stimatore
+		      \begin{align*}
+			      -n + \left(\frac{\sum x_i}{\lambda}\right) & = 0                  \\
+			      \left(\frac{\sum x_i}{\lambda}\right)      & = n                  \\
+			      \sum x_i                                   & = \lambda n          \\
+			      \hat{\lambda}                              & = \frac{\sum x_i}{n}
+		      \end{align*}
+		      La stima è
+		      \begin{align*}
+			      \textcolor{red}{\hat{\lambda}} = \frac{\sum x_i}{n}
+		      \end{align*}
+		      Lo stimatore è
+		      \begin{align*}
+			      \textcolor{red}{\hat{\lambda}} = \frac{\sum X_i}{n}
+		      \end{align*}
+		\item Verifico che la derivata seconda sia negativa \\
+		      Il parametro ignoto è solo uno, quindi basta calcolare la derivata seconda
+		      \begin{align*}
+			      (\ell'(\lambda))' & = \left[ -n + \left(\frac{\sum x_i}{\lambda}\right) \right]'                                                  \\
+			                        & = (-n)' + \left(\frac{\sum x_i}{\lambda}\right)'                                                              \\
+			                        & = \left(\frac{\sum x_i}{\lambda}\right)'                                                                      \\
+			                        & = \left[\frac{\left(\sum x_i' \cdot \lambda\right) - \left(\sum x_i \cdot \lambda'\right)}{\lambda^2} \right] \\
+			                        & = - \frac{\left(\sum x_i \cdot \lambda'\right)}{\lambda^2}                                                    \\
+			                        & = - \frac{\sum x_i}{\lambda^2}
+		      \end{align*}
+		      È negativa $(\ell'(\lambda))' < 0$ quindi la stima di MV di $\lambda$ è $\textcolor{red}{\hat{\lambda}} = \frac{\sum x_i}{n}$ (che alla fine è la media), quindi:
+		      \begin{align*}
+			      \text{Stima di MV di $\lambda$} \quad \quad \hat{\lambda}_{ML}(\vec{x}) = \frac{\sum x_i}{n}=\overline{x}
+		      \end{align*}
+		      \begin{align*}
+			      \text{Stimatore di MV di $\lambda$} \quad \quad \hat{\lambda}_{ML}(\vec{X}) = \frac{\sum X_i}{n}=\overline{X}
+		      \end{align*}
+	\end{enumerate}
+\end{esempio}
+\begin{esempio}[Esempio: Stima di MV per il modello Normale]
+	La differenza tra questo esempio e quello precedente è che il parametro ignoto della Normale è un vettore $\theta=(\mu, \sigma^2)$ quindi invece di trovare la derivata prima, devo
+	trovare le derivate parziali (punto 3) , imporre le derivate parziali uguali a zero in un sistema (punto 4) e successivamente verificare che la stima trovata sia quella giusta controllando
+	che la derivata parziale seconda sia negativa con il test dell'Hessiana. \\ \\
+	Siano $X_1, \dots, X_n$ variabili aleatorie i.i.d con $X \sim N(\mu, \sigma^2)$.
+	\begin{enumerate}
+		\item Trovo la funzione di verosomiglianza
+		      \begin{align*}
+			      \mathscr{L}(\mu, \sigma^2; \vec{x}) & = \prod_{i=1}^{n}\frac{1}{\sqrt{2 \pi \sigma^2}}\cdot \mathrm{e}^{-\frac{1}{2}\left(\frac{x_i-\mu}{\sigma}\right)^2}                                                                          \\
+			                                          & = \prod_{i=1}^{n}\frac{1}{\sqrt{2 \pi}} \cdot \frac{1}{\sqrt{\sigma^2}} \cdot \mathrm{e}^{-\frac{1}{2}\left(\frac{x_i-\mu}{\sigma}\right)^2}                                                  \\
+			                                          & = \left(\frac{1}{\sqrt{2 \pi}}\right)^n \cdot \left(\frac{1}{\sqrt{\sigma^2}}\right)^n \cdot \mathrm{e}^{\sum \left(-\frac{1}{2}\left(\frac{x_i-\mu}{\sigma}\right)^2\right)}                 \\
+			                                          & = \left(\frac{1}{\sqrt{2 \pi}}\right)^n \cdot \left(\frac{1}{\sqrt{\sigma^2}}\right)^n \cdot \mathrm{e}^{-\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)}                     \\
+			                                          & = \left(\frac{1}{\sqrt{2 \pi}}\right)^n \cdot \left(\frac{1}{\left(\sigma^2\right)^\frac{1}{2}}\right)^n \cdot \mathrm{e}^{-\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)}   \\
+			                                          & = \left(\frac{1}{\sqrt{2 \pi}}\right)^n \cdot \frac{1^n}{\left(\left(\sigma^2\right)^\frac{1}{2}\right)^n} \cdot \mathrm{e}^{-\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)} \\
+			                                          & = \left(\frac{1}{\sqrt{2 \pi}}\right)^n \cdot \frac{1^n}{\left(\sigma^2\right)^\frac{n}{2}} \cdot \mathrm{e}^{-\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)}                \\
+			                                          & = \left(\frac{1}{\sqrt{2 \pi}}\right)^n \cdot \left(\frac{1}{\sigma^2}\right)^\frac{n}{2} \cdot \mathrm{e}^{-\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)}                  \\
+			                                          & = \left(\frac{1}{\sqrt{2 \pi}}\right)^n \cdot \left(\sigma^2\right)^{-\frac{n}{2}} \cdot \mathrm{e}^{-\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)}
+		      \end{align*}
+		\item Trovo la funzione di log-verosomiglianza
+		      \begin{align*}
+			      \ell(\mu, \sigma^2; \vec{x}) & = \ln \left(\left(\frac{1}{\sqrt{2 \pi}}\right)^n \cdot \left(\sigma^2\right)^{-\frac{n}{2}} \cdot \mathrm{e}^{-\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)}\right)                        \\
+			                                   & = \ln\left[\left(\frac{1}{\sqrt{2 \pi}}\right)^n\right] + \ln\left[\left(\sigma^2\right)^{-\frac{n}{2}}\right] + \ln\left[\mathrm{e}^{-\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)}\right] \\
+			                                   & = n \ln \left(\frac{1}{\sqrt{2 \pi}}\right) - \frac{n}{2} \ln \left(\sigma^2\right) -\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right) \ln (e)                                                   \\
+			                                   & = n \ln \left(\frac{1}{\sqrt{2 \pi}}\right) - \frac{n}{2} \ln \left(\sigma^2\right) -\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)                                                           \\
+			                                   & = - n \ln \left(\sqrt{2 \pi}\right) - \frac{n}{2} \ln \left(\sigma^2\right) -\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)                                                                   \\
+			                                   & = - n \ln \left({2 \pi}^{1/2}\right) - \frac{n}{2} \ln \left(\sigma^2\right) -\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)                                                                  \\
+			                                   & = - \frac{1}{2} n \ln \left({2 \pi}\right) - \frac{n}{2} \ln \left(\sigma^2\right) -\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)                                                            \\
+			                                   & = - \frac{n}{2} \ln \left({2 \pi}\right) - \frac{n}{2} \ln \left(\sigma^2\right) -\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)                                                              \\
+		      \end{align*}
+		\item Calcolo derivate prime parziali
+		      \begin{itemize}
+			      \item Derivata prima parziale rispetto a $\mu$ (quindi $\sigma^2, n$ costanti)
+			            \begin{align*}
+				            \frac{\partial \ell}{\partial \mu} & = \left(- \frac{n}{2} \ln \left({2 \pi}\right) - \frac{n}{2} \ln \left(\sigma^2\right) -\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)\right)' \\
+				                                               & = - 0 - 0 -  \left(\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)\right)'                                                                      \\
+				                                               & = -  \left(\frac{1}{2\sigma^2} \sum \left(-2\left({x_i-\mu}\right)\right)\right)                                                                               \\
+				                                               & = \frac{1}{\sigma^2} \sum \left({x_i-\mu}\right)                                                                                                               \\
+				                                               & \text{sapendo che } \mu = n\mu                                                                                                                                 \\
+				                                               & = \frac{1}{\sigma^2} \sum \left({x_i-n\mu}\right)
+			            \end{align*}
+			      \item Derivata prima parziale rispetto a $\sigma^2$ (quindi $\mu, n$ costanti)
+			            \begin{align*}
+				            \frac{\partial \ell}{\partial \sigma^2} & = \left(- \frac{n}{2} \ln \left({2 \pi}\right) - \frac{n}{2} \ln \left(\sigma^2\right) -\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)\right)' \\
+				                                                    & = 0 - \left(\frac{n}{2} \ln \left(\sigma^2\right)\right)' -  \left(\frac{1}{2\sigma^2} \sum \left(\left({x_i-\mu}\right)^2\right)\right)'                      \\
+				                                                    & \text{ per evitare di impazzire impongo } \sigma^2=Y                                                                                                           \\
+				                                                    & = - \left(\frac{n}{2} \ln \left(Y\right)\right)' -  \left(\frac{1}{2Y} \sum \left(\left({x_i-\mu}\right)^2\right)\right)'                                      \\
+				                                                    & = - \frac{n}{2Y} + \frac{1}{2Y^2} \sum \left({x_i-\mu}\right)^2                                                                                                \\
+				                                                    & \text{sostituisco } Y                                                                                                                                          \\
+				                                                    & = - \frac{n}{2\sigma^2} + \frac{1}{2(\sigma^2)^2} \sum \left({x_i-\mu}\right)^2                                                                                \\
+				                                                    & = \frac{1}{2\sigma^2} \left[-n + \frac{1}{\sigma^2} \sum \left({x_i-\mu}\right)^2 \right]
+			            \end{align*}
+		      \end{itemize}
+		\item Impongo derivate prime parziali uguali a zero col sistema e trovo stimatori $\hat{\mu}, \hat{\sigma}^2$
+		\begin{enumerate}
+			\item \textcolor{red}{trovo $\hat{\mu}$}
+			\begin{align*}
+				\dfrac{\partial \ell}{\partial \mu} &= 0 \\
+				\dfrac{1}{\sigma^2} \sum x_i - n\mu &= 0 \\
+				\frac{\sum x_i - n\mu}{\sigma^2} &= 0 \\
+				\sigma^2 \cdot \frac{\sum x_i - n\mu}{\sigma^2} &= \sigma^2 \cdot 0 \\
+				\sum x_i - n\mu &= 0 \\
+				\mu &= \frac{\sum x_i}{n}
+			\end{align*}
+			Quindi la stima è la media:
+			\begin{align*}
+				\textcolor{red}{\hat{\mu}} = \frac{\sum x_i}{n} = \overline{x}
+			\end{align*}
+			\item \textcolor{red}{trovo $\hat{\sigma}^2$}
+			\begin{align*}
+				\dfrac{\partial \ell}{\partial \sigma^2} &= 0 \\
+				\dfrac{1}{2\sigma^2} \left[ -n + \dfrac{1}{\sigma^2} \sum (x_i - \mu)^2 \right] &= 0 \\
+				\vdots \\
+				\sigma^2 &= \frac{1}{n} \sum \left(x_i- \mu\right)^2 \\
+				\text{sostiuisco sapendo che } \textcolor{cyan}{{\mu}} = \frac{\sum x_i}{n} = \overline{x} \text{ vedi passo prec.} \\
+				\sigma^2 &= \frac{1}{n} \sum \left(x_i- \overline{x}\right)^2 \\
+			\end{align*}
+			Quindi la stima è la varianza:
+			\begin{align*}
+				\textcolor{red}{\hat{\sigma}^2}= \frac{1}{n} \sum \left(x_i- \overline{x}\right)^2
+			\end{align*}
+		\end{enumerate}
+		\item Verifico che la derivata seconda parziale sia negativa con il test dell'Hessiana
+		\begin{itemize}
+    \item \textbf{Calcolo delle derivate parziali seconde:}
+    \begin{align*}
+        \dfrac{\partial^2 \ell}{\partial \mu^2} & = \dfrac{\partial}{\partial \mu} \left[ \dfrac{1}{\sigma^2} \left( \sum_{i=1}^n x_i - n\mu \right) \right] = -\dfrac{n}{\sigma^2} \\[10pt]
+        \dfrac{\partial^2 \ell}{\partial (\sigma^2)^2} & = \dfrac{\partial}{\partial \sigma^2} \left[ -\dfrac{n}{2\sigma^2} + \dfrac{1}{2(\sigma^2)^2} \sum_{i=1}^n (x_i - \mu)^2 \right] = \dfrac{n}{2(\sigma^2)^2} - \dfrac{\sum_{i=1}^n (x_i - \mu)^2}{(\sigma^2)^3} \\[10pt]
+        \dfrac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2} & = \dfrac{\partial}{\partial \sigma^2} \left[ \dfrac{1}{\sigma^2} \left( \sum_{i=1}^n x_i - n\mu \right) \right] = -\dfrac{1}{(\sigma^2)^2} \left( \sum_{i=1}^n x_i - n\mu \right)
+    \end{align*}
+
+    \item \textbf{Valutazione nel punto stazionario $(\hat{\mu}, \hat{\sigma}^2)$:}
+    Sostituendo le stime di massima verosimiglianza $\hat{\mu} = \overline{x}$ (da cui $\sum x_i = n\overline{x}$) e $\hat{\sigma}^2 = \frac{1}{n}\sum(x_i-\overline{x})^2$ (da cui $\sum(x_i-\overline{x})^2 = n\hat{\sigma}^2$):
+    \begin{align*}
+        \left. \dfrac{\partial^2 \ell}{\partial \mu^2} \right|_{(\hat{\mu}, \hat{\sigma}^2)} & = -\dfrac{n}{\hat{\sigma}^2} \\[10pt]
+        \left. \dfrac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2} \right|_{(\hat{\mu}, \hat{\sigma}^2)} & = -\dfrac{1}{(\hat{\sigma}^2)^2} \underbrace{\left( \sum_{i=1}^n x_i - n\overline{x} \right)}_{= \, 0} = 0 \\[10pt]
+        \left. \dfrac{\partial^2 \ell}{\partial (\sigma^2)^2} \right|_{(\hat{\mu}, \hat{\sigma}^2)} & = \dfrac{n}{2(\hat{\sigma}^2)^2} - \dfrac{\overbrace{\sum_{i=1}^n (x_i - \overline{x})^2}^{= \, n\hat{\sigma}^2}}{(\hat{\sigma}^2)^3} = \dfrac{n}{2(\hat{\sigma}^2)^2} - \dfrac{n}{(\hat{\sigma}^2)^2} = -\dfrac{n}{2(\hat{\sigma}^2)^2}
+    \end{align*}
+
+    \item \textbf{Costruzione della Matrice Hessiana $H(\hat{\mu}, \hat{\sigma}^2)$:}
+    Poiché le derivate miste si azzerano, la matrice assume una struttura diagonale:
+    \begin{align*}
+        H(\hat{\mu}, \hat{\sigma}^2) = 
+        \begin{bmatrix}
+            \left. \dfrac{\partial^2 \ell}{\partial \mu^2} \right. & \left. \dfrac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2} \right. \\[15pt]
+            \left. \dfrac{\partial^2 \ell}{\partial \sigma^2 \, \partial \mu} \right. & \left. \dfrac{\partial^2 \ell}{\partial (\sigma^2)^2} \right.
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            -\dfrac{n}{\hat{\sigma}^2} & 0 \\[15pt]
+            0 & -\dfrac{n}{2(\hat{\sigma}^2)^2}
+        \end{bmatrix}
+    \end{align*}
+
+    \item \textbf{Test del Determinante:}
+	Il determinante dell'Hessiana è positivo e \\ $-\dfrac{n}{\hat{\sigma}^2} < 0$ quindi la stima di MV di $(\mu, \sigma^2)$ è $(\hat{\mu}, \hat{\sigma}^2)$. 
+	Ovvero le stime trovate nel punto 4 sono giuste. 
+\end{itemize}
+	\end{enumerate}
+\end{esempio}
 \subsubsection{Metodi per valutare gli stimatori}
-Ho trovato lo stimatore (non stima) per il parametro ignoto e devo valutare se questo è il candidato giusto verificando:
+Ho trovato lo stimatore per il parametro ignoto e voglio verificare le sue proprietà:
 \begin{itemize}
 	\item Non distorsione
 	\item Efficienza
 	\item Consistenza
 \end{itemize}
+\begin{theorem}{Non distorsione}
+	SSia $T_n(\vec{X})$ uno stimatore per il parametro $\theta$ di un certo modello statistico. Lo stimatore è detto \textcolor{red}{non distorto} se:
+	\begin{align*}
+		\mathbb{E}[T_n(\vec{X})] = \theta
+	\end{align*}
+	E \textcolor{red}{distorto} se:
+	\begin{align*}
+		\mathbb{E}[T_n(\vec{X})] \neq \theta
+	\end{align*}
+	Nel caso in cui lo stimatore fosse distorto, si calcola il valore della \textcolor{red}{distorsione} come segue:
+	\begin{align*}
+		\mathbb{E}[T_n(\vec{X})] - \theta
+	\end{align*}
+\end{theorem}
+\begin{esempio}[Stimatore non distorto]
+	Nell'esempio precedente con il metodo di MV ho trovato sia $\hat{\lambda}=\frac{\sum X_i}{n}$ è lo stimatore del parametro $\lambda$ con Distribuzione di Poisson. \\
+	\textcolor{red}{Lo stimatore è distorto o non distorto?}
+	\begin{align*}
+		T_n(\vec{X}) = \hat{\lambda}=\frac{\sum X_i}{n} \implies T_n(\vec{X}) = \hat{\lambda}
+	\end{align*}
+	Verifico uguaglianza:
+	\begin{align*}
+		\mathbb{E}[T_n(\vec{X})] \overset{?}{=} \lambda \\
+		\mathbb{E}[\hat{\lambda}] \overset{?}{=} \lambda \\
+		\mathbb{E}\left[\frac{\sum X_i}{n}\right] \overset{?}{=} \lambda \\
+		\frac{1}{n}\mathbb{E}\left[\sum X_i\right] \overset{?}{=} \lambda \\
+		\frac{1}{n}\mathbb{E}\left[X_1+\dots+X_n\right] \overset{?}{=} \lambda \\
+		\frac{1}{n}\left(\mathbb{E}[X_1]+\dots+ \mathbb{E} [X_n]\right) \overset{?}{=} \lambda \\
+		\text{nella Poisson, } \mathbb{E}[X]=\lambda \text{, quindi} \\
+		\frac{1}{n}\left(\lambda+\dots+ \lambda \right) \overset{?}{=} \lambda \\
+		\frac{1}{n}\left(n \lambda \right) \overset{?}{=} \lambda \\
+		\lambda \overset{\textcolor{green}{\checkmark}}{=} \lambda \\
+	\end{align*}
+	L'uguaglianza è vera, quindi lo stimatore è non distorto.
+\end{esempio}
+\begin{esempio}[Stimatore distorto]
+	Suppongo che lo stimatore trovato sia $\hat{\lambda}=\frac{1}{n}\sum \left(X_i - \overline{X}\right)^2$ verifico se è distorto oppure no:
+	\begin{align*}
+		\mathbb{E}[T_n(\vec{X})] \overset{?}{=} \lambda \\
+		\mathbb{E}\left[\frac{1}{n}\sum \left(X_i - \overline{X}\right)^2\right] \overset{?}{=} \lambda \\
+		\frac{1}{n} \mathbb{E}\left[\sum \left(X_i - \overline{X}\right)^2\right] \overset{?}{=} \lambda \\
+		\frac{n-1}{n}\lambda \textcolor{red}{\neq} \lambda
+	\end{align*}
+	Lo stimatore è distorto, calcolo il valore della distorsione:
+	\begin{align*}
+		\mathbb{B} = \mathbb{E}[T_n(\vec{X})] - \lambda &=  \frac{n-1}{n}\lambda - \lambda \\
+		&= - \frac{\lambda}{n}
+	\end{align*}
+	Nel caso avessi $n=5, \lambda=4$ allora la distorsione sarebbe:
+	\begin{align*}
+		\mathbb{B} = - \frac{\lambda}{n} =- \frac{4}{5} = -0.8
+	\end{align*}
+\end{esempio}
+\begin{theorem}{Efficienza}
+	SSia
+\end{theorem}
+\begin{theorem}{Consistenza}
+	SSia
+\end{theorem}
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+\toprule
+\textbf{Modello per} & \textbf{Dimensione} & \textbf{Parametro} & \textbf{Migliore} \\
+\textbf{la popolazione} & \textbf{del campione} & \textbf{da stimare} & \textbf{stimatore} \\
+\midrule
+$X \sim N(\mu, \sigma^2)$ & qualsiasi & $\mu$ & $\bar{X} = \frac{1}{n} \sum X_i$ \\
+\addlinespace
+$X \sim f(\mu, \sigma^2)$ & $n$ grande & $\mu$ & $\bar{X} = \frac{1}{n} \sum X_i$ \\
+\addlinespace
+$X \sim Ber(p)$ & $n$ grande & $p$ & $\hat{p} = \frac{1}{n} \sum X_i$ \\
+\addlinespace
+$X \sim \mathcal{P}(\lambda)$ & qualsiasi & $\lambda$ & $\bar{X} = \frac{1}{n} \sum X_i$ \\
+\addlinespace
+$X \sim N(\mu, \sigma^2)$ & qualsiasi & $\sigma^2$ & $\bar{S}^2 = \frac{1}{n-1} \sum (X_i - \bar{X})^2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
