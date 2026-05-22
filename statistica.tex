@@ -3752,70 +3752,70 @@ Serve per trovare il valore del parametro ignoto.
 			            \end{align*}
 		      \end{itemize}
 		\item Impongo derivate prime parziali uguali a zero col sistema e trovo stimatori $\hat{\mu}, \hat{\sigma}^2$
-		\begin{enumerate}
-			\item \textcolor{red}{trovo $\hat{\mu}$}
-			\begin{align*}
-				\dfrac{\partial \ell}{\partial \mu} &= 0 \\
-				\dfrac{1}{\sigma^2} \sum x_i - n\mu &= 0 \\
-				\frac{\sum x_i - n\mu}{\sigma^2} &= 0 \\
-				\sigma^2 \cdot \frac{\sum x_i - n\mu}{\sigma^2} &= \sigma^2 \cdot 0 \\
-				\sum x_i - n\mu &= 0 \\
-				\mu &= \frac{\sum x_i}{n}
-			\end{align*}
-			Quindi la stima è la media:
-			\begin{align*}
-				\textcolor{red}{\hat{\mu}} = \frac{\sum x_i}{n} = \overline{x}
-			\end{align*}
-			\item \textcolor{red}{trovo $\hat{\sigma}^2$}
-			\begin{align*}
-				\dfrac{\partial \ell}{\partial \sigma^2} &= 0 \\
-				\dfrac{1}{2\sigma^2} \left[ -n + \dfrac{1}{\sigma^2} \sum (x_i - \mu)^2 \right] &= 0 \\
-				\vdots \\
-				\sigma^2 &= \frac{1}{n} \sum \left(x_i- \mu\right)^2 \\
-				\text{sostiuisco sapendo che } \textcolor{cyan}{{\mu}} = \frac{\sum x_i}{n} = \overline{x} \text{ vedi passo prec.} \\
-				\sigma^2 &= \frac{1}{n} \sum \left(x_i- \overline{x}\right)^2 \\
-			\end{align*}
-			Quindi la stima è la varianza:
-			\begin{align*}
-				\textcolor{red}{\hat{\sigma}^2}= \frac{1}{n} \sum \left(x_i- \overline{x}\right)^2
-			\end{align*}
-		\end{enumerate}
+		      \begin{enumerate}
+			      \item \textcolor{red}{trovo $\hat{\mu}$}
+			            \begin{align*}
+				            \dfrac{\partial \ell}{\partial \mu}             & = 0                  \\
+				            \dfrac{1}{\sigma^2} \sum x_i - n\mu             & = 0                  \\
+				            \frac{\sum x_i - n\mu}{\sigma^2}                & = 0                  \\
+				            \sigma^2 \cdot \frac{\sum x_i - n\mu}{\sigma^2} & = \sigma^2 \cdot 0   \\
+				            \sum x_i - n\mu                                 & = 0                  \\
+				            \mu                                             & = \frac{\sum x_i}{n}
+			            \end{align*}
+			            Quindi la stima è la media:
+			            \begin{align*}
+				            \textcolor{red}{\hat{\mu}} = \frac{\sum x_i}{n} = \overline{x}
+			            \end{align*}
+			      \item \textcolor{red}{trovo $\hat{\sigma}^2$}
+			            \begin{align*}
+				            \dfrac{\partial \ell}{\partial \sigma^2}                                        & = 0                                                 \\
+				            \dfrac{1}{2\sigma^2} \left[ -n + \dfrac{1}{\sigma^2} \sum (x_i - \mu)^2 \right] & = 0                                                 \\
+				            \vdots                                                                                                                                \\
+				            \sigma^2                                                                        & = \frac{1}{n} \sum \left(x_i- \mu\right)^2          \\
+				            \text{sostiuisco sapendo che } \textcolor{cyan}{{\mu}} = \frac{\sum x_i}{n} = \overline{x} \text{ vedi passo prec.}                   \\
+				            \sigma^2                                                                        & = \frac{1}{n} \sum \left(x_i- \overline{x}\right)^2 \\
+			            \end{align*}
+			            Quindi la stima è la varianza:
+			            \begin{align*}
+				            \textcolor{red}{\hat{\sigma}^2}= \frac{1}{n} \sum \left(x_i- \overline{x}\right)^2
+			            \end{align*}
+		      \end{enumerate}
 		\item Verifico che la derivata seconda parziale sia negativa con il test dell'Hessiana
-		\begin{itemize}
-    \item \textbf{Calcolo delle derivate parziali seconde:}
-    \begin{align*}
-        \dfrac{\partial^2 \ell}{\partial \mu^2} & = \dfrac{\partial}{\partial \mu} \left[ \dfrac{1}{\sigma^2} \left( \sum_{i=1}^n x_i - n\mu \right) \right] = -\dfrac{n}{\sigma^2} \\[10pt]
-        \dfrac{\partial^2 \ell}{\partial (\sigma^2)^2} & = \dfrac{\partial}{\partial \sigma^2} \left[ -\dfrac{n}{2\sigma^2} + \dfrac{1}{2(\sigma^2)^2} \sum_{i=1}^n (x_i - \mu)^2 \right] = \dfrac{n}{2(\sigma^2)^2} - \dfrac{\sum_{i=1}^n (x_i - \mu)^2}{(\sigma^2)^3} \\[10pt]
-        \dfrac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2} & = \dfrac{\partial}{\partial \sigma^2} \left[ \dfrac{1}{\sigma^2} \left( \sum_{i=1}^n x_i - n\mu \right) \right] = -\dfrac{1}{(\sigma^2)^2} \left( \sum_{i=1}^n x_i - n\mu \right)
-    \end{align*}
+		      \begin{itemize}
+			      \item \textbf{Calcolo delle derivate parziali seconde:}
+			            \begin{align*}
+				            \dfrac{\partial^2 \ell}{\partial \mu^2}                    & = \dfrac{\partial}{\partial \mu} \left[ \dfrac{1}{\sigma^2} \left( \sum_{i=1}^n x_i - n\mu \right) \right] = -\dfrac{n}{\sigma^2}                                                                              \\[10pt]
+				            \dfrac{\partial^2 \ell}{\partial (\sigma^2)^2}             & = \dfrac{\partial}{\partial \sigma^2} \left[ -\dfrac{n}{2\sigma^2} + \dfrac{1}{2(\sigma^2)^2} \sum_{i=1}^n (x_i - \mu)^2 \right] = \dfrac{n}{2(\sigma^2)^2} - \dfrac{\sum_{i=1}^n (x_i - \mu)^2}{(\sigma^2)^3} \\[10pt]
+				            \dfrac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2} & = \dfrac{\partial}{\partial \sigma^2} \left[ \dfrac{1}{\sigma^2} \left( \sum_{i=1}^n x_i - n\mu \right) \right] = -\dfrac{1}{(\sigma^2)^2} \left( \sum_{i=1}^n x_i - n\mu \right)
+			            \end{align*}
 
-    \item \textbf{Valutazione nel punto stazionario $(\hat{\mu}, \hat{\sigma}^2)$:}
-    Sostituendo le stime di massima verosimiglianza $\hat{\mu} = \overline{x}$ (da cui $\sum x_i = n\overline{x}$) e $\hat{\sigma}^2 = \frac{1}{n}\sum(x_i-\overline{x})^2$ (da cui $\sum(x_i-\overline{x})^2 = n\hat{\sigma}^2$):
-    \begin{align*}
-        \left. \dfrac{\partial^2 \ell}{\partial \mu^2} \right|_{(\hat{\mu}, \hat{\sigma}^2)} & = -\dfrac{n}{\hat{\sigma}^2} \\[10pt]
-        \left. \dfrac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2} \right|_{(\hat{\mu}, \hat{\sigma}^2)} & = -\dfrac{1}{(\hat{\sigma}^2)^2} \underbrace{\left( \sum_{i=1}^n x_i - n\overline{x} \right)}_{= \, 0} = 0 \\[10pt]
-        \left. \dfrac{\partial^2 \ell}{\partial (\sigma^2)^2} \right|_{(\hat{\mu}, \hat{\sigma}^2)} & = \dfrac{n}{2(\hat{\sigma}^2)^2} - \dfrac{\overbrace{\sum_{i=1}^n (x_i - \overline{x})^2}^{= \, n\hat{\sigma}^2}}{(\hat{\sigma}^2)^3} = \dfrac{n}{2(\hat{\sigma}^2)^2} - \dfrac{n}{(\hat{\sigma}^2)^2} = -\dfrac{n}{2(\hat{\sigma}^2)^2}
-    \end{align*}
+			      \item \textbf{Valutazione nel punto stazionario $(\hat{\mu}, \hat{\sigma}^2)$:}
+			            Sostituendo le stime di massima verosimiglianza $\hat{\mu} = \overline{x}$ (da cui $\sum x_i = n\overline{x}$) e $\hat{\sigma}^2 = \frac{1}{n}\sum(x_i-\overline{x})^2$ (da cui $\sum(x_i-\overline{x})^2 = n\hat{\sigma}^2$):
+			            \begin{align*}
+				            \left. \dfrac{\partial^2 \ell}{\partial \mu^2} \right|_{(\hat{\mu}, \hat{\sigma}^2)}                    & = -\dfrac{n}{\hat{\sigma}^2}                                                                                                                                                                                                             \\[10pt]
+				            \left. \dfrac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2} \right|_{(\hat{\mu}, \hat{\sigma}^2)} & = -\dfrac{1}{(\hat{\sigma}^2)^2} \underbrace{\left( \sum_{i=1}^n x_i - n\overline{x} \right)}_{= \, 0} = 0                                                                                                                               \\[10pt]
+				            \left. \dfrac{\partial^2 \ell}{\partial (\sigma^2)^2} \right|_{(\hat{\mu}, \hat{\sigma}^2)}             & = \dfrac{n}{2(\hat{\sigma}^2)^2} - \dfrac{\overbrace{\sum_{i=1}^n (x_i - \overline{x})^2}^{= \, n\hat{\sigma}^2}}{(\hat{\sigma}^2)^3} = \dfrac{n}{2(\hat{\sigma}^2)^2} - \dfrac{n}{(\hat{\sigma}^2)^2} = -\dfrac{n}{2(\hat{\sigma}^2)^2}
+			            \end{align*}
 
-    \item \textbf{Costruzione della Matrice Hessiana $H(\hat{\mu}, \hat{\sigma}^2)$:}
-    Poiché le derivate miste si azzerano, la matrice assume una struttura diagonale:
-    \begin{align*}
-        H(\hat{\mu}, \hat{\sigma}^2) = 
-        \begin{bmatrix}
-            \left. \dfrac{\partial^2 \ell}{\partial \mu^2} \right. & \left. \dfrac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2} \right. \\[15pt]
-            \left. \dfrac{\partial^2 \ell}{\partial \sigma^2 \, \partial \mu} \right. & \left. \dfrac{\partial^2 \ell}{\partial (\sigma^2)^2} \right.
-        \end{bmatrix}
-        =
-        \begin{bmatrix}
-            -\dfrac{n}{\hat{\sigma}^2} & 0 \\[15pt]
-            0 & -\dfrac{n}{2(\hat{\sigma}^2)^2}
-        \end{bmatrix}
-    \end{align*}
+			      \item \textbf{Costruzione della Matrice Hessiana $H(\hat{\mu}, \hat{\sigma}^2)$:}
+			            Poiché le derivate miste si azzerano, la matrice assume una struttura diagonale:
+			            \begin{align*}
+				            H(\hat{\mu}, \hat{\sigma}^2) =
+				            \begin{bmatrix}
+					            \left. \dfrac{\partial^2 \ell}{\partial \mu^2} \right.                    & \left. \dfrac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2} \right. \\[15pt]
+					            \left. \dfrac{\partial^2 \ell}{\partial \sigma^2 \, \partial \mu} \right. & \left. \dfrac{\partial^2 \ell}{\partial (\sigma^2)^2} \right.
+				            \end{bmatrix}
+				            =
+				            \begin{bmatrix}
+					            -\dfrac{n}{\hat{\sigma}^2} & 0                               \\[15pt]
+					            0                          & -\dfrac{n}{2(\hat{\sigma}^2)^2}
+				            \end{bmatrix}
+			            \end{align*}
 
-    \item \textbf{Test del Determinante:}
-	Il determinante dell'Hessiana è positivo e \\ $-\dfrac{n}{\hat{\sigma}^2} < 0$ quindi la stima di MV di $(\mu, \sigma^2)$ è $(\hat{\mu}, \hat{\sigma}^2)$. 
-	Ovvero le stime trovate nel punto 4 sono giuste. 
-\end{itemize}
+			      \item \textbf{Test del Determinante:}
+			            Il determinante dell'Hessiana è positivo e \\ $-\dfrac{n}{\hat{\sigma}^2} < 0$ quindi la stima di MV di $(\mu, \sigma^2)$ è $(\hat{\mu}, \hat{\sigma}^2)$.
+			            Ovvero le stime trovate nel punto 4 sono giuste.
+		      \end{itemize}
 	\end{enumerate}
 \end{esempio}
 \subsubsection{Metodi per valutare gli stimatori}
@@ -3847,31 +3847,31 @@ Ho trovato lo stimatore per il parametro ignoto e voglio verificare le sue propr
 	\end{align*}
 	Verifico uguaglianza:
 	\begin{align*}
-		\mathbb{E}[T_n(\vec{X})] \overset{?}{=} \lambda \\
-		\mathbb{E}[\hat{\lambda}] \overset{?}{=} \lambda \\
-		\mathbb{E}\left[\frac{\sum X_i}{n}\right] \overset{?}{=} \lambda \\
-		\frac{1}{n}\mathbb{E}\left[\sum X_i\right] \overset{?}{=} \lambda \\
-		\frac{1}{n}\mathbb{E}\left[X_1+\dots+X_n\right] \overset{?}{=} \lambda \\
+		\mathbb{E}[T_n(\vec{X})] \overset{?}{=} \lambda                                        \\
+		\mathbb{E}[\hat{\lambda}] \overset{?}{=} \lambda                                       \\
+		\mathbb{E}\left[\frac{\sum X_i}{n}\right] \overset{?}{=} \lambda                       \\
+		\frac{1}{n}\mathbb{E}\left[\sum X_i\right] \overset{?}{=} \lambda                      \\
+		\frac{1}{n}\mathbb{E}\left[X_1+\dots+X_n\right] \overset{?}{=} \lambda                 \\
 		\frac{1}{n}\left(\mathbb{E}[X_1]+\dots+ \mathbb{E} [X_n]\right) \overset{?}{=} \lambda \\
-		\text{nella Poisson, } \mathbb{E}[X]=\lambda \text{, quindi} \\
-		\frac{1}{n}\left(\lambda+\dots+ \lambda \right) \overset{?}{=} \lambda \\
-		\frac{1}{n}\left(n \lambda \right) \overset{?}{=} \lambda \\
-		\lambda \overset{\textcolor{green}{\checkmark}}{=} \lambda \\
+		\text{nella Poisson, } \mathbb{E}[X]=\lambda \text{, quindi}                           \\
+		\frac{1}{n}\left(\lambda+\dots+ \lambda \right) \overset{?}{=} \lambda                 \\
+		\frac{1}{n}\left(n \lambda \right) \overset{?}{=} \lambda                              \\
+		\lambda \overset{\textcolor{green}{\checkmark}}{=} \lambda                             \\
 	\end{align*}
 	L'uguaglianza è vera, quindi lo stimatore è non distorto.
 \end{esempio}
 \begin{esempio}[Stimatore distorto]
 	Suppongo che lo stimatore trovato sia $\hat{\lambda}=\frac{1}{n}\sum \left(X_i - \overline{X}\right)^2$ verifico se è distorto oppure no:
 	\begin{align*}
-		\mathbb{E}[T_n(\vec{X})] \overset{?}{=} \lambda \\
-		\mathbb{E}\left[\frac{1}{n}\sum \left(X_i - \overline{X}\right)^2\right] \overset{?}{=} \lambda \\
+		\mathbb{E}[T_n(\vec{X})] \overset{?}{=} \lambda                                                  \\
+		\mathbb{E}\left[\frac{1}{n}\sum \left(X_i - \overline{X}\right)^2\right] \overset{?}{=} \lambda  \\
 		\frac{1}{n} \mathbb{E}\left[\sum \left(X_i - \overline{X}\right)^2\right] \overset{?}{=} \lambda \\
 		\frac{n-1}{n}\lambda \textcolor{red}{\neq} \lambda
 	\end{align*}
 	Lo stimatore è distorto, calcolo il valore della distorsione:
 	\begin{align*}
-		\mathbb{B}_{\lambda}(T_n(\vec{X})) &= \mathbb{E}[T_n(\vec{X})] - \lambda  \\ &=  \frac{n-1}{n}\lambda - \lambda \\
-		&= - \frac{\lambda}{n}
+		\mathbb{B}_{\lambda}(T_n(\vec{X})) & = \mathbb{E}[T_n(\vec{X})] - \lambda \\ &=  \frac{n-1}{n}\lambda - \lambda \\
+		                                   & = - \frac{\lambda}{n}
 	\end{align*}
 	Nel caso avessi $n=5, \lambda=4$ allora la distorsione sarebbe:
 	\begin{align*}
@@ -3891,7 +3891,7 @@ Ho trovato lo stimatore per il parametro ignoto e voglio verificare le sue propr
 Siano $T_1(\vec{X}), T_2(\vec{X})$ due stimatori del parametro $\theta$. Lo stimatore $T_1$ è \textcolor{red}{più efficiente} di $T_2$ se
 \begin{align*}
 	MSE_{\theta}(T_1(\vec{X})) \leq MSE_{\theta}(T_2(\vec{X}))
-\end{align*} 
+\end{align*}
 e misuro \textcolor{red}{quanto è più efficiente} dalla formula:
 \begin{align*}
 	\text{eff}_{\theta}(T_1,T_2) = \frac{MSE_{\theta}(T_1(\vec{X}))}{MSE_{\theta}(T_2(\vec{X}))}
@@ -3904,25 +3904,25 @@ Quindi nella prima indico qual è lo stimatore più efficiente tra i due e nella
 	\end{align*}
 \end{theorem}
 \begin{table}[h]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{ccccc}
-\toprule
-\textbf{Modello per} & \textbf{Dimensione} & \textbf{Parametro} & \textbf{Migliore} & \textbf{Distribuzione}\\
-\textbf{la popolazione} & \textbf{del campione} & \textbf{da stimare} & \textbf{stimatore} & \textbf{campionaria} \\
-\midrule
-$X \sim N(\mu, \sigma^2)$ & qualsiasi & $\mu$ & $\bar{X} = \frac{1}{n} \sum X_i$ & $N\left(\mu, \frac{\sigma^2}{n}\right)$\\
-\addlinespace
-$X \sim f(\mu, \sigma^2)$ & $n$ grande & $\mu$ & $\bar{X} = \frac{1}{n} \sum X_i$ & $N\left(\mu, \frac{\sigma^2}{n}\right)$ \\
-\addlinespace
-$X \sim Ber(\theta)$ & $n$ grande & $\theta$ & $\hat{\theta} = \frac{1}{n} \sum X_i$ & $N\left(\theta, \frac{\theta(1-\theta)}{n}\right)$ \\
-\addlinespace
-$X \sim \mathcal{P}(\lambda)$ & qualsiasi & $\lambda$ & $\bar{X} = \frac{1}{n} \sum X_i$ & $N\left(\lambda, \frac{\lambda}{n}\right)$ \\
-\addlinespace
-$X \sim N(\mu, \sigma^2)$ & qualsiasi & $\sigma^2$ & $\bar{S}^2 = \frac{1}{n-1} \sum (X_i - \bar{X})^2$ & $\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}$ \\
-\bottomrule
-\end{tabular}%
-}
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{ccccc}
+			\toprule
+			\textbf{Modello per}          & \textbf{Dimensione}   & \textbf{Parametro}  & \textbf{Migliore}                                  & \textbf{Distribuzione}                             \\
+			\textbf{la popolazione}       & \textbf{del campione} & \textbf{da stimare} & \textbf{stimatore}                                 & \textbf{campionaria}                               \\
+			\midrule
+			$X \sim N(\mu, \sigma^2)$     & qualsiasi             & $\mu$               & $\bar{X} = \frac{1}{n} \sum X_i$                   & $N\left(\mu, \frac{\sigma^2}{n}\right)$            \\
+			\addlinespace
+			$X \sim f(\mu, \sigma^2)$     & $n$ grande            & $\mu$               & $\bar{X} = \frac{1}{n} \sum X_i$                   & $N\left(\mu, \frac{\sigma^2}{n}\right)$            \\
+			\addlinespace
+			$X \sim Ber(\theta)$          & $n$ grande            & $\theta$            & $\hat{\theta} = \frac{1}{n} \sum X_i$              & $N\left(\theta, \frac{\theta(1-\theta)}{n}\right)$ \\
+			\addlinespace
+			$X \sim \mathcal{P}(\lambda)$ & qualsiasi             & $\lambda$           & $\bar{X} = \frac{1}{n} \sum X_i$                   & $N\left(\lambda, \frac{\lambda}{n}\right)$         \\
+			\addlinespace
+			$X \sim N(\mu, \sigma^2)$     & qualsiasi             & $\sigma^2$          & $\bar{S}^2 = \frac{1}{n-1} \sum (X_i - \bar{X})^2$ & $\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}$      \\
+			\bottomrule
+		\end{tabular}%
+	}
 \end{table}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3931,14 +3931,53 @@ $X \sim N(\mu, \sigma^2)$ & qualsiasi & $\sigma^2$ & $\bar{S}^2 = \frac{1}{n-1} 
 Sappiamo che con la stima puntuale possiamo trovare uno stimatore per un parametro ignoto $\theta$ a cui possiamo attribuire un valore numerico (stima). \\ Un "buon"
 stimatore assume valori vicini al vero valore del parametro $\theta$, ma la probabilità che lo stimatore assuma valore esattamente uguale al parametro è pari a zero. Quindi, oltre
 alla stima puntuale, si riporta un \textcolor{red}{intervallo di confidenza}, ossia un intervallo di valori che ci aspettiamo contenga, con un certo \textcolor{red}{livello di confidenza},
- il vero valore del parametro.
- \begin{theorem}{Intervallo di Confidenza}
-	SSia
- \end{theorem}
-  \begin{theorem}{Livello di Confidenza}
-	SSia
- \end{theorem}
-\subsubsection{Come costruire gli intervalli di confidenza: Metodo delle quantità pivot}
+il vero valore del parametro.
+\subsubsection{Come costruire gli intervalli di confidenza: Media}
+\begin{theorem}{Stima Intervallare della Media con $\sigma^2$ nota}
+	SSia:
+	\begin{itemize}
+		\item Popolazione Normale
+		\item Varianza nota
+	\end{itemize}
+	\begin{align*}
+		\overline{x}-z_{1-\frac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}} \textcolor{cyan}{\; < \mu < \;} \overline{x}+z_{1-\frac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}}
+	\end{align*}
+	L'ampiezza intervallare $A$ si misura come segue:
+	\begin{align*}
+		A = \left(2\cdot z_{1-\frac{\alpha}{2}}\right) \cdot \frac{\sigma}{\sqrt{n}}
+	\end{align*}
+\end{theorem}
+\begin{theorem}{Stima Intervallare della Media con $\sigma^2$ ignota}
+	SSia:
+	\begin{itemize}
+		\item Popolazione Normale
+		\item Varianza \textcolor{red}{non} nota
+	\end{itemize}
+	\begin{align*}
+		\overline{x}-t_{1-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}} \textcolor{cyan}{\; < \mu < \;} \overline{x}+t_{1-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}}
+	\end{align*}
+	L'ampiezza intervallare $A$ si misura come segue:
+	\begin{align*}
+		A = \left(2\cdot t_{1-\frac{\alpha}{2}}\right) \cdot \frac{s}{\sqrt{n}}
+	\end{align*}
+\end{theorem}
+\subsubsection{Come costruire gli intervalli di confidenza: Varianza}
+\begin{theorem}{Stima Intervallare della Varianza}
+	SSia:
+	\begin{itemize}
+		\item Popolazione Normale
+	\end{itemize}
+	\begin{align*}
+		\frac{(n-1)s^2}{\chi^2_{1- \frac{\alpha}{2}}} \textcolor{cyan}{\; < \sigma^2 < \;} \frac{(n-1)s^2}{\chi^2_{1- \frac{\alpha}{2}}}
+	\end{align*}
+	L'ampiezza intervallare $A$ si misura come segue:
+\end{theorem}
+\newpage
+\begin{center}
+    \makebox[\textwidth][c]{%
+        \includegraphics[width=1.7\linewidth]{riassunto-stima-intervallare.png}%
+    }
+\end{center}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
