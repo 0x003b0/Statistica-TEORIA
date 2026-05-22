@@ -3932,8 +3932,8 @@ Sappiamo che con la stima puntuale possiamo trovare uno stimatore per un paramet
 stimatore assume valori vicini al vero valore del parametro $\theta$, ma la probabilità che lo stimatore assuma valore esattamente uguale al parametro è pari a zero. Quindi, oltre
 alla stima puntuale, si riporta un \textcolor{red}{intervallo di confidenza}, ossia un intervallo di valori che ci aspettiamo contenga, con un certo \textcolor{red}{livello di confidenza},
 il vero valore del parametro.
-\subsubsection{Come costruire gli intervalli di confidenza: Media}
-\begin{theorem}{Stima Intervallare della Media con $\sigma^2$ nota}
+\subsubsection{Come costruire gli intervalli di confidenza per $n$ piccolo: Media}
+\begin{theorem}{Stima Intervallare della Media con $\sigma^2$ nota (Normale Standard)}
 	SSia:
 	\begin{itemize}
 		\item Popolazione Normale
@@ -3947,7 +3947,70 @@ il vero valore del parametro.
 		A = \left(2\cdot z_{1-\frac{\alpha}{2}}\right) \cdot \frac{\sigma}{\sqrt{n}}
 	\end{align*}
 \end{theorem}
-\begin{theorem}{Stima Intervallare della Media con $\sigma^2$ ignota}
+\begin{esercizio}[Esercizio 1]
+	Nell'ambito della selezione del personale di una grande azienda, viene richiesto lo svolgimento di un esercizio al computer per il quale
+	viene rilevato il tempo di esecuzione. I tempi osservati (in secondi) dei 24 concorrenti sono:
+	\begin{align*}
+		345, 389, 363, 417, 476, 334, 417, 427 \\
+		269, 370, 289, 336, 305, 285, 294, 319 \\
+		370, 338, 297, 328, 414, 257, 284, 410
+	\end{align*}
+	ammettendo che il tempo di esecuzione dell'esercizio abbia distribuzione normale con deviazione standard 50, \textcolor{red}
+	{determinare l'intervallo di confidenza al 95$\%$ per la media della popolazione.}
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	Devo trovare la stima intervallare per la media $\mu$ della popolazione e ho i seguenti dati:
+	\begin{enumerate}
+		\item Campione $n=24$
+		\item Varianza nota
+		\item Popolazione Normale
+		\item Intervallo di confidenza $95\%$
+	\end{enumerate}
+	quindi uso:
+	\begin{align*}
+		\left(\overline{x}-z_{1-\frac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}} \quad , \quad \overline{x}+z_{1-\frac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}}\right)
+	\end{align*}
+	\begin{enumerate}
+		\item \textcolor{red}{Trovo $\alpha$}
+		      \begin{align*}
+			      \alpha = 1 - 0.95 = 0.05
+		      \end{align*}
+		\item \textcolor{red}{Trovo $1-\frac{\alpha}{2}$}
+		      \begin{align*}
+			      1-\frac{\alpha}{2} & = 1 - \frac{0.05}{2} \\
+			                         & = 0.975
+		      \end{align*}
+		\item \textcolor{red}{Trovo $\pm z_{1- \frac{\alpha}{2}}$}
+		      \begin{align*}
+			      z_{0.975} & = ?                                            \\
+			                & \text{guardo la tavola della Normale Standard} \\
+			                & = 1.96
+		      \end{align*}
+		      I valori sono
+		      \begin{align*}
+			      -z_{1- \alpha/2} = -1.96 \quad \quad z_{1- \alpha/2} = 1.96
+		      \end{align*}
+		      \begin{center}
+			      \makebox[\textwidth][c]{%
+				      \includegraphics[width=0.5\linewidth]{es-1.png}%
+			      }
+		      \end{center}
+		\item \textcolor{red}{Calcolo intervallo} \\
+		      L'esercizio non mi ha fornito la media campionaria, quindi la calcolo
+		      \begin{align*}
+			      \overline{x} = \frac{\sum x_i}{n} = 347.21
+		      \end{align*}
+		      allora
+		      \begin{align*}
+			      \left(\overline{x}-z_{1-\frac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}} \quad \right. & , \left. \quad \overline{x}+z_{1-\frac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}}\right) \\
+			      \left(347.21 - 1.96 \cdot \frac{50}{\sqrt{24}} \quad \right.                         & , \left. \quad 347.21 + 1.96 \cdot \frac{50}{\sqrt{24}} \right)                        \\
+			      \left(327.21 \quad \right.                                                           & , \left. \quad 367.21 \right) \quad \textcolor{green}{\text{Risposta corretta}}
+		      \end{align*}
+	\end{enumerate}
+\end{esercizio}
+
+\begin{theorem}{Stima Intervallare della Media con $\sigma^2$ ignota ($T-$Student)}
 	SSia:
 	\begin{itemize}
 		\item Popolazione Normale
@@ -3961,22 +4024,245 @@ il vero valore del parametro.
 		A = \left(2\cdot t_{1-\frac{\alpha}{2}}\right) \cdot \frac{s}{\sqrt{n}}
 	\end{align*}
 \end{theorem}
-\subsubsection{Come costruire gli intervalli di confidenza: Varianza}
-\begin{theorem}{Stima Intervallare della Varianza}
+\begin{esercizio}[Esercizio 2]
+	Il produttore di una certa marca di sigarette desidera controllare il quantitativo medio di catrame in esse contenuto.
+	Viene osservato un  campione casuale di 25 sigarette:
+	\begin{align*}
+		11.1, 10.5, 11.4, 10.7, 11.4, \\
+		10.8, 11.2, 10.3, 11.6, 10.6, \\
+		12.7, 10.6, 11.7, 10.6, 10.7, \\
+		12.2, 10.7, 11.0, 10.5, 11.0, \\
+		10.9, 10.7, 10.1, 11.3, 10.5
+	\end{align*}
+	assumendo che la popolazione sia normale, \textcolor{red}
+	{determinare l'intervallo di confidenza per $\mu$ al 99$\%$.}
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	Devo trovare la stima intervallare per la media $\mu$ della popolazione e ho i seguenti dati:
+	\begin{enumerate}
+		\item Campione $n=25$
+		\item Varianza non nota
+		\item Popolazione Normale
+		\item Intervallo di confidenza $99\%$
+	\end{enumerate}
+	quindi uso:
+	\begin{align*}
+		\left(\overline{x}-t_{1-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}} \quad , \quad \overline{x}+t_{t-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}}\right)
+	\end{align*}
+	\begin{enumerate}
+		\item \textcolor{red}{Trovo $\alpha$}
+		      \begin{align*}
+			      \alpha = 1 - 0.99 = 0.01
+		      \end{align*}
+		\item \textcolor{red}{Trovo $1-\frac{\alpha}{2}$}
+		      \begin{align*}
+			      1-\frac{\alpha}{2} & = 1 - \frac{0.01}{2} \\
+			                         & = 0.995
+		      \end{align*}
+		\item \textcolor{red}{Trovo $\pm t_{1- \frac{\alpha}{2}}$}
+		      \begin{align*}
+			      t_{0.995} & = ?                                                                          \\
+			                & \text{guardo la tavola della $T-$Student con $n-1=25-1=24$ gradi di libertà} \\
+			                & = 2.797
+		      \end{align*}
+		      I valori sono
+		      \begin{align*}
+			      -t_{1- \alpha/2} = -2.797 \quad \quad t_{1- \alpha/2} = 2.797
+		      \end{align*}
+		      \begin{center}
+			      \makebox[\textwidth][c]{%
+				      \includegraphics[width=0.5\linewidth]{es-2.png}%
+			      }
+		      \end{center}
+		\item \textcolor{red}{Calcolo intervallo} \\
+		      L'esercizio non mi ha fornito la media campionaria, quindi la calcolo
+		      \begin{align*}
+			      \overline{x} = \frac{\sum x_i}{n} = 11
+		      \end{align*}
+		      L'esercizio non mi ha fornito la varianza campionaria, quindi la calcolo
+		      \begin{align*}
+			      s^2 = \frac{\sum \left(x_i - \overline{x}\right)^2}{n-1} = 0.357
+		      \end{align*}
+		      quindi
+		      \begin{align*}
+			      s = \sqrt{0.357}
+		      \end{align*}
+		      allora
+		      \begin{align*}
+			      \left(\overline{x}-t_{1-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}} \quad \right. & , \left. \quad \overline{x}+t_{1-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}}\right) \\
+			      \left(11 - 2.797 \cdot \frac{\sqrt{0.357}}{\sqrt{25}} \quad \right.             & , \left. \quad 11 + 2.797 \cdot \frac{\sqrt{0.357}}{\sqrt{25}} \right)            \\
+			      \left(10.67 \quad \right.                                                       & , \left. \quad 11.33 \right) \quad \textcolor{green}{\text{Risposta corretta}}
+		      \end{align*}
+	\end{enumerate}
+\end{esercizio}
+
+\subsubsection{Come costruire gli intervalli di confidenza per $n$ piccolo: Varianza}
+\begin{theorem}{Stima Intervallare della Varianza ($\chi^2_{\nu=n-1}$ Chi-Quadro)}
 	SSia:
 	\begin{itemize}
 		\item Popolazione Normale
 	\end{itemize}
 	\begin{align*}
-		\frac{(n-1)s^2}{\chi^2_{1- \frac{\alpha}{2}}} \textcolor{cyan}{\; < \sigma^2 < \;} \frac{(n-1)s^2}{\chi^2_{1- \frac{\alpha}{2}}}
+		\frac{(n-1)s^2}{\chi^2_{1- \frac{\alpha}{2}}} \textcolor{cyan}{\; < \sigma^2 < \;} \frac{(n-1)s^2}{\chi^2_{\frac{\alpha}{2}}}
 	\end{align*}
 	L'ampiezza intervallare $A$ si misura come segue:
+	\begin{align*}
+		A = \left(\frac{(n-1)s^2}{\chi^2_{\frac{\alpha}{2}}}\right) - \left(\frac{(n-1)s^2}{\chi^2_{1- \frac{\alpha}{2}}}\right)
+	\end{align*}
 \end{theorem}
+\begin{esercizio}[Esercizio 3]
+	Un'azienda produttrice di orologi di precisione dichiara che questi sono soggetti a un'oscillazione massima di 1 secondo al mese. Viene
+	osservato l'errore mensile di 20 orologi e si trova $s^2=0.14$.
+	assumendo che la popolazione sia normale, \textcolor{red}
+	{determinare l'intervallo di confidenza per $\sigma^2$ al 95$\%$.}
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	Devo trovare la stima intervallare per la media $\sigma^2$ della popolazione e ho i seguenti dati:
+	\begin{enumerate}
+		\item Campione $n=20$
+		\item Popolazione Normale
+		\item Intervallo di confidenza $95\%$
+	\end{enumerate}
+	quindi uso:
+	\begin{align*}
+		\left(\frac{(n-1)s^2}{\chi^2_{1-\alpha /2}} \quad , \quad \frac{(n-1)s^2}{\chi^2_{\alpha /2}}\right)
+	\end{align*}
+	\begin{enumerate}
+		\item \textcolor{red}{Trovo $\alpha$}
+		      \begin{align*}
+			      \alpha = 1 - 0.95 = 0.05
+		      \end{align*}
+		\item \textcolor{red}{Trovo $1-\frac{\alpha}{2}, \alpha/2$}
+		      \begin{align*}
+			      1-\frac{\alpha}{2} & = 1 - \frac{0.05}{2} \\
+			                         & = 0.975
+		      \end{align*}
+		      \begin{align*}
+			      \frac{\alpha}{2} & = \frac{0.05}{2} \\
+			                       & = 0.025
+		      \end{align*}
+		\item \textcolor{red}{Trovo $\chi^2_{1-\alpha /2} \,$,$\, \chi^2_{\alpha /2}$}
+		      \begin{align*}
+			      \chi^2_{0.975} & = ?                                                                         \\
+			                     & \text{guardo la tavola della Chi-Quadro con $n-1=20-1=19$ gradi di libertà} \\
+			                     & = 32.85
+		      \end{align*}
+		      \begin{center}
+			      \makebox[\textwidth][c]{%
+				      \includegraphics[width=0.5\linewidth]{es-3a.png}%
+			      }
+		      \end{center}
+		      \begin{align*}
+			      \chi^2_{0.025} & = ?                                                                         \\
+			                     & \text{guardo la tavola della Chi-Quadro con $n-1=20-1=19$ gradi di libertà} \\
+			                     & = 8.91
+		      \end{align*}
+		      \begin{center}
+			      \makebox[\textwidth][c]{%
+				      \includegraphics[width=0.5\linewidth]{es-3b.png}%
+			      }
+		      \end{center}
+		      I valori sono
+		      \begin{align*}
+			      \chi^2_{0.975} = 32.85  \quad \quad \chi^2_{0.025} = 8.91
+		      \end{align*}
+		\item \textcolor{red}{Calcolo intervallo}
+		      \begin{align*}
+			      \left(\frac{(n-1)s^2}{\chi^2_{1-\alpha /2}} \quad \right. & , \left. \quad \frac{(n-1)s^2}{\chi^2_{\alpha /2}} \right)                    \\
+			      \left(\frac{(20-1)0.14}{32.85} \quad \right.              & , \left. \quad \frac{(20-1)0.14}{8.91} \right)                                \\
+			      \left(\frac{19 \cdot 0.14}{32.85} \quad \right.           & , \left. \quad \frac{19 \cdot 0.14}{8.91} \right)                             \\
+			      \left(0.08 \quad \right.                                  & , \left. \quad 0.30 \right) \quad \textcolor{green}{\text{Risposta corretta}}
+		      \end{align*}
+	\end{enumerate}
+\end{esercizio}
+
+\subsubsection{Come costruire gli intervalli di confidenza per $n$ grande: Media}
+\begin{theorem}{Stima Intervallare della Media per $n$ grande (Normale Standard)}
+	SSia:
+	\begin{itemize}
+		\item Popolazione \textcolor{red}{qualsiasi}
+	\end{itemize}
+	\begin{align*}
+		\overline{x}-z_{1-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}} \textcolor{cyan}{\; < \mu < \;} \overline{x}+z_{1-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}}
+	\end{align*}
+	L'ampiezza intervallare $A$ si misura come segue:
+	\begin{align*}
+		A = \left(2\cdot z_{1-\frac{\alpha}{2}}\right) \cdot \frac{s}{\sqrt{n}}
+	\end{align*}
+\end{theorem}
+\begin{esercizio}[Esercizio 4]
+	Nel processo di controllo del peso delle confezioni di pasta da 500 grammi, un pastificio considera non conformi
+	i pesi al di sotto di 485 grammi o al di sopra di 515 grammi. Per valutare l'efficienza di una confezionatrice,
+	l'azienda esamina un campione di 830 confezioni e trova che 42 di esse sono non conformi. \textcolor{red}{Determinare l'intervallo di confidenza al 95$\%$
+		per $\theta$}.
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	Devo trovare la stima intervallare per la media $\mu$ della popolazione e ho i seguenti dati:
+	\begin{enumerate}
+		\item Campione $n=830$
+		\item Popolazione Bernoullina
+		\item Intervallo di confidenza $95\%$
+	\end{enumerate}
+	quindi uso:
+	\begin{align*}
+		\left(\overline{x}-z_{1-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}} \quad , \quad \overline{x}+z_{t-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}}\right)
+	\end{align*}
+	\begin{enumerate}
+		\item \textcolor{red}{Trovo $\alpha$}
+		      \begin{align*}
+			      \alpha = 1 - 0.95 = 0.05
+		      \end{align*}
+		\item \textcolor{red}{Trovo $1-\frac{\alpha}{2}$}
+		      \begin{align*}
+			      1-\frac{\alpha}{2} & = 1 - \frac{0.05}{2} \\
+			                         & = 0.975
+		      \end{align*}
+		\item \textcolor{red}{Trovo $\pm z_{1- \frac{\alpha}{2}}$} \\
+		      \begin{align*}
+			      z_{0.975} & = ?                                            \\
+			                & \text{guardo la tavola della Normale Standard} \\
+			                & = 1.96
+		      \end{align*}
+		      I valori sono
+		      \begin{align*}
+			      -z_{1- \alpha/2} = -1.96 \quad \quad z_{1- \alpha/2} = 1.96
+		      \end{align*}
+		      \begin{center}
+			      \makebox[\textwidth][c]{%
+				      \includegraphics[width=0.5\linewidth]{es-1.png}%
+			      }
+		      \end{center}
+		\item \textcolor{red}{Calcolo intervallo} \\
+		      So che la popolazione è Bernoulliana e che la sua varianza campionaria è $s^2=\theta(1-\theta)$, quindi questa formula
+		      \begin{align*}
+			      \left(\overline{x}-z_{1-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}} \quad , \quad \overline{x}+z_{t-\frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}}\right)
+		      \end{align*}
+		      diventa
+		      \begin{align*}
+			      \left(\overline{\theta}-z_{1-\frac{\alpha}{2}}\cdot \frac{\sqrt{\overline{\theta}(1-\overline{\theta})}}{\sqrt{n}} \quad , 
+				  \quad \overline{\theta}+z_{t-\frac{\alpha}{2}}\cdot \frac{\sqrt{\overline{\theta}(1-\overline{\theta})}}{\sqrt{n}}\right)
+		      \end{align*}
+
+		      L'esercizio non mi ha fornito la media campionaria, quindi la calcolo
+		      \begin{align*}
+			      \overline{\theta} = \frac{\sum x_i}{n} = \frac{n\text{ successi}}{\text{campione}} = \frac{42}{830} = 0.051
+		      \end{align*}
+		      allora
+		      \begin{align*}
+			      \left(\overline{\theta}-z_{1-\frac{\alpha}{2}}\cdot \frac{\sqrt{\overline{\theta}(1-\overline{\theta})}}{\sqrt{n}} \quad \right. & , \left. \quad \overline{\theta}+z_{1-\frac{\alpha}{2}}\cdot \frac{\sqrt{\overline{\theta}(1-\overline{\theta})}}{\sqrt{n}}\right) \\
+			      \left(0.05 - 1.96 \cdot \frac{\sqrt{{0.05(1-0.05)}}}{\sqrt{830}} \quad \right.             & , \left. \quad 0.05 + 1.96 \cdot \frac{\sqrt{{0.05(1-0.05)}}}{\sqrt{830}} \right)            \\
+			      \left(0.036 \quad \right.                                                       & , \left. \quad 0.066 \right) \quad \textcolor{green}{\text{Risposta corretta}}
+		      \end{align*}
+	\end{enumerate}
+\end{esercizio}
 \newpage
 \begin{center}
-    \makebox[\textwidth][c]{%
-        \includegraphics[width=1.7\linewidth]{riassunto-stima-intervallare.png}%
-    }
+	\makebox[\textwidth][c]{%
+		\includegraphics[width=1.7\linewidth]{riassunto-stima-intervallare.png}%
+	}
 \end{center}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
