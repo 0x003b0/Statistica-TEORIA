@@ -4268,6 +4268,130 @@ il vero valore del parametro.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Verifica delle Ipotesi}
+Il test d'ipotesi è una procedura che permette di decidere, sulla base di un campione, se c'è abbastanza evidenza per mettere in discussione un'affermazione fatta sulla popolazione.
+\begin{theorem}{Ipotesi nulla e Ipotesi alternativa}
+	LL'ipotesi sottoposta a verifica viene chiamata \textcolor{red}{ipotesi nulla} (considerata vera fino a prova contraria)
+	\begin{align*}
+		H_0: \theta = \theta_0
+	\end{align*}
+	e l'ipotesi che la contraddice, viene denominata \textcolor{red}{ipotesi alternativa} $H_1$.
+\end{theorem}
+\begin{osservazioni}[Obbiettivo]
+	L'obbiettivo è effettuare un \textcolor{red}{test d'ipotesi} per:
+	\begin{itemize}
+		\item rifiutare $H_0$
+		\item non rifiutare $H_0$ (in questo caso non si rifiuta nè si accetta l'ipotesi)
+		\item accettare $H_0$
+	\end{itemize}
+\end{osservazioni}
+\subsubsection{Sistema di ipotesi}
+\begin{theorem}{Ipotesi alternativa unilaterale destra}
+	FFissato un valore del parametro $\theta_0$, si ha:
+	\begin{align*}
+		\begin{cases}
+			H_0: \theta = \theta_0 \quad \text{ipotesi nulla} \\
+			H_1 : \theta > \theta_0 \quad \text{ipotesi alternativa unilaterale destra}
+		\end{cases}
+	\end{align*}
+\begin{center}
+	\makebox[\textwidth][c]{%
+		\includegraphics[width=0.7\linewidth]{alt-dx.png}%
+	}
+\end{center}
+Se il campione estratto proviene:
+\begin{itemize}
+	\item da $\mathcal{A}$, si accetta $H_0$
+	\item da $\mathcal{R}$, si rifiuta $H_0$ (per ogni campione $> c$, si rifiuta l'ipotesi nulla)
+\end{itemize}
+\end{theorem}
+\begin{theorem}{Ipotesi alternativa unilaterale sinistra}
+	FFissato un valore del parametro $\theta_0$, si ha:
+	\begin{align*}
+		\begin{cases}
+			H_0: \theta = \theta_0 \quad \text{ipotesi nulla} \\
+			H_1 : \theta < \theta_0 \quad \text{ipotesi alternativa unilaterale sinistra}
+		\end{cases}
+	\end{align*}
+	\begin{center}
+	\makebox[\textwidth][c]{%
+		\includegraphics[width=0.7\linewidth]{alt-sx.png}%
+	}
+\end{center}
+Se il campione estratto proviene:
+\begin{itemize}
+	\item da $\mathcal{A}$, si accetta $H_0$
+	\item da $\mathcal{R}$, si rifiuta $H_0$ (per ogni campione $< c$, si rifiuta l'ipotesi nulla)
+\end{itemize}
+\end{theorem}
+\begin{theorem}{Ipotesi alternativa bidirezionale}
+	FFissato un valore del parametro $\theta_0$, si ha:
+	\begin{align*}
+		\begin{cases}
+			H_0: \theta = \theta_0 \quad \text{ipotesi nulla} \\
+			H_1 : \theta \neq \theta_0 \quad \text{ipotesi alternativa bilaterale}
+		\end{cases}
+	\end{align*}
+	\begin{center}
+	\makebox[\textwidth][c]{%
+		\includegraphics[width=0.7\linewidth]{alt-bi.png}%
+	}
+\end{center}
+Se il campione estratto proviene:
+\begin{itemize}
+	\item da $\mathcal{A}$, si accetta $H_0$
+	\item da $\mathcal{R}$, si rifiuta $H_0$ (per ogni campione $> c$ e per ogni campione $< c$, si rifiuta l'ipotesi nulla)
+\end{itemize}
+\end{theorem}
+
+\subsubsection{Errori del Test}
+\begin{itemize}
+	\item \textcolor{red}{Errore di I tipo:} rifiutare $H_0$ quando vera (errore più grave)
+	\item \textcolor{red}{Errore di II tipo:} accettare $H_0$ quando falsa 
+\end{itemize}
+\begin{esempio}[Esempio]
+	Nel contesto giuridico, si assume che l'imputato è innocente fino a prova contraria
+	\begin{align*}
+		H_0: \text{ imputato innocente}
+	\end{align*}
+	Quindi:
+	\begin{itemize}
+		\item Errore di I tipo: l'imputato viene dichiarato colpevole quando in realtà è innocente (questo errore è considerato più grave perchè un fratm ingiustamente ingabbiat' insomma, gli rovini
+		la vita)
+		\item Errore di II tipo: l'imputato viene dichiarato innocente quando in realtà è colpevole
+	\end{itemize}
+\end{esempio}
+\begin{theorem}{Probabilità di commettere l'errore}
+	S
+	\begin{itemize}
+		\item \textcolor{red}{Probabilità di commettere l'errore I (livello di significatività):} indicato con $\alpha(\theta)$
+		\item \textcolor{red}{Probabilità di commettere l'errore II:} indicato con $\beta(\theta)$
+		\item \textcolor{red}{Probabilità di rifiutare $H_0$ quando è falsa\footnote{
+		ovvero la probabilità di dimostrare che $H_0$ è davvero falsa.
+		}(Potenza del test):} indicato con $\pi(\theta)= 1-\beta(\theta)$
+	\end{itemize}
+\end{theorem}
+
+\subsubsection{Passi da seguire nella verifica delle ipotesi}
+\begin{enumerate}
+	\item \textcolor{red}{Definire $H_0$ e $H_1$}
+	\item \textcolor{red}{Segliere la statistica test (media campionaria, varianza campionaria, ecc..)}
+	\item \textcolor{red}{Scegliere il livello di significatività $\alpha$}
+	\item \textcolor{red}{Definizione del valore critico $z_{1- \alpha/2}$ e della regione di rifiuto}
+	\item \textcolor{red}{Estrazione del campione}
+	\item \textcolor{red}{Calcolo del valore osservato $z_{oss}$ nella statistica test}
+	\item \textcolor{red}{Analizzare se il valore osservato cade nella regione di rifiuto o nella regione di accettazione:} 
+	\begin{itemize}
+		\item Se $z_{oss}$ cade nella regione di rifiuto, allora si rifiuta $H_0$.
+		\item Se $z_{oss}$ cade nella regione di accettazione, allora non si rifiuta $H_0$ al livello di significatività fissato.
+	\end{itemize}
+\end{enumerate}
+\subsubsection{$p-$value}
+È un approccio alternativo per decidere se accettare 
+\subsubsection{Test di ipotesi sulla media di una popolazione normale con varianza nota}
+\subsubsection{Test di ipotesi sulla media di una popolazione normale con varianza non nota}
+\subsubsection{Test di ipotesi sulla media di una popolazione qualsisi nel caso di grandi campioni}
+esempio con Bernoulli 
+\subsubsection{Test di ipotesi sulla varianza di una popolazione normale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
