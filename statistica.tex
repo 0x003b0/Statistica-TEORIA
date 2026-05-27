@@ -4242,8 +4242,8 @@ il vero valore del parametro.
 		      \end{align*}
 		      diventa
 		      \begin{align*}
-			      \left(\overline{\theta}-z_{1-\frac{\alpha}{2}}\cdot \frac{\sqrt{\overline{\theta}(1-\overline{\theta})}}{\sqrt{n}} \quad , 
-				  \quad \overline{\theta}+z_{t-\frac{\alpha}{2}}\cdot \frac{\sqrt{\overline{\theta}(1-\overline{\theta})}}{\sqrt{n}}\right)
+			      \left(\overline{\theta}-z_{1-\frac{\alpha}{2}}\cdot \frac{\sqrt{\overline{\theta}(1-\overline{\theta})}}{\sqrt{n}} \quad ,
+			      \quad \overline{\theta}+z_{t-\frac{\alpha}{2}}\cdot \frac{\sqrt{\overline{\theta}(1-\overline{\theta})}}{\sqrt{n}}\right)
 		      \end{align*}
 
 		      L'esercizio non mi ha fornito la media campionaria, quindi la calcolo
@@ -4253,8 +4253,8 @@ il vero valore del parametro.
 		      allora
 		      \begin{align*}
 			      \left(\overline{\theta}-z_{1-\frac{\alpha}{2}}\cdot \frac{\sqrt{\overline{\theta}(1-\overline{\theta})}}{\sqrt{n}} \quad \right. & , \left. \quad \overline{\theta}+z_{1-\frac{\alpha}{2}}\cdot \frac{\sqrt{\overline{\theta}(1-\overline{\theta})}}{\sqrt{n}}\right) \\
-			      \left(0.05 - 1.96 \cdot \frac{\sqrt{{0.05(1-0.05)}}}{\sqrt{830}} \quad \right.             & , \left. \quad 0.05 + 1.96 \cdot \frac{\sqrt{{0.05(1-0.05)}}}{\sqrt{830}} \right)            \\
-			      \left(0.036 \quad \right.                                                       & , \left. \quad 0.066 \right) \quad \textcolor{green}{\text{Risposta corretta}}
+			      \left(0.05 - 1.96 \cdot \frac{\sqrt{{0.05(1-0.05)}}}{\sqrt{830}} \quad \right.                                                   & , \left. \quad 0.05 + 1.96 \cdot \frac{\sqrt{{0.05(1-0.05)}}}{\sqrt{830}} \right)                                                  \\
+			      \left(0.036 \quad \right.                                                                                                        & , \left. \quad 0.066 \right) \quad \textcolor{green}{\text{Risposta corretta}}
 		      \end{align*}
 	\end{enumerate}
 \end{esercizio}
@@ -4293,16 +4293,16 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 			H_1 : \theta > \theta_0 \quad \text{ipotesi alternativa unilaterale destra}
 		\end{cases}
 	\end{align*}
-\begin{center}
-	\makebox[\textwidth][c]{%
-		\includegraphics[width=0.7\linewidth]{alt-dx.png}%
-	}
-\end{center}
-Se il campione estratto proviene:
-\begin{itemize}
-	\item da $\mathcal{A}$, si accetta $H_0$
-	\item da $\mathcal{R}$, si rifiuta $H_0$ (per ogni campione $> c$, si rifiuta l'ipotesi nulla)
-\end{itemize}
+	\begin{center}
+		\makebox[\textwidth][c]{%
+			\includegraphics[width=0.7\linewidth]{alt-dx.png}%
+		}
+	\end{center}
+	Se il campione estratto proviene:
+	\begin{itemize}
+		\item da $\mathcal{A}$, si accetta $H_0$
+		\item da $\mathcal{R}$, si rifiuta $H_0$ (per ogni campione $> c$, si rifiuta l'ipotesi nulla)
+	\end{itemize}
 \end{theorem}
 \begin{theorem}{Ipotesi alternativa unilaterale sinistra}
 	FFissato un valore del parametro $\theta_0$, si ha:
@@ -4313,15 +4313,15 @@ Se il campione estratto proviene:
 		\end{cases}
 	\end{align*}
 	\begin{center}
-	\makebox[\textwidth][c]{%
-		\includegraphics[width=0.7\linewidth]{alt-sx.png}%
-	}
-\end{center}
-Se il campione estratto proviene:
-\begin{itemize}
-	\item da $\mathcal{A}$, si accetta $H_0$
-	\item da $\mathcal{R}$, si rifiuta $H_0$ (per ogni campione $< c$, si rifiuta l'ipotesi nulla)
-\end{itemize}
+		\makebox[\textwidth][c]{%
+			\includegraphics[width=0.7\linewidth]{alt-sx.png}%
+		}
+	\end{center}
+	Se il campione estratto proviene:
+	\begin{itemize}
+		\item da $\mathcal{A}$, si accetta $H_0$
+		\item da $\mathcal{R}$, si rifiuta $H_0$ (per ogni campione $< c$, si rifiuta l'ipotesi nulla)
+	\end{itemize}
 \end{theorem}
 \begin{theorem}{Ipotesi alternativa bidirezionale}
 	FFissato un valore del parametro $\theta_0$, si ha:
@@ -4332,21 +4332,21 @@ Se il campione estratto proviene:
 		\end{cases}
 	\end{align*}
 	\begin{center}
-	\makebox[\textwidth][c]{%
-		\includegraphics[width=0.7\linewidth]{alt-bi.png}%
-	}
-\end{center}
-Se il campione estratto proviene:
-\begin{itemize}
-	\item da $\mathcal{A}$, si accetta $H_0$
-	\item da $\mathcal{R}$, si rifiuta $H_0$ (per ogni campione $> c$ e per ogni campione $< c$, si rifiuta l'ipotesi nulla)
-\end{itemize}
+		\makebox[\textwidth][c]{%
+			\includegraphics[width=0.7\linewidth]{alt-bi.png}%
+		}
+	\end{center}
+	Se il campione estratto proviene:
+	\begin{itemize}
+		\item da $\mathcal{A}$, si accetta $H_0$
+		\item da $\mathcal{R}$, si rifiuta $H_0$ (per ogni campione $> c$ e per ogni campione $< c$, si rifiuta l'ipotesi nulla)
+	\end{itemize}
 \end{theorem}
 
 \subsubsection{Errori del Test}
 \begin{itemize}
 	\item \textcolor{red}{Errore di I tipo:} rifiutare $H_0$ quando vera (errore più grave)
-	\item \textcolor{red}{Errore di II tipo:} accettare $H_0$ quando falsa 
+	\item \textcolor{red}{Errore di II tipo:} accettare $H_0$ quando falsa
 \end{itemize}
 \begin{esempio}[Esempio]
 	Nel contesto giuridico, si assume che l'imputato è innocente fino a prova contraria
@@ -4356,7 +4356,7 @@ Se il campione estratto proviene:
 	Quindi:
 	\begin{itemize}
 		\item Errore di I tipo: l'imputato viene dichiarato colpevole quando in realtà è innocente (questo errore è considerato più grave perchè un fratm ingiustamente ingabbiat' insomma, gli rovini
-		la vita)
+		      la vita)
 		\item Errore di II tipo: l'imputato viene dichiarato innocente quando in realtà è colpevole
 	\end{itemize}
 \end{esempio}
@@ -4366,8 +4366,8 @@ Se il campione estratto proviene:
 		\item \textcolor{red}{Probabilità di commettere l'errore I (livello di significatività):} indicato con $\alpha(\theta)$
 		\item \textcolor{red}{Probabilità di commettere l'errore II:} indicato con $\beta(\theta)$
 		\item \textcolor{red}{Probabilità di rifiutare $H_0$ quando è falsa\footnote{
-		ovvero la probabilità di dimostrare che $H_0$ è davvero falsa.
-		}(Potenza del test):} indicato con $\pi(\theta)= 1-\beta(\theta)$
+				      ovvero la probabilità di dimostrare che $H_0$ è davvero falsa.
+			      }(Potenza del test):} indicato con $\pi(\theta)= 1-\beta(\theta)$
 	\end{itemize}
 \end{theorem}
 
@@ -4376,14 +4376,21 @@ Se il campione estratto proviene:
 	\item \textcolor{red}{Definire $H_0$ e $H_1$}
 	\item \textcolor{red}{Segliere la statistica test (media campionaria, varianza campionaria, ecc..)}
 	\item \textcolor{red}{Scegliere il livello di significatività $\alpha$}
-	\item \textcolor{red}{Definizione del valore critico $z_{1- \alpha/2}$ e della regione di rifiuto}
+	\item \textcolor{red}{Definizione del valore critico $c$ e della regione di rifiuto} 
+	\begin{align*}
+	c = \begin{cases}
+		z_{1-\alpha} \quad \text{con ipotesi alternativa destra} \\
+		z_{\alpha} \quad \text{con ipotesi alternativa sinistra} \\
+		z_{1-\alpha/2} \quad \text{con ipotesi alternativa bilaterale} \\
+	\end{cases}
+		\end{align*}
 	\item \textcolor{red}{Estrazione del campione}
 	\item \textcolor{red}{Calcolo del valore osservato $z_{oss}$ attraverso la statistica test}
-	\item \textcolor{red}{Analizzare se il valore osservato cade nella regione di rifiuto o nella regione di accettazione:} 
-	\begin{itemize}
-		\item Se $z_{oss}$ cade nella regione di rifiuto, allora si rifiuta $H_0$.
-		\item Se $z_{oss}$ cade nella regione di accettazione, allora non si rifiuta $H_0$ al livello di significatività fissato.
-	\end{itemize}
+	\item \textcolor{red}{Analizzare se il valore osservato cade nella regione di rifiuto o nella regione di accettazione:}
+	      \begin{itemize}
+		      \item Se $z_{oss}$ cade nella regione di rifiuto, allora si rifiuta $H_0$.
+		      \item Se $z_{oss}$ cade nella regione di accettazione, allora non si rifiuta $H_0$ al livello di significatività fissato.
+	      \end{itemize}
 \end{enumerate}
 
 \begin{esercizio}[Esercizio 1]
@@ -4394,73 +4401,206 @@ Se il campione estratto proviene:
 			H_1: \mu > 500
 		\end{cases}
 	\end{align*}
-	con $\alpha=0.01$ e $\overline{x}=502.9$ con $n=40$ campioni. \textcolor{red}{Verificare l'ipotesi nulla $H_0$.}
+	con $\alpha=0.01$, $\overline{x}=502.9$ , $\sigma^2=35$ e con $n=40$ campioni. \textcolor{red}{Verificare l'ipotesi nulla $H_0$.}
 	\begin{center}
 		\textbf{Soluzione}
 	\end{center}
 	\begin{enumerate}
-		\item Calcolare valore critico $z_{1-\alpha/2}$
-		\begin{align*}
-			z_{1- \alpha/2}=z_{1-0.01}=z_{0.995}=2.57
-		\end{align*}
+		\item Calcolare valore critico $z_{1-\alpha}$
+		      \begin{align*}
+			      z_{1-\alpha}=z_{1-0.01}=z_{0.99}=2.326
+		      \end{align*}
 		\item Definire zona di rifiuto
-
+		      \begin{align*}
+			      \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}} > z_{1-\alpha}\right\}=\left\{\frac{\overline{x}-500}{\frac{\sqrt{35}}{\sqrt{40}}} > 2.326 \right\}
+		      \end{align*}
 		\item Calcolo del valore osservato $z_{oss}$ attraverso la statistica test
+		\begin{align*}
+			z_{oss}=\frac{\overline{x}-500}{\frac{\sqrt{35}}{\sqrt{40}}} = \frac{502.9-500}{\frac{\sqrt{35}}{\sqrt{40}}} = 3.100
+		\end{align*}
 		\item Analizzare se $z_{oss}$ cade nella regione di rifiuto o no
+		\begin{align*}
+			3.100 > 2.326 \implies &z_{oss} \text{ cade nella regione di rifiuto} \\ &\text{quindi \textbf{rifiuto} l'ipotesi nulla } H_0.
+		\end{align*}
 	\end{enumerate}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \end{esercizio}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \begin{esercizio}[Esercizio 2]
-	SSia
+	Siano:
+	\begin{align*}
+		\begin{cases}
+			H_0: \mu \leq 30 \\
+			H_1: \mu > 30
+		\end{cases}
+	\end{align*}
+	con $\alpha=0.05$, $\sigma^2=50$ e con i seguenti campioni:
+	\begin{align*}
+		43.5, 32, 26.4, 37.8, 25, 31, 46.8, 19 \\
+		28.5, 35, 23.7, 32.5, 37.9, 36, 31.4
+	\end{align*}
+	\textcolor{red}{Verificare l'ipotesi nulla $H_0$.}
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	\begin{enumerate}
+		\item Calcolare valore critico $z_{1-\alpha}$
+		      \begin{align*}
+			      z_{1-\alpha}=z_{1-0.05}=z_{0.95}=1.645
+		      \end{align*}
+		\item Definire zona di rifiuto
+		      \begin{align*}
+			      \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}} > z_{1-\alpha}\right\}=\left\{\frac{\overline{x}-30}{\frac{\sqrt{50}}{\sqrt{15}}} > 1.645 \right\}
+		      \end{align*}
+		\item Calcolo del valore osservato $z_{oss}$ attraverso la statistica test
+		\begin{align*}
+			z_{oss}=\frac{\overline{x}-30}{\frac{\sqrt{50}}{\sqrt{15}}} = 
+		\end{align*}
+		mi manca il valore di $\overline{x}$, lo calcolo:
+		\begin{align*}
+			\overline{x} = \frac{43.5+32+ 26.4+ \dots + 32.5+ 37.9+ 36+ 31.4}{15} = 32.43
+		\end{align*}
+		quindi:
+		\begin{align*}
+			z_{oss}=\frac{\overline{x}-30}{\frac{\sqrt{50}}{\sqrt{15}}} = \frac{32.43-30}{\frac{\sqrt{50}}{\sqrt{15}}} = 1.330
+		\end{align*}
+		\item Analizzare se $z_{oss}$ cade nella regione di rifiuto o no
+    \begin{align*}
+        1.330 < 1.645 \implies &z_{oss} \text{ cade nella regione di accettazione\footnotemark} \\ 
+        &\text{quindi \textbf{non rifiuto} l'ipotesi nulla } H_0.
+    \end{align*}
+    \footnotetext{perché non cade nella regione di rifiuto, essendo minore del valore critico}
+	\end{enumerate}
 \end{esercizio}
+
 \begin{esercizio}[Esercizio 3]
-	SSia
+	Siano:
+	\begin{align*}
+		\begin{cases}
+			H_0: \mu = 8 \\
+			H_1: \mu \neq 8
+		\end{cases}
+	\end{align*}
+	con $\alpha=0.05$, $\sigma^2=4$ e $\overline{x}=9.5$ e $n=5$. \textcolor{red}{Verificare l'ipotesi nulla $H_0$.}
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	\begin{enumerate}
+		\item Calcolare il valore critico $|z_{1-\alpha/2}|$
+		\begin{align*}
+			z_{1-\alpha/2}=z_{1-0.05/2}=z_{0.975}=1.960
+		\end{align*}
+		quindi
+		\begin{align*}
+			z_{1-\alpha/2}=1.960 \quad \quad -z_{1-\alpha/2}=-1.960
+		\end{align*}
+		\item Definire zona di rifiuto
+		\begin{align*}
+			\mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} > z_{1-\alpha/2} \right\} \cup
+			 \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} < -z_{1-\alpha/2}\right\}
+		\end{align*}
+		\begin{align*}
+			\mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} > 1.960 \right\} \cup
+			 \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} < -1.960\right\}
+		\end{align*}
+		\item Calcolo $z_{oss}$ attraverso la statistica test (media campionaria)
+		\begin{align*}
+			z_{oss} = \frac{\overline{x}-8}{\sqrt{4/5}} = \frac{9.5-8}{\sqrt{4/5}} = 1.677
+		\end{align*}
+		\item Analizzo se $z_{oss}$ è cade nella regione di rifiuto o no
+		\begin{align*}
+			1.667 \text{ sta tra -1.960 e +1.960 quindi cade nella regione di accettazione} \\
+			\text{quindi \textbf{non rifiuto} l'ipotesi nulla } H_0.
+		\end{align*}
+	\end{enumerate}
+	Oppure posso semplicemente dire che:
+	\begin{align*}
+		\text{se } |z_{oss}| > z_{1- \alpha/2} \implies \text{ rifiuto } H_0
+	\end{align*}
+	ma ho visto che: 
+	\begin{align*}		
+		|z_{oss}| = |1.677| \\
+		|1.667| < 1.960 \implies \text{ non rifiuto } H_0
+	\end{align*}
 \end{esercizio}
 
 \subsubsection{$p-$value}
 È un approccio alternativo per decidere se accettare o rifiutare l'ipotesi nulla.
 \begin{theorem}{$p-$value}
-	IIl \textcolor{red}{$p-$value} è la probabilità che la statistica test assuma un valore uguale o più estremo (nella direzione dell'ipotesi alternativa) di quello
-	osservato quando $H_0$ è vera.
+	IIl \textcolor{red}{$p-$value} è la probabilità che la statistica test ($\overline{x}$ oppure $s^2$) assuma un valore uguale o più estremo (nella direzione dell'ipotesi alternativa) di quello
+	osservato $z_{oss}$ quando $H_0$ è vera.
+	\begin{align*}
+		\begin{cases}
+			p-\text{value} < \alpha \implies \text{ Rifiutare } H_0 \\
+		p-\text{value} > \alpha \implies \text{ Non Rifiutare } H_0
+		\end{cases}
+	\end{align*}
 \end{theorem}
-
+\begin{esempio}[Esempio $p-$value]
+	Siano:
+	\begin{align*}
+		\begin{cases}
+			H_0: \mu = 8 \\
+			H_1: \mu \neq 8
+		\end{cases}
+	\end{align*}
+	con $\alpha=0.05$, $\sigma^2=4$ e $\overline{x}=9.5$ e $n=5$. \textcolor{red}{Verificare l'ipotesi nulla $H_0$.}
+	\begin{center}
+		\textbf{Soluzione classica}
+	\end{center}
+	\begin{enumerate}
+		\item Calcolare il valore critico $|z_{1-\alpha/2}|$
+		\begin{align*}
+			z_{1-\alpha/2}=z_{1-0.05/2}=z_{0.975}=1.960
+		\end{align*}
+		quindi
+		\begin{align*}
+			z_{1-\alpha/2}=1.960 \quad \quad -z_{1-\alpha/2}=-1.960
+		\end{align*}
+		\item Definire zona di rifiuto
+		\begin{align*}
+			\mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} > z_{1-\alpha/2} \right\} \cup
+			 \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} < -z_{1-\alpha/2}\right\}
+		\end{align*}
+		\begin{align*}
+			\mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} > 1.960 \right\} \cup
+			 \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} < -1.960\right\}
+		\end{align*}
+		\item Calcolo $z_{oss}$ attraverso la statistica test (media campionaria)
+		\begin{align*}
+			z_{oss} = \frac{\overline{x}-8}{\sqrt{4/5}} = \frac{9.5-8}{\sqrt{4/5}} = 1.677
+		\end{align*}
+		\item Analizzo se $z_{oss}$ è cade nella regione di rifiuto o no
+		\begin{align*}
+			1.667 \text{ sta tra -1.960 e +1.960 quindi cade nella regione di accettazione} \\
+			\text{quindi \textbf{non rifiuto} l'ipotesi nulla } H_0.
+		\end{align*}
+	\end{enumerate}
+	\begin{center}
+		\textbf{Soluzione con $p-$value}
+	\end{center}
+	\begin{enumerate}
+		\item Calcolo $p-$value:
+		\begin{align*}
+		\textcolor{red}{P(|\overline{x}|> |z_{oss}|)} &= P(|{\overline{x}}|> |z_{oss}|) \\
+		&= 2 \cdot [1-P(Z \leq |z_{oss}|)] \\
+		&= 2 \cdot [1- \phi(|z_{oss}|)] \\
+		&= 2 \cdot [1- \phi(|1.677|)] \\
+		&= 2 \cdot [1- \phi(1.677)] \\
+		&= 2 \cdot [1- 0.9535] = 0.093
+	\end{align*}
+	quindi la probabilità che la media campionaria (statistica test) sia maggiore del valore osservato (in valore assoluto) è pari a 0.093.
+	\item Analizzo se $p-$value è maggiore o minore di $\alpha$
+		\begin{align*}
+		p-\text{value} = 0.093
+	\end{align*}
+	e $0.093 > 0.05 \implies$ \textbf{non rifiutare} $H_0$. 
+	\end{enumerate}
+\end{esempio}
 
 \subsubsection{Test di ipotesi sulla media di una popolazione normale con varianza nota}
 \subsubsection{Test di ipotesi sulla media di una popolazione normale con varianza non nota}
 \subsubsection{Test di ipotesi sulla media di una popolazione qualsisi nel caso di grandi campioni}
-esempio con Bernoulli 
+esempio con Bernoulli
 \subsubsection{Test di ipotesi sulla varianza di una popolazione normale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
