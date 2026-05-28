@@ -4761,12 +4761,12 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 Stessa procedura del capitoletto 8.6.5 ma al posto di $\sigma^2$ inserisco $s^2$ (varianza campionaria)
 e uso distribuzione $T-$Student e non la Normale Standard.
 
-\begin{esercizio}[Test unilaterale destro di una popolazione Normale con $\sigma^2$ ignota]
+\begin{esercizio}[Test unilaterale destro per $\mu$ di una popolazione Normale con $\sigma^2$ ignota]
 
 \end{esercizio}
 
 
-\begin{esercizio}[Test unilaterale sinistro di una popolazione Normale con $\sigma^2$ ignota]
+\begin{esercizio}[Test unilaterale sinistro per $\mu$ di una popolazione Normale con $\sigma^2$ ignota]
 	Siano $n=12, \overline{x}=47.28, s=2.73$ e $\alpha=0.01$. \textcolor{red}{Verifica l'ipotesi nulla $H_0$}
 	\begin{align*}
 		\begin{cases}
@@ -4815,7 +4815,7 @@ e uso distribuzione $T-$Student e non la Normale Standard.
 	\end{enumerate}
 \end{esercizio}
 
-\begin{esercizio}[Test bilaterale di una popolazione Normale con $\sigma^2$ ignota]
+\begin{esercizio}[Test bilaterale per $\mu$ di una popolazione Normale con $\sigma^2$ ignota]
 	Il consumo di acqua (litri al giorno) per abitazione ha distribuzione Normale con media $\mu$ e varianza $\sigma^2$.
 	In un campione di $n=16$ abitazioni si osserva $\overline{x}=353.8$ litri/giorno, $s=21.85$ litri/giorno con $\alpha=0.10$.
 	\textcolor{red}{Verifica l'ipotesi nulla $H_0$}.
@@ -4882,33 +4882,158 @@ e uso distribuzione $T-$Student e non la Normale Standard.
 		\end{align*}
 	\end{enumerate}
 \end{esercizio}
-
-
-
-
-
-
 \newpage
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \subsubsection{Test di ipotesi sulla media di una popolazione qualsisi nel caso di grandi campioni}
-esempio con Bernoulli
+Quando il campione è sufficientemente grande, possiamo approssimarlo alla Normale.
+
+\begin{esercizio}[Test bilaterale per $\mu$ di una popolazione qualsiasi con $n$ grande (Normale)]
+	slide 61
+\end{esercizio}
+
+\begin{esercizio}[Test unilaterale sinistro per $\mu$ di una popolazione qualsiasi con $n$ grande (Normale)]
+	Siano $n=60, \overline{x}=9.1, s=4.2$ e $\alpha=0.01$. \textcolor{red}{Verificare l'ipotesi nulla $H_0$.}
+	\begin{align*}
+		\begin{cases}
+			H_0: \mu = 10\\
+			H_1: \mu < 10
+		\end{cases}
+	\end{align*}
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	\begin{enumerate}
+		\item Trovo il valore critico
+		\begin{align*}
+			-z_{1-\alpha} = -z_{1-0.01}=-z_{0.99}=-2.326
+		\end{align*}
+		\item Definisco la regione di rifiuto
+		\begin{align*}
+			 \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{s/\sqrt{n}} < -z_{1-\alpha}\right\} = \left\{\frac{\overline{x}-10}{4.2/ \sqrt{60}} < -2.326 \right\} 
+		\end{align*}
+		\item Calcolo il valore osservato
+		\begin{align*}
+			z_{oss}= \frac{\overline{x}-10}{4.2/ \sqrt{60}} = \frac{9.1-10}{4.2/ \sqrt{60}} = -1.660
+		\end{align*}
+		\item Analizzo se il valore osservato cade nella zona di rifiuto o no
+		\begin{align*}
+			 -1.660 > -2.326 \implies \text{ cade nella regione di accettazione} \\ \text{quindi \textbf{non rifiuto $H_0$}} \textcolor{green}{\scalebox{1.6}{ \checkmark}}
+		\end{align*}
+	\end{enumerate}
+	\begin{center}
+		\textbf{Soluzione con $p-$value}
+	\end{center}
+	\begin{enumerate}
+		\item Calcolo $p-$value
+		\begin{align*}
+			\textcolor{red}{P(\overline{x} < z_{oss})} &= P(Z < z_{oss}) \\
+			&= \phi(z_{oss}) \\
+			&= \phi(-1.66) \\
+			&= 1- \phi(1.66) \\
+			&= 1- 0.9515 = 0.0485
+		\end{align*}
+		\item Analizzo se $p-$value è maggiore o no di $\alpha$
+		\begin{align*}
+			&p-\text{value}=0.0485 \\
+			& 0.0485 > 0.01 \implies \text{ \textbf{non rifiutare $H_0$}} \textcolor{green}{\scalebox{1.6}{ \checkmark}}
+		\end{align*}
+	\end{enumerate}
+\end{esercizio}
+
+\begin{osservazioni}[Varianza campionaria - Bernoulli]
+	Nel caso di Bernoulli
+	\begin{align*}
+			s^2=\theta(1-\theta)
+	\end{align*}
+\end{osservazioni} 
+
+\begin{esercizio}[Test unilaterale destro per $\mu$ di una popolazione qualsiasi con $n$ grande (Bernoulli)]
+	Siano $n=300$ pc comprati di cui 9 difettosi e $\alpha=0.05$. \textcolor{red}{Verifica l'ipotesi nulla $H_0$.}
+	\begin{align*}
+		\begin{cases}
+			H_0: \mu \leq 0.02 \\
+			H_1: \mu > 0.02
+		\end{cases}
+	\end{align*}
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	\begin{enumerate}
+		\item Trovo il valore critico
+		\begin{align*}
+			z_{1-\alpha}=z_{1-0.05}=z_{0.95}=1.645
+		\end{align*}
+		\item Definisco la regione di rifiuto
+		\begin{align*}
+			 \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{s/\sqrt{n}} > z_{1-\alpha} \right\}
+		\end{align*}
+		\begin{center}
+			ma la popolazione è Bernoulliana, quindi:
+		\end{center}
+		\begin{align*}
+			 \mathcal{R}_{\alpha}&=\left\{\frac{\overline{x}-\theta_0}{\frac{\sqrt{\theta_0(1-\theta_0)}}{\sqrt{n}}} > z_{1-\alpha} \right\} \\ 
+			 &= \left\{\frac{\overline{x}-\theta_0}{\sqrt{\theta_0(1-\theta_0)/n}} > z_{1-\alpha} \right\} \\
+			 &= \left\{\frac{\overline{x}-0.02}{\sqrt{0.02(1-0.02)/300}} > 1.645 \right\}
+		\end{align*}
+		\item Calcolo il valore osservato
+		\begin{align*}
+			\text{prima devo calcolare } \overline{x}=\frac{\text{successi}}{n}=\frac{k}{n}=\frac{9}{300}=0.03
+		\end{align*}
+		\begin{align*}
+			z_{oss}= \frac{\overline{x}-0.02}{\sqrt{0.02(1-0.02)/300}} = \frac{0.03-0.02}{\sqrt{0.02(1-0.02)/300}} = 1.237
+		\end{align*}
+		\item Analizzo se il valore osservato cade nella regione di rifiuto o no
+		\begin{align*}
+			1.237 < 1.645 \implies \text{ cade nella regione di accettazione} \\ \text{quindi \textbf{non rifiuto $H_0$}} \textcolor{green}{\scalebox{1.6}{ \checkmark}}
+		\end{align*}
+	\end{enumerate}
+	\begin{center}
+		\textbf{Soluzione con $p-$value}
+	\end{center}
+	\begin{enumerate}
+		\item Calcolo $p-$value
+		\begin{align*}
+			\textcolor{red}{P(\overline{x} > z_{oss})} &= P(Z > z_{oss}) \\
+			&= 1 - P(Z \leq z_{oss}) \\
+			&= 1 - \phi(z_{oss}) \\
+			&= 1- \phi(1.237) \\
+			&= 1 - 0.8907 = 0.11
+		\end{align*}
+		\item Analizzo se $p-$value è maggiore o no di $\alpha$
+		\begin{align*}
+			&p-\text{value}=0.11 \\
+			&0.11 > 0.05 \implies \text{\textbf{non rifiutare $H_0$}} \textcolor{green}{\scalebox{1.6}{ \checkmark}}
+		\end{align*}
+	\end{enumerate}
+\end{esercizio}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \newpage
 
 \subsubsection{Test di ipotesi sulla varianza di una popolazione normale}
