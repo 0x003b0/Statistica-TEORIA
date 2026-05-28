@@ -4376,14 +4376,14 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 	\item \textcolor{red}{Definire $H_0$ e $H_1$}
 	\item \textcolor{red}{Segliere la statistica test (media campionaria, varianza campionaria, ecc..)}
 	\item \textcolor{red}{Scegliere il livello di significatività $\alpha$}
-	\item \textcolor{red}{Definizione del valore critico $c$ e della regione di rifiuto} 
-	\begin{align*}
-	c = \begin{cases}
-		z_{1-\alpha} \quad \text{con ipotesi alternativa destra} \\
-		z_{\alpha} \quad \text{con ipotesi alternativa sinistra} \\
-		z_{1-\alpha/2} \quad \text{con ipotesi alternativa bilaterale} \\
-	\end{cases}
-		\end{align*}
+	\item \textcolor{red}{Definizione del valore critico $c$ e della regione di rifiuto}
+	      \begin{align*}
+		      c = \begin{cases}
+			           & z_{1-\alpha} \quad \text{con ipotesi alternativa destra}       \\
+			           & -z_{1-\alpha} \quad \text{con ipotesi alternativa sinistra}    \\
+			           & z_{1-\alpha/2} \quad \text{con ipotesi alternativa bilaterale} \\
+		          \end{cases}
+	      \end{align*}
 	\item \textcolor{red}{Estrazione del campione}
 	\item \textcolor{red}{Calcolo del valore osservato $z_{oss}$ attraverso la statistica test}
 	\item \textcolor{red}{Analizzare se il valore osservato cade nella regione di rifiuto o nella regione di accettazione:}
@@ -4415,13 +4415,13 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 			      \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}} > z_{1-\alpha}\right\}=\left\{\frac{\overline{x}-500}{\frac{\sqrt{35}}{\sqrt{40}}} > 2.326 \right\}
 		      \end{align*}
 		\item Calcolo del valore osservato $z_{oss}$ attraverso la statistica test
-		\begin{align*}
-			z_{oss}=\frac{\overline{x}-500}{\frac{\sqrt{35}}{\sqrt{40}}} = \frac{502.9-500}{\frac{\sqrt{35}}{\sqrt{40}}} = 3.100
-		\end{align*}
+		      \begin{align*}
+			      z_{oss}=\frac{\overline{x}-500}{\frac{\sqrt{35}}{\sqrt{40}}} = \frac{502.9-500}{\frac{\sqrt{35}}{\sqrt{40}}} = 3.100
+		      \end{align*}
 		\item Analizzare se $z_{oss}$ cade nella regione di rifiuto o no
-		\begin{align*}
-			3.100 > 2.326 \implies &z_{oss} \text{ cade nella regione di rifiuto} \\ &\text{quindi \textbf{rifiuto} l'ipotesi nulla } H_0.
-		\end{align*}
+		      \begin{align*}
+			      3.100 > 2.326 \implies & z_{oss} \text{ cade nella regione di rifiuto} \\ &\text{quindi \textbf{rifiuto} l'ipotesi nulla } H_0.
+		      \end{align*}
 	\end{enumerate}
 \end{esercizio}
 
@@ -4452,23 +4452,23 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 			      \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}} > z_{1-\alpha}\right\}=\left\{\frac{\overline{x}-30}{\frac{\sqrt{50}}{\sqrt{15}}} > 1.645 \right\}
 		      \end{align*}
 		\item Calcolo del valore osservato $z_{oss}$ attraverso la statistica test
-		\begin{align*}
-			z_{oss}=\frac{\overline{x}-30}{\frac{\sqrt{50}}{\sqrt{15}}} = 
-		\end{align*}
-		mi manca il valore di $\overline{x}$, lo calcolo:
-		\begin{align*}
-			\overline{x} = \frac{43.5+32+ 26.4+ \dots + 32.5+ 37.9+ 36+ 31.4}{15} = 32.43
-		\end{align*}
-		quindi:
-		\begin{align*}
-			z_{oss}=\frac{\overline{x}-30}{\frac{\sqrt{50}}{\sqrt{15}}} = \frac{32.43-30}{\frac{\sqrt{50}}{\sqrt{15}}} = 1.330
-		\end{align*}
+		      \begin{align*}
+			      z_{oss}=\frac{\overline{x}-30}{\frac{\sqrt{50}}{\sqrt{15}}} =
+		      \end{align*}
+		      mi manca il valore di $\overline{x}$, lo calcolo:
+		      \begin{align*}
+			      \overline{x} = \frac{43.5+32+ 26.4+ \dots + 32.5+ 37.9+ 36+ 31.4}{15} = 32.43
+		      \end{align*}
+		      quindi:
+		      \begin{align*}
+			      z_{oss}=\frac{\overline{x}-30}{\frac{\sqrt{50}}{\sqrt{15}}} = \frac{32.43-30}{\frac{\sqrt{50}}{\sqrt{15}}} = 1.330
+		      \end{align*}
 		\item Analizzare se $z_{oss}$ cade nella regione di rifiuto o no
-    \begin{align*}
-        1.330 < 1.645 \implies &z_{oss} \text{ cade nella regione di accettazione\footnotemark} \\ 
-        &\text{quindi \textbf{non rifiuto} l'ipotesi nulla } H_0.
-    \end{align*}
-    \footnotetext{perché non cade nella regione di rifiuto, essendo minore del valore critico}
+		      \begin{align*}
+			      1.330 < 1.645 \implies & z_{oss} \text{ cade nella regione di accettazione\footnotemark} \\
+			                             & \text{quindi \textbf{non rifiuto} l'ipotesi nulla } H_0.
+		      \end{align*}
+		      \footnotetext{perché non cade nella regione di rifiuto, essendo minore del valore critico}
 	\end{enumerate}
 \end{esercizio}
 
@@ -4486,38 +4486,38 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 	\end{center}
 	\begin{enumerate}
 		\item Calcolare il valore critico $|z_{1-\alpha/2}|$
-		\begin{align*}
-			z_{1-\alpha/2}=z_{1-0.05/2}=z_{0.975}=1.960
-		\end{align*}
-		quindi
-		\begin{align*}
-			z_{1-\alpha/2}=1.960 \quad \quad -z_{1-\alpha/2}=-1.960
-		\end{align*}
+		      \begin{align*}
+			      z_{1-\alpha/2}=z_{1-0.05/2}=z_{0.975}=1.960
+		      \end{align*}
+		      quindi
+		      \begin{align*}
+			      z_{1-\alpha/2}=1.960 \quad \quad -z_{1-\alpha/2}=-1.960
+		      \end{align*}
 		\item Definire zona di rifiuto
-		\begin{align*}
-			\mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} > z_{1-\alpha/2} \right\} \cup
-			 \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} < -z_{1-\alpha/2}\right\}
-		\end{align*}
-		\begin{align*}
-			\mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} > 1.960 \right\} \cup
-			 \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} < -1.960\right\}
-		\end{align*}
+		      \begin{align*}
+			      \mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} > z_{1-\alpha/2} \right\} \cup
+			      \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} < -z_{1-\alpha/2}\right\}
+		      \end{align*}
+		      \begin{align*}
+			      \mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} > 1.960 \right\} \cup
+			      \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} < -1.960\right\}
+		      \end{align*}
 		\item Calcolo $z_{oss}$ attraverso la statistica test (media campionaria)
-		\begin{align*}
-			z_{oss} = \frac{\overline{x}-8}{\sqrt{4/5}} = \frac{9.5-8}{\sqrt{4/5}} = 1.677
-		\end{align*}
+		      \begin{align*}
+			      z_{oss} = \frac{\overline{x}-8}{\sqrt{4/5}} = \frac{9.5-8}{\sqrt{4/5}} = 1.677
+		      \end{align*}
 		\item Analizzo se $z_{oss}$ è cade nella regione di rifiuto o no
-		\begin{align*}
-			1.667 \text{ sta tra -1.960 e +1.960 quindi cade nella regione di accettazione} \\
-			\text{quindi \textbf{non rifiuto} l'ipotesi nulla } H_0.
-		\end{align*}
+		      \begin{align*}
+			      1.667 \text{ sta tra -1.960 e +1.960 quindi cade nella regione di accettazione} \\
+			      \text{quindi \textbf{non rifiuto} l'ipotesi nulla } H_0.
+		      \end{align*}
 	\end{enumerate}
 	Oppure posso semplicemente dire che:
 	\begin{align*}
 		\text{se } |z_{oss}| > z_{1- \alpha/2} \implies \text{ rifiuto } H_0
 	\end{align*}
-	ma ho visto che: 
-	\begin{align*}		
+	ma ho visto che:
+	\begin{align*}
 		|z_{oss}| = |1.677| \\
 		|1.667| < 1.960 \implies \text{ non rifiuto } H_0
 	\end{align*}
@@ -4531,7 +4531,7 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 	\begin{align*}
 		\begin{cases}
 			p-\text{value} < \alpha \implies \text{ Rifiutare } H_0 \\
-		p-\text{value} > \alpha \implies \text{ Non Rifiutare } H_0
+			p-\text{value} > \alpha \implies \text{ Non Rifiutare } H_0
 		\end{cases}
 	\end{align*}
 \end{theorem}
@@ -4549,59 +4549,59 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 	\end{center}
 	\begin{enumerate}
 		\item Calcolare il valore critico $|z_{1-\alpha/2}|$
-		\begin{align*}
-			z_{1-\alpha/2}=z_{1-0.05/2}=z_{0.975}=1.960
-		\end{align*}
-		quindi
-		\begin{align*}
-			z_{1-\alpha/2}=1.960 \quad \quad -z_{1-\alpha/2}=-1.960
-		\end{align*}
+		      \begin{align*}
+			      z_{1-\alpha/2}=z_{1-0.05/2}=z_{0.975}=1.960
+		      \end{align*}
+		      quindi
+		      \begin{align*}
+			      z_{1-\alpha/2}=1.960 \quad \quad -z_{1-\alpha/2}=-1.960
+		      \end{align*}
 		\item Definire zona di rifiuto
-		\begin{align*}
-			\mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} > z_{1-\alpha/2} \right\} \cup
-			 \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} < -z_{1-\alpha/2}\right\}
-		\end{align*}
-		\begin{align*}
-			\mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} > 1.960 \right\} \cup
-			 \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} < -1.960\right\}
-		\end{align*}
+		      \begin{align*}
+			      \mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} > z_{1-\alpha/2} \right\} \cup
+			      \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} < -z_{1-\alpha/2}\right\}
+		      \end{align*}
+		      \begin{align*}
+			      \mathcal{R}_{\alpha} = \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} > 1.960 \right\} \cup
+			      \left\{\frac{\overline{x}-8}{\sqrt{4}/\sqrt{5}} < -1.960\right\}
+		      \end{align*}
 		\item Calcolo $z_{oss}$ attraverso la statistica test (media campionaria)
-		\begin{align*}
-			z_{oss} = \frac{\overline{x}-8}{\sqrt{4/5}} = \frac{9.5-8}{\sqrt{4/5}} = 1.677
-		\end{align*}
+		      \begin{align*}
+			      z_{oss} = \frac{\overline{x}-8}{\sqrt{4/5}} = \frac{9.5-8}{\sqrt{4/5}} = 1.677
+		      \end{align*}
 		\item Analizzo se $z_{oss}$ è cade nella regione di rifiuto o no
-		\begin{align*}
-			1.667 \text{ sta tra -1.960 e +1.960 quindi cade nella regione di accettazione} \\
-			\text{quindi \textbf{non rifiuto} l'ipotesi nulla } H_0.
-		\end{align*}
+		      \begin{align*}
+			      1.667 \text{ sta tra -1.960 e +1.960 quindi cade nella regione di accettazione} \\
+			      \text{quindi \textbf{non rifiuto} l'ipotesi nulla } H_0.
+		      \end{align*}
 	\end{enumerate}
 	\begin{center}
 		\textbf{Soluzione con $p-$value}
 	\end{center}
 	\begin{enumerate}
 		\item Calcolo $p-$value:
-		\begin{align*}
-		\textcolor{red}{P(|\overline{x}|> |z_{oss}|)} &= P(|{\overline{x}}|> |z_{oss}|) \\
-		&= 2 \cdot [1-P(Z \leq |z_{oss}|)] \\
-		&= 2 \cdot [1- \phi(|z_{oss}|)] \\
-		&= 2 \cdot [1- \phi(|1.677|)] \\
-		&= 2 \cdot [1- \phi(1.677)] \\
-		&= 2 \cdot [1- 0.9535] = 0.093
-	\end{align*}
-	quindi la probabilità che la media campionaria (statistica test) sia maggiore del valore osservato (in valore assoluto) è pari a 0.093.
-	\item Analizzo se $p-$value è maggiore o minore di $\alpha$
-		\begin{align*}
-		p-\text{value} = 0.093
-	\end{align*}
-	e $0.093 > 0.05 \implies$ \textbf{non rifiutare} $H_0$. 
+		      \begin{align*}
+			      \textcolor{red}{P(|\overline{x}|> |z_{oss}|)} & = P(|{\overline{x}}|> |z_{oss}|)  \\
+			                                                    & = 2 \cdot [1-P(Z \leq |z_{oss}|)] \\
+			                                                    & = 2 \cdot [1- \phi(|z_{oss}|)]    \\
+			                                                    & = 2 \cdot [1- \phi(|1.677|)]      \\
+			                                                    & = 2 \cdot [1- \phi(1.677)]        \\
+			                                                    & = 2 \cdot [1- 0.9535] = 0.093
+		      \end{align*}
+		      quindi la probabilità che la media campionaria (statistica test) sia maggiore del valore osservato (in valore assoluto) è pari a 0.093.
+		\item Analizzo se $p-$value è maggiore o minore di $\alpha$
+		      \begin{align*}
+			      p-\text{value} = 0.093
+		      \end{align*}
+		      e $0.093 > 0.05 \implies$ \textbf{non rifiutare} $H_0$.
 	\end{enumerate}
 \end{esempio}
 
 \subsubsection{Test di ipotesi sulla media di una popolazione normale con varianza nota}
 \begin{esercizio}[Test unilaterale destro per $\mu$ di una popolazione Normale con $\sigma^2$ noto]
 	Il tempo di installazione di un certo hardware ha distribuzione normale di media $\mu$ e $\sigma^2=25$. Un tecnico installa l'hw in 64 pc impiegandoci 42 minuti e $\alpha=0.05$.
-	 \textcolor{red}{Valutare
-	l'ipotesi nulla $H_0$.}
+	\textcolor{red}{Valutare
+		l'ipotesi nulla $H_0$.}
 	\begin{align*}
 		\begin{cases}
 			H_0: \mu = 40 \text{ minuti} \\
@@ -4611,47 +4611,47 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 	\begin{center}
 		\textbf{Soluzione}
 	\end{center}
-\begin{enumerate}
-	\item Calcolare il valore critico
-	\begin{align*}
-		z_{1-\alpha}=z_{1-0.05}=z_{0.95}=1.645
-	\end{align*}
-	\item Definire la regione di rifiuto
-	\begin{align*}
-		\mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} > z_{1-\alpha} \right\} = \left\{\frac{\overline{x}-40}{\sqrt{25/64}} > 1.645\right\}
-	\end{align*}
-	\item Calcolare il valore osservato
-	\begin{align*}
-		z_{oss} = \frac{\overline{x}-40}{\sqrt{25/64}} = \frac{42-40}{\sqrt{25/64}} = 3.2
-	\end{align*}
-	\item Analizzare se il valore osservato cade nella regione di rifiuto o no
-	\begin{align*}
-		3.2 > 1.645 \implies \text{ cade nella regione di rifiuto, quindi si rifiuta } H_0.
-	\end{align*}
-\end{enumerate}
-\begin{center}
+	\begin{enumerate}
+		\item Calcolare il valore critico
+		      \begin{align*}
+			      z_{1-\alpha}=z_{1-0.05}=z_{0.95}=1.645
+		      \end{align*}
+		\item Definire la regione di rifiuto
+		      \begin{align*}
+			      \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} > z_{1-\alpha} \right\} = \left\{\frac{\overline{x}-40}{\sqrt{25/64}} > 1.645\right\}
+		      \end{align*}
+		\item Calcolare il valore osservato
+		      \begin{align*}
+			      z_{oss} = \frac{\overline{x}-40}{\sqrt{25/64}} = \frac{42-40}{\sqrt{25/64}} = 3.2
+		      \end{align*}
+		\item Analizzare se il valore osservato cade nella regione di rifiuto o no
+		      \begin{align*}
+			      3.2 > 1.645 \implies \text{ cade nella regione di rifiuto, quindi si rifiuta } H_0.
+		      \end{align*}
+	\end{enumerate}
+	\begin{center}
 		\textbf{Soluzione con $p-$value}
 	\end{center}
 	\begin{enumerate}
 		\item Calcolo $p-$value:
-		\begin{align*}
-			\textcolor{red}{P(\overline{x} > z_ {oss})} &= 1 - P(Z \leq z_ {oss}) \\
-			&= 1 - \phi(z_{oss}) \\
-			&= 1- \phi(3.2) \\
-			&= 1- 0.9993 = 0.0007
-		\end{align*}
+		      \begin{align*}
+			      \textcolor{red}{P(\overline{x} > z_ {oss})} & = 1 - P(Z \leq z_ {oss}) \\
+			                                                  & = 1 - \phi(z_{oss})      \\
+			                                                  & = 1- \phi(3.2)           \\
+			                                                  & = 1- 0.9993 = 0.0007
+		      \end{align*}
 		\item Analizzo se $p-$value è minore o maggiore di $\alpha$:
-		\begin{align*}
-			p-\text{value} = 0.0007 \\
-			0.0007 < 0.05 \implies \text{\textbf{ rifiutare $H_0$}}
-		\end{align*}
+		      \begin{align*}
+			      p-\text{value} = 0.0007 \\
+			      0.0007 < 0.05 \implies \text{\textbf{ rifiutare $H_0$}}
+		      \end{align*}
 	\end{enumerate}
 \end{esercizio}
 
 \begin{esercizio}[Test unilaterale sinistro per $\mu$ di una popolazione Normale con $\sigma^2$ noto]
-	Siano i dati $n=32, \sigma=0.0076, \overline{x}=1.247$ e $\alpha=0.05$. 
-	 \textcolor{red}{Valutare
-	l'ipotesi nulla $H_0$.}
+	Siano i dati $n=32, \sigma=0.0076, \overline{x}=1.247$ e $\alpha=0.05$.
+	\textcolor{red}{Valutare
+		l'ipotesi nulla $H_0$.}
 	\begin{align*}
 		\begin{cases}
 			H_0: \mu = 1.25 \\
@@ -4661,47 +4661,47 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 	\begin{center}
 		\textbf{Soluzione}
 	\end{center}
-\begin{enumerate}
-	\item Calcolare il valore critico
-	\begin{align*}
-		-z_{1-\alpha}=-z_{1-0.05}=-z_{0.95}=-1.645
-	\end{align*}
-	\item Definire la regione di rifiuto
-	\begin{align*}
-		\mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} < -z_{1-\alpha} \right\} = \left\{\frac{\overline{x}-1.25}{0.0076/\sqrt{32}} < -1.645\right\}
-	\end{align*}
-	\item Calcolare il valore osservato
-	\begin{align*}
-		z_{oss} = \frac{\overline{x}-1.25}{0.0076/\sqrt{32}} = \frac{1.247-1.25}{0.0076/\sqrt{32}} = -2.233
-	\end{align*}
-	\item Analizzare se il valore osservato cade nella regione di rifiuto o no
-	\begin{align*}
-		-2.233 < -1.645 \implies \text{ cade nella regione di rifiuto, quindi si rifiuta } H_0.
-	\end{align*}
-\end{enumerate}
-\begin{center}
+	\begin{enumerate}
+		\item Calcolare il valore critico
+		      \begin{align*}
+			      -z_{1-\alpha}=-z_{1-0.05}=-z_{0.95}=-1.645
+		      \end{align*}
+		\item Definire la regione di rifiuto
+		      \begin{align*}
+			      \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} < -z_{1-\alpha} \right\} = \left\{\frac{\overline{x}-1.25}{0.0076/\sqrt{32}} < -1.645\right\}
+		      \end{align*}
+		\item Calcolare il valore osservato
+		      \begin{align*}
+			      z_{oss} = \frac{\overline{x}-1.25}{0.0076/\sqrt{32}} = \frac{1.247-1.25}{0.0076/\sqrt{32}} = -2.233
+		      \end{align*}
+		\item Analizzare se il valore osservato cade nella regione di rifiuto o no
+		      \begin{align*}
+			      -2.233 < -1.645 \implies \text{ cade nella regione di rifiuto, quindi si rifiuta } H_0.
+		      \end{align*}
+	\end{enumerate}
+	\begin{center}
 		\textbf{Soluzione con $p-$value}
 	\end{center}
 	\begin{enumerate}
 		\item Calcolo $p-$value:
-		\begin{align*}
-			\textcolor{red}{P(\overline{x} < z_ {oss})} &= \phi(z_{oss}) \\
-			&= \phi(-2.233) \\
-			&= 1- \phi(2.233) \\
-			&= 1 - 0.9871 = 0.0129
-		\end{align*}
+		      \begin{align*}
+			      \textcolor{red}{P(\overline{x} < z_ {oss})} & = \phi(z_{oss})       \\
+			                                                  & = \phi(-2.233)        \\
+			                                                  & = 1- \phi(2.233)      \\
+			                                                  & = 1 - 0.9871 = 0.0129
+		      \end{align*}
 		\item Analizzo se $p-$value è minore o maggiore di $\alpha$:
-		\begin{align*}
-			p-\text{value} = 0.0129 \\
-			0.0129 < 0.05 \implies \text{\textbf{ rifiutare $H_0$}}
-		\end{align*}
+		      \begin{align*}
+			      p-\text{value} = 0.0129 \\
+			      0.0129 < 0.05 \implies \text{\textbf{ rifiutare $H_0$}}
+		      \end{align*}
 	\end{enumerate}
 \end{esercizio}
 
 \begin{esercizio}[Test bilaterale per $\mu$ di una popolazione Normale con $\sigma^2$ noto]
-	Siano i dati $n=32, \sigma=0.0076, \overline{x}=1.247$ e $\alpha=0.05$. 
-	 \textcolor{red}{Valutare
-	l'ipotesi nulla $H_0$.}
+	Siano i dati $n=32, \sigma=0.0076, \overline{x}=1.247$ e $\alpha=0.05$.
+	\textcolor{red}{Valutare
+		l'ipotesi nulla $H_0$.}
 	\begin{align*}
 		\begin{cases}
 			H_0: \mu = 1.25 \\
@@ -4711,47 +4711,174 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 	\begin{center}
 		\textbf{Soluzione}
 	\end{center}
-\begin{enumerate}
-	\item Calcolare il valore critico
-	\begin{align*}
-		z_{1-\alpha/2}=z_{1-0.05/2}=z_{0.975}=1.96
-	\end{align*}
-	quindi:
-	\begin{align*}
-		-z_{1-\alpha/2}=-1.96 \quad \quad z_{1-\alpha/2}=1.96
-	\end{align*}
-	\item Definire la regione di rifiuto
-	\begin{align*}
-		\mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} < -z_{1-\alpha/2} \right\} \cup \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} > z_{1-\alpha/2} \right\}
-	\end{align*}
-	\begin{align*}
-		\mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-1.25}{0.0076/\sqrt{32}} < -1.96 \right\} \cup \left\{\frac{\overline{x}-1.25}{0.0076/\sqrt{32}} > 1.96 \right\}
-	\end{align*}
-	\item Calcolare il valore osservato
-	\begin{align*}
-		z_{oss} = \frac{\overline{x}-1.25}{0.0076/\sqrt{32}} = \frac{1.247-1.25}{0.0076/\sqrt{32}} = -2.233
-	\end{align*}
-	\item Analizzare se il valore osservato cade nella regione di rifiuto o no
-	\begin{align*}
-		-2.233 < -1.96 \implies \text{ cade nella regione di rifiuto, quindi si rifiuta } H_0.
-	\end{align*}
-\end{enumerate}
-\begin{center}
+	\begin{enumerate}
+		\item Calcolare il valore critico
+		      \begin{align*}
+			      z_{1-\alpha/2}=z_{1-0.05/2}=z_{0.975}=1.96
+		      \end{align*}
+		      quindi:
+		      \begin{align*}
+			      -z_{1-\alpha/2}=-1.96 \quad \quad z_{1-\alpha/2}=1.96
+		      \end{align*}
+		\item Definire la regione di rifiuto
+		      \begin{align*}
+			      \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} < -z_{1-\alpha/2} \right\} \cup \left\{\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}} > z_{1-\alpha/2} \right\}
+		      \end{align*}
+		      \begin{align*}
+			      \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-1.25}{0.0076/\sqrt{32}} < -1.96 \right\} \cup \left\{\frac{\overline{x}-1.25}{0.0076/\sqrt{32}} > 1.96 \right\}
+		      \end{align*}
+		\item Calcolare il valore osservato
+		      \begin{align*}
+			      z_{oss} = \frac{\overline{x}-1.25}{0.0076/\sqrt{32}} = \frac{1.247-1.25}{0.0076/\sqrt{32}} = -2.233
+		      \end{align*}
+		\item Analizzare se il valore osservato cade nella regione di rifiuto o no
+		      \begin{align*}
+			      -2.233 < -1.96 \implies \text{ cade nella regione di rifiuto, quindi si rifiuta } H_0.
+		      \end{align*}
+	\end{enumerate}
+	\begin{center}
 		\textbf{Soluzione con $p-$value}
 	\end{center}
 	\begin{enumerate}
 		\item Calcolo $p-$value:
-		\begin{align*}
-			\textcolor{red}{P(|\overline{x}| > |z_ {oss}|)}
-			&= 2 \cdot \left[1- P(Z \leq |z_ {oss}|)\right] \\
-			&= 2 \cdot [1- \phi(|-2.233|)] \\
-			&= 2 \cdot [1- \phi(2.233)] \\
-			&= 2 \cdot [1- 0.9871] = 0.0258
-		\end{align*}
+		      \begin{align*}
+			      \textcolor{red}{P(|\overline{x}| > |z_ {oss}|)}
+			       & = 2 \cdot \left[1- P(Z \leq |z_ {oss}|)\right] \\
+			       & = 2 \cdot [1- \phi(|-2.233|)]                  \\
+			       & = 2 \cdot [1- \phi(2.233)]                     \\
+			       & = 2 \cdot [1- 0.9871] = 0.0258
+		      \end{align*}
 		\item Analizzo se $p-$value è minore o maggiore di $\alpha$:
+		      \begin{align*}
+			      p-\text{value} = 0.0258 \\
+			      0.0258 < 0.05 \implies \text{ \textbf{rifiutare $H_0$}}
+		      \end{align*}
+	\end{enumerate}
+\end{esercizio}
+\newpage
+
+\subsubsection{Test di ipotesi sulla media di una popolazione normale con varianza non nota}
+Stessa procedura del capitoletto 8.6.5 ma al posto di $\sigma^2$ inserisco $s^2$ (varianza campionaria)
+e uso distribuzione $T-$Student e non la Normale Standard.
+
+\begin{esercizio}[Test unilaterale destro di una popolazione Normale con $\sigma^2$ ignota]
+
+\end{esercizio}
+
+
+\begin{esercizio}[Test unilaterale sinistro di una popolazione Normale con $\sigma^2$ ignota]
+	Siano $n=12, \overline{x}=47.28, s=2.73$ e $\alpha=0.01$. \textcolor{red}{Verifica l'ipotesi nulla $H_0$}
+	\begin{align*}
+		\begin{cases}
+			H_0: \mu \geq 50 \\
+			H_1: \mu < 50
+		\end{cases}
+	\end{align*}
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	\begin{enumerate}
+		\item Trovo il valore critico
 		\begin{align*}
-			p-\text{value} = 0.0258 \\
-			0.0258 < 0.05 \implies \text{ \textbf{rifiutare $H_0$}}
+			-t_{1-\alpha, n-1} = -t_{1-0.01, 11} = -t_{0.99, 11} = -2.718
+		\end{align*}
+		\item Definisco la regione di rifiuto 
+		\begin{align*}
+			\mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{s/\sqrt{n}}< -t_{1-\alpha/2} \right\}=
+			\left\{\frac{\overline{x}-50}{2.73/\sqrt{12}}< -2.718 \right\}
+		\end{align*}
+		\item Calcolo il valore osservato
+		\begin{align*}
+			t_{oss} = \frac{\overline{x}-50}{2.73/\sqrt{12}} = \frac{47.28-50}{2.73/\sqrt{12}} = -3.451
+		\end{align*}
+		\item Analizzo se il valore osservato cade nella zona di rifiuto oppure no
+		\begin{align*}
+			-3.451 < -2.718 \implies \text{ cade nella zona di rifiuto, quindi \textbf{rifiuto} } H_0 \textcolor{green}{\scalebox{1.6}{ \checkmark}}
+		\end{align*}
+	\end{enumerate}
+	\begin{center}
+		\textbf{Soluzione con $p-$value}
+	\end{center}
+	\begin{enumerate}
+		\item Calcolo il $p-$value
+		\begin{align*}
+			\textcolor{red}{P(T < t_{oss})} &= \phi(t_{oss}) \\
+			&= \phi(-3.451) \\
+			&= 1 - \phi(3.451) \\
+			& \text{ il valore di }  \phi(3.451) \text{ con } n-1=12-1=11 \text{ gradi di libertà} \\
+			&= 1 - 0.997 = 0.003
+		\end{align*}
+		\item Analizzo se $p-$value è maggiore o no di $\alpha$
+		\begin{align*}
+			0.003 < 0.01 \implies \text{ \textbf{rifiuto $H_0$}} \textcolor{green}{\scalebox{1.6}{ \checkmark}}
+		\end{align*}
+	\end{enumerate}
+\end{esercizio}
+
+\begin{esercizio}[Test bilaterale di una popolazione Normale con $\sigma^2$ ignota]
+	Il consumo di acqua (litri al giorno) per abitazione ha distribuzione Normale con media $\mu$ e varianza $\sigma^2$.
+	In un campione di $n=16$ abitazioni si osserva $\overline{x}=353.8$ litri/giorno, $s=21.85$ litri/giorno con $\alpha=0.10$.
+	\textcolor{red}{Verifica l'ipotesi nulla $H_0$}.
+	\begin{align*}
+		\begin{cases}
+			H_0: \mu = 350 \\
+			H_1: \mu \neq 350
+		\end{cases}
+	\end{align*}
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	\begin{enumerate}
+		\item Trovo il valore critico con $n-1$ gradi di libertà
+		      \begin{align*}
+			      t_{1-\alpha/2, n-1}=t_{1-0.10/2, 15}=t_{0.95, 15}=1.753
+		      \end{align*}
+		      quindi
+		      \begin{align*}
+			      -t_{1-\alpha/2}=-1.753 \quad \quad t_{1-\alpha/2}=1.753
+		      \end{align*}
+		\item Definisco la regione di rifiuto
+		      \begin{align*}
+			      \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-\mu_0}{s/\sqrt{n}}< -t_{1-\alpha/2} \right\} \cup
+			      \left\{\frac{\overline{x}-\mu_0}{s/\sqrt{n}} > t_{1-\alpha/2} \right\}
+		      \end{align*}
+		      \begin{align*}
+			      \mathcal{R}_{\alpha}=\left\{\frac{\overline{x}-350}{21.85/\sqrt{16}}< -1.753 \right\} \cup
+			      \left\{\frac{\overline{x}-350}{21.85/\sqrt{16}} > 1.753 \right\}
+		      \end{align*}
+		\item Calcolo il valore osservato
+		      \begin{align*}
+			      t_{oss} = \frac{\overline{x}-350}{21.85/\sqrt{16}} = \frac{353.8-350}{21.85/\sqrt{16}} = 0.696
+		      \end{align*}
+		\item Analizzo se il valore osservato cade nella regione di rifiuto o no
+		      \begin{align*}
+			      -1.753 < 0.696 < 1.753 \implies \text{ cade nella zona di accettazione} \\
+			      \text{quindi \textbf{non rifiuto} } H_0 \textcolor{green}{\scalebox{1.6}{ \checkmark}}
+		      \end{align*}
+	\end{enumerate}
+	\begin{center}
+		\textbf{Soluzione con $p-$value}
+	\end{center}
+	\begin{enumerate}
+		\item Calcolo il $p-$value
+		      \begin{align*}
+			      \textcolor{red}{P(|T|>|t_{oss}|)} & = 2 \cdot [1 - P(T \leq |t_{oss}|)]                                                \\
+			                                        & = 2 \cdot [1 - \phi(|T_{oss}|)]                                                    \\
+			                                        & = 2 \cdot [1 - \phi(|0.696|)]                                                      \\
+			                                        & = 2 \cdot [1 - \phi(0.696)]                                                        \\
+			                                        & \text{il valore di } \phi(0.696) \text{ con } n-1=16-1=15 \text{ gradi di libertà} \\
+			                                        & \text{ sta tra $p=0.70$ e $p=0.80$ quindi } (0.70+0.80)/2=0.75                     \\
+			                                        & = 2 \cdot [1 - 0.75] = 0.5
+		      \end{align*}
+		      \begin{center}
+			      \makebox[\textwidth][c]{%
+				      \includegraphics[width=0.5\linewidth]{es-3-bil-sigma-ignoto.png}%
+			      }
+		      \end{center}
+		\item Analizzo se il $p-$value è maggiore o minore di $\alpha$
+		\begin{align*}
+			& p-\text{value}=0.5 \\
+			& 0.5 > 0.10 \implies \text{ \textbf{non rifiuto} } H_0 \textcolor{green}{\scalebox{1.6}{ \checkmark}}
 		\end{align*}
 	\end{enumerate}
 \end{esercizio}
@@ -4760,10 +4887,32 @@ Il test d'ipotesi è una procedura che permette di decidere, sulla base di un ca
 
 
 
-\subsubsection{Test di ipotesi sulla media di una popolazione normale con varianza non nota}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsubsection{Test di ipotesi sulla media di una popolazione qualsisi nel caso di grandi campioni}
 esempio con Bernoulli
+\newpage
+
 \subsubsection{Test di ipotesi sulla varianza di una popolazione normale}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
