@@ -3932,7 +3932,7 @@ Sappiamo che con la stima puntuale possiamo trovare uno stimatore per un paramet
 stimatore assume valori vicini al vero valore del parametro $\theta$, ma la probabilità che lo stimatore assuma valore esattamente uguale al parametro è pari a zero. Quindi, oltre
 alla stima puntuale, si riporta un \textcolor{red}{intervallo di confidenza}, ossia un intervallo di valori che ci aspettiamo contenga, con un certo \textcolor{red}{livello di confidenza},
 il vero valore del parametro.
-\subsubsection{Come costruire gli intervalli di confidenza per $n$ piccolo: Media}
+\subsubsection{Costruire intervalli di confidenza per $n$ piccolo: Media}
 \begin{theorem}{Stima Intervallare della Media con $\sigma^2$ nota (Normale Standard)}
 	SSia:
 	\begin{itemize}
@@ -4097,7 +4097,7 @@ il vero valore del parametro.
 	\end{enumerate}
 \end{esercizio}
 
-\subsubsection{Come costruire gli intervalli di confidenza per $n$ piccolo: Varianza}
+\subsubsection{Costruire intervalli di confidenza per $n$ piccolo: Varianza}
 \begin{theorem}{Stima Intervallare della Varianza ($\chi^2_{\nu=n-1}$ Chi-Quadro)}
 	SSia:
 	\begin{itemize}
@@ -4178,7 +4178,7 @@ il vero valore del parametro.
 	\end{enumerate}
 \end{esercizio}
 
-\subsubsection{Come costruire gli intervalli di confidenza per $n$ grande: Media}
+\subsubsection{Costruire intervalli di confidenza per $n$ grande: Media}
 \begin{theorem}{Stima Intervallare della Media per $n$ grande (Normale Standard)}
 	SSia:
 	\begin{itemize}
@@ -5006,38 +5006,99 @@ Quando il campione è sufficientemente grande, possiamo approssimarlo alla Norma
 		\end{align*}
 	\end{enumerate}
 \end{esercizio}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \newpage
 
 \subsubsection{Test di ipotesi sulla varianza di una popolazione normale}
-
+\begin{osservazioni}[Varianza campionaria]
+	\begin{align*}
+		s^2=\frac{\sum(x_i - \overline{x})^2}{n-1}
+	\end{align*}
+\end{osservazioni}
+\begin{esercizio}[Test bilaterale sulla $\sigma^2$ di una popolazione Normale]
+	Siano $\sigma^2=0.6, \alpha=0.05$ e 8 campioni:
+	\begin{align*}
+		22.4, 23.1, 24.5, 24.0, 22.8, 23.6, 24.2, 22.3
+	\end{align*}
+	\textcolor{red}{Verificare l'ipotesi nulla $H_0$.}
+	\begin{align*}
+		\begin{cases}
+			H_0: \sigma^2 = 0.6 \\
+			H_1: \sigma^2 \neq 0.6
+		\end{cases}
+	\end{align*}
+	\begin{center}
+		\textbf{Soluzione}
+	\end{center}
+	\begin{enumerate}
+		\item Trovo il valore critico
+		\begin{align*}
+			&\chi^2_{\alpha/2, n-1} = \chi^2_{0.05/2, 7} = \chi^2_{0.025, 7} = 1.69 \\
+			&\chi^2_{1-\alpha/2, n-1} = \chi^2_{1-0.05/2, 7} = \chi^2_{0.975, 7} = 16.01
+		\end{align*}
+		\item Definisco la regione di rifiuto
+		\begin{align*}
+			 \mathcal{R}_{\alpha} = \left\{\frac{(n-1)s^2}{\sigma^2_0} < \chi^2_{\alpha/2} \right\} \cup \left\{\frac{(n-1)s^2}{\sigma^2_0} > \chi^2_{1-\alpha/2} \right\}
+		\end{align*}
+		Calcolo media $\overline{x}$ e varianza campionaria $s^2$:
+		\begin{align*}
+			\overline{x} = \frac{22.4+23.1+24.5+24.0+22.8+23.6+24.2+22.3}{8} = 23.36
+		\end{align*}
+		\begin{align*}
+			s^2 = \frac{(22.4-23.36)^2+ \dots + (22.3-23.36)^2}{7} = 0.70 
+		\end{align*}
+		quindi
+		\begin{align*}
+			 \mathcal{R}_{\alpha} = \left\{\frac{(7)s^2}{0.6} < \chi^2_{\alpha/2} \right\} \cup \left\{\frac{(7)s^2}{0.6} > \chi^2_{1-\alpha/2} \right\}
+		\end{align*}
+		\begin{align*}
+			 \mathcal{R}_{\alpha} = \left\{\frac{(7)s^2}{0.6} < 1.69 \right\} \cup \left\{\frac{(7)s^2}{0.6} > 16.01 \right\}
+		\end{align*}
+		\item Calcolo il valore osservato
+		\begin{align*}
+			v_{oss} = \frac{(7)s^2}{0.6} = \frac{(7)0.70}{0.6} = 8.17
+		\end{align*}
+		\item Analizzo se il valore osservato cade nella regione di rifiuto o no
+		\begin{align*}
+			1.69 < 8.17 < 16.01 \implies \text{ cade nella regione di accettazione} \\ \text{ quindi \textbf{non rifiuto $H_0$}} \textcolor{green}{\scalebox{1.6}{ \checkmark}}
+		\end{align*}
+	\end{enumerate}
+	\begin{center}
+		\textbf{Soluzione con $p-$value}
+	\end{center}
+	\begin{enumerate}
+		\item Calcolo il $p-$value
+		\begin{align*}
+			p &= \textcolor{red}{2 \cdot min \left\{P(\chi^2_{n-1} < v_{oss}), P(\chi^2_{n-1} > v_{oss}) \right\}} \\
+			&= 2 \cdot min \left\{P(\chi^2_{7} < 8.17), P(\chi^2_{7} > 8.17) \right\} \\
+			&= 2 \cdot min \left\{P(\chi^2_{7} < 8.17), 1 - P(\chi^2_{7} \leq 8.17) \right\} \\
+			&= 2 \cdot min \left\{0.625, 1 - 0.625 \right\} \\
+			&= 2 \cdot min \left\{0.625, 0.375 \right\} \\
+			& \text{il minimo è } 0.375 \text{ quindi} \\
+			&= 2 \cdot 0.375 = 0.75
+		\end{align*}
+		\item Analizzo se $p-$value è maggiore o no di $\alpha$
+		\begin{align*}
+			0.75 > 0.05 = \alpha \implies \text{ \textbf{ non rifiuto $H_0$}} \textcolor{green}{\scalebox{1.6}{ \checkmark}}
+		\end{align*}
+	\end{enumerate}
+\end{esercizio}
+\begin{esempio}[Test unilaterale destro sulla $\sigma^2$ di una popolazione Normale]
+	slide 55
+\end{esempio}
+\begin{esempio}[Test unilaterale sinistro sulla $\sigma^2$ di una popolazione Normale]
+	slide 56
+\end{esempio}
+\newpage
+\begin{center}
+	\makebox[\textwidth][c]{%
+		\includegraphics[width=1.5\linewidth]{riassunto-test-ipotesi-n-piccolo.png}%
+	}
+\end{center}
+\begin{center}
+	\makebox[\textwidth][c]{%
+		\includegraphics[width=1.5\linewidth]{riassunto-test-ipotesi-n-grande.png}%
+	}
+\end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
